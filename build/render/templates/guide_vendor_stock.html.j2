@@ -2,16 +2,17 @@
 {% block title %}Vendor-only items{% endblock %}
 {% block content %}
 <h1>Vendor-only items</h1>
-<p>These are items the player <strong>cannot craft or loot</strong> — they show up in merchant inventories instead. The list is computed by cross-referencing every item against:</p>
+<p>These are items the player <strong>cannot craft or loot</strong> — they show up in merchant inventories instead. The list is computed by cross-referencing every item against four signals:</p>
 <ul>
     <li><code>data/configs/recipes/</code> — no recipe produces this item</li>
     <li><code>data/configs/randomsets/</code> — not in any creature / bunker / pirate drop table</li>
     <li><code>data/configs/voxels/</code> — not a mineable ore drop</li>
+    <li><code>base_demand &lt; 0</code> — the item's own config marks vendors as net suppliers (without this check the list fills up with truly-unobtainable saplings, fruits, and enemy-only weapons that simply happen to fail the first three tests)</li>
 </ul>
-<p>If all three sources miss, the item is sourced from merchants. <strong>{{ total }} items</strong> match. Sorted by <code>base_demand</code> ascending — the most-supplied (vendor-stocked) items come first.</p>
+<p><strong>{{ total }} items</strong> match. Sorted by <code>base_demand</code> ascending — the most-supplied (vendor-stocked) items come first.</p>
 
 <div class="note">
-    <strong>Why this matters:</strong> the parts on this list gate most of your tier-3 / tier-4 crafting. Motherboards, mirrors, capacitors, transistors, ferroglass lenses, wiring — every advanced recipe asks for them, and the only way to stockpile is to buy in bulk. Roll the <a href="{{ root }}guides/leveling-trading.html#perk">Trade Discount outpost perk</a> first.
+    <strong>Why this matters:</strong> the four boards on this list — Circuit Board, Logic Board, Motherboard, Quantum Processor — gate practically every advanced craft, and the rest is suit / jetpack / mining / weapon <code>MOD</code>s you can't make yourself. Vendors are the only source. Roll the <a href="{{ root }}guides/leveling-trading.html#perk">Trade Discount outpost perk</a> first.
 </div>
 
 <div class="controls">

@@ -627,13 +627,18 @@ def quests_context(cat: Catalog) -> dict:
 
 
 def vendor_stock_context(cat: Catalog, icons_dir: Path) -> dict:
-    """Items the player can't produce — no recipe, no random drop, no
-    character-usage. The catalog flags these via the obtainability logic
-    in build_weapons(); here we apply the same heuristic to every item
-    type and surface the top finds."""
+    """Items the player can only buy from merchants — no recipe, no random
+    drop, not self-mined, AND base_demand < 0 (vendor stocks it).
 
-    def is_player_obtainable(ident: str, item: dict) -> str:
-        """Return obtain kind: 'craftable', 'loot', 'self', 'vendor'."""
+    Without the base_demand check, items that fail the three obtainability
+    sources but ALSO aren't sold by vendors (saplings, fruits, enemy-only
+    weapons, smelter-output ingots) wrongly fall through into the list.
+    base_demand < 0 is the same signal the trading guide uses to identify
+    vendor stock."""
+
+    def is_player_obtainable(ident: str, item: dict) -> Optional[str]:
+        """Return obtain kind, or None if the item isn't obtainable through
+        any known channel (and so shouldn't be presented as vendor stock)."""
         if cat.recipes_producing(ident):
             return 'craftable'
         # Many ores / gems are "self" — you mine them, no recipe produces them
@@ -646,7 +651,10 @@ def vendor_stock_context(cat: Catalog, icons_dir: Path) -> dict:
             return 'self'
         if cat.randomsets_containing(ident):
             return 'loot'
-        return 'vendor'
+        bd = item.get('base_demand')
+        if bd is not None and bd < 0:
+            return 'vendor'
+        return None
 
     rows = []
     for ident, item in cat.items.items():

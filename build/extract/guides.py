@@ -23,6 +23,14 @@ GUIDE_SUMMARIES = {
         'subtitle': 'Stack discounts and flip what merchants want',
         'summary': 'Where Trading XP comes from, the Trade Discount perk, and which items have actual flip value based on base_price × base_demand.',
     },
+    'item-damage': {
+        'subtitle': 'Durability, repair benches, recycle',
+        'summary': '389 items in the game track durability. How damage works, what happens at 0, and which station to repair at.',
+    },
+    'player-death': {
+        'subtitle': 'Tombstones, doctors, what you lose',
+        'summary': 'Player HP is only 60. What spawns when you die, how to recover your stuff, and how the doctor NPC fits in.',
+    },
 }
 
 
@@ -198,6 +206,152 @@ def trading_context(cat: Catalog, ore_records: List[dict],
         'proc_perk': perk_view(proc_perk),
         'high_demand': high_demand,
         'vendor_stock': vendor_stock,
+    }
+
+
+def item_damage_context(cat: Catalog, icons_dir: Path) -> dict:
+    """Survey items with durability fields + describe the repair stations."""
+    # Distribution by durability value
+    counts: Dict[int, int] = {}
+    types_with_dur: Dict[str, int] = {}
+    examples: List[dict] = []
+    for ident, it in cat.items.items():
+        dur = it.get('durability')
+        if dur is None:
+            continue
+        counts[dur] = counts.get(dur, 0) + 1
+        t = it.get('type', '')
+        types_with_dur[t] = types_with_dur.get(t, 0) + 1
+        examples.append({
+            'identifier': ident,
+            'display': _humanize(it.get('title_string') or ident),
+            'tier': it.get('tier', 1),
+            'type': t,
+            'durability': dur,
+            'recycle_value': it.get('recycle_value'),
+            'base_price': it.get('base_price'),
+            'icon': f'assets/icons/{_slug(ident)}.png',
+            'url': _link_for(ident, cat) or '#',
+        })
+
+    by_durability = sorted(counts.items(), key=lambda kv: -kv[1])
+    types_sorted = sorted(types_with_dur.items(), key=lambda kv: -kv[1])
+
+    # A small curated example list — highest and lowest durability items
+    examples_sorted = sorted(examples, key=lambda e: (-e['durability'], e['tier'], e['display']))
+    high_dur_samples = examples_sorted[:6]
+    low_dur_samples = sorted(examples, key=lambda e: (e['durability'], e['tier'], e['display']))[:6]
+
+    # Repair bench items
+    rb = cat.items.get('dpl.repair_bench.1') or {}
+    rbq = cat.items.get('dpl.repair_bench.qubits') or {}
+    def view(it, identifier):
+        return {
+            'identifier': identifier,
+            'display': _humanize(it.get('title_string') or identifier),
+            'tier': it.get('tier'),
+            'type': it.get('type', ''),
+            'icon': f'assets/icons/{_slug(identifier)}.png' if (icons_dir / (_slug(identifier) + '.png')).exists() else None,
+        }
+
+    # Look up the REPAIRING_BENCH recipe (Crafting 1)
+    repair_recipe = None
+    for r in cat.crafting_recipes:
+        if r.get('_file') == 'REPAIRING_BENCH':
+            repair_recipe = r
+            break
+    repair_inputs = []
+    if repair_recipe:
+        for inp in (repair_recipe.get('inputItems') or []):
+            if not isinstance(inp, dict):
+                continue
+            iid = inp.get('item', '')
+            repair_inputs.append({
+                'item': iid,
+                'display': _humanize(cat.items.get(iid, {}).get('title_string') or iid),
+                'qty': inp.get('quantity'),
+                'url': _link_for(iid, cat) or '#',
+            })
+
+    return {
+        'total_items_with_durability': len(examples),
+        'by_durability': by_durability[:8],   # top 8 most-common durability values
+        'types_sorted': types_sorted[:12],
+        'high_dur_samples': high_dur_samples,
+        'low_dur_samples': low_dur_samples,
+        'repair_bench': view(rb, 'dpl.repair_bench.1'),
+        'repair_bench_qubits': view(rbq, 'dpl.repair_bench.qubits'),
+        'repair_recipe_skill': repair_recipe.get('neededSkillLevel') if repair_recipe else None,
+        'repair_inputs': repair_inputs,
+    }
+
+
+def player_death_context(cat: Catalog, icons_dir: Path) -> dict:
+    """Pull player HP, death-chest data, doctor data, mob HP comparison."""
+    # Read player.cfg
+    player_path = cat.game_root / 'data' / 'configs' / 'characters' / 'player.cfg'
+    from parsers.cfg import parse_file
+    player_data = parse_file(player_path) or {}
+
+    # All other characters (life + team)
+    chars_dir = cat.game_root / 'data' / 'configs' / 'characters'
+    mobs = []
+    for p in sorted(chars_dir.glob('*.cfg')):
+        d = parse_file(p)
+        if not isinstance(d, dict):
+            continue
+        life = d.get('life')
+        team = d.get('team')
+        if life is None:
+            continue
+        mobs.append({
+            'name': p.stem,
+            'life': life,
+            'team': d.get('defaultTeam', team or ''),
+            'weapon': d.get('weapon'),
+            'shield': d.get('shieldCapacity'),
+            'is_player': p.stem == 'player',
+        })
+    # Sort by life ascending, then alpha. Keep player at the top of the table.
+    mobs.sort(key=lambda m: (m['life'], m['name']))
+
+    # Death chest
+    dc = cat.items.get('dpl.deathchest') or {}
+    death_chest = {
+        'identifier': 'dpl.deathchest',
+        'display': _humanize(dc.get('title_string') or 'STR_DEATH_CHEST'),
+        'tier': dc.get('tier'),
+        'invincible': dc.get('invincible'),
+        'world_model': dc.get('world_model'),
+        'icon': f'assets/icons/dpl_deathchest.png' if (icons_dir / 'dpl_deathchest.png').exists() else None,
+    }
+
+    # Doctor (NPC)
+    doc_path = cat.game_root / 'data' / 'configs' / 'characters' / 'npc_doctor.cfg'
+    doc_data = parse_file(doc_path) or {}
+    doctor = {
+        'life': doc_data.get('life'),
+        'shield': doc_data.get('shieldCapacity'),
+        'interaction': doc_data.get('interaction'),
+        'weapon': doc_data.get('weapon'),
+    }
+
+    # Grouped HP buckets
+    buckets = {'PLAYER': [], 'VILLAGERS': [], 'PIRATES': [], 'ZOMBIES': []}
+    for m in mobs:
+        team = m['team'] or ''
+        if team in buckets:
+            buckets[team].append(m)
+
+    return {
+        'player_life': player_data.get('life'),
+        'player_walk': player_data.get('walkSpeed'),
+        'player_sprint_mul': player_data.get('sprintMultiplier'),
+        'player_jump': player_data.get('jumpHeight'),
+        'death_chest': death_chest,
+        'doctor': doctor,
+        'mobs': mobs,
+        'buckets': buckets,
     }
 
 

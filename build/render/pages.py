@@ -116,16 +116,16 @@ class WikiRenderer:
                 loc_objs.append(o)
             r['locations_grouped'] = _group_locations(loc_objs, self.dist_meta)
 
-        # Counts (guides added by render_guides; default to 3 here)
+        # Counts (guides added by render_guides; default to 5 here)
         self.counts = {
             'ores': len(ore_records),
             'ingots': len(ingot_records),
             'tools': len(tool_records),
             'weapons': len(weapon_records),
             'resources': len(resource_records),
-            'guides': 3,
+            'guides': 5,
             'total': (len(ore_records) + len(ingot_records) + len(tool_records)
-                       + len(weapon_records) + len(resource_records) + 3),
+                       + len(weapon_records) + len(resource_records) + 5),
         }
 
         # Render index
@@ -235,6 +235,8 @@ class WikiRenderer:
             ('motherboards', 'Finding Motherboards'),
             ('leveling-mining', 'Leveling Mining'),
             ('leveling-trading', 'Leveling Trading'),
+            ('item-damage', 'How damage affects items'),
+            ('player-death', 'What happens when you die'),
         ):
             manifest.append({
                 'id': f'guide.{slug}',
@@ -250,7 +252,8 @@ class WikiRenderer:
             encoding='utf-8')
 
     def render_guides(self, *, motherboards_ctx: dict, mining_ctx: dict,
-                       trading_ctx: dict, summaries: dict):
+                       trading_ctx: dict, item_damage_ctx: dict,
+                       player_death_ctx: dict, summaries: dict):
         # Guides index
         self._render_template(
             'guides_index.html.j2',
@@ -281,6 +284,20 @@ class WikiRenderer:
             root='../', category='guides', title='Leveling Trading',
             counts=self.counts,
             **trading_ctx,
+        )
+        self._render_template(
+            'guide_item_damage.html.j2',
+            self.out / 'guides' / 'item-damage.html',
+            root='../', category='guides', title='How damage affects items',
+            counts=self.counts,
+            **item_damage_ctx,
+        )
+        self._render_template(
+            'guide_player_death.html.j2',
+            self.out / 'guides' / 'player-death.html',
+            root='../', category='guides', title='What happens when you die',
+            counts=self.counts,
+            **player_death_ctx,
         )
 
     # ------------------------------------------------------------------

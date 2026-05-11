@@ -4525,5 +4525,23 @@
 "tier":0,
 "icon":"",
 "url":"guides/leveling-trading.html"
+},
+{
+"id":"guide.item-damage",
+"name":"How damage affects items",
+"slug":"item-damage",
+"category":"guides",
+"tier":0,
+"icon":"",
+"url":"guides/item-damage.html"
+},
+{
+"id":"guide.player-death",
+"name":"What happens when you die",
+"slug":"player-death",
+"category":"guides",
+"tier":0,
+"icon":"",
+"url":"guides/player-death.html"
 }
 ]

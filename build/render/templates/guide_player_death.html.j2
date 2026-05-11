@@ -1,0 +1,101 @@
+{% extends "base.html.j2" %}
+{% block title %}What happens when you die{% endblock %}
+{% block content %}
+<h1>What happens when you die</h1>
+<p>The player character ships with <strong>{{ player_life }} life</strong> (from <code>data/configs/characters/player.cfg</code>). That's a small bar — see the HP comparison below — and you <em>will</em> die. When you do, the game spawns a tombstone holding your inventory and reverts you to the nearest spawn anchor.</p>
+
+<div class="section-grid">
+<div>
+
+<h2>The tombstone (Death Chest)</h2>
+<p>On death the engine deploys <code>dpl.deathchest</code> at the spot you fell:</p>
+<table class="wiki">
+<thead><tr><th class="icon"></th><th>Field</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td class="icon" rowspan="4">{% if death_chest.icon %}<img src="{{ root }}{{ death_chest.icon }}" alt="">{% endif %}</td>
+    <td>Identifier</td><td class="mono">{{ death_chest.identifier }}</td></tr>
+<tr><td>Display</td><td>{{ death_chest.display }}</td></tr>
+<tr><td>World model</td><td class="mono">{{ death_chest.world_model }}</td></tr>
+<tr><td>Invincible</td><td>{{ death_chest.invincible }} <span style="color:var(--text-faint)">(can't be destroyed by mobs or explosions while it exists)</span></td></tr>
+</tbody>
+</table>
+<p>Notes from the <code>.cfg</code>:</p>
+<ul>
+    <li>The model is literally <code>tombstone.glm</code> — Cubic Odyssey's tombstones are rendered as voxel grave markers. Easy to spot from the air.</li>
+    <li>It's flagged <code>invincible TRUE</code> so combat near your corpse won't accidentally erase your stuff.</li>
+    <li>It's <code>isHidden TRUE</code> in the catalog so you won't see it on Recipes / Encyclopedia listings — it's a system-spawned object.</li>
+</ul>
+
+<h2>Recovering your stuff</h2>
+<ol>
+    <li><strong>Respawn</strong> — you reload at the nearest spawn anchor (your ship, a bed at your outpost, or the world's default spawn).</li>
+    <li><strong>Travel back</strong> — open the world map; tombstones show as a distinct icon on the planet you died on. If you died in space or another system, you'll need to fly there.</li>
+    <li><strong>Activate the tombstone</strong> — same interaction as any container. Empty its contents back into your inventory.</li>
+    <li>The chest persists until you empty it; it doesn't decay on a timer in the configs. (Don't take that as a guarantee against logical despawn under heavy world load — recover sooner rather than later.)</li>
+</ol>
+
+<h2>Doctors (NPC interaction)</h2>
+<p>The <code>npc_doctor.cfg</code> character provides a <strong>DOCTOR</strong> interaction at outposts. Their stats:</p>
+<table class="wiki">
+<thead><tr><th>Field</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Interaction type</td><td class="mono">{{ doctor.interaction }}</td></tr>
+<tr><td>Life</td><td>{{ doctor.life }} <span style="color:var(--text-faint)">(huge — they're effectively unkillable in normal combat)</span></td></tr>
+<tr><td>Shield capacity</td><td>{{ doctor.shield }} <span style="color:var(--text-faint)">(extra invulnerability layer)</span></td></tr>
+<tr><td>Weapon</td><td class="mono">{{ doctor.weapon }}</td></tr>
+</tbody>
+</table>
+<p>Doctors don't <em>revive</em> you (the death cycle has already happened) — they heal you back to full life after respawn and can cure status effects. Visit one before raiding a high-tier zone.</p>
+
+<h2>HP comparison — why you're fragile</h2>
+<p>The player's 60 HP only makes sense in context. Every character config in the game declares a flat <code>life</code> value:</p>
+<table class="wiki">
+<thead><tr><th>Team / role</th><th>Examples</th><th class="numeric">HP range</th></tr></thead>
+<tbody>
+<tr><td><strong>PLAYER</strong></td><td>player.cfg</td><td class="numeric"><strong>{{ player_life }}</strong></td></tr>
+<tr><td>Friendly NPCs / quest characters</td><td>casascutum, helioctus, npc_knight, ragnhild, queen_atia</td><td class="numeric">~1000</td></tr>
+<tr><td>Villagers / police / soldiers</td><td>npc_villager, npc_police, soldier_*</td><td class="numeric">40 – 1000</td></tr>
+<tr><td>Pirates (early game)</td><td>n_pirate_pistol, n_pirate_ranged</td><td class="numeric">40 – 80</td></tr>
+<tr><td>Pirates (mid / late)</td><td>pirate_assault, pirate_melee, elite_pirate_rocket</td><td class="numeric">80 – 120</td></tr>
+<tr><td>Zombies</td><td>zombie_fast, zombie_boom, zombie_elite_*</td><td class="numeric">~160 (boomer)</td></tr>
+</tbody>
+</table>
+<p style="font-size:0.85em;color:var(--text-faint)">Friendly questgiver NPCs are deliberately invulnerable-tier (1000 HP); they're not balanced against you. Quest stages depend on them being present.</p>
+
+<h2>How to avoid dying</h2>
+<ul>
+    <li><strong>Wear a Suit.</strong> Every suit tier adds raw HP via its <code>m_attributes</code>. Suit 4 (the motherboard-gated craft) roughly doubles your effective life.</li>
+    <li><strong>Carry shields and batteries.</strong> Batteries refill stamina, which feeds dodge and sprint — your real survivability is more about <em>not getting hit</em> than tanking hits.</li>
+    <li><strong>Keep a Jetpack on the hotbar.</strong> Falls and surprise mob clusters are the most common causes of death after the first hour.</li>
+    <li><strong>Save before risky raids.</strong> Cubic Odyssey's save system is fragile (autosaves can bury good manual saves; see the <a href="https://github.com/Jestzer/CubicOdysseyVault">CubicOdysseyVault</a> project for context). Don't rely on autosave alone.</li>
+    <li><strong>Spawn a landing beacon</strong> (<code>dpl.ship.landing.beacon</code>) before going into a known-dangerous biome so you can quick-respawn nearby.</li>
+    <li><strong>Don't engage a Zombie Boomer in melee.</strong> They have 160+ HP and explode on death.</li>
+</ul>
+
+<h2>What you don't lose</h2>
+<ul>
+    <li><strong>Skill XP</strong> — Mining, Trading, Crafting, etc. progression is preserved.</li>
+    <li><strong>Recipes / blueprints</strong> — these are account-level (see <code>93_blueprints.sav</code>).</li>
+    <li><strong>Outpost perks &amp; structures</strong> — your bases are unaffected.</li>
+    <li><strong>Quest progress</strong> — quest state is in <code>93_quests.sav</code> and survives death.</li>
+    <li><strong>Ships you weren't piloting</strong> — only the ship you were in is affected; docked ships are safe.</li>
+</ul>
+
+</div>
+
+<aside class="infobox">
+<h3 style="margin-top:0">At a glance</h3>
+<dl>
+    <dt>Player HP</dt><dd><strong>{{ player_life }}</strong></dd>
+    <dt>Walk speed</dt><dd>{{ player_walk }}</dd>
+    <dt>Sprint multiplier</dt><dd>×{{ player_sprint_mul }}</dd>
+    <dt>Jump height</dt><dd>{{ player_jump }}</dd>
+    <dt>On death</dt><dd>Spawns tombstone <code>dpl.deathchest</code> at death point holding your inventory.</dd>
+    <dt>Tombstone</dt><dd>Invincible &amp; permanent until emptied.</dd>
+    <dt>Heal at</dt><dd>NPC Doctor at an outpost (DOCTOR interaction).</dd>
+</dl>
+</aside>
+</div>
+
+<p style="margin-top:2.5rem"><a class="muted" href="{{ root }}guides.html">← Back to all guides</a></p>
+{% endblock %}

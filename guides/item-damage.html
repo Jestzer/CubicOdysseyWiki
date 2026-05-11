@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How damage affects items — Cubic Odyssey Wiki</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site">
+    <div class="inner">
+        <div class="brand">
+            <a href="../index.html">Cubic Odyssey</a>
+            <small>local wiki · 505 entries</small>
+        </div>
+        <nav>
+            <a href="../ores.html"      class="">Ores</a>
+            <a href="../ingots.html"    class="">Ingots</a>
+            <a href="../tools.html"     class="">Tools</a>
+            <a href="../weapons.html"   class="">Weapons</a>
+            <a href="../resources.html" class="">Resources</a>
+            <a href="../guides.html"    class="active">Guides</a>
+        </nav>
+    </div>
+</header>
+<main class="wrap">
+    
+<h1>How damage affects items</h1>
+<p>Cubic Odyssey tracks <strong>durability</strong> on 388 of the 500 catalogued items. Every weapon, tool, suit, backpack, and gear-slot item has a finite use-bar that drains with use and damage and must be refilled at a repair station — or the item is eventually destroyed.</p>
+
+<div class="section-grid">
+<div>
+
+<h2>How durability works</h2>
+<ul>
+    <li>Each item ships with a <code>durability</code> integer in its <code>.cfg</code> (visible on every item's detail page in the infobox when present).</li>
+    <li>The most common starting durability is <strong>100</strong>; consumable-power items (batteries) have <strong>300</strong>; a few specialty items differ.</li>
+    <li>Use, weapon impacts, and environment hazards each take durability off the bar. The exact decay rate per shot/swing isn't exposed in the configs — it's tuned per item type by the engine.</li>
+    <li>Items don't vanish at 0 durability. They become <strong>broken</strong>: weapons stop firing, tools stop working, gear stops applying its <code>m_attributes</code> bonuses, and the item is held in your inventory as a 0-durability stub until you repair or scrap it.</li>
+</ul>
+
+<h2>Durability distribution (from the data)</h2>
+<table class="wiki">
+<thead><tr><th class="numeric">Durability value</th><th class="numeric">Items</th><th>Likely group</th></tr></thead>
+<tbody>
+
+<tr>
+    <td class="numeric mono">100</td>
+    <td class="numeric">272</td>
+    <td>Weapons, suits, backpacks, most gear</td>
+</tr>
+
+<tr>
+    <td class="numeric mono">0</td>
+    <td class="numeric">102</td>
+    <td>Low-tier / consumable-like gear</td>
+</tr>
+
+<tr>
+    <td class="numeric mono">300</td>
+    <td class="numeric">2</td>
+    <td>Batteries / power packs</td>
+</tr>
+
+<tr>
+    <td class="numeric mono">600</td>
+    <td class="numeric">2</td>
+    <td>High-tier or specialty gear</td>
+</tr>
+
+<tr>
+    <td class="numeric mono">1200</td>
+    <td class="numeric">2</td>
+    <td>High-tier or specialty gear</td>
+</tr>
+
+<tr>
+    <td class="numeric mono">2400</td>
+    <td class="numeric">2</td>
+    <td>High-tier or specialty gear</td>
+</tr>
+
+<tr>
+    <td class="numeric mono">2700</td>
+    <td class="numeric">2</td>
+    <td>High-tier or specialty gear</td>
+</tr>
+
+<tr>
+    <td class="numeric mono">4800</td>
+    <td class="numeric">2</td>
+    <td>High-tier or specialty gear</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2>Which categories carry durability</h2>
+<table class="wiki">
+<thead><tr><th>Item type</th><th class="numeric">Count</th></tr></thead>
+<tbody>
+
+<tr><td class="mono">WEAPON_RANGED</td><td class="numeric">203</td></tr>
+
+<tr><td class="mono">MOD</td><td class="numeric">65</td></tr>
+
+<tr><td class="mono">GEAR</td><td class="numeric">49</td></tr>
+
+<tr><td class="mono">WEAPON_MELEE</td><td class="numeric">27</td></tr>
+
+<tr><td class="mono">DRONE_GEAR</td><td class="numeric">21</td></tr>
+
+<tr><td class="mono">UTILS</td><td class="numeric">16</td></tr>
+
+<tr><td class="mono">SHIP_COMPONENT_BATTERY</td><td class="numeric">7</td></tr>
+
+</tbody>
+</table>
+
+<h2 id="repair">Repair stations</h2>
+<p>The data has exactly two player-deployable repair stations:</p>
+
+<table class="wiki">
+<thead><tr><th class="icon"></th><th>Station</th><th class="mono">Identifier</th><th>Pays with</th></tr></thead>
+<tbody>
+<tr>
+    <td class="icon"><img src="../assets/icons/dpl_repair_bench_1.png" alt=""></td>
+    <td>Repairing Bench</td>
+    <td class="mono">dpl.repair_bench.1</td>
+    <td>Materials. The recipe is unlocked at <strong>Crafting 1</strong> and the bench itself is cheap to craft — see the inputs below.</td>
+</tr>
+<tr>
+    <td class="icon"><img src="../assets/icons/dpl_repair_bench_qubits.png" alt=""></td>
+    <td>Repairing Bench Qubits</td>
+    <td class="mono">dpl.repair_bench.qubits</td>
+    <td>Qubits. Faster, no scavenging required, but the cost scales with the item's value — high-tier weapons / suits get expensive quickly.</td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>Crafting the materials repair bench</h3>
+<table class="wiki">
+<thead><tr><th>Input</th><th class="numeric">Qty</th></tr></thead>
+<tbody>
+
+<tr>
+    <td><a href="../resources/res_wiring.html">Wiring</a></td>
+    <td class="numeric">2</td>
+</tr>
+
+<tr>
+    <td><a href="../resources/res_connector.html">Connector</a></td>
+    <td class="numeric">4</td>
+</tr>
+
+<tr>
+    <td><a href="../resources/res_circuit_board.html">Circuit Board</a></td>
+    <td class="numeric">2</td>
+</tr>
+
+<tr>
+    <td><a href="../ingots/res_silicon_ingot.html">Silicon Ingot</a></td>
+    <td class="numeric">16</td>
+</tr>
+
+</tbody>
+</table>
+<p style="font-size:0.85em;color:var(--text-faint)">Both benches restore durability to the item's <code>durability</code> max value — the cap doesn't decay as you repair. Some other games degrade the cap; Cubic Odyssey (per the configs) does not.</p>
+
+
+<h2>Recycle vs repair</h2>
+<p>Every item with durability also exposes a <code>recycle_value</code> field. If you scrap an item at a recycle station, that's the qubits / materials you recover — usually <em>far less</em> than the item's <code>base_price</code> when intact. So:</p>
+<ul>
+    <li><strong>Above ~30% durability:</strong> always repair. Materials cost ≪ replacement cost.</li>
+    <li><strong>Outdated tier:</strong> recycle the old version when you craft an upgrade. Don't repair a Mining Laser 2 you'll never use again.</li>
+    <li><strong>Mid-fight near a station:</strong> the qubits bench is the safer choice — repairs in seconds vs the materials bench which needs you to actually have wiring / connectors / silicon ingots on hand.</li>
+</ul>
+
+<h2>Highest- and lowest-durability items in the data</h2>
+<table class="wiki">
+<thead><tr><th class="icon"></th><th>Item</th><th class="numeric">Tier</th><th class="numeric">Durability</th><th class="numeric">Recycle</th></tr></thead>
+<tbody>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_battery_7.png" alt=""></td>
+    <td><a href="../#">Battery 7</a></td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric"><strong>4800</strong></td>
+    <td class="numeric">8</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_ship_battery_7.png" alt=""></td>
+    <td><a href="../#">Ship Battery 7</a></td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric"><strong>4800</strong></td>
+    <td class="numeric">16</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_battery_6.png" alt=""></td>
+    <td><a href="../#">Battery 6</a></td>
+    <td class="numeric"><span class="tier tier-6">T6</span></td>
+    <td class="numeric"><strong>3300</strong></td>
+    <td class="numeric">6</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_ship_battery_6.png" alt=""></td>
+    <td><a href="../#">Ship Battery 6</a></td>
+    <td class="numeric"><span class="tier tier-6">T6</span></td>
+    <td class="numeric"><strong>3200</strong></td>
+    <td class="numeric">12</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_battery_5.png" alt=""></td>
+    <td><a href="../#">Battery 5</a></td>
+    <td class="numeric"><span class="tier tier-5">T5</span></td>
+    <td class="numeric"><strong>2700</strong></td>
+    <td class="numeric">5</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_ship_battery_5.png" alt=""></td>
+    <td><a href="../#">Ship Battery 5</a></td>
+    <td class="numeric"><span class="tier tier-5">T5</span></td>
+    <td class="numeric"><strong>2700</strong></td>
+    <td class="numeric">10</td>
+</tr>
+
+<tr><td colspan="5" style="text-align:center;color:var(--text-faint);font-style:italic">— and lowest-durability —</td></tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_sword_big_spider.png" alt=""></td>
+    <td><a href="../weapons/wep_sword_big_spider.html">Big Spider Sword</a></td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric"><strong>0</strong></td>
+    <td class="numeric">None</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_creature_bite_corrupt.png" alt=""></td>
+    <td><a href="../weapons/wep_creature_bite_corrupt.html">Creature Corruption Bite</a></td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric"><strong>0</strong></td>
+    <td class="numeric">None</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_bite_physical_1.png" alt=""></td>
+    <td><a href="../weapons/wep_bite_physical_1.html">Critter Bite Physical 1</a></td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric"><strong>0</strong></td>
+    <td class="numeric">None</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_bite_physical_2.png" alt=""></td>
+    <td><a href="../weapons/wep_bite_physical_2.html">Critter Bite Physical 2</a></td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric"><strong>0</strong></td>
+    <td class="numeric">None</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_bite_physical_3.png" alt=""></td>
+    <td><a href="../weapons/wep_bite_physical_3.html">Critter Bite Physical 3</a></td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric"><strong>0</strong></td>
+    <td class="numeric">None</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_bite_physical_4.png" alt=""></td>
+    <td><a href="../weapons/wep_bite_physical_4.html">Critter Bite Physical 4</a></td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric"><strong>0</strong></td>
+    <td class="numeric">None</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2>Tips</h2>
+<ul>
+    <li><strong>Always craft a Repairing Bench as soon as Crafting 1 is hit.</strong> It costs trivial materials and saves you from a long walk back to an outpost to repair.</li>
+    <li><strong>Carry one Qubits bench at a forward base.</strong> Materials bench at home; Qubits bench in the field — pay with qubits when you can't be bothered hauling reagents.</li>
+    <li><strong>Don't push to 0 durability in dangerous zones.</strong> A 0-durability mining laser <em>still drops</em> when you die, but it has zero value to recover.</li>
+    <li><strong>Battery items (300 durability) are stamina power packs</strong>, not weapons. They consume their bar by being used to recharge stamina, not by taking hits.</li>
+</ul>
+
+</div>
+
+<aside class="infobox">
+<h3 style="margin-top:0">At a glance</h3>
+<dl>
+    <dt>Items tracked</dt><dd>388</dd>
+    <dt>Default durability</dt><dd>100</dd>
+    <dt>Battery durability</dt><dd>300</dd>
+    <dt>At 0</dt><dd>Item is "broken" — held in inventory but inactive until repaired</dd>
+    <dt>Repair stations</dt><dd>2 (materials + qubits)</dd>
+    <dt>Recycle alternative</dt><dd>Returns item's <code>recycle_value</code> in qubits / scrap</dd>
+</dl>
+</aside>
+</div>
+
+<p style="margin-top:2.5rem"><a class="muted" href="../guides.html">← Back to all guides</a></p>
+
+</main>
+<footer class="site">
+    <div class="inner">
+        Generated 2026-05-11 03:21 UTC from game data (2026-04-26).
+        Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
+        Planet→biome distribution mapping is best-effort.
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+{% extends "base.html.j2" %}
+{% block title %}How damage affects items{% endblock %}
+{% block content %}
+<h1>How damage affects items</h1>
+<p>Cubic Odyssey tracks <strong>durability</strong> on {{ total_items_with_durability }} of the {{ counts.total - counts.guides }} catalogued items. Every weapon, tool, suit, backpack, and gear-slot item has a finite use-bar that drains with use and damage and must be refilled at a repair station — or the item is eventually destroyed.</p>
+
+<div class="section-grid">
+<div>
+
+<h2>How durability works</h2>
+<ul>
+    <li>Each item ships with a <code>durability</code> integer in its <code>.cfg</code> (visible on every item's detail page in the infobox when present).</li>
+    <li>The most common starting durability is <strong>100</strong>; consumable-power items (batteries) have <strong>300</strong>; a few specialty items differ.</li>
+    <li>Use, weapon impacts, and environment hazards each take durability off the bar. The exact decay rate per shot/swing isn't exposed in the configs — it's tuned per item type by the engine.</li>
+    <li>Items don't vanish at 0 durability. They become <strong>broken</strong>: weapons stop firing, tools stop working, gear stops applying its <code>m_attributes</code> bonuses, and the item is held in your inventory as a 0-durability stub until you repair or scrap it.</li>
+</ul>
+
+<h2>Durability distribution (from the data)</h2>
+<table class="wiki">
+<thead><tr><th class="numeric">Durability value</th><th class="numeric">Items</th><th>Likely group</th></tr></thead>
+<tbody>
+{% for dur, n in by_durability %}
+<tr>
+    <td class="numeric mono">{{ dur }}</td>
+    <td class="numeric">{{ n }}</td>
+    <td>{% if dur == 100 %}Weapons, suits, backpacks, most gear{% elif dur == 300 %}Batteries / power packs{% elif dur >= 200 %}High-tier or specialty gear{% elif dur <= 50 %}Low-tier / consumable-like gear{% else %}Mixed{% endif %}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<h2>Which categories carry durability</h2>
+<table class="wiki">
+<thead><tr><th>Item type</th><th class="numeric">Count</th></tr></thead>
+<tbody>
+{% for t, n in types_sorted %}
+<tr><td class="mono">{{ t }}</td><td class="numeric">{{ n }}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+
+<h2 id="repair">Repair stations</h2>
+<p>The data has exactly two player-deployable repair stations:</p>
+
+<table class="wiki">
+<thead><tr><th class="icon"></th><th>Station</th><th class="mono">Identifier</th><th>Pays with</th></tr></thead>
+<tbody>
+<tr>
+    <td class="icon">{% if repair_bench.icon %}<img src="{{ root }}{{ repair_bench.icon }}" alt="">{% endif %}</td>
+    <td>{{ repair_bench.display }}</td>
+    <td class="mono">{{ repair_bench.identifier }}</td>
+    <td>Materials. The recipe is unlocked at <strong>Crafting {{ repair_recipe_skill or '?' }}</strong> and the bench itself is cheap to craft — see the inputs below.</td>
+</tr>
+<tr>
+    <td class="icon">{% if repair_bench_qubits.icon %}<img src="{{ root }}{{ repair_bench_qubits.icon }}" alt="">{% endif %}</td>
+    <td>{{ repair_bench_qubits.display }}</td>
+    <td class="mono">{{ repair_bench_qubits.identifier }}</td>
+    <td>Qubits. Faster, no scavenging required, but the cost scales with the item's value — high-tier weapons / suits get expensive quickly.</td>
+</tr>
+</tbody>
+</table>
+
+{% if repair_inputs %}
+<h3>Crafting the materials repair bench</h3>
+<table class="wiki">
+<thead><tr><th>Input</th><th class="numeric">Qty</th></tr></thead>
+<tbody>
+{% for inp in repair_inputs %}
+<tr>
+    <td>{% if inp.url != '#' %}<a href="{{ root }}{{ inp.url }}">{{ inp.display }}</a>{% else %}{{ inp.display }}{% endif %}</td>
+    <td class="numeric">{{ inp.qty }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<p style="font-size:0.85em;color:var(--text-faint)">Both benches restore durability to the item's <code>durability</code> max value — the cap doesn't decay as you repair. Some other games degrade the cap; Cubic Odyssey (per the configs) does not.</p>
+{% endif %}
+
+<h2>Recycle vs repair</h2>
+<p>Every item with durability also exposes a <code>recycle_value</code> field. If you scrap an item at a recycle station, that's the qubits / materials you recover — usually <em>far less</em> than the item's <code>base_price</code> when intact. So:</p>
+<ul>
+    <li><strong>Above ~30% durability:</strong> always repair. Materials cost ≪ replacement cost.</li>
+    <li><strong>Outdated tier:</strong> recycle the old version when you craft an upgrade. Don't repair a Mining Laser 2 you'll never use again.</li>
+    <li><strong>Mid-fight near a station:</strong> the qubits bench is the safer choice — repairs in seconds vs the materials bench which needs you to actually have wiring / connectors / silicon ingots on hand.</li>
+</ul>
+
+<h2>Highest- and lowest-durability items in the data</h2>
+<table class="wiki">
+<thead><tr><th class="icon"></th><th>Item</th><th class="numeric">Tier</th><th class="numeric">Durability</th><th class="numeric">Recycle</th></tr></thead>
+<tbody>
+{% for it in high_dur_samples %}
+<tr>
+    <td class="icon">{% if it.icon %}<img src="{{ root }}{{ it.icon }}" alt="">{% endif %}</td>
+    <td><a href="{{ root }}{{ it.url }}">{{ it.display }}</a></td>
+    <td class="numeric"><span class="tier tier-{{ it.tier }}">T{{ it.tier }}</span></td>
+    <td class="numeric"><strong>{{ it.durability }}</strong></td>
+    <td class="numeric">{{ it.recycle_value }}</td>
+</tr>
+{% endfor %}
+<tr><td colspan="5" style="text-align:center;color:var(--text-faint);font-style:italic">— and lowest-durability —</td></tr>
+{% for it in low_dur_samples %}
+<tr>
+    <td class="icon">{% if it.icon %}<img src="{{ root }}{{ it.icon }}" alt="">{% endif %}</td>
+    <td><a href="{{ root }}{{ it.url }}">{{ it.display }}</a></td>
+    <td class="numeric"><span class="tier tier-{{ it.tier }}">T{{ it.tier }}</span></td>
+    <td class="numeric"><strong>{{ it.durability }}</strong></td>
+    <td class="numeric">{{ it.recycle_value }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<h2>Tips</h2>
+<ul>
+    <li><strong>Always craft a Repairing Bench as soon as Crafting 1 is hit.</strong> It costs trivial materials and saves you from a long walk back to an outpost to repair.</li>
+    <li><strong>Carry one Qubits bench at a forward base.</strong> Materials bench at home; Qubits bench in the field — pay with qubits when you can't be bothered hauling reagents.</li>
+    <li><strong>Don't push to 0 durability in dangerous zones.</strong> A 0-durability mining laser <em>still drops</em> when you die, but it has zero value to recover.</li>
+    <li><strong>Battery items (300 durability) are stamina power packs</strong>, not weapons. They consume their bar by being used to recharge stamina, not by taking hits.</li>
+</ul>
+
+</div>
+
+<aside class="infobox">
+<h3 style="margin-top:0">At a glance</h3>
+<dl>
+    <dt>Items tracked</dt><dd>{{ total_items_with_durability }}</dd>
+    <dt>Default durability</dt><dd>100</dd>
+    <dt>Battery durability</dt><dd>300</dd>
+    <dt>At 0</dt><dd>Item is "broken" — held in inventory but inactive until repaired</dd>
+    <dt>Repair stations</dt><dd>2 (materials + qubits)</dd>
+    <dt>Recycle alternative</dt><dd>Returns item's <code>recycle_value</code> in qubits / scrap</dd>
+</dl>
+</aside>
+</div>
+
+<p style="margin-top:2.5rem"><a class="muted" href="{{ root }}guides.html">← Back to all guides</a></p>
+{% endblock %}

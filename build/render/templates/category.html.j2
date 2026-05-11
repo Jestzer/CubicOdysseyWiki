@@ -79,24 +79,6 @@
             apply();
         });
     }
-
-    // sortable columns
-    table.querySelectorAll('thead th[data-key]').forEach(th => {
-        th.addEventListener('click', () => {
-            const key = th.dataset.key;
-            const asc = !th.classList.contains('sort-asc');
-            table.querySelectorAll('th').forEach(x => x.classList.remove('sort-asc','sort-desc'));
-            th.classList.add(asc ? 'sort-asc' : 'sort-desc');
-            rows.sort((a, b) => {
-                const av = a.querySelector(`td:nth-child(${th.cellIndex+1})`).textContent.trim();
-                const bv = b.querySelector(`td:nth-child(${th.cellIndex+1})`).textContent.trim();
-                const an = parseFloat(av), bn = parseFloat(bv);
-                if(!isNaN(an) && !isNaN(bn)) return asc ? an-bn : bn-an;
-                return asc ? av.localeCompare(bv) : bv.localeCompare(av);
-            });
-            rows.forEach(r => tbody.appendChild(r));
-        });
-    });
 })();
 </script>
 {% endblock %}

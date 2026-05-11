@@ -215,7 +215,19 @@ table.wiki td.mono { font-family: ui-monospace, monospace; font-size: 0.85rem; c
 }
 .detail-head .icon-big img { width: 112px; height: 112px; image-rendering: pixelated; }
 .detail-head .icon-big.block-hero { width: 272px; height: 272px; flex: 0 0 272px; }
-.detail-head .icon-big.block-hero img { width: 256px; height: 256px; image-rendering: auto; }
+.detail-head .icon-big.block-hero img { width: 256px; height: 256px; image-rendering: auto; transition: filter .12s ease; }
+.detail-head .icon-big.block-hero img[data-canonical]:hover { filter: brightness(1.08); }
+
+/* Block variant gallery thumbnails — click to swap into the hero frame */
+.block-variant {
+    border-radius: 4px;
+    box-shadow: 0 0 0 2px transparent;
+    transition: box-shadow .12s ease, transform .12s ease;
+}
+.block-variant:hover {
+    box-shadow: 0 0 0 2px var(--accent);
+    transform: translateY(-2px);
+}
 .detail-head .icon-big.placeholder {
     color: var(--text-dim);
     font-family: ui-monospace, monospace;

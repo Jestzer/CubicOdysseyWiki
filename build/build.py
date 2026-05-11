@@ -109,60 +109,70 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
     from PIL import Image, ImageDraw, ImageEnhance
     src_dir = game_root / 'data' / 'models' / 'voxels'
     out_dir.mkdir(parents=True, exist_ok=True)
-    tex_cache: Dict[str, Optional['Image.Image']] = {}
+    from PIL import ImageStat
+    variant_cache: Dict[str, List['Image.Image']] = {}
 
-    def load(stem: str) -> Optional['Image.Image']:
-        if stem in tex_cache:
-            return tex_cache[stem]
+    def load_raw(stem: str) -> Optional['Image.Image']:
         f = src_dir / f'{stem}.dds'
-        img = None
-        if f.exists():
-            try:
-                from PIL import ImageStat
-                raw = Image.open(f).convert('RGBA')
-                # The DDS alpha channel carries shading / PBR data, not real
-                # transparency — every face has alpha in the 120-250 range,
-                # which makes the cube body render translucent if we use it
-                # as-is. Strip the alpha so the cube interior is fully opaque;
-                # the hex corners stay transparent via the polygon mask below.
-                r, g, b, _ = raw.split()
-                img = Image.merge('RGBA',
-                    (r, g, b, Image.new('L', raw.size, 255)))
-                # Many _side textures are vertical tile sheets — 1024×1024
-                # holding four 1024×256 variant strips, or 1024×4096 holding
-                # 16. Sampling the whole image onto a face stacks every
-                # variant into bands. Detect tile sheets by checking whether
-                # the candidate strips have noticeably different brightnesses
-                # (uniform textures pass through unchanged), then take the
-                # top strip and tile it vertically to keep the face aspect
-                # ratio square.
-                w, h = img.size
-                if h >= 512 and h % 256 == 0:
-                    tile_h = 256
-                    n = h // tile_h
-                    strips = [img.crop((0, i*tile_h, w, (i+1)*tile_h))
-                               for i in range(n)]
-                    means = [ImageStat.Stat(s.convert('L')).mean[0]
-                              for s in strips]
-                    if max(means) - min(means) > 25:
-                        top = strips[0]
-                        if tile_h < w:
-                            tiled = Image.new('RGBA', (w, w))
-                            for y in range(0, w, tile_h):
-                                tiled.paste(top, (0, y))
-                            img = tiled
-                        else:
-                            img = top
-                # Pre-filter the 1024-pixel source down to ~2× face size so the
-                # affine transform doesn't have to do a 30× downscale through
-                # bilinear sampling (which loses most of the source pixels).
-                target = size * 2
-                if max(img.size) > target:
-                    img.thumbnail((target, target), Image.Resampling.LANCZOS)
-            except Exception:
-                img = None
-        tex_cache[stem] = img
-        return img
+        if not f.exists():
+            return None
+        try:
+            raw = Image.open(f).convert('RGBA')
+        except Exception:
+            return None
+        # The DDS alpha channel carries shading / PBR data, not real
+        # transparency — every face has alpha in the 120-250 range, which
+        # makes the cube body render translucent if used as-is. Force alpha
+        # to 255 so the cube interior is fully opaque; the hex corners stay
+        # transparent via the polygon mask in render().
+        r, g, b, _ = raw.split()
+        return Image.merge('RGBA',
+            (r, g, b, Image.new('L', raw.size, 255)))
+
+    def variants_of(stem: str) -> List['Image.Image']:
+        """Return a list of face-ready square textures for one DDS.
+
+        Many _side textures are vertical tile sheets — e.g. 1024×1024 holding
+        four 1024×256 variant strips. Sampling the whole image onto a face
+        stacks every variant as bands, so we split by strip and tile each
+        back to a square. Uniform textures return a single-element list.
+        """
+        if stem in variant_cache:
+            return variant_cache[stem]
+        img = load_raw(stem)
+        if img is None:
+            variant_cache[stem] = []
+            return []
+        w, h = img.size
+        result: List['Image.Image'] = [img]
+        if h >= 512 and h % 256 == 0:
+            tile_h = 256
+            n = h // tile_h
+            strips = [img.crop((0, i*tile_h, w, (i+1)*tile_h))
+                       for i in range(n)]
+            means = [ImageStat.Stat(s.convert('L')).mean[0]
+                      for s in strips]
+            if max(means) - min(means) > 25:
+                result = []
+                for strip in strips:
+                    if tile_h < w:
+                        tiled = Image.new('RGBA', (w, w))
+                        for y in range(0, w, tile_h):
+                            tiled.paste(strip, (0, y))
+                        result.append(tiled)
+                    else:
+                        result.append(strip)
+        # Pre-filter each variant to ~2× face size so the affine transform
+        # only does a ~2× downscale through bilinear sampling.
+        target = size * 2
+        scaled: List['Image.Image'] = []
+        for v in result:
+            if max(v.size) > target:
+                v = v.copy()
+                v.thumbnail((target, target), Image.Resampling.LANCZOS)
+            scaled.append(v)
+        variant_cache[stem] = scaled
+        return scaled
 
     def faces_for(default_tex: str):
         # Strip a trailing _top/_side/_bottom so we can probe sibling variants.
@@ -173,8 +183,8 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
                 break
         # The base file is conventionally the side (or all-face) texture;
         # the _top sibling overrides only the top when it exists.
-        side = load(f'{base}_side') or load(base) or load(default_tex)
-        top = load(f'{base}_top') or load(base) or side
+        side = variants_of(f'{base}_side') or variants_of(base) or variants_of(default_tex)
+        top = variants_of(f'{base}_top') or variants_of(base) or side
         return top, side
 
     def render(top, side, S=size):
@@ -220,19 +230,30 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
     stems = {v.get('m_defaultTexture') for v in voxels.values()
               if v.get('m_defaultTexture')}
     for stem in stems:
-        top, side = faces_for(stem)
-        if top is None and side is None:
+        top_variants, side_variants = faces_for(stem)
+        if not top_variants and not side_variants:
             continue
-        cube = render(top, side, S=size)
-        large_path = out_dir / f'{stem}.png'
-        cube.save(large_path, 'PNG', optimize=True)
-        thumb = cube.resize((thumb_size, thumb_size),
-                             Image.Resampling.LANCZOS)
-        thumb_path = thumb_dir / f'{stem}.png'
-        thumb.save(thumb_path, 'PNG', optimize=True)
+        # Pair variants: cube i uses top[i] and side[i], clipping to the
+        # last available variant when one side has fewer than the other.
+        n = max(len(top_variants), len(side_variants), 1)
+        variant_urls: List[str] = []
+        for i in range(n):
+            top_i = top_variants[min(i, len(top_variants)-1)] if top_variants else None
+            side_i = side_variants[min(i, len(side_variants)-1)] if side_variants else None
+            cube = render(top_i, side_i, S=size)
+            suffix = '' if i == 0 else f'__v{i}'
+            large_path = out_dir / f'{stem}{suffix}.png'
+            cube.save(large_path, 'PNG', optimize=True)
+            variant_urls.append(f'assets/textures/voxels/{stem}{suffix}.png')
+            if i == 0:
+                thumb = cube.resize((thumb_size, thumb_size),
+                                     Image.Resampling.LANCZOS)
+                thumb_path = thumb_dir / f'{stem}.png'
+                thumb.save(thumb_path, 'PNG', optimize=True)
         urls[stem] = {
-            'large': f'assets/textures/voxels/{stem}.png',
+            'large': variant_urls[0],
             'thumb': f'assets/textures/voxels_thumb/{stem}.png',
+            'variants': variant_urls,
         }
     return urls
 

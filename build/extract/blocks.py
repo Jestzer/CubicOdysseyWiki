@@ -97,6 +97,7 @@ def build_block_records(cat: Catalog,
             'default_texture': tex,
             'texture_url': urls.get('thumb'),
             'texture_url_large': urls.get('large'),
+            'texture_url_variants': urls.get('variants') or ([urls['large']] if urls.get('large') else []),
             'title_str_id': v.get('titleStrId'),
         })
 

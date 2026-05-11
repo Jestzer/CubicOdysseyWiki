@@ -54,5 +54,18 @@
 </aside>
 </div>
 
+{% if r.texture_url_variants and r.texture_url_variants|length > 1 %}
+<h2>Visual variants</h2>
+<p style="color:var(--text-faint)">This voxel's source <code>.dds</code> texture contains <strong>{{ r.texture_url_variants|length }}</strong> stacked variants. The hero above uses variant 1; the engine appears to pick between these per-instance or as an animation frame.</p>
+<div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:0.8rem">
+{% for v in r.texture_url_variants %}
+<figure style="margin:0;text-align:center">
+    <img src="{{ root }}{{ v }}" alt="Variant {{ loop.index }}" style="width:128px;height:128px;display:block">
+    <figcaption style="color:var(--text-faint);font-size:0.85em;margin-top:0.2em">Variant {{ loop.index }}</figcaption>
+</figure>
+{% endfor %}
+</div>
+{% endif %}
+
 <p style="margin-top:2.5rem"><a class="muted" href="{{ root }}blocks.html">← Back to all blocks</a></p>
 {% endblock %}

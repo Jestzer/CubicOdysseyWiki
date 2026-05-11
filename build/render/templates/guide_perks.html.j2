@@ -1,0 +1,94 @@
+{% extends "base.html.j2" %}
+{% block title %}Outpost perks{% endblock %}
+{% block content %}
+<h1>Outpost perks</h1>
+<p>"Perks" in Cubic Odyssey are <strong>outpost-bound</strong> — they live in <code>data/configs/outpostperks/</code> as <code>OutpostPerkCfg</code> blocks and they apply to <em>the outpost you've activated them at</em>, not your player character globally. The data ships <strong>{{ perk_count }} perks</strong>{% if missing_ids %}, with id slot{{ "s" if missing_ids|length > 1 else "" }} {{ missing_ids|join(", ") }} unfilled (likely planned but cut, or reserved for future content){% endif %}.</p>
+
+<div class="note">
+    There is no separate "character perk" system in the configs — the player's progression goes through the nine skills (Mining, Trading, etc., one <code>max_level_*</code> achievement each), and these three outpost perks. If you've seen a perk UI in-game that doesn't match what's listed here, let us know — the configs are sparse and the engine may surface effects we can't see from data alone.
+</div>
+
+<div class="section-grid">
+<div>
+
+<h2>What's in the data</h2>
+<table class="wiki">
+<thead><tr><th>Perk</th><th class="numeric mono">id</th><th class="numeric">m_value</th><th>Category</th></tr></thead>
+<tbody>
+{% for p in perks %}
+<tr>
+    <td><strong>{{ p.display }}</strong><br><span style="color:var(--text-faint);font-size:0.85em" class="mono">{{ p.slug }}</span></td>
+    <td class="numeric mono">{{ p.id }}</td>
+    <td class="numeric">{% if p.m_value is not none %}{{ p.m_value }} <span style="color:var(--text-faint);font-size:0.85em">({{ p.m_value_pct }})</span>{% else %}—{% endif %}</td>
+    <td>{{ p.category }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<p style="font-size:0.85em;color:var(--text-faint)">Note: only Trade Discount exposes an explicit <code>m_value</code>. The HP Regen and Processing Speed effects are tuned in the engine, not in the config — so the exact rates aren't visible from the data alone.</p>
+
+{% for p in perks %}
+<h2 id="{{ p.slug|lower }}">{{ p.display }} <span style="color:var(--text-faint);font-family:ui-monospace,monospace;font-size:0.75em">id {{ p.id }}</span></h2>
+<div class="kvs">
+<dl>
+    <dt>Identifier</dt><dd class="mono">{{ p.slug }}</dd>
+    <dt>Effect</dt><dd>{{ p.effect }}</dd>
+    {% if p.m_value is not none %}<dt>Per-level value</dt><dd>{{ p.m_value }} <span style="color:var(--text-faint)">({{ p.m_value_pct }} per level — multiplicative)</span></dd>{% endif %}
+    <dt>Priority</dt><dd>{{ p.priority }}</dd>
+</dl>
+</div>
+{% endfor %}
+
+<h2 id="how">Where you spend them (the OUTPOST_LEADER NPC)</h2>
+<p>Perks are managed by the Outpost Leader. From <code>data/configs/characters/npc_outpost_leader.cfg</code>:</p>
+<pre style="background:var(--bg-elev);border:1px solid var(--border);border-radius:4px;padding:0.7em 1em;font-size:0.85em;overflow-x:auto;color:var(--text)"><code>CharacterCfg
+{
+    interaction          OUTPOST_LEADER
+    defaultTeam          PLAYER
+    ai_template          "outpost_sniper"
+    weapon               "wep.rifle.sma15e.1"
+    life                 1000
+    shieldCapacity       (none — they're regular HP, but plot-armoured at 1000)
+}</code></pre>
+<p>Walk up to the leader at any outpost you've liberated or built; the <strong>OUTPOST_LEADER</strong> interaction opens the perk panel. The exact cost / unlock condition (qubits, outpost level, materials) isn't exposed in the configs — it's calculated by the engine — but the panel itself is where you spend.</p>
+
+<h2 id="prioritise">Which perk to take first</h2>
+<ol>
+    <li><strong>Trade Discount</strong> first. It's the only perk with a hard-numeric value in the configs ({{ '%.1f'|format((perks|selectattr('slug', 'eq', 'TRADE_DISCOUNT_1')|list)[0].m_value * 100) }}% per level), and it compounds with the <a href="{{ root }}guides/leveling-trading.html#perk">Trading skill discount</a> — every level of every perk you stack here pays back across every future merchant transaction.</li>
+    <li><strong>Processing Speed</strong> second, if you smelt or refine in bulk. The data doesn't quote the multiplier, but anecdotally it shaves enough off cook times to matter when you're processing tier-3 / tier-4 ore stacks.</li>
+    <li><strong>HP Regen</strong> last. You have <a href="{{ root }}guides/player-death.html">a fragile 60-HP player</a>, but Suits + the Doctor NPC + consumables already cover most healing needs. The perk only matters in long expeditions where you're nowhere near an outpost — by which point you're already past the early game.</li>
+</ol>
+
+<h2 id="how-they-stack">How perks stack with everything else</h2>
+<ul>
+    <li><strong>Per outpost, not per player.</strong> Each outpost has its own perk slots. Taking Trade Discount at Outpost A doesn't give you the discount at Outpost B — you have to take it there too.</li>
+    <li><strong>Trade Discount stacks multiplicatively with the Trading skill.</strong> 2% perk × Trading-skill discount = compounded reduction at checkout.</li>
+    <li><strong>Processing Speed applies to that outpost's furnaces and refineries.</strong> Carry-portable cookware (if any) isn't affected.</li>
+    <li><strong>HP Regen presumably applies only inside the outpost radius.</strong> The engine almost certainly treats the perk like an aura; we don't have the exact radius in the configs.</li>
+</ul>
+
+<h2 id="caveats">What the configs don't tell us</h2>
+<ul>
+    <li>The exact effect of HP Regen (HP per second?) and Processing Speed (× multiplier?) — only their existence and ids are in the files.</li>
+    <li>The cost to unlock each level (qubits, materials, outpost XP).</li>
+    <li>The level cap. The <code>_1</code> suffix on every filename suggests the design supports tiers (HP_REGEN_2, HP_REGEN_3, …), but no level-2 files exist in the data we have. The engine likely scales <code>m_value</code> by an internal level counter rather than spawning more cfg files.</li>
+    <li>What slot id 2 was meant to be. If you remember a fourth perk from a patch note or update, let us know — we'd happily fill it in here.</li>
+</ul>
+
+</div>
+
+<aside class="infobox">
+<h3 style="margin-top:0">At a glance</h3>
+<dl>
+    <dt>Perk count</dt><dd>{{ perk_count }}</dd>
+    <dt>ids in data</dt><dd class="mono">{% for p in perks %}{{ p.id }}{% if not loop.last %}, {% endif %}{% endfor %}</dd>
+    {% if missing_ids %}<dt>Unfilled ids</dt><dd class="mono">{{ missing_ids|join(", ") }}</dd>{% endif %}
+    <dt>Managed by</dt><dd>OUTPOST_LEADER NPC</dd>
+    <dt>Scope</dt><dd>Per-outpost</dd>
+    <dt>Source dir</dt><dd class="mono">data/configs/outpostperks/</dd>
+</dl>
+</aside>
+</div>
+
+<p style="margin-top:2.5rem"><a class="muted" href="{{ root }}guides.html">← Back to all guides</a></p>
+{% endblock %}

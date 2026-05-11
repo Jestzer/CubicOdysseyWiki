@@ -26,7 +26,7 @@ from extract.catalog import Catalog
 from extract.ores import build_ore_records, _humanize, _slug
 from extract.guides import (
     motherboard_context, mining_context, trading_context,
-    item_damage_context, player_death_context,
+    item_damage_context, player_death_context, perks_context,
     all_guide_summaries,
 )
 from render.pages import WikiRenderer
@@ -292,12 +292,14 @@ def main():
                                     weapon_records, resource_records)
     item_damage_ctx = item_damage_context(cat, icons_dir)
     player_death_ctx = player_death_context(cat, icons_dir)
+    perks_ctx = perks_context(cat)
     renderer.render_guides(
         motherboards_ctx=mb_ctx,
         mining_ctx=mining_ctx,
         trading_ctx=trading_ctx,
         item_damage_ctx=item_damage_ctx,
         player_death_ctx=player_death_ctx,
+        perks_ctx=perks_ctx,
         summaries=all_guide_summaries(),
     )
 
@@ -305,7 +307,7 @@ def main():
     print(f'== built in {t1 - t0:.1f}s')
     print(f'   {len(ore_records)} ores + {len(ingot_records)} ingots + '
           f'{len(tool_records)} tools + {len(weapon_records)} weapons + '
-          f'{len(resource_records)} resources + 5 guides')
+          f'{len(resource_records)} resources + 6 guides')
     print(f'   open file://{out}/index.html')
 
 

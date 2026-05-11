@@ -31,6 +31,10 @@ GUIDE_SUMMARIES = {
         'subtitle': 'Tombstones, doctors, what you lose',
         'summary': 'Player HP is only 60. What spawns when you die, how to recover your stuff, and how the doctor NPC fits in.',
     },
+    'perks': {
+        'subtitle': 'Outpost perks — 3 in the data',
+        'summary': 'HP Regen, Processing Speed, and Trade Discount. Where they live in the configs, who manages them, and which to prioritise.',
+    },
 }
 
 
@@ -363,6 +367,65 @@ def player_death_context(cat: Catalog, icons_dir: Path) -> dict:
         'mobs': mobs,
         'buckets': buckets,
         'respawn_tutorial': respawn_tutorial,
+    }
+
+
+def perks_context(cat: Catalog) -> dict:
+    """Read every OutpostPerkCfg from data/configs/outpostperks/."""
+    from parsers.cfg import parse_file
+    perks_dir = cat.game_root / 'data' / 'configs' / 'outpostperks'
+    perks: List[dict] = []
+    seen_ids = set()
+    for p in sorted(perks_dir.glob('*.cfg')):
+        d = parse_file(p)
+        if not isinstance(d, dict):
+            continue
+        pid = d.get('id')
+        if pid is not None:
+            seen_ids.add(pid)
+        # Friendly metadata per known perk file
+        slug = p.stem
+        meta = {
+            'HP_REGEN_1': {
+                'display': 'HP Regen',
+                'effect': 'Faster player health regeneration outside combat.',
+                'category': 'Survival',
+                'priority': 'Low — Suits + Doctors heal you to full on demand; this only matters in long expeditions away from an outpost.',
+            },
+            'PROCESSING_SPEED_1': {
+                'display': 'Processing Speed',
+                'effect': 'Reduces furnace and refinery cook times for items processed at this outpost.',
+                'category': 'Logistics',
+                'priority': 'Medium — high value during the smelt-heavy mid-game grind; less useful once your stockpile is built.',
+            },
+            'TRADE_DISCOUNT_1': {
+                'display': 'Trade Discount',
+                'effect': 'Reduces merchant prices at this outpost by `m_value` per level (multiplicative discount).',
+                'category': 'Economy',
+                'priority': 'High — compounds with the Trading skill discount and pays back across every future purchase. Take it first.',
+            },
+        }.get(slug, {'display': slug, 'effect': '—', 'category': '—', 'priority': '—'})
+
+        perks.append({
+            'slug': slug,
+            'id': pid,
+            'm_value': d.get('m_value'),
+            'm_value_pct': f"{d.get('m_value', 0) * 100:.1f}%" if d.get('m_value') is not None else None,
+            **meta,
+        })
+
+    # Sort by id so the gap is visible
+    perks.sort(key=lambda p: (p['id'] if p['id'] is not None else 999))
+
+    # Detect gaps in the id sequence
+    max_id = max(seen_ids) if seen_ids else 0
+    missing_ids = [i for i in range(1, max_id + 1) if i not in seen_ids]
+
+    return {
+        'perks': perks,
+        'perk_count': len(perks),
+        'missing_ids': missing_ids,
+        'max_id': max_id,
     }
 
 

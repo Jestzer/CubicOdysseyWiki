@@ -116,16 +116,16 @@ class WikiRenderer:
                 loc_objs.append(o)
             r['locations_grouped'] = _group_locations(loc_objs, self.dist_meta)
 
-        # Counts (guides added by render_guides; default to 5 here)
+        # Counts (guides added by render_guides; default to 6 here)
         self.counts = {
             'ores': len(ore_records),
             'ingots': len(ingot_records),
             'tools': len(tool_records),
             'weapons': len(weapon_records),
             'resources': len(resource_records),
-            'guides': 5,
+            'guides': 6,
             'total': (len(ore_records) + len(ingot_records) + len(tool_records)
-                       + len(weapon_records) + len(resource_records) + 5),
+                       + len(weapon_records) + len(resource_records) + 6),
         }
 
         # Render index
@@ -237,6 +237,7 @@ class WikiRenderer:
             ('leveling-trading', 'Leveling Trading'),
             ('item-damage', 'How damage affects items'),
             ('player-death', 'What happens when you die'),
+            ('perks', 'Outpost perks'),
         ):
             manifest.append({
                 'id': f'guide.{slug}',
@@ -253,7 +254,8 @@ class WikiRenderer:
 
     def render_guides(self, *, motherboards_ctx: dict, mining_ctx: dict,
                        trading_ctx: dict, item_damage_ctx: dict,
-                       player_death_ctx: dict, summaries: dict):
+                       player_death_ctx: dict, perks_ctx: dict,
+                       summaries: dict):
         # Guides index
         self._render_template(
             'guides_index.html.j2',
@@ -298,6 +300,13 @@ class WikiRenderer:
             root='../', category='guides', title='What happens when you die',
             counts=self.counts,
             **player_death_ctx,
+        )
+        self._render_template(
+            'guide_perks.html.j2',
+            self.out / 'guides' / 'perks.html',
+            root='../', category='guides', title='Outpost perks',
+            counts=self.counts,
+            **perks_ctx,
         )
 
     # ------------------------------------------------------------------

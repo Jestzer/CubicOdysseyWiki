@@ -2,7 +2,7 @@
 {% block title %}{{ r.display }}{% endblock %}
 {% block content %}
 <div class="detail-head">
-    {% if r.texture_url_large %}<div class="icon-big"><img src="{{ root }}{{ r.texture_url_large }}" alt="{{ r.display }} block" style="width:160px;height:160px"></div>
+    {% if r.texture_url_large %}<div class="icon-big block-hero"><img src="{{ root }}{{ r.texture_url_large }}" alt="{{ r.display }} block"></div>
     {% else %}<div class="icon-big placeholder">{{ r.display[:2]|upper }}</div>{% endif %}
     <div class="meta">
         <h1>{{ r.display }}{% if r.tier is not none %} {% if r.tier <= 7 %}<span class="tier tier-{{ r.tier }}">Tier {{ r.tier }}</span>{% else %}<span class="tier tier-100">Tier {{ r.tier }}</span>{% endif %}{% endif %}</h1>

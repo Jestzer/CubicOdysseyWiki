@@ -118,6 +118,7 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
         img = None
         if f.exists():
             try:
+                from PIL import ImageStat
                 raw = Image.open(f).convert('RGBA')
                 # The DDS alpha channel carries shading / PBR data, not real
                 # transparency — every face has alpha in the 120-250 range,
@@ -127,6 +128,31 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
                 r, g, b, _ = raw.split()
                 img = Image.merge('RGBA',
                     (r, g, b, Image.new('L', raw.size, 255)))
+                # Many _side textures are vertical tile sheets — 1024×1024
+                # holding four 1024×256 variant strips, or 1024×4096 holding
+                # 16. Sampling the whole image onto a face stacks every
+                # variant into bands. Detect tile sheets by checking whether
+                # the candidate strips have noticeably different brightnesses
+                # (uniform textures pass through unchanged), then take the
+                # top strip and tile it vertically to keep the face aspect
+                # ratio square.
+                w, h = img.size
+                if h >= 512 and h % 256 == 0:
+                    tile_h = 256
+                    n = h // tile_h
+                    strips = [img.crop((0, i*tile_h, w, (i+1)*tile_h))
+                               for i in range(n)]
+                    means = [ImageStat.Stat(s.convert('L')).mean[0]
+                              for s in strips]
+                    if max(means) - min(means) > 25:
+                        top = strips[0]
+                        if tile_h < w:
+                            tiled = Image.new('RGBA', (w, w))
+                            for y in range(0, w, tile_h):
+                                tiled.paste(top, (0, y))
+                            img = tiled
+                        else:
+                            img = top
                 # Pre-filter the 1024-pixel source down to ~2× face size so the
                 # affine transform doesn't have to do a 30× downscale through
                 # bilinear sampling (which loses most of the source pixels).

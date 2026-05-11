@@ -9,9 +9,9 @@
 <a class="card" href="#cat-{{ c.category_raw|lower }}">
     <h3>{{ c.category_label }}</h3>
     <div class="count">{{ c.count }} blocks</div>
-    <div style="display:flex;gap:4px;margin-top:0.5em">
+    <div style="display:flex;gap:3px;margin-top:0.5em;flex-wrap:wrap">
         {% for tex in c.sample_textures %}
-        <img src="{{ root }}{{ tex }}" alt="" style="width:36px;height:36px">
+        <img src="{{ root }}{{ tex }}" alt="" style="width:30px;height:30px">
         {% endfor %}
     </div>
     <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. {{ c.sample_names|join(', ') }}</p>

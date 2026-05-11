@@ -174,6 +174,10 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
                   [(0, q), (S//2, S//2), (S//2, S), (0, 3*q)], 0.7)
         return out
 
+    # The wiki's card / table backgrounds are var(--bg-card) = #1b2029.
+    # Flatten the iso cube onto that colour so the transparent hex corners
+    # become opaque tile, matching whatever container the icon sits in.
+    BG = (0x1b, 0x20, 0x29)
     urls: Dict[str, str] = {}
     stems = {v.get('m_defaultTexture') for v in voxels.values()
               if v.get('m_defaultTexture')}
@@ -182,8 +186,10 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
         if top is None and side is None:
             continue
         cube = render(top, side)
+        flat = Image.new('RGB', cube.size, BG)
+        flat.paste(cube, mask=cube.split()[3])
         out_path = out_dir / f'{stem}.png'
-        cube.save(out_path, 'PNG', optimize=True)
+        flat.save(out_path, 'PNG', optimize=True)
         urls[stem] = f'assets/textures/voxels/{stem}.png'
     return urls
 

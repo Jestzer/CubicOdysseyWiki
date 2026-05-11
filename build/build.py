@@ -94,6 +94,35 @@ def slice_icons(items: Dict[str, dict], atlases, out_dir: Path) -> int:
     return written
 
 
+def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
+                           out_dir: Path, size: int = 64) -> Dict[str, str]:
+    """Decode each referenced voxel DDS into a thumbnail PNG.
+
+    Voxel configs reference textures by stem (e.g. "leaves_palm1") which
+    map to data/models/voxels/<stem>.dds. Returns {stem: relative_url} for
+    every texture we successfully wrote. Missing files are skipped silently.
+    """
+    from PIL import Image
+    src_dir = game_root / 'data' / 'models' / 'voxels'
+    out_dir.mkdir(parents=True, exist_ok=True)
+    stems = {v.get('m_defaultTexture') for v in voxels.values()
+              if v.get('m_defaultTexture')}
+    urls: Dict[str, str] = {}
+    for stem in stems:
+        src = src_dir / f'{stem}.dds'
+        if not src.exists():
+            continue
+        try:
+            img = Image.open(src).convert('RGBA')
+        except Exception:
+            continue
+        img.thumbnail((size, size), Image.Resampling.LANCZOS)
+        out_path = out_dir / f'{stem}.png'
+        img.save(out_path, 'PNG', optimize=True)
+        urls[stem] = f'assets/textures/voxels/{stem}.png'
+    return urls
+
+
 # ---------------------------------------------------------------- categorize
 
 def _common_fields(item: dict) -> dict:
@@ -291,6 +320,9 @@ def main():
     # Slice every item that has an inv_frame, regardless of category. Cheap.
     n_icons = slice_icons(cat.items, atlases, icons_dir)
     print(f'       wrote {n_icons} icons to {icons_dir}')
+    texture_urls = export_voxel_textures(
+        cat.voxels, game_root, out / 'assets' / 'textures' / 'voxels')
+    print(f'       wrote {len(texture_urls)} voxel textures')
 
     print('[4/6] building records…')
     ore_records_objs = build_ore_records(cat, distrib_to_planets={})
@@ -303,7 +335,7 @@ def main():
     enemy_records = build_enemy_records(cat)
     ship_records = build_ship_records(cat)
     speeder_records = build_speeder_records(cat)
-    block_records = build_block_records(cat)
+    block_records = build_block_records(cat, texture_urls)
     block_categories = block_categories_summary(block_records)
 
     ingot_records = build_ingots(cat, ores_by_drop)

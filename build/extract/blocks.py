@@ -69,11 +69,15 @@ def _link_for_drop(drop_id: Optional[str], cat: Catalog) -> Optional[str]:
     return None
 
 
-def build_block_records(cat: Catalog) -> List[dict]:
+def build_block_records(cat: Catalog,
+                          texture_urls: Optional[Dict[str, str]] = None
+                          ) -> List[dict]:
+    texture_urls = texture_urls or {}
     records: List[dict] = []
     for vname, v in cat.voxels.items():
         cat_raw = v.get('m_category', '')
         drop_id = v.get('m_dropItem')
+        tex = v.get('m_defaultTexture')
         records.append({
             'name': vname,
             'slug': _slug(vname).replace(' ', '_'),
@@ -89,7 +93,8 @@ def build_block_records(cat: Catalog) -> List[dict]:
             'drop_display': _humanize(cat.items.get(drop_id, {}).get('title_string') or drop_id) if drop_id and cat.items.get(drop_id) else None,
             'transparent': v.get('m_transparent', 0),
             'reg_ore': v.get('m_regOre', 0),
-            'default_texture': v.get('m_defaultTexture'),
+            'default_texture': tex,
+            'texture_url': texture_urls.get(tex) if tex else None,
             'title_str_id': v.get('titleStrId'),
         })
 
@@ -111,6 +116,7 @@ def block_categories_summary(records: List[dict]) -> List[dict]:
             'category_label': rs[0]['category_label'],
             'category_order': rs[0]['category_order'],
             'count': len(rs),
+            'sample_textures': [r['texture_url'] for r in rs[:6] if r.get('texture_url')],
             'sample_colors': [r['color'] for r in rs[:6] if r['color']],
             'sample_names': [r['display'] for r in rs[:5]],
         })

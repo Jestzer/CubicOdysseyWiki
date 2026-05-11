@@ -431,7 +431,7 @@
 </main>
 <footer class="site">
     <div class="inner">
-        Generated 2026-05-11 23:48 UTC from game data (2026-04-26).
+        Generated 2026-05-11 23:51 UTC from game data (2026-04-26).
         Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
         Planet→biome distribution mapping is best-effort.
     </div>
@@ -447,7 +447,10 @@
     const tierPills = document.getElementById('tierPills');
     const obtainPills = document.getElementById('obtainPills');
     let tierFilter = 'all';
-    let obtainFilter = 'obtainable';
+    // Only apply the obtainable-by-default filter when the page actually
+    // surfaces obtainability pills; otherwise leave rows untouched (e.g.
+    // Resources, Ores — categories where every entry is player-obtainable).
+    let obtainFilter = obtainPills ? 'obtainable' : 'all';
 
     function apply(){
         const q = (search?.value || '').trim().toLowerCase();

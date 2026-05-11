@@ -63,7 +63,10 @@
     const tierPills = document.getElementById('tierPills');
     const obtainPills = document.getElementById('obtainPills');
     let tierFilter = 'all';
-    let obtainFilter = 'obtainable';
+    // Only apply the obtainable-by-default filter when the page actually
+    // surfaces obtainability pills; otherwise leave rows untouched (e.g.
+    // Resources, Ores — categories where every entry is player-obtainable).
+    let obtainFilter = obtainPills ? 'obtainable' : 'all';
 
     function apply(){
         const q = (search?.value || '').trim().toLowerCase();

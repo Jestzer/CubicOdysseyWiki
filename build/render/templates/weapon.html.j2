@@ -1,0 +1,51 @@
+{% extends "base.html.j2" %}
+{% block title %}{{ r.display }}{% endblock %}
+{% block content %}
+<div class="detail-head">
+    {% if r.icon %}<div class="icon-big"><img src="{{ root }}{{ r.icon }}" alt=""></div>
+    {% else %}<div class="icon-big placeholder">{{ r.display[:2]|upper }}</div>{% endif %}
+    <div class="meta">
+        <h1>{{ r.display }} <span class="tier tier-{{ r.tier }}">Tier {{ r.tier }}</span></h1>
+        <div class="id">{{ r.identifier }}</div>
+        <p class="desc">{{ r.type|replace('_', ' ')|title }}.</p>
+    </div>
+</div>
+
+<div class="section-grid">
+<div>
+{% if r.weapon_stats %}
+<h2>Combat stats</h2>
+<div class="kvs">
+<dl>
+    {% if r.weapon_stats.get('damageMin') is not none %}<dt>Damage (min / max)</dt><dd>{{ r.weapon_stats.damageMin }} / {{ r.weapon_stats.damageMax }}</dd>{% endif %}
+    {% if r.weapon_stats.get('fireRateRPM') is not none %}<dt>Fire rate</dt><dd>{{ r.weapon_stats.fireRateRPM }} RPM</dd>{% endif %}
+    {% if r.weapon_stats.get('fire_num_bullets') is not none %}<dt>Projectiles / shot</dt><dd>{{ r.weapon_stats.fire_num_bullets }}</dd>{% endif %}
+    {% if r.weapon_stats.get('ammo_type') %}<dt>Ammo</dt><dd class="mono">{{ r.weapon_stats.ammo_type }}</dd>{% endif %}
+    {% if r.weapon_stats.get('ammo_capacity') is not none %}<dt>Magazine</dt><dd>{{ r.weapon_stats.ammo_capacity }}</dd>{% endif %}
+    {% if r.weapon_stats.get('energy_cost') is not none %}<dt>Energy / shot</dt><dd>{{ r.weapon_stats.energy_cost }}</dd>{% endif %}
+    {% if r.weapon_stats.get('projectile_speed') is not none %}<dt>Projectile speed</dt><dd>{{ r.weapon_stats.projectile_speed }}</dd>{% endif %}
+    {% if r.weapon_stats.get('projectile_life') is not none %}<dt>Projectile life</dt><dd>{{ r.weapon_stats.projectile_life }} s</dd>{% endif %}
+    {% if r.weapon_stats.get('ray_length') is not none %}<dt>Ray length</dt><dd>{{ r.weapon_stats.ray_length }} m</dd>{% endif %}
+    {% if r.weapon_stats.get('explosionRange') is not none and r.weapon_stats.explosionRange > 0 %}<dt>Explosion range</dt><dd>{{ r.weapon_stats.explosionRange }}</dd>{% endif %}
+</dl>
+</div>
+{% else %}
+<p style="color:var(--text-faint)">No weapon stats file is paired with this item.</p>
+{% endif %}
+</div>
+
+<aside class="infobox">
+<h3 style="margin-top:0">Item info</h3>
+<dl>
+    <dt>Type</dt><dd class="mono">{{ r.type }}</dd>
+    {% if r.durability is not none %}<dt>Durability</dt><dd>{{ r.durability }}</dd>{% endif %}
+    {% if r.stack_size %}<dt>Stack size</dt><dd>{{ r.stack_size }}</dd>{% endif %}
+    {% if r.base_price is not none %}<dt>Base price</dt><dd>{{ r.base_price }}</dd>{% endif %}
+    {% if r.recycle_value is not none %}<dt>Recycle</dt><dd>{{ r.recycle_value }}</dd>{% endif %}
+    {% if r.inv_frame is not none %}<dt>inv_frame</dt><dd class="mono">{{ r.inv_frame }}</dd>{% endif %}
+</dl>
+</aside>
+</div>
+
+<p style="margin-top:2.5rem"><a class="muted" href="{{ root }}weapons.html">← Back to all weapons</a></p>
+{% endblock %}

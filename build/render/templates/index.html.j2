@@ -1,0 +1,63 @@
+{% extends "base.html.j2" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h1>Cubic Odyssey — local wiki</h1>
+<p>A locally-generated reference for ores, ingots, tools, weapons, and resources in Cubic Odyssey. All data extracted directly from the game's <code>data/configs/</code> on every build.</p>
+
+<div class="controls">
+    <input type="search" class="search" id="globalSearch" placeholder="Search all {{ counts.total }} entries (e.g. iron, mining laser, diamond)…" autocomplete="off">
+</div>
+<div class="results" id="results"></div>
+
+<h2>Browse by category</h2>
+<div class="cards">
+    <a class="card" href="{{ root }}ores.html">
+        <h3>Ores</h3>
+        <div class="count">{{ counts.ores }} entries</div>
+        <p>Mineable blocks: tier, required mining laser, planet distribution, smelting chain.</p>
+    </a>
+    <a class="card" href="{{ root }}ingots.html">
+        <h3>Ingots</h3>
+        <div class="count">{{ counts.ingots }} entries</div>
+        <p>Smelted ore products. Crafting feedstock.</p>
+    </a>
+    <a class="card" href="{{ root }}tools.html">
+        <h3>Tools</h3>
+        <div class="count">{{ counts.tools }} entries</div>
+        <p>Mining lasers, ore extractors, backpacks, drones, fishing rods.</p>
+    </a>
+    <a class="card" href="{{ root }}weapons.html">
+        <h3>Weapons</h3>
+        <div class="count">{{ counts.weapons }} entries</div>
+        <p>Ranged and melee combat weapons (mining lasers are listed under Tools).</p>
+    </a>
+    <a class="card" href="{{ root }}resources.html">
+        <h3>Resources</h3>
+        <div class="count">{{ counts.resources }} entries</div>
+        <p>Raw materials, ammo, consumables, fuel cells, fragments, keys.</p>
+    </a>
+    <a class="card" href="{{ root }}guides.html">
+        <h3>Guides</h3>
+        <div class="count">{{ counts.guides }} guides</div>
+        <p>Walkthroughs: finding Motherboards, leveling Mining, leveling Trading.</p>
+    </a>
+</div>
+
+<h2>Quick links — mining</h2>
+<div class="cards">
+    {% for o in top_ores %}
+    <a class="card" href="{{ root }}ores/{{ o.slug }}.html">
+        <h3>{{ o.display }} <span class="tier tier-{{ o.tier }}">T{{ o.tier }}</span></h3>
+        <div class="count mono">{{ o.identifier }}</div>
+        {% if o.required_laser_file %}<p>Needs <strong>{{ o.required_laser_file|replace('_', ' ')|title }}</strong> or better.</p>{% endif %}
+    </a>
+    {% endfor %}
+</div>
+
+<div class="note">
+    <strong>Out of v1 scope:</strong> ships, ship components, speeders, habitats, armor / gear, drone gear, slopes, stairs, building parts. These are present in game data and may be added later.
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ root }}assets/search.js" defer></script>
+{% endblock %}

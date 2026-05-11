@@ -1,0 +1,14 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Build intermediate (regenerable from game data)
+data/catalog.json
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp

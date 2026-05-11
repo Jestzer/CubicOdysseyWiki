@@ -1,0 +1,27 @@
+{% extends "base.html.j2" %}
+{% block title %}{{ r.display }}{% endblock %}
+{% block content %}
+<div class="detail-head">
+    {% if r.icon %}<div class="icon-big"><img src="{{ root }}{{ r.icon }}" alt=""></div>
+    {% else %}<div class="icon-big placeholder">{{ r.display[:2]|upper }}</div>{% endif %}
+    <div class="meta">
+        <h1>{{ r.display }} <span class="tier tier-{{ r.tier }}">Tier {{ r.tier }}</span></h1>
+        <div class="id">{{ r.identifier }}</div>
+        <p class="desc">{{ r.type|replace('_', ' ')|title }} resource.</p>
+    </div>
+</div>
+
+<aside class="infobox" style="max-width:none">
+<h3 style="margin-top:0">Item info</h3>
+<dl>
+    <dt>Type</dt><dd class="mono">{{ r.type }}</dd>
+    {% if r.stack_size %}<dt>Stack size</dt><dd>{{ r.stack_size }}</dd>{% endif %}
+    {% if r.base_price is not none %}<dt>Base price</dt><dd>{{ r.base_price }}</dd>{% endif %}
+    {% if r.recycle_value is not none %}<dt>Recycle</dt><dd>{{ r.recycle_value }}</dd>{% endif %}
+    {% if r.inv_frame is not none %}<dt>inv_frame</dt><dd class="mono">{{ r.inv_frame }}</dd>{% endif %}
+    {% if r.description_string %}<dt>desc_id</dt><dd class="mono">{{ r.description_string }}</dd>{% endif %}
+</dl>
+</aside>
+
+<p style="margin-top:2.5rem"><a class="muted" href="{{ root }}resources.html">← Back to all resources</a></p>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends "base.html.j2" %}
+{% block title %}Leveling Trading{% endblock %}
+{% block content %}
+<h1>Leveling Trading</h1>
+<p>The Trading skill governs your discount when buying from merchants and your bonus when selling to them. It's one of nine player skills (<code>data/configs/achievements/max_level_trading.cfg</code>) and the easiest skill to level without combat.</p>
+
+<div class="section-grid">
+<div>
+
+<h2 id="trade-discount">How XP is earned</h2>
+<p>Every completed buy or sell transaction at a merchant grants Trading XP. The value of the transaction is what feeds the bar — flipping one expensive item is roughly equivalent to many cheap ones, so volume <em>or</em> value works.</p>
+
+<h2>The outpost perk that compounds with skill</h2>
+<p>One of only three perks in <code>data/configs/outpostperks/</code> is trade-related:</p>
+
+<table class="wiki">
+<thead><tr><th>Perk</th><th class="mono">id</th><th class="numeric">Value</th><th>Effect</th></tr></thead>
+<tbody>
+<tr><td><strong>Trade Discount 1</strong></td><td class="mono">{{ trade_perk.id }}</td><td class="numeric">{{ trade_perk.value }} ({{ (trade_perk.value * 100)|round(1) }}%)</td><td>Per level, applied to merchant prices at the outpost.</td></tr>
+<tr><td>HP Regen 1</td><td class="mono">{{ hp_perk.id }}</td><td class="numeric">—</td><td>Faster HP regeneration.</td></tr>
+<tr><td>Processing Speed 1</td><td class="mono">{{ proc_perk.id }}</td><td class="numeric">—</td><td>Faster furnace / refinery cook times.</td></tr>
+</tbody>
+</table>
+<p>Build / level the trade-discount perk at your home outpost as soon as you have a stable income. The discount stacks with whatever skill-based reduction Trading itself grants.</p>
+
+<h2>What's profitable to flip — by the numbers</h2>
+<p>Items in the game expose two fields the engine uses for trade pricing: <code>base_price</code> (how the merchant prices it) and <code>base_demand</code> (positive = merchant <em>wants</em> it, will pay more; negative = merchant supplies it, sells cheaper than other shops). The most flippable items have <strong>high base price AND positive base demand</strong>:</p>
+
+<table class="wiki">
+<thead><tr><th class="icon"></th><th>Item</th><th class="numeric">Price</th><th class="numeric">Demand</th><th>Type</th></tr></thead>
+<tbody>
+{% for it in high_demand[:20] %}
+<tr>
+    <td class="icon">{% if it.icon %}<img src="{{ root }}{{ it.icon }}" alt="">{% endif %}</td>
+    <td><a href="{{ root }}{{ it.url }}">{{ it.display }}</a></td>
+    <td class="numeric">{{ it.base_price }}</td>
+    <td class="numeric">{{ it.base_demand }}</td>
+    <td class="mono">{{ it.type }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<p style="font-size:0.85em;color:var(--text-faint)">Top 20 by <code>base_demand × base_price</code>, filtered to <code>base_demand &gt; 0</code>. These are merchant-wanted items — sell them at the right outpost type for maximum profit.</p>
+
+<h2>The opposite side — items merchants supply (don't flip these)</h2>
+<table class="wiki">
+<thead><tr><th class="icon"></th><th>Item</th><th class="numeric">Price</th><th class="numeric">Demand</th><th>Type</th></tr></thead>
+<tbody>
+{% for it in vendor_stock[:10] %}
+<tr>
+    <td class="icon">{% if it.icon %}<img src="{{ root }}{{ it.icon }}" alt="">{% endif %}</td>
+    <td><a href="{{ root }}{{ it.url }}">{{ it.display }}</a></td>
+    <td class="numeric">{{ it.base_price }}</td>
+    <td class="numeric">{{ it.base_demand }}</td>
+    <td class="mono">{{ it.type }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<p style="font-size:0.85em;color:var(--text-faint)">Lowest <code>base_demand</code>. These are the items you <em>buy</em> for cheap (Motherboards, Mirrors, Capacitors, etc.) and use, rather than flip.</p>
+
+<h2>Strategy</h2>
+<ol>
+    <li><strong>Mine and smelt, then sell ingots.</strong> The biggest reliable trading-XP source early. <a href="{{ root }}ingots.html">Tier-1 ingots</a> have small price tags but you'll have thousands by the time you're advanced.</li>
+    <li><strong>Sell at the right outpost.</strong> Outpost specialisations affect which items have high demand. A mining-themed outpost pays more for ingots; a tech outpost for electronics; a farming outpost for fruit / seeds / saplings.</li>
+    <li><strong>Buy vendor-supplied items below their crafting cost.</strong> Motherboards, mirrors, and similar electronic parts are usually cheaper to buy in bulk than to chase as drops. Roll a trade-discount perk and stock up.</li>
+    <li><strong>Loot then sell.</strong> Cleared a bunker or pirate ship? Bring everything you don't need to the nearest outpost. Even creature resources and low-tier components add up.</li>
+    <li><strong>Don't carry corruption-stained items into civilised outposts</strong> — some quest stages disable trading temporarily, but otherwise stains are just an inventory penalty.</li>
+</ol>
+
+</div>
+
+<aside class="infobox">
+<h3 style="margin-top:0">At a glance</h3>
+<dl>
+    <dt>Skill</dt><dd>Trading</dd>
+    <dt>Activity</dt><dd>Buying / selling with merchants</dd>
+    <dt>Stacks with</dt><dd>Trade Discount perk (2% per level)</dd>
+    <dt>Where</dt><dd>Outposts, space stations, special merchants</dd>
+    <dt>Achievement</dt><dd class="mono">ACH_MAX_LEVEL_TRADING</dd>
+</dl>
+</aside>
+</div>
+
+<p style="margin-top:2.5rem"><a class="muted" href="{{ root }}guides.html">← Back to all guides</a></p>
+{% endblock %}

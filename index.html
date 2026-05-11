@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home — Cubic Odyssey Wiki</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+    <div class="inner">
+        <div class="brand">
+            <a href="index.html">Cubic Odyssey</a>
+            <small>local wiki · 503 entries</small>
+        </div>
+        <nav>
+            <a href="ores.html"      class="">Ores</a>
+            <a href="ingots.html"    class="">Ingots</a>
+            <a href="tools.html"     class="">Tools</a>
+            <a href="weapons.html"   class="">Weapons</a>
+            <a href="resources.html" class="">Resources</a>
+            <a href="guides.html"    class="">Guides</a>
+        </nav>
+    </div>
+</header>
+<main class="wrap">
+    
+<h1>Cubic Odyssey — local wiki</h1>
+<p>A locally-generated reference for ores, ingots, tools, weapons, and resources in Cubic Odyssey. All data extracted directly from the game's <code>data/configs/</code> on every build.</p>
+
+<div class="controls">
+    <input type="search" class="search" id="globalSearch" placeholder="Search all 503 entries (e.g. iron, mining laser, diamond)…" autocomplete="off">
+</div>
+<div class="results" id="results"></div>
+
+<h2>Browse by category</h2>
+<div class="cards">
+    <a class="card" href="ores.html">
+        <h3>Ores</h3>
+        <div class="count">30 entries</div>
+        <p>Mineable blocks: tier, required mining laser, planet distribution, smelting chain.</p>
+    </a>
+    <a class="card" href="ingots.html">
+        <h3>Ingots</h3>
+        <div class="count">30 entries</div>
+        <p>Smelted ore products. Crafting feedstock.</p>
+    </a>
+    <a class="card" href="tools.html">
+        <h3>Tools</h3>
+        <div class="count">20 entries</div>
+        <p>Mining lasers, ore extractors, backpacks, drones, fishing rods.</p>
+    </a>
+    <a class="card" href="weapons.html">
+        <h3>Weapons</h3>
+        <div class="count">261 entries</div>
+        <p>Ranged and melee combat weapons (mining lasers are listed under Tools).</p>
+    </a>
+    <a class="card" href="resources.html">
+        <h3>Resources</h3>
+        <div class="count">159 entries</div>
+        <p>Raw materials, ammo, consumables, fuel cells, fragments, keys.</p>
+    </a>
+    <a class="card" href="guides.html">
+        <h3>Guides</h3>
+        <div class="count">3 guides</div>
+        <p>Walkthroughs: finding Motherboards, leveling Mining, leveling Trading.</p>
+    </a>
+</div>
+
+<h2>Quick links — mining</h2>
+<div class="cards">
+    
+    <a class="card" href="ores/res_aluminum_ore.html">
+        <h3>Aluminum Ore <span class="tier tier-1">T1</span></h3>
+        <div class="count mono">res.aluminum.ore</div>
+        <p>Needs <strong>Mining Laser 0</strong> or better.</p>
+    </a>
+    
+    <a class="card" href="ores/res_copper_ore.html">
+        <h3>Copper Ore <span class="tier tier-1">T1</span></h3>
+        <div class="count mono">res.copper.ore</div>
+        <p>Needs <strong>Mining Laser 0</strong> or better.</p>
+    </a>
+    
+    <a class="card" href="ores/res_iron_ore.html">
+        <h3>Iron Ore <span class="tier tier-1">T1</span></h3>
+        <div class="count mono">res.iron.ore</div>
+        <p>Needs <strong>Mining Laser 0</strong> or better.</p>
+    </a>
+    
+    <a class="card" href="ores/res_gold_ore.html">
+        <h3>Gold Ore <span class="tier tier-2">T2</span></h3>
+        <div class="count mono">res.gold.ore</div>
+        <p>Needs <strong>Mining Laser 1</strong> or better.</p>
+    </a>
+    
+    <a class="card" href="ores/res_silicon_ore.html">
+        <h3>Silicon Ore <span class="tier tier-2">T2</span></h3>
+        <div class="count mono">res.silicon.ore</div>
+        <p>Needs <strong>Mining Laser 1</strong> or better.</p>
+    </a>
+    
+    <a class="card" href="ores/res_silver_ore.html">
+        <h3>Silver Ore <span class="tier tier-2">T2</span></h3>
+        <div class="count mono">res.silver.ore</div>
+        <p>Needs <strong>Mining Laser 1</strong> or better.</p>
+    </a>
+    
+    <a class="card" href="ores/res_tin_ore.html">
+        <h3>Tin Ore <span class="tier tier-2">T2</span></h3>
+        <div class="count mono">res.tin.ore</div>
+        <p>Needs <strong>Mining Laser 1</strong> or better.</p>
+    </a>
+    
+    <a class="card" href="ores/res_magnetite_ore.html">
+        <h3>Magnetite Ore <span class="tier tier-3">T3</span></h3>
+        <div class="count mono">res.magnetite.ore</div>
+        <p>Needs <strong>Mining Laser 2</strong> or better.</p>
+    </a>
+    
+</div>
+
+<div class="note">
+    <strong>Out of v1 scope:</strong> ships, ship components, speeders, habitats, armor / gear, drone gear, slopes, stairs, building parts. These are present in game data and may be added later.
+</div>
+
+</main>
+<footer class="site">
+    <div class="inner">
+        Generated 2026-05-11 02:55 UTC from game data (2026-04-26).
+        Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
+        Planet→biome distribution mapping is best-effort.
+    </div>
+</footer>
+
+<script src="assets/search.js" defer></script>
+
+</body>
+</html>

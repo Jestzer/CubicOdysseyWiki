@@ -1,0 +1,76 @@
+{
+  "_comment": "Maps each voxel-distribution file in data/configs/voxeldistributions to a friendly label. Most Cubic Odyssey planets use procedurally-rolled biomes (m_biome0..7 == 'random'), so a strict 1-to-1 planet -> distribution table isn't recoverable from data. Instead we describe each distribution as a planet TYPE. The 'planets' list is best-effort: filled in where m_biome* hard-codes a recognisable biome set.",
+
+  "earth_voxels": {
+    "label": "Earth-like worlds",
+    "short": "Earth-like",
+    "description": "Temperate terrestrial planets: deserts, plains, mountains, hills, and lakes. The classic mining playground.",
+    "planets": ["Earth", "Bardwell I", "Bardwell II", "Bardwell III"]
+  },
+  "barren_voxels": {
+    "label": "Barren worlds",
+    "short": "Barren",
+    "description": "Rocky, low-vegetation planets with sparse atmosphere. Mid-tier ore rich.",
+    "planets": []
+  },
+  "crystalline_voxels": {
+    "label": "Crystalline worlds",
+    "short": "Crystalline",
+    "description": "Worlds with glass and crystal terrain. Gem-bearing layers.",
+    "planets": []
+  },
+  "oceanic_voxels": {
+    "label": "Oceanic worlds",
+    "short": "Oceanic",
+    "description": "Water-dominated planets with sea-floor mineral deposits.",
+    "planets": []
+  },
+  "scorched_voxels": {
+    "label": "Scorched worlds",
+    "short": "Scorched",
+    "description": "Hot, volcanic, lava-flow planets. Rare-matter rich.",
+    "planets": ["TEST_01"]
+  },
+  "shroomy_voxels": {
+    "label": "Shroomy worlds",
+    "short": "Shroomy",
+    "description": "Fungal-biome planets dominated by mushrooms and damp terrain.",
+    "planets": []
+  },
+  "slimy_voxels": {
+    "label": "Slimy worlds",
+    "short": "Slimy",
+    "description": "Gel / slime planets with reactive surface terrain.",
+    "planets": []
+  },
+  "xeno_voxels": {
+    "label": "Xeno worlds",
+    "short": "Xeno",
+    "description": "Alien terrain — exotic biomes outside the normal classification.",
+    "planets": []
+  },
+  "majestic_voxels": {
+    "label": "Majestic worlds",
+    "short": "Majestic",
+    "description": "Rare scenic worlds with unusual ore mixes.",
+    "planets": []
+  },
+  "default_deposits": {
+    "label": "Default deposits",
+    "short": "Default",
+    "description": "Fallback ore distribution used when a planet does not declare its own.",
+    "planets": []
+  },
+  "default": {
+    "label": "Default voxel set",
+    "short": "Default",
+    "description": "Default block distribution (not ore-specific).",
+    "planets": []
+  },
+  "debug": {
+    "label": "Debug",
+    "short": "Debug",
+    "description": "Developer / debug distribution. Not seen in normal gameplay.",
+    "planets": []
+  }
+}

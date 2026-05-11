@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ingots — Cubic Odyssey Wiki</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+    <div class="inner">
+        <div class="brand">
+            <a href="index.html">Cubic Odyssey</a>
+            <small>local wiki · 503 entries</small>
+        </div>
+        <nav>
+            <a href="ores.html"      class="">Ores</a>
+            <a href="ingots.html"    class="active">Ingots</a>
+            <a href="tools.html"     class="">Tools</a>
+            <a href="weapons.html"   class="">Weapons</a>
+            <a href="resources.html" class="">Resources</a>
+            <a href="guides.html"    class="">Guides</a>
+        </nav>
+    </div>
+</header>
+<main class="wrap">
+    
+<h1>Ingots</h1>
+<p>Smelted metal/refined-resource outputs. Each links back to its source ore and smelting cost.</p>
+
+<div class="controls">
+    <input type="search" class="search" id="catSearch" placeholder="Filter 30 ingots…" autocomplete="off">
+    
+    <div class="pills" id="tierPills">
+        <span class="pill active" data-tier="all">All tiers</span>
+        <span class="pill" data-tier="1">T1</span><span class="pill" data-tier="2">T2</span><span class="pill" data-tier="3">T3</span><span class="pill" data-tier="4">T4</span><span class="pill" data-tier="7">T7</span>
+    </div>
+    
+</div>
+
+<table class="wiki" id="catTable">
+    <thead>
+        <tr>
+            <th class="icon"></th>
+            <th data-key="display">Name</th>
+            <th data-key="tier" class="numeric">Tier</th>
+            <th data-key="identifier">Identifier</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr data-tier="1" data-search="aluminum ingot res.aluminum.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_aluminum_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_aluminum_ingot.html">Aluminum Ingot</a></td>
+            <td class="numeric"><span class="tier tier-1">T1</span></td>
+            <td class="mono">res.aluminum.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="1" data-search="copper ingot res.copper.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_copper_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_copper_ingot.html">Copper Ingot</a></td>
+            <td class="numeric"><span class="tier tier-1">T1</span></td>
+            <td class="mono">res.copper.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="1" data-search="iron ingot res.iron.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_iron_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_iron_ingot.html">Iron Ingot</a></td>
+            <td class="numeric"><span class="tier tier-1">T1</span></td>
+            <td class="mono">res.iron.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="2" data-search="gold ingot res.gold.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_gold_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_gold_ingot.html">Gold Ingot</a></td>
+            <td class="numeric"><span class="tier tier-2">T2</span></td>
+            <td class="mono">res.gold.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="2" data-search="silicon ingot res.silicon.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_silicon_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_silicon_ingot.html">Silicon Ingot</a></td>
+            <td class="numeric"><span class="tier tier-2">T2</span></td>
+            <td class="mono">res.silicon.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="2" data-search="silver ingot res.silver.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_silver_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_silver_ingot.html">Silver Ingot</a></td>
+            <td class="numeric"><span class="tier tier-2">T2</span></td>
+            <td class="mono">res.silver.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="2" data-search="tin ingot res.tin.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_tin_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_tin_ingot.html">Tin Ingot</a></td>
+            <td class="numeric"><span class="tier tier-2">T2</span></td>
+            <td class="mono">res.tin.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="3" data-search="magnetite ingot res.magnetite.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_magnetite_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_magnetite_ingot.html">Magnetite Ingot</a></td>
+            <td class="numeric"><span class="tier tier-3">T3</span></td>
+            <td class="mono">res.magnetite.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="3" data-search="quartz ingot res.quartz.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_quartz_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_quartz_ingot.html">Quartz Ingot</a></td>
+            <td class="numeric"><span class="tier tier-3">T3</span></td>
+            <td class="mono">res.quartz.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="3" data-search="sulfur ingot res.sulfur.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_sulfur_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_sulfur_ingot.html">Sulfur Ingot</a></td>
+            <td class="numeric"><span class="tier tier-3">T3</span></td>
+            <td class="mono">res.sulfur.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="3" data-search="titanium ingot res.titanium.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_titanium_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_titanium_ingot.html">Titanium Ingot</a></td>
+            <td class="numeric"><span class="tier tier-3">T3</span></td>
+            <td class="mono">res.titanium.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="4" data-search="cobalt ingot res.cobalt.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_cobalt_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_cobalt_ingot.html">Cobalt Ingot</a></td>
+            <td class="numeric"><span class="tier tier-4">T4</span></td>
+            <td class="mono">res.cobalt.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="4" data-search="polonium ingot res.polonium.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_polonium_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_polonium_ingot.html">Polonium Ingot</a></td>
+            <td class="numeric"><span class="tier tier-4">T4</span></td>
+            <td class="mono">res.polonium.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="4" data-search="radium ingot res.radium.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_radium_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_radium_ingot.html">Radium Ingot</a></td>
+            <td class="numeric"><span class="tier tier-4">T4</span></td>
+            <td class="mono">res.radium.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="4" data-search="uranium ingot res.uranium.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_uranium_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_uranium_ingot.html">Uranium Ingot</a></td>
+            <td class="numeric"><span class="tier tier-4">T4</span></td>
+            <td class="mono">res.uranium.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing aluminum ingot res.glowing.aluminum.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_aluminum_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_glowing_aluminum_ingot.html">Glowing Aluminum Ingot</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.aluminum.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing cobalt ingot res.glowing.cobalt.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_cobalt_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_glowing_cobalt_ingot.html">Glowing Cobalt Ingot</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.cobalt.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing copper ingot res.glowing.copper.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_copper_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_glowing_copper_ingot.html">Glowing Copper Ingot</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.copper.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing gold ingot res.glowing.gold.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_gold_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_glowing_gold_ingot.html">Glowing Gold Ingot</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.gold.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing iron ingot res.glowing.iron.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_iron_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_glowing_iron_ingot.html">Glowing Iron Ingot</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.iron.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing magnetite ingot res.glowing.magnetite.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_magnetite_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_glowing_magnetite_ingot.html">Glowing Magnetite Ingot</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.magnetite.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing polonium ingot res.glowing.polonium.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_polonium_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_glowing_polonium_ingot.html">Glowing Polonium Ingot</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.polonium.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing quartz ingot res.glowing.quartz.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_quartz_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_glowing_quartz_ingot.html">Glowing Quartz Ingot</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.quartz.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing radium ingot res.glowing.radium.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_radium_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_glowing_radium_ingot.html">Glowing Radium Ingot</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.radium.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing silicon ingot res.glowing.silicon.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_silicon_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_glowing_silicon_ingot.html">Glowing Silicon Ingot</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.silicon.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing silver ingot res.glowing.silver.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_silver_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_glowing_silver_ingot.html">Glowing Silver Ingot</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.silver.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing sulfur ingot res.glowing.sulfur.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_sulfur_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_glowing_sulfur_ingot.html">Glowing Sulfur Ingot</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.sulfur.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing tin ingot res.glowing.tin.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_tin_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_glowing_tin_ingot.html">Glowing Tin Ingot</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.tin.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing titanium ingot res.glowing.titanium.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_titanium_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_glowing_titanium_ingot.html">Glowing Titanium Ingot</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.titanium.ingot</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing uranium ingot res.glowing.uranium.ingot">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_uranium_ingot.png" alt="">
+            </td>
+            <td><a href="ingots/res_glowing_uranium_ingot.html">Glowing Uranium Ingot</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.uranium.ingot</td>
+            
+        </tr>
+        
+    </tbody>
+</table>
+
+
+
+</main>
+<footer class="site">
+    <div class="inner">
+        Generated 2026-05-11 02:55 UTC from game data (2026-04-26).
+        Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
+        Planet→biome distribution mapping is best-effort.
+    </div>
+</footer>
+
+<script>
+(function(){
+    const table = document.getElementById('catTable');
+    if(!table) return;
+    const tbody = table.tBodies[0];
+    const rows = Array.from(tbody.rows);
+    const search = document.getElementById('catSearch');
+    const pills = document.getElementById('tierPills');
+    let tierFilter = 'all';
+
+    function apply(){
+        const q = (search?.value || '').trim().toLowerCase();
+        let visible = 0;
+        for(const r of rows){
+            const text = r.dataset.search;
+            const t = r.dataset.tier;
+            const matchQ = !q || text.indexOf(q) !== -1;
+            const matchT = tierFilter === 'all' || t === tierFilter;
+            r.style.display = (matchQ && matchT) ? '' : 'none';
+            if(matchQ && matchT) visible++;
+        }
+    }
+    search?.addEventListener('input', apply);
+    if(pills){
+        pills.addEventListener('click', e => {
+            const p = e.target.closest('.pill');
+            if(!p) return;
+            pills.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
+            p.classList.add('active');
+            tierFilter = p.dataset.tier;
+            apply();
+        });
+    }
+
+    // sortable columns
+    table.querySelectorAll('thead th[data-key]').forEach(th => {
+        th.addEventListener('click', () => {
+            const key = th.dataset.key;
+            const asc = !th.classList.contains('sort-asc');
+            table.querySelectorAll('th').forEach(x => x.classList.remove('sort-asc','sort-desc'));
+            th.classList.add(asc ? 'sort-asc' : 'sort-desc');
+            rows.sort((a, b) => {
+                const av = a.querySelector(`td:nth-child(${th.cellIndex+1})`).textContent.trim();
+                const bv = b.querySelector(`td:nth-child(${th.cellIndex+1})`).textContent.trim();
+                const an = parseFloat(av), bn = parseFloat(bv);
+                if(!isNaN(an) && !isNaN(bn)) return asc ? an-bn : bn-an;
+                return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+            });
+            rows.forEach(r => tbody.appendChild(r));
+        });
+    });
+})();
+</script>
+
+</body>
+</html>

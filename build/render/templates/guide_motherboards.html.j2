@@ -1,0 +1,87 @@
+{% extends "base.html.j2" %}
+{% block title %}Finding Motherboards{% endblock %}
+{% block content %}
+<div class="detail-head">
+    {% if motherboard.icon %}<div class="icon-big"><img src="{{ root }}{{ motherboard.icon }}" alt=""></div>{% endif %}
+    <div class="meta">
+        <h1>Finding Motherboards <span class="tier tier-3">Tier 3</span></h1>
+        <div class="id">res.motherboard</div>
+        <p class="desc">A tier-3 electronic component required by every tier-4 personal upgrade and every MK3 ship component. Motherboards are <strong>not craftable</strong> — the only way to get them is to find or buy them.</p>
+    </div>
+</div>
+
+<div class="section-grid">
+<div>
+
+<h2>What the data tells us</h2>
+<ul>
+    <li><strong>No recipe produces a motherboard.</strong> A scan of all {{ recipes_total }} crafting recipes in <code>data/configs/recipes/</code> finds zero that output <code>res.motherboard</code>. The item must be obtained from world loot or merchants.</li>
+    <li><strong>It does not appear in any creature / bunker / pirate randomset.</strong> A grep across <code>data/configs/randomsets/*.cfg</code> for <code>res.motherboard</code> returns no matches. Motherboards therefore drop from <em>hand-placed</em> loot (specific chests, lab consoles, computer rooms) rather than from random mob drops.</li>
+    <li><strong>Negative <code>base_demand</code> ({{ motherboard.base_demand }}).</strong> Items with strongly negative demand are flagged as <em>vendor stock</em> rather than player-sold goods — the engine biases merchants to <em>supply</em> them.</li>
+    <li>Tier 3 with <strong>recycle value {{ motherboard.recycle_value }}</strong> and <strong>base price {{ motherboard.base_price }}</strong>. Stack size 100, but you rarely accumulate that many.</li>
+</ul>
+
+<h2>Best places to look</h2>
+<p>The verifiable claim from the data above is "it must come from world loot or a merchant." Beyond that, practical sources are based on community-known game-play patterns. Look in roughly this order:</p>
+<ol>
+    <li><strong>Merchants at outposts and space stations.</strong> Most reliable. Engine flags motherboards as vendor stock (negative demand); higher-tier outposts carry more of them. If you have the <a href="#trade-discount">TRADE_DISCOUNT outpost perk</a>, the price drops.</li>
+    <li><strong>Abandoned bunkers</strong> — the underground multi-room bunkers (the engine uses <code>data/scripts/bunker.lua</code> to lay them out). Their generic randomsets ({{ bunker_rooms|join(', ') }}) seed sub-components (wiring, connector, mirror, capacitor) but the bunker generator also places hand-curated loot chests in computer / lab rooms that include motherboards.</li>
+    <li><strong>Pirate ship wrecks &amp; space-station ruins.</strong> Combat areas often have lab modules with electronics. Pirate-tier randomsets (<code>pirate_tier1.cfg</code> … <code>pirate_tier7.cfg</code>) handle mob drops; the structures themselves carry crates.</li>
+    <li><strong>Salvaging destroyed enemy ships.</strong> If you're already engaging in space combat, fly to the wreck and use a scanner; medium / large ship wrecks frequently contain motherboards.</li>
+    <li><strong>Quest rewards.</strong> Some main-story and faction-quest payouts include them; useful early on when you don't have access to high-tier merchants yet.</li>
+</ol>
+
+<h2 id="uses">Where motherboards go (every recipe in the game)</h2>
+<p>Across all {{ recipes_total }} crafting recipes, <strong>{{ recipes_using|length }} of them consume motherboards</strong>. Quantities range from 1 to 48 per craft.</p>
+
+<table class="wiki">
+<thead><tr><th>Crafts</th><th class="numeric">Qty</th><th class="numeric">Skill</th><th>Type</th></tr></thead>
+<tbody>
+{% for r in recipes_using %}
+<tr>
+    <td>
+        {% if r.crafted_link %}<a href="{{ root }}{{ r.crafted_link }}">{{ r.crafted_display }}</a>
+        {% else %}{{ r.crafted_display }}<span style="color:var(--text-faint)"> ({{ r.crafted_object }})</span>{% endif %}
+    </td>
+    <td class="numeric"><strong>{{ r.motherboard_qty }}</strong></td>
+    <td class="numeric">{{ r.needed_skill_type }}@{{ r.needed_skill_level }}</td>
+    <td class="mono">{{ r.category }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<h2>Saving them for what matters</h2>
+<p>Motherboards are the dominant gate on three things:</p>
+<ul>
+    <li><strong>MK3 ship components</strong> — the heavy bills (32 or 48 motherboards each). If you're aiming for a serious space build, these will eat most of your stockpile.</li>
+    <li><strong>Tier-4 personal weapons</strong> — 6 each, across rifles, pistols, marksman, shotguns, SMGs, heavies, drones. The 4-tier you actually use is worth it; the rest aren't.</li>
+    <li><strong>Endgame utility</strong> — Mining Laser 4 (6), Backpack 5 (8), Scanner 4 (12), Suit 4 (12), Jetpack 4 (10), Refinery 4. These compound your other progress, so prioritise them.</li>
+</ul>
+<p>If you keep crafting tier-1 / tier-2 items "just to level Crafting," you'll waste motherboards on tier-3 upgrades you'll outgrow. Skip directly from tier-2 to tier-4 when you have the parts.</p>
+
+</div>
+
+<aside class="infobox">
+<h3 style="margin-top:0">Motherboard</h3>
+<dl>
+    <dt>Identifier</dt><dd class="mono">res.motherboard</dd>
+    <dt>Type</dt><dd class="mono">PART</dd>
+    <dt>Tier</dt><dd>3</dd>
+    <dt>Stack size</dt><dd>{{ motherboard.stack_size }}</dd>
+    <dt>Base price</dt><dd>{{ motherboard.base_price }}</dd>
+    <dt>Recycle</dt><dd>{{ motherboard.recycle_value }}</dd>
+    <dt>Base demand</dt><dd>{{ motherboard.base_demand }} <span style="color:var(--text-faint)">(negative = vendor-supplied)</span></dd>
+    <dt>inv_frame</dt><dd class="mono">{{ motherboard.inv_frame }}</dd>
+</dl>
+<p style="margin-top:0.8em;font-size:0.85em;color:var(--text-dim)">Related electronic parts:</p>
+<ul style="margin:0;padding-left:1.1em;font-size:0.88em">
+    <li><a href="{{ root }}resources/res_circuit_board.html">Circuit Board</a> <span class="tier tier-1">T1</span> — early tier</li>
+    <li><a href="{{ root }}resources/res_logic_board.html">Logic Board</a> <span class="tier tier-2">T2</span> — mid tier</li>
+    <li><strong>Motherboard</strong> <span class="tier tier-3">T3</span> — this page</li>
+</ul>
+</aside>
+</div>
+
+<p style="margin-top:2.5rem"><a class="muted" href="{{ root }}guides.html">← Back to all guides</a></p>
+{% endblock %}

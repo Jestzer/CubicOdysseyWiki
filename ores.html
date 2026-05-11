@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ores — Cubic Odyssey Wiki</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+    <div class="inner">
+        <div class="brand">
+            <a href="index.html">Cubic Odyssey</a>
+            <small>local wiki · 503 entries</small>
+        </div>
+        <nav>
+            <a href="ores.html"      class="active">Ores</a>
+            <a href="ingots.html"    class="">Ingots</a>
+            <a href="tools.html"     class="">Tools</a>
+            <a href="weapons.html"   class="">Weapons</a>
+            <a href="resources.html" class="">Resources</a>
+            <a href="guides.html"    class="">Guides</a>
+        </nav>
+    </div>
+</header>
+<main class="wrap">
+    
+<h1>Ores</h1>
+<p>Mineable ore blocks. Mining laser requirement and world distribution shown per entry.</p>
+
+<div class="controls">
+    <input type="search" class="search" id="catSearch" placeholder="Filter 30 ores…" autocomplete="off">
+    
+    <div class="pills" id="tierPills">
+        <span class="pill active" data-tier="all">All tiers</span>
+        <span class="pill" data-tier="1">T1</span><span class="pill" data-tier="2">T2</span><span class="pill" data-tier="3">T3</span><span class="pill" data-tier="4">T4</span><span class="pill" data-tier="7">T7</span>
+    </div>
+    
+</div>
+
+<table class="wiki" id="catTable">
+    <thead>
+        <tr>
+            <th class="icon"></th>
+            <th data-key="display">Name</th>
+            <th data-key="tier" class="numeric">Tier</th>
+            <th data-key="identifier">Identifier</th>
+            
+            <th data-key="required_laser_file" >Tool</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr data-tier="1" data-search="aluminum ore res.aluminum.ore">
+            <td class="icon">
+                <img src="assets/icons/res_aluminum_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_aluminum_ore.html">Aluminum Ore</a></td>
+            <td class="numeric"><span class="tier tier-1">T1</span></td>
+            <td class="mono">res.aluminum.ore</td>
+            
+            <td  class="mono">MINING_LASER_0</td>
+            
+        </tr>
+        
+        <tr data-tier="1" data-search="copper ore res.copper.ore">
+            <td class="icon">
+                <img src="assets/icons/res_copper_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_copper_ore.html">Copper Ore</a></td>
+            <td class="numeric"><span class="tier tier-1">T1</span></td>
+            <td class="mono">res.copper.ore</td>
+            
+            <td  class="mono">MINING_LASER_0</td>
+            
+        </tr>
+        
+        <tr data-tier="1" data-search="iron ore res.iron.ore">
+            <td class="icon">
+                <img src="assets/icons/res_iron_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_iron_ore.html">Iron Ore</a></td>
+            <td class="numeric"><span class="tier tier-1">T1</span></td>
+            <td class="mono">res.iron.ore</td>
+            
+            <td  class="mono">MINING_LASER_0</td>
+            
+        </tr>
+        
+        <tr data-tier="2" data-search="gold ore res.gold.ore">
+            <td class="icon">
+                <img src="assets/icons/res_gold_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_gold_ore.html">Gold Ore</a></td>
+            <td class="numeric"><span class="tier tier-2">T2</span></td>
+            <td class="mono">res.gold.ore</td>
+            
+            <td  class="mono">MINING_LASER_1</td>
+            
+        </tr>
+        
+        <tr data-tier="2" data-search="silicon ore res.silicon.ore">
+            <td class="icon">
+                <img src="assets/icons/res_silicon_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_silicon_ore.html">Silicon Ore</a></td>
+            <td class="numeric"><span class="tier tier-2">T2</span></td>
+            <td class="mono">res.silicon.ore</td>
+            
+            <td  class="mono">MINING_LASER_1</td>
+            
+        </tr>
+        
+        <tr data-tier="2" data-search="silver ore res.silver.ore">
+            <td class="icon">
+                <img src="assets/icons/res_silver_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_silver_ore.html">Silver Ore</a></td>
+            <td class="numeric"><span class="tier tier-2">T2</span></td>
+            <td class="mono">res.silver.ore</td>
+            
+            <td  class="mono">MINING_LASER_1</td>
+            
+        </tr>
+        
+        <tr data-tier="2" data-search="tin ore res.tin.ore">
+            <td class="icon">
+                <img src="assets/icons/res_tin_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_tin_ore.html">Tin Ore</a></td>
+            <td class="numeric"><span class="tier tier-2">T2</span></td>
+            <td class="mono">res.tin.ore</td>
+            
+            <td  class="mono">MINING_LASER_1</td>
+            
+        </tr>
+        
+        <tr data-tier="3" data-search="magnetite ore res.magnetite.ore">
+            <td class="icon">
+                <img src="assets/icons/res_magnetite_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_magnetite_ore.html">Magnetite Ore</a></td>
+            <td class="numeric"><span class="tier tier-3">T3</span></td>
+            <td class="mono">res.magnetite.ore</td>
+            
+            <td  class="mono">MINING_LASER_2</td>
+            
+        </tr>
+        
+        <tr data-tier="3" data-search="quartz ore res.quartz.ore">
+            <td class="icon">
+                <img src="assets/icons/res_quartz_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_quartz_ore.html">Quartz Ore</a></td>
+            <td class="numeric"><span class="tier tier-3">T3</span></td>
+            <td class="mono">res.quartz.ore</td>
+            
+            <td  class="mono">MINING_LASER_2</td>
+            
+        </tr>
+        
+        <tr data-tier="3" data-search="sulfur ore res.sulfur.ore">
+            <td class="icon">
+                <img src="assets/icons/res_sulfur_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_sulfur_ore.html">Sulfur Ore</a></td>
+            <td class="numeric"><span class="tier tier-3">T3</span></td>
+            <td class="mono">res.sulfur.ore</td>
+            
+            <td  class="mono">MINING_LASER_2</td>
+            
+        </tr>
+        
+        <tr data-tier="3" data-search="titanium ore res.titanium.ore">
+            <td class="icon">
+                <img src="assets/icons/res_titanium_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_titanium_ore.html">Titanium Ore</a></td>
+            <td class="numeric"><span class="tier tier-3">T3</span></td>
+            <td class="mono">res.titanium.ore</td>
+            
+            <td  class="mono">MINING_LASER_2</td>
+            
+        </tr>
+        
+        <tr data-tier="4" data-search="cobalt ore res.cobalt.ore">
+            <td class="icon">
+                <img src="assets/icons/res_cobalt_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_cobalt_ore.html">Cobalt Ore</a></td>
+            <td class="numeric"><span class="tier tier-4">T4</span></td>
+            <td class="mono">res.cobalt.ore</td>
+            
+            <td  class="mono">MINING_LASER_3</td>
+            
+        </tr>
+        
+        <tr data-tier="4" data-search="polonium ore res.polonium.ore">
+            <td class="icon">
+                <img src="assets/icons/res_polonium_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_polonium_ore.html">Polonium Ore</a></td>
+            <td class="numeric"><span class="tier tier-4">T4</span></td>
+            <td class="mono">res.polonium.ore</td>
+            
+            <td  class="mono">MINING_LASER_3</td>
+            
+        </tr>
+        
+        <tr data-tier="4" data-search="radium ore res.radium.ore">
+            <td class="icon">
+                <img src="assets/icons/res_radium_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_radium_ore.html">Radium Ore</a></td>
+            <td class="numeric"><span class="tier tier-4">T4</span></td>
+            <td class="mono">res.radium.ore</td>
+            
+            <td  class="mono">MINING_LASER_3</td>
+            
+        </tr>
+        
+        <tr data-tier="4" data-search="uranium ore res.uranium.ore">
+            <td class="icon">
+                <img src="assets/icons/res_uranium_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_uranium_ore.html">Uranium Ore</a></td>
+            <td class="numeric"><span class="tier tier-4">T4</span></td>
+            <td class="mono">res.uranium.ore</td>
+            
+            <td  class="mono">MINING_LASER_3</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing aluminum ore res.glowing.aluminum.ore">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_aluminum_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_glowing_aluminum_ore.html">Glowing Aluminum Ore</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.aluminum.ore</td>
+            
+            <td  class="mono">MINING_LASER_6</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing cobalt ore res.glowing.cobalt.ore">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_cobalt_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_glowing_cobalt_ore.html">Glowing Cobalt Ore</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.cobalt.ore</td>
+            
+            <td  class="mono">MINING_LASER_6</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing copper ore res.glowing.copper.ore">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_copper_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_glowing_copper_ore.html">Glowing Copper Ore</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.copper.ore</td>
+            
+            <td  class="mono">MINING_LASER_6</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing gold ore res.glowing.gold.ore">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_gold_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_glowing_gold_ore.html">Glowing Gold Ore</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.gold.ore</td>
+            
+            <td  class="mono">MINING_LASER_6</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing iron ore res.glowing.iron.ore">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_iron_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_glowing_iron_ore.html">Glowing Iron Ore</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.iron.ore</td>
+            
+            <td  class="mono">MINING_LASER_6</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing magnetite ore res.glowing.magnetite.ore">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_magnetite_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_glowing_magnetite_ore.html">Glowing Magnetite Ore</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.magnetite.ore</td>
+            
+            <td  class="mono">MINING_LASER_6</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing polonium ore res.glowing.polonium.ore">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_polonium_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_glowing_polonium_ore.html">Glowing Polonium Ore</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.polonium.ore</td>
+            
+            <td  class="mono">MINING_LASER_6</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing quartz ore res.glowing.quartz.ore">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_quartz_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_glowing_quartz_ore.html">Glowing Quartz Ore</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.quartz.ore</td>
+            
+            <td  class="mono">MINING_LASER_6</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing radium ore res.glowing.radium.ore">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_radium_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_glowing_radium_ore.html">Glowing Radium Ore</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.radium.ore</td>
+            
+            <td  class="mono">MINING_LASER_6</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing silicon ore res.glowing.silicon.ore">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_silicon_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_glowing_silicon_ore.html">Glowing Silicon Ore</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.silicon.ore</td>
+            
+            <td  class="mono">MINING_LASER_6</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing silver ore res.glowing.silver.ore">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_silver_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_glowing_silver_ore.html">Glowing Silver Ore</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.silver.ore</td>
+            
+            <td  class="mono">MINING_LASER_6</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing sulfur ore res.glowing.sulfur.ore">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_sulfur_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_glowing_sulfur_ore.html">Glowing Sulfur Ore</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.sulfur.ore</td>
+            
+            <td  class="mono">MINING_LASER_6</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing tin ore res.glowing.tin.ore">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_tin_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_glowing_tin_ore.html">Glowing Tin Ore</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.tin.ore</td>
+            
+            <td  class="mono">MINING_LASER_6</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing titanium ore res.glowing.titanium.ore">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_titanium_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_glowing_titanium_ore.html">Glowing Titanium Ore</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.titanium.ore</td>
+            
+            <td  class="mono">MINING_LASER_6</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing uranium ore res.glowing.uranium.ore">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_uranium_ore.png" alt="">
+            </td>
+            <td><a href="ores/res_glowing_uranium_ore.html">Glowing Uranium Ore</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.uranium.ore</td>
+            
+            <td  class="mono">MINING_LASER_6</td>
+            
+        </tr>
+        
+    </tbody>
+</table>
+
+
+
+</main>
+<footer class="site">
+    <div class="inner">
+        Generated 2026-05-11 02:55 UTC from game data (2026-04-26).
+        Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
+        Planet→biome distribution mapping is best-effort.
+    </div>
+</footer>
+
+<script>
+(function(){
+    const table = document.getElementById('catTable');
+    if(!table) return;
+    const tbody = table.tBodies[0];
+    const rows = Array.from(tbody.rows);
+    const search = document.getElementById('catSearch');
+    const pills = document.getElementById('tierPills');
+    let tierFilter = 'all';
+
+    function apply(){
+        const q = (search?.value || '').trim().toLowerCase();
+        let visible = 0;
+        for(const r of rows){
+            const text = r.dataset.search;
+            const t = r.dataset.tier;
+            const matchQ = !q || text.indexOf(q) !== -1;
+            const matchT = tierFilter === 'all' || t === tierFilter;
+            r.style.display = (matchQ && matchT) ? '' : 'none';
+            if(matchQ && matchT) visible++;
+        }
+    }
+    search?.addEventListener('input', apply);
+    if(pills){
+        pills.addEventListener('click', e => {
+            const p = e.target.closest('.pill');
+            if(!p) return;
+            pills.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
+            p.classList.add('active');
+            tierFilter = p.dataset.tier;
+            apply();
+        });
+    }
+
+    // sortable columns
+    table.querySelectorAll('thead th[data-key]').forEach(th => {
+        th.addEventListener('click', () => {
+            const key = th.dataset.key;
+            const asc = !th.classList.contains('sort-asc');
+            table.querySelectorAll('th').forEach(x => x.classList.remove('sort-asc','sort-desc'));
+            th.classList.add(asc ? 'sort-asc' : 'sort-desc');
+            rows.sort((a, b) => {
+                const av = a.querySelector(`td:nth-child(${th.cellIndex+1})`).textContent.trim();
+                const bv = b.querySelector(`td:nth-child(${th.cellIndex+1})`).textContent.trim();
+                const an = parseFloat(av), bn = parseFloat(bv);
+                if(!isNaN(an) && !isNaN(bn)) return asc ? an-bn : bn-an;
+                return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+            });
+            rows.forEach(r => tbody.appendChild(r));
+        });
+    });
+})();
+</script>
+
+</body>
+</html>

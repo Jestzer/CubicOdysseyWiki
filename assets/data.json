@@ -1,0 +1,4529 @@
+[
+{
+"id":"res.aluminum.ore",
+"name":"Aluminum Ore",
+"slug":"res_aluminum_ore",
+"category":"ores",
+"tier":1,
+"icon":"assets/icons/res_aluminum_ore.png",
+"url":"ores/res_aluminum_ore.html"
+},
+{
+"id":"res.cobalt.ore",
+"name":"Cobalt Ore",
+"slug":"res_cobalt_ore",
+"category":"ores",
+"tier":4,
+"icon":"assets/icons/res_cobalt_ore.png",
+"url":"ores/res_cobalt_ore.html"
+},
+{
+"id":"res.copper.ore",
+"name":"Copper Ore",
+"slug":"res_copper_ore",
+"category":"ores",
+"tier":1,
+"icon":"assets/icons/res_copper_ore.png",
+"url":"ores/res_copper_ore.html"
+},
+{
+"id":"res.glowing.aluminum.ore",
+"name":"Glowing Aluminum Ore",
+"slug":"res_glowing_aluminum_ore",
+"category":"ores",
+"tier":7,
+"icon":"assets/icons/res_glowing_aluminum_ore.png",
+"url":"ores/res_glowing_aluminum_ore.html"
+},
+{
+"id":"res.glowing.cobalt.ore",
+"name":"Glowing Cobalt Ore",
+"slug":"res_glowing_cobalt_ore",
+"category":"ores",
+"tier":7,
+"icon":"assets/icons/res_glowing_cobalt_ore.png",
+"url":"ores/res_glowing_cobalt_ore.html"
+},
+{
+"id":"res.glowing.copper.ore",
+"name":"Glowing Copper Ore",
+"slug":"res_glowing_copper_ore",
+"category":"ores",
+"tier":7,
+"icon":"assets/icons/res_glowing_copper_ore.png",
+"url":"ores/res_glowing_copper_ore.html"
+},
+{
+"id":"res.glowing.gold.ore",
+"name":"Glowing Gold Ore",
+"slug":"res_glowing_gold_ore",
+"category":"ores",
+"tier":7,
+"icon":"assets/icons/res_glowing_gold_ore.png",
+"url":"ores/res_glowing_gold_ore.html"
+},
+{
+"id":"res.glowing.iron.ore",
+"name":"Glowing Iron Ore",
+"slug":"res_glowing_iron_ore",
+"category":"ores",
+"tier":7,
+"icon":"assets/icons/res_glowing_iron_ore.png",
+"url":"ores/res_glowing_iron_ore.html"
+},
+{
+"id":"res.glowing.magnetite.ore",
+"name":"Glowing Magnetite Ore",
+"slug":"res_glowing_magnetite_ore",
+"category":"ores",
+"tier":7,
+"icon":"assets/icons/res_glowing_magnetite_ore.png",
+"url":"ores/res_glowing_magnetite_ore.html"
+},
+{
+"id":"res.glowing.polonium.ore",
+"name":"Glowing Polonium Ore",
+"slug":"res_glowing_polonium_ore",
+"category":"ores",
+"tier":7,
+"icon":"assets/icons/res_glowing_polonium_ore.png",
+"url":"ores/res_glowing_polonium_ore.html"
+},
+{
+"id":"res.glowing.quartz.ore",
+"name":"Glowing Quartz Ore",
+"slug":"res_glowing_quartz_ore",
+"category":"ores",
+"tier":7,
+"icon":"assets/icons/res_glowing_quartz_ore.png",
+"url":"ores/res_glowing_quartz_ore.html"
+},
+{
+"id":"res.glowing.radium.ore",
+"name":"Glowing Radium Ore",
+"slug":"res_glowing_radium_ore",
+"category":"ores",
+"tier":7,
+"icon":"assets/icons/res_glowing_radium_ore.png",
+"url":"ores/res_glowing_radium_ore.html"
+},
+{
+"id":"res.glowing.silicon.ore",
+"name":"Glowing Silicon Ore",
+"slug":"res_glowing_silicon_ore",
+"category":"ores",
+"tier":7,
+"icon":"assets/icons/res_glowing_silicon_ore.png",
+"url":"ores/res_glowing_silicon_ore.html"
+},
+{
+"id":"res.glowing.silver.ore",
+"name":"Glowing Silver Ore",
+"slug":"res_glowing_silver_ore",
+"category":"ores",
+"tier":7,
+"icon":"assets/icons/res_glowing_silver_ore.png",
+"url":"ores/res_glowing_silver_ore.html"
+},
+{
+"id":"res.glowing.sulfur.ore",
+"name":"Glowing Sulfur Ore",
+"slug":"res_glowing_sulfur_ore",
+"category":"ores",
+"tier":7,
+"icon":"assets/icons/res_glowing_sulfur_ore.png",
+"url":"ores/res_glowing_sulfur_ore.html"
+},
+{
+"id":"res.glowing.tin.ore",
+"name":"Glowing Tin Ore",
+"slug":"res_glowing_tin_ore",
+"category":"ores",
+"tier":7,
+"icon":"assets/icons/res_glowing_tin_ore.png",
+"url":"ores/res_glowing_tin_ore.html"
+},
+{
+"id":"res.glowing.titanium.ore",
+"name":"Glowing Titanium Ore",
+"slug":"res_glowing_titanium_ore",
+"category":"ores",
+"tier":7,
+"icon":"assets/icons/res_glowing_titanium_ore.png",
+"url":"ores/res_glowing_titanium_ore.html"
+},
+{
+"id":"res.glowing.uranium.ore",
+"name":"Glowing Uranium Ore",
+"slug":"res_glowing_uranium_ore",
+"category":"ores",
+"tier":7,
+"icon":"assets/icons/res_glowing_uranium_ore.png",
+"url":"ores/res_glowing_uranium_ore.html"
+},
+{
+"id":"res.gold.ore",
+"name":"Gold Ore",
+"slug":"res_gold_ore",
+"category":"ores",
+"tier":2,
+"icon":"assets/icons/res_gold_ore.png",
+"url":"ores/res_gold_ore.html"
+},
+{
+"id":"res.iron.ore",
+"name":"Iron Ore",
+"slug":"res_iron_ore",
+"category":"ores",
+"tier":1,
+"icon":"assets/icons/res_iron_ore.png",
+"url":"ores/res_iron_ore.html"
+},
+{
+"id":"res.magnetite.ore",
+"name":"Magnetite Ore",
+"slug":"res_magnetite_ore",
+"category":"ores",
+"tier":3,
+"icon":"assets/icons/res_magnetite_ore.png",
+"url":"ores/res_magnetite_ore.html"
+},
+{
+"id":"res.polonium.ore",
+"name":"Polonium Ore",
+"slug":"res_polonium_ore",
+"category":"ores",
+"tier":4,
+"icon":"assets/icons/res_polonium_ore.png",
+"url":"ores/res_polonium_ore.html"
+},
+{
+"id":"res.quartz.ore",
+"name":"Quartz Ore",
+"slug":"res_quartz_ore",
+"category":"ores",
+"tier":3,
+"icon":"assets/icons/res_quartz_ore.png",
+"url":"ores/res_quartz_ore.html"
+},
+{
+"id":"res.radium.ore",
+"name":"Radium Ore",
+"slug":"res_radium_ore",
+"category":"ores",
+"tier":4,
+"icon":"assets/icons/res_radium_ore.png",
+"url":"ores/res_radium_ore.html"
+},
+{
+"id":"res.silicon.ore",
+"name":"Silicon Ore",
+"slug":"res_silicon_ore",
+"category":"ores",
+"tier":2,
+"icon":"assets/icons/res_silicon_ore.png",
+"url":"ores/res_silicon_ore.html"
+},
+{
+"id":"res.silver.ore",
+"name":"Silver Ore",
+"slug":"res_silver_ore",
+"category":"ores",
+"tier":2,
+"icon":"assets/icons/res_silver_ore.png",
+"url":"ores/res_silver_ore.html"
+},
+{
+"id":"res.sulfur.ore",
+"name":"Sulfur Ore",
+"slug":"res_sulfur_ore",
+"category":"ores",
+"tier":3,
+"icon":"assets/icons/res_sulfur_ore.png",
+"url":"ores/res_sulfur_ore.html"
+},
+{
+"id":"res.tin.ore",
+"name":"Tin Ore",
+"slug":"res_tin_ore",
+"category":"ores",
+"tier":2,
+"icon":"assets/icons/res_tin_ore.png",
+"url":"ores/res_tin_ore.html"
+},
+{
+"id":"res.titanium.ore",
+"name":"Titanium Ore",
+"slug":"res_titanium_ore",
+"category":"ores",
+"tier":3,
+"icon":"assets/icons/res_titanium_ore.png",
+"url":"ores/res_titanium_ore.html"
+},
+{
+"id":"res.uranium.ore",
+"name":"Uranium Ore",
+"slug":"res_uranium_ore",
+"category":"ores",
+"tier":4,
+"icon":"assets/icons/res_uranium_ore.png",
+"url":"ores/res_uranium_ore.html"
+},
+{
+"id":"res.aluminum.ingot",
+"name":"Aluminum Ingot",
+"slug":"res_aluminum_ingot",
+"category":"ingots",
+"tier":1,
+"icon":"assets/icons/res_aluminum_ingot.png",
+"url":"ingots/res_aluminum_ingot.html"
+},
+{
+"id":"res.cobalt.ingot",
+"name":"Cobalt Ingot",
+"slug":"res_cobalt_ingot",
+"category":"ingots",
+"tier":4,
+"icon":"assets/icons/res_cobalt_ingot.png",
+"url":"ingots/res_cobalt_ingot.html"
+},
+{
+"id":"res.copper.ingot",
+"name":"Copper Ingot",
+"slug":"res_copper_ingot",
+"category":"ingots",
+"tier":1,
+"icon":"assets/icons/res_copper_ingot.png",
+"url":"ingots/res_copper_ingot.html"
+},
+{
+"id":"res.glowing.aluminum.ingot",
+"name":"Glowing Aluminum Ingot",
+"slug":"res_glowing_aluminum_ingot",
+"category":"ingots",
+"tier":7,
+"icon":"assets/icons/res_glowing_aluminum_ingot.png",
+"url":"ingots/res_glowing_aluminum_ingot.html"
+},
+{
+"id":"res.glowing.cobalt.ingot",
+"name":"Glowing Cobalt Ingot",
+"slug":"res_glowing_cobalt_ingot",
+"category":"ingots",
+"tier":7,
+"icon":"assets/icons/res_glowing_cobalt_ingot.png",
+"url":"ingots/res_glowing_cobalt_ingot.html"
+},
+{
+"id":"res.glowing.copper.ingot",
+"name":"Glowing Copper Ingot",
+"slug":"res_glowing_copper_ingot",
+"category":"ingots",
+"tier":7,
+"icon":"assets/icons/res_glowing_copper_ingot.png",
+"url":"ingots/res_glowing_copper_ingot.html"
+},
+{
+"id":"res.glowing.gold.ingot",
+"name":"Glowing Gold Ingot",
+"slug":"res_glowing_gold_ingot",
+"category":"ingots",
+"tier":7,
+"icon":"assets/icons/res_glowing_gold_ingot.png",
+"url":"ingots/res_glowing_gold_ingot.html"
+},
+{
+"id":"res.glowing.iron.ingot",
+"name":"Glowing Iron Ingot",
+"slug":"res_glowing_iron_ingot",
+"category":"ingots",
+"tier":7,
+"icon":"assets/icons/res_glowing_iron_ingot.png",
+"url":"ingots/res_glowing_iron_ingot.html"
+},
+{
+"id":"res.glowing.magnetite.ingot",
+"name":"Glowing Magnetite Ingot",
+"slug":"res_glowing_magnetite_ingot",
+"category":"ingots",
+"tier":7,
+"icon":"assets/icons/res_glowing_magnetite_ingot.png",
+"url":"ingots/res_glowing_magnetite_ingot.html"
+},
+{
+"id":"res.glowing.polonium.ingot",
+"name":"Glowing Polonium Ingot",
+"slug":"res_glowing_polonium_ingot",
+"category":"ingots",
+"tier":7,
+"icon":"assets/icons/res_glowing_polonium_ingot.png",
+"url":"ingots/res_glowing_polonium_ingot.html"
+},
+{
+"id":"res.glowing.quartz.ingot",
+"name":"Glowing Quartz Ingot",
+"slug":"res_glowing_quartz_ingot",
+"category":"ingots",
+"tier":7,
+"icon":"assets/icons/res_glowing_quartz_ingot.png",
+"url":"ingots/res_glowing_quartz_ingot.html"
+},
+{
+"id":"res.glowing.radium.ingot",
+"name":"Glowing Radium Ingot",
+"slug":"res_glowing_radium_ingot",
+"category":"ingots",
+"tier":7,
+"icon":"assets/icons/res_glowing_radium_ingot.png",
+"url":"ingots/res_glowing_radium_ingot.html"
+},
+{
+"id":"res.glowing.silicon.ingot",
+"name":"Glowing Silicon Ingot",
+"slug":"res_glowing_silicon_ingot",
+"category":"ingots",
+"tier":7,
+"icon":"assets/icons/res_glowing_silicon_ingot.png",
+"url":"ingots/res_glowing_silicon_ingot.html"
+},
+{
+"id":"res.glowing.silver.ingot",
+"name":"Glowing Silver Ingot",
+"slug":"res_glowing_silver_ingot",
+"category":"ingots",
+"tier":7,
+"icon":"assets/icons/res_glowing_silver_ingot.png",
+"url":"ingots/res_glowing_silver_ingot.html"
+},
+{
+"id":"res.glowing.sulfur.ingot",
+"name":"Glowing Sulfur Ingot",
+"slug":"res_glowing_sulfur_ingot",
+"category":"ingots",
+"tier":7,
+"icon":"assets/icons/res_glowing_sulfur_ingot.png",
+"url":"ingots/res_glowing_sulfur_ingot.html"
+},
+{
+"id":"res.glowing.tin.ingot",
+"name":"Glowing Tin Ingot",
+"slug":"res_glowing_tin_ingot",
+"category":"ingots",
+"tier":7,
+"icon":"assets/icons/res_glowing_tin_ingot.png",
+"url":"ingots/res_glowing_tin_ingot.html"
+},
+{
+"id":"res.glowing.titanium.ingot",
+"name":"Glowing Titanium Ingot",
+"slug":"res_glowing_titanium_ingot",
+"category":"ingots",
+"tier":7,
+"icon":"assets/icons/res_glowing_titanium_ingot.png",
+"url":"ingots/res_glowing_titanium_ingot.html"
+},
+{
+"id":"res.glowing.uranium.ingot",
+"name":"Glowing Uranium Ingot",
+"slug":"res_glowing_uranium_ingot",
+"category":"ingots",
+"tier":7,
+"icon":"assets/icons/res_glowing_uranium_ingot.png",
+"url":"ingots/res_glowing_uranium_ingot.html"
+},
+{
+"id":"res.gold.ingot",
+"name":"Gold Ingot",
+"slug":"res_gold_ingot",
+"category":"ingots",
+"tier":2,
+"icon":"assets/icons/res_gold_ingot.png",
+"url":"ingots/res_gold_ingot.html"
+},
+{
+"id":"res.iron.ingot",
+"name":"Iron Ingot",
+"slug":"res_iron_ingot",
+"category":"ingots",
+"tier":1,
+"icon":"assets/icons/res_iron_ingot.png",
+"url":"ingots/res_iron_ingot.html"
+},
+{
+"id":"res.magnetite.ingot",
+"name":"Magnetite Ingot",
+"slug":"res_magnetite_ingot",
+"category":"ingots",
+"tier":3,
+"icon":"assets/icons/res_magnetite_ingot.png",
+"url":"ingots/res_magnetite_ingot.html"
+},
+{
+"id":"res.polonium.ingot",
+"name":"Polonium Ingot",
+"slug":"res_polonium_ingot",
+"category":"ingots",
+"tier":4,
+"icon":"assets/icons/res_polonium_ingot.png",
+"url":"ingots/res_polonium_ingot.html"
+},
+{
+"id":"res.quartz.ingot",
+"name":"Quartz Ingot",
+"slug":"res_quartz_ingot",
+"category":"ingots",
+"tier":3,
+"icon":"assets/icons/res_quartz_ingot.png",
+"url":"ingots/res_quartz_ingot.html"
+},
+{
+"id":"res.radium.ingot",
+"name":"Radium Ingot",
+"slug":"res_radium_ingot",
+"category":"ingots",
+"tier":4,
+"icon":"assets/icons/res_radium_ingot.png",
+"url":"ingots/res_radium_ingot.html"
+},
+{
+"id":"res.silicon.ingot",
+"name":"Silicon Ingot",
+"slug":"res_silicon_ingot",
+"category":"ingots",
+"tier":2,
+"icon":"assets/icons/res_silicon_ingot.png",
+"url":"ingots/res_silicon_ingot.html"
+},
+{
+"id":"res.silver.ingot",
+"name":"Silver Ingot",
+"slug":"res_silver_ingot",
+"category":"ingots",
+"tier":2,
+"icon":"assets/icons/res_silver_ingot.png",
+"url":"ingots/res_silver_ingot.html"
+},
+{
+"id":"res.sulfur.ingot",
+"name":"Sulfur Ingot",
+"slug":"res_sulfur_ingot",
+"category":"ingots",
+"tier":3,
+"icon":"assets/icons/res_sulfur_ingot.png",
+"url":"ingots/res_sulfur_ingot.html"
+},
+{
+"id":"res.tin.ingot",
+"name":"Tin Ingot",
+"slug":"res_tin_ingot",
+"category":"ingots",
+"tier":2,
+"icon":"assets/icons/res_tin_ingot.png",
+"url":"ingots/res_tin_ingot.html"
+},
+{
+"id":"res.titanium.ingot",
+"name":"Titanium Ingot",
+"slug":"res_titanium_ingot",
+"category":"ingots",
+"tier":3,
+"icon":"assets/icons/res_titanium_ingot.png",
+"url":"ingots/res_titanium_ingot.html"
+},
+{
+"id":"res.uranium.ingot",
+"name":"Uranium Ingot",
+"slug":"res_uranium_ingot",
+"category":"ingots",
+"tier":4,
+"icon":"assets/icons/res_uranium_ingot.png",
+"url":"ingots/res_uranium_ingot.html"
+},
+{
+"id":"wep.bomb.1",
+"name":"Bomb 1",
+"slug":"wep_bomb_1",
+"category":"tools",
+"tier":3,
+"icon":"assets/icons/wep_bomb_1.png",
+"url":"tools/wep_bomb_1.html"
+},
+{
+"id":"wep.bomb.instant",
+"name":"Bomb Instant",
+"slug":"wep_bomb_instant",
+"category":"tools",
+"tier":3,
+"icon":"assets/icons/wep_bomb_instant.png",
+"url":"tools/wep_bomb_instant.html"
+},
+{
+"id":"wep.corruptiongun.1",
+"name":"Corruption Gun 1",
+"slug":"wep_corruptiongun_1",
+"category":"tools",
+"tier":1,
+"icon":"assets/icons/wep_corruptiongun_1.png",
+"url":"tools/wep_corruptiongun_1.html"
+},
+{
+"id":"wep.corruptiongun.2",
+"name":"Corruption Gun 2",
+"slug":"wep_corruptiongun_2",
+"category":"tools",
+"tier":1,
+"icon":"assets/icons/wep_corruptiongun_2.png",
+"url":"tools/wep_corruptiongun_2.html"
+},
+{
+"id":"wep.corruptiongun.3",
+"name":"Corruption Gun 3",
+"slug":"wep_corruptiongun_3",
+"category":"tools",
+"tier":1,
+"icon":"assets/icons/wep_corruptiongun_3.png",
+"url":"tools/wep_corruptiongun_3.html"
+},
+{
+"id":"wep.debug.gun",
+"name":"Debug Gun 1",
+"slug":"wep_debug_gun",
+"category":"tools",
+"tier":1,
+"icon":"assets/icons/wep_debug_gun.png",
+"url":"tools/wep_debug_gun.html"
+},
+{
+"id":"wep.farming_gun",
+"name":"Farm Gun",
+"slug":"wep_farming_gun",
+"category":"tools",
+"tier":1,
+"icon":"assets/icons/wep_farming_gun.png",
+"url":"tools/wep_farming_gun.html"
+},
+{
+"id":"wep.fishing.rod.1",
+"name":"Fishing Rod 1",
+"slug":"wep_fishing_rod_1",
+"category":"tools",
+"tier":1,
+"icon":"assets/icons/wep_fishing_rod_1.png",
+"url":"tools/wep_fishing_rod_1.html"
+},
+{
+"id":"wep.mining_laser.0",
+"name":"Mining Laser 0",
+"slug":"wep_mining_laser_0",
+"category":"tools",
+"tier":1,
+"icon":"assets/icons/wep_mining_laser_0.png",
+"url":"tools/wep_mining_laser_0.html"
+},
+{
+"id":"wep.mining_laser.1",
+"name":"Mining Laser 1",
+"slug":"wep_mining_laser_1",
+"category":"tools",
+"tier":2,
+"icon":"assets/icons/wep_mining_laser_1.png",
+"url":"tools/wep_mining_laser_1.html"
+},
+{
+"id":"wep.mining_laser.2",
+"name":"Mining Laser 2",
+"slug":"wep_mining_laser_2",
+"category":"tools",
+"tier":3,
+"icon":"assets/icons/wep_mining_laser_2.png",
+"url":"tools/wep_mining_laser_2.html"
+},
+{
+"id":"wep.mining_laser.3",
+"name":"Mining Laser 3",
+"slug":"wep_mining_laser_3",
+"category":"tools",
+"tier":4,
+"icon":"assets/icons/wep_mining_laser_3.png",
+"url":"tools/wep_mining_laser_3.html"
+},
+{
+"id":"wep.mining_laser.4",
+"name":"Mining Laser 4",
+"slug":"wep_mining_laser_4",
+"category":"tools",
+"tier":5,
+"icon":"assets/icons/wep_mining_laser_4.png",
+"url":"tools/wep_mining_laser_4.html"
+},
+{
+"id":"wep.mining_laser.5",
+"name":"Mining Laser 5",
+"slug":"wep_mining_laser_5",
+"category":"tools",
+"tier":6,
+"icon":"assets/icons/wep_mining_laser_5.png",
+"url":"tools/wep_mining_laser_5.html"
+},
+{
+"id":"wep.mining_laser.6",
+"name":"Mining Laser 6",
+"slug":"wep_mining_laser_6",
+"category":"tools",
+"tier":7,
+"icon":"assets/icons/wep_mining_laser_6.png",
+"url":"tools/wep_mining_laser_6.html"
+},
+{
+"id":"wep.mining_laser.7",
+"name":"Mining Laser 7",
+"slug":"wep_mining_laser_7",
+"category":"tools",
+"tier":7,
+"icon":"assets/icons/wep_mining_laser_7.png",
+"url":"tools/wep_mining_laser_7.html"
+},
+{
+"id":"wep.paintgun.1",
+"name":"Paintgun 1",
+"slug":"wep_paintgun_1",
+"category":"tools",
+"tier":3,
+"icon":"assets/icons/wep_paintgun_1.png",
+"url":"tools/wep_paintgun_1.html"
+},
+{
+"id":"wep.paintgun.2",
+"name":"Paintgun 2",
+"slug":"wep_paintgun_2",
+"category":"tools",
+"tier":5,
+"icon":"assets/icons/wep_paintgun_2.png",
+"url":"tools/wep_paintgun_2.html"
+},
+{
+"id":"wep.paintgun.3",
+"name":"Paintgun 3",
+"slug":"wep_paintgun_3",
+"category":"tools",
+"tier":6,
+"icon":"assets/icons/wep_paintgun_3.png",
+"url":"tools/wep_paintgun_3.html"
+},
+{
+"id":"wep.water_gun.0",
+"name":"Water Gun 0",
+"slug":"wep_water_gun_0",
+"category":"tools",
+"tier":1,
+"icon":"assets/icons/wep_water_gun_0.png",
+"url":"tools/wep_water_gun_0.html"
+},
+{
+"id":"wep.rifle.annihilator.ancient.5",
+"name":"Annihilator Ancient 5",
+"slug":"wep_rifle_annihilator_ancient_5",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_rifle_annihilator_ancient_5.png",
+"url":"weapons/wep_rifle_annihilator_ancient_5.html"
+},
+{
+"id":"wep.bfg",
+"name":"Bfg",
+"slug":"wep_bfg",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_bfg.png",
+"url":"weapons/wep_bfg.html"
+},
+{
+"id":"wep.sword.big_spider",
+"name":"Big Spider Sword",
+"slug":"wep_sword_big_spider",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_sword_big_spider.png",
+"url":"weapons/wep_sword_big_spider.html"
+},
+{
+"id":"wep.sword.laser.blue",
+"name":"Blue Plasma Sword",
+"slug":"wep_sword_laser_blue",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_sword_laser_blue.png",
+"url":"weapons/wep_sword_laser_blue.html"
+},
+{
+"id":"wep.animal.seed.launcher.1",
+"name":"Cave Thick Seed Launcher",
+"slug":"wep_animal_seed_launcher_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_animal_seed_launcher_1.png",
+"url":"weapons/wep_animal_seed_launcher_1.html"
+},
+{
+"id":"wep.corruption.launcher.1",
+"name":"Corruption Launcher 1",
+"slug":"wep_corruption_launcher_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_corruption_launcher_1.png",
+"url":"weapons/wep_corruption_launcher_1.html"
+},
+{
+"id":"wep.corruption.purifier.1",
+"name":"Corruption Purifier 1",
+"slug":"wep_corruption_purifier_1",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_corruption_purifier_1.png",
+"url":"weapons/wep_corruption_purifier_1.html"
+},
+{
+"id":"wep.corruption.purifier.2",
+"name":"Corruption Purifier 2",
+"slug":"wep_corruption_purifier_2",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_corruption_purifier_2.png",
+"url":"weapons/wep_corruption_purifier_2.html"
+},
+{
+"id":"wep.corruption.purifier.3",
+"name":"Corruption Purifier 3",
+"slug":"wep_corruption_purifier_3",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_corruption_purifier_3.png",
+"url":"weapons/wep_corruption_purifier_3.html"
+},
+{
+"id":"wep.corruption.purifier.4",
+"name":"Corruption Purifier 4",
+"slug":"wep_corruption_purifier_4",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_corruption_purifier_4.png",
+"url":"weapons/wep_corruption_purifier_4.html"
+},
+{
+"id":"wep.corruption.purifier.5",
+"name":"Corruption Purifier 5",
+"slug":"wep_corruption_purifier_5",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_corruption_purifier_5.png",
+"url":"weapons/wep_corruption_purifier_5.html"
+},
+{
+"id":"wep.creature.bite.corrupt",
+"name":"Creature Corruption Bite",
+"slug":"wep_creature_bite_corrupt",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_creature_bite_corrupt.png",
+"url":"weapons/wep_creature_bite_corrupt.html"
+},
+{
+"id":"wep.bite.physical.1",
+"name":"Critter Bite Physical 1",
+"slug":"wep_bite_physical_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_bite_physical_1.png",
+"url":"weapons/wep_bite_physical_1.html"
+},
+{
+"id":"wep.bite.physical.2",
+"name":"Critter Bite Physical 2",
+"slug":"wep_bite_physical_2",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_bite_physical_2.png",
+"url":"weapons/wep_bite_physical_2.html"
+},
+{
+"id":"wep.bite.physical.3",
+"name":"Critter Bite Physical 3",
+"slug":"wep_bite_physical_3",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_bite_physical_3.png",
+"url":"weapons/wep_bite_physical_3.html"
+},
+{
+"id":"wep.bite.physical.4",
+"name":"Critter Bite Physical 4",
+"slug":"wep_bite_physical_4",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_bite_physical_4.png",
+"url":"weapons/wep_bite_physical_4.html"
+},
+{
+"id":"wep.breath.electric.1",
+"name":"Critter Breath Electric",
+"slug":"wep_breath_electric_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_breath_electric_1.png",
+"url":"weapons/wep_breath_electric_1.html"
+},
+{
+"id":"wep.breath.electric.2",
+"name":"Critter Breath Electric 1",
+"slug":"wep_breath_electric_2",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_breath_electric_2.png",
+"url":"weapons/wep_breath_electric_2.html"
+},
+{
+"id":"wep.breath.electric.3",
+"name":"Critter Breath Electric 2",
+"slug":"wep_breath_electric_3",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_breath_electric_3.png",
+"url":"weapons/wep_breath_electric_3.html"
+},
+{
+"id":"wep.breath.electric.4",
+"name":"Critter Breath Electric 3",
+"slug":"wep_breath_electric_4",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_breath_electric_4.png",
+"url":"weapons/wep_breath_electric_4.html"
+},
+{
+"id":"wep.breath.electric.5",
+"name":"Critter Breath Electric 4",
+"slug":"wep_breath_electric_5",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_breath_electric_5.png",
+"url":"weapons/wep_breath_electric_5.html"
+},
+{
+"id":"wep.breath.flame.1",
+"name":"Critter Breath Flame",
+"slug":"wep_breath_flame_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_breath_flame_1.png",
+"url":"weapons/wep_breath_flame_1.html"
+},
+{
+"id":"wep.breath.flame.2",
+"name":"Critter Breath Flame 1",
+"slug":"wep_breath_flame_2",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_breath_flame_2.png",
+"url":"weapons/wep_breath_flame_2.html"
+},
+{
+"id":"wep.breath.flame.3",
+"name":"Critter Breath Flame 2",
+"slug":"wep_breath_flame_3",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_breath_flame_3.png",
+"url":"weapons/wep_breath_flame_3.html"
+},
+{
+"id":"wep.breath.flame.4",
+"name":"Critter Breath Flame 3",
+"slug":"wep_breath_flame_4",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_breath_flame_4.png",
+"url":"weapons/wep_breath_flame_4.html"
+},
+{
+"id":"wep.breath.flame.5",
+"name":"Critter Breath Flame 4",
+"slug":"wep_breath_flame_5",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_breath_flame_5.png",
+"url":"weapons/wep_breath_flame_5.html"
+},
+{
+"id":"wep.breath.poison.1",
+"name":"Critter Breath Poison",
+"slug":"wep_breath_poison_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_breath_poison_1.png",
+"url":"weapons/wep_breath_poison_1.html"
+},
+{
+"id":"wep.breath.poison.2",
+"name":"Critter Breath Poison 1",
+"slug":"wep_breath_poison_2",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_breath_poison_2.png",
+"url":"weapons/wep_breath_poison_2.html"
+},
+{
+"id":"wep.breath.poison.3",
+"name":"Critter Breath Poison 2",
+"slug":"wep_breath_poison_3",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_breath_poison_3.png",
+"url":"weapons/wep_breath_poison_3.html"
+},
+{
+"id":"wep.breath.poison.4",
+"name":"Critter Breath Poison 3",
+"slug":"wep_breath_poison_4",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_breath_poison_4.png",
+"url":"weapons/wep_breath_poison_4.html"
+},
+{
+"id":"wep.breath.poison.5",
+"name":"Critter Breath Poison 4",
+"slug":"wep_breath_poison_5",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_breath_poison_5.png",
+"url":"weapons/wep_breath_poison_5.html"
+},
+{
+"id":"wep.critter.laser.1",
+"name":"Critter Laser 1",
+"slug":"wep_critter_laser_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_critter_laser_1.png",
+"url":"weapons/wep_critter_laser_1.html"
+},
+{
+"id":"wep.critter.laser.2",
+"name":"Critter Laser 2",
+"slug":"wep_critter_laser_2",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_critter_laser_2.png",
+"url":"weapons/wep_critter_laser_2.html"
+},
+{
+"id":"wep.critter.poison.launcher.1",
+"name":"Critter Poison Launcher",
+"slug":"wep_critter_poison_launcher_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_critter_poison_launcher_1.png",
+"url":"weapons/wep_critter_poison_launcher_1.html"
+},
+{
+"id":"wep.critter.poison.launcher.2",
+"name":"Critter Poison Launcher 2",
+"slug":"wep_critter_poison_launcher_2",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_critter_poison_launcher_2.png",
+"url":"weapons/wep_critter_poison_launcher_2.html"
+},
+{
+"id":"wep.critter.poison.launcher.3",
+"name":"Critter Poison Launcher 3",
+"slug":"wep_critter_poison_launcher_3",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_critter_poison_launcher_3.png",
+"url":"weapons/wep_critter_poison_launcher_3.html"
+},
+{
+"id":"wep.critter.poison.launcher.4",
+"name":"Critter Poison Launcher 4",
+"slug":"wep_critter_poison_launcher_4",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_critter_poison_launcher_4.png",
+"url":"weapons/wep_critter_poison_launcher_4.html"
+},
+{
+"id":"wep.critter.rifle.laser.1",
+"name":"Critter Rifle Laser 1",
+"slug":"wep_critter_rifle_laser_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_critter_rifle_laser_1.png",
+"url":"weapons/wep_critter_rifle_laser_1.html"
+},
+{
+"id":"wep.critter.rifle.laser.2",
+"name":"Critter Rifle Laser 2",
+"slug":"wep_critter_rifle_laser_2",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_critter_rifle_laser_2.png",
+"url":"weapons/wep_critter_rifle_laser_2.html"
+},
+{
+"id":"wep.critter.rifle.laser.3",
+"name":"Critter Rifle Laser 3",
+"slug":"wep_critter_rifle_laser_3",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_critter_rifle_laser_3.png",
+"url":"weapons/wep_critter_rifle_laser_3.html"
+},
+{
+"id":"wep.darkness.launcher.1",
+"name":"Darkness Launcher 1",
+"slug":"wep_darkness_launcher_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_darkness_launcher_1.png",
+"url":"weapons/wep_darkness_launcher_1.html"
+},
+{
+"id":"wep.marksman.deadeye.ancient.5",
+"name":"Deadeye Ancient 5",
+"slug":"wep_marksman_deadeye_ancient_5",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_marksman_deadeye_ancient_5.png",
+"url":"weapons/wep_marksman_deadeye_ancient_5.html"
+},
+{
+"id":"wep.rifle.disruptor.ancient.5",
+"name":"Disruptor Ancient 5",
+"slug":"wep_rifle_disruptor_ancient_5",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_rifle_disruptor_ancient_5.png",
+"url":"weapons/wep_rifle_disruptor_ancient_5.html"
+},
+{
+"id":"wep.hands",
+"name":"Emptyhands",
+"slug":"wep_hands",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_hands.png",
+"url":"weapons/wep_hands.html"
+},
+{
+"id":"wep.rifle.eradicator.ancient.5",
+"name":"Eradicator Ancient 5",
+"slug":"wep_rifle_eradicator_ancient_5",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_rifle_eradicator_ancient_5.png",
+"url":"weapons/wep_rifle_eradicator_ancient_5.html"
+},
+{
+"id":"wep.grenade.explosion.1",
+"name":"Explosive Grenade",
+"slug":"wep_grenade_explosion_1",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_grenade_explosion_1.png",
+"url":"weapons/wep_grenade_explosion_1.html"
+},
+{
+"id":"wep.flame.thrower.1",
+"name":"Flame Thrower 1",
+"slug":"wep_flame_thrower_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_flame_thrower_1.png",
+"url":"weapons/wep_flame_thrower_1.html"
+},
+{
+"id":"wep.marksman.ghostshot.ancient.5",
+"name":"Ghostshot Ancient 5",
+"slug":"wep_marksman_ghostshot_ancient_5",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_marksman_ghostshot_ancient_5.png",
+"url":"weapons/wep_marksman_ghostshot_ancient_5.html"
+},
+{
+"id":"wep.sword.laser.green",
+"name":"Green Plasma Sword",
+"slug":"wep_sword_laser_green",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_sword_laser_green.png",
+"url":"weapons/wep_sword_laser_green.html"
+},
+{
+"id":"wep.grenade_launcher.1",
+"name":"Grenade Launcher 1",
+"slug":"wep_grenade_launcher_1",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_grenade_launcher_1.png",
+"url":"weapons/wep_grenade_launcher_1.html"
+},
+{
+"id":"wep.grenade_launcher.2",
+"name":"Grenade Launcher 2",
+"slug":"wep_grenade_launcher_2",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_grenade_launcher_2.png",
+"url":"weapons/wep_grenade_launcher_2.html"
+},
+{
+"id":"wep.pistol.handcannon.ancient.5",
+"name":"Handcannon Ancient 5",
+"slug":"wep_pistol_handcannon_ancient_5",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_pistol_handcannon_ancient_5.png",
+"url":"weapons/wep_pistol_handcannon_ancient_5.html"
+},
+{
+"id":"wep.rifle.harbinger.ancient.5",
+"name":"Harbinger Ancient 5",
+"slug":"wep_rifle_harbinger_ancient_5",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_rifle_harbinger_ancient_5.png",
+"url":"weapons/wep_rifle_harbinger_ancient_5.html"
+},
+{
+"id":"wep.heavy.mg56.0",
+"name":"Heavy A Mg56 0",
+"slug":"wep_heavy_mg56_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_heavy_mg56_0.png",
+"url":"weapons/wep_heavy_mg56_0.html"
+},
+{
+"id":"wep.heavy.mg56.1",
+"name":"Heavy A Mg56 1",
+"slug":"wep_heavy_mg56_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_heavy_mg56_1.png",
+"url":"weapons/wep_heavy_mg56_1.html"
+},
+{
+"id":"wep.heavy.mg56.2",
+"name":"Heavy A Mg56 2",
+"slug":"wep_heavy_mg56_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_heavy_mg56_2.png",
+"url":"weapons/wep_heavy_mg56_2.html"
+},
+{
+"id":"wep.heavy.mg56.3",
+"name":"Heavy A Mg56 3",
+"slug":"wep_heavy_mg56_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_heavy_mg56_3.png",
+"url":"weapons/wep_heavy_mg56_3.html"
+},
+{
+"id":"wep.heavy.mg56.4",
+"name":"Heavy A Mg56 4",
+"slug":"wep_heavy_mg56_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_heavy_mg56_4.png",
+"url":"weapons/wep_heavy_mg56_4.html"
+},
+{
+"id":"wep.heavy.mg56.5",
+"name":"Heavy A Mg56 5",
+"slug":"wep_heavy_mg56_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_heavy_mg56_5.png",
+"url":"weapons/wep_heavy_mg56_5.html"
+},
+{
+"id":"wep.heavy.mg56.6",
+"name":"Heavy A Mg56 6",
+"slug":"wep_heavy_mg56_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_heavy_mg56_6.png",
+"url":"weapons/wep_heavy_mg56_6.html"
+},
+{
+"id":"wep.heavy.mg56.7",
+"name":"Heavy A Mg56 7",
+"slug":"wep_heavy_mg56_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_heavy_mg56_7.png",
+"url":"weapons/wep_heavy_mg56_7.html"
+},
+{
+"id":"wep.heavy.mg56le.0",
+"name":"Heavy B Mg56le 0",
+"slug":"wep_heavy_mg56le_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_heavy_mg56le_0.png",
+"url":"weapons/wep_heavy_mg56le_0.html"
+},
+{
+"id":"wep.heavy.mg56le.1",
+"name":"Heavy B Mg56le 1",
+"slug":"wep_heavy_mg56le_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_heavy_mg56le_1.png",
+"url":"weapons/wep_heavy_mg56le_1.html"
+},
+{
+"id":"wep.heavy.mg56le.2",
+"name":"Heavy B Mg56le 2",
+"slug":"wep_heavy_mg56le_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_heavy_mg56le_2.png",
+"url":"weapons/wep_heavy_mg56le_2.html"
+},
+{
+"id":"wep.heavy.mg56le.3",
+"name":"Heavy B Mg56le 3",
+"slug":"wep_heavy_mg56le_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_heavy_mg56le_3.png",
+"url":"weapons/wep_heavy_mg56le_3.html"
+},
+{
+"id":"wep.heavy.mg56le.4",
+"name":"Heavy B Mg56le 4",
+"slug":"wep_heavy_mg56le_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_heavy_mg56le_4.png",
+"url":"weapons/wep_heavy_mg56le_4.html"
+},
+{
+"id":"wep.heavy.mg56le.5",
+"name":"Heavy B Mg56le 5",
+"slug":"wep_heavy_mg56le_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_heavy_mg56le_5.png",
+"url":"weapons/wep_heavy_mg56le_5.html"
+},
+{
+"id":"wep.heavy.mg56le.6",
+"name":"Heavy B Mg56le 6",
+"slug":"wep_heavy_mg56le_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_heavy_mg56le_6.png",
+"url":"weapons/wep_heavy_mg56le_6.html"
+},
+{
+"id":"wep.heavy.mg56le.7",
+"name":"Heavy B Mg56le 7",
+"slug":"wep_heavy_mg56le_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_heavy_mg56le_7.png",
+"url":"weapons/wep_heavy_mg56le_7.html"
+},
+{
+"id":"wep.heavy.mg39.0",
+"name":"Heavy C Mg39 0",
+"slug":"wep_heavy_mg39_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_heavy_mg39_0.png",
+"url":"weapons/wep_heavy_mg39_0.html"
+},
+{
+"id":"wep.heavy.mg39.1",
+"name":"Heavy C Mg39 1",
+"slug":"wep_heavy_mg39_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_heavy_mg39_1.png",
+"url":"weapons/wep_heavy_mg39_1.html"
+},
+{
+"id":"wep.heavy.mg39.2",
+"name":"Heavy C Mg39 2",
+"slug":"wep_heavy_mg39_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_heavy_mg39_2.png",
+"url":"weapons/wep_heavy_mg39_2.html"
+},
+{
+"id":"wep.heavy.mg39.3",
+"name":"Heavy C Mg39 3",
+"slug":"wep_heavy_mg39_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_heavy_mg39_3.png",
+"url":"weapons/wep_heavy_mg39_3.html"
+},
+{
+"id":"wep.heavy.mg39.4",
+"name":"Heavy C Mg39 4",
+"slug":"wep_heavy_mg39_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_heavy_mg39_4.png",
+"url":"weapons/wep_heavy_mg39_4.html"
+},
+{
+"id":"wep.heavy.mg39.5",
+"name":"Heavy C Mg39 5",
+"slug":"wep_heavy_mg39_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_heavy_mg39_5.png",
+"url":"weapons/wep_heavy_mg39_5.html"
+},
+{
+"id":"wep.heavy.mg39.6",
+"name":"Heavy C Mg39 6",
+"slug":"wep_heavy_mg39_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_heavy_mg39_6.png",
+"url":"weapons/wep_heavy_mg39_6.html"
+},
+{
+"id":"wep.heavy.mg39.7",
+"name":"Heavy C Mg39 7",
+"slug":"wep_heavy_mg39_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_heavy_mg39_7.png",
+"url":"weapons/wep_heavy_mg39_7.html"
+},
+{
+"id":"wep.heavy.mg34.0",
+"name":"Heavy D Mg34 0",
+"slug":"wep_heavy_mg34_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_heavy_mg34_0.png",
+"url":"weapons/wep_heavy_mg34_0.html"
+},
+{
+"id":"wep.heavy.mg34.1",
+"name":"Heavy D Mg34 1",
+"slug":"wep_heavy_mg34_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_heavy_mg34_1.png",
+"url":"weapons/wep_heavy_mg34_1.html"
+},
+{
+"id":"wep.heavy.mg34.2",
+"name":"Heavy D Mg34 2",
+"slug":"wep_heavy_mg34_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_heavy_mg34_2.png",
+"url":"weapons/wep_heavy_mg34_2.html"
+},
+{
+"id":"wep.heavy.mg34.3",
+"name":"Heavy D Mg34 3",
+"slug":"wep_heavy_mg34_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_heavy_mg34_3.png",
+"url":"weapons/wep_heavy_mg34_3.html"
+},
+{
+"id":"wep.heavy.mg34.4",
+"name":"Heavy D Mg34 4",
+"slug":"wep_heavy_mg34_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_heavy_mg34_4.png",
+"url":"weapons/wep_heavy_mg34_4.html"
+},
+{
+"id":"wep.heavy.mg34.5",
+"name":"Heavy D Mg34 5",
+"slug":"wep_heavy_mg34_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_heavy_mg34_5.png",
+"url":"weapons/wep_heavy_mg34_5.html"
+},
+{
+"id":"wep.heavy.mg34.6",
+"name":"Heavy D Mg34 6",
+"slug":"wep_heavy_mg34_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_heavy_mg34_6.png",
+"url":"weapons/wep_heavy_mg34_6.html"
+},
+{
+"id":"wep.heavy.mg34.7",
+"name":"Heavy D Mg34 7",
+"slug":"wep_heavy_mg34_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_heavy_mg34_7.png",
+"url":"weapons/wep_heavy_mg34_7.html"
+},
+{
+"id":"wep.sword.laser.light",
+"name":"Light Sword",
+"slug":"wep_sword_laser_light",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_sword_laser_light.png",
+"url":"weapons/wep_sword_laser_light.html"
+},
+{
+"id":"wep.marksman.str180.0",
+"name":"Marksman A Str180 0",
+"slug":"wep_marksman_str180_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_marksman_str180_0.png",
+"url":"weapons/wep_marksman_str180_0.html"
+},
+{
+"id":"wep.marksman.str180.1",
+"name":"Marksman A Str180 1",
+"slug":"wep_marksman_str180_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_marksman_str180_1.png",
+"url":"weapons/wep_marksman_str180_1.html"
+},
+{
+"id":"wep.marksman.str180.2",
+"name":"Marksman A Str180 2",
+"slug":"wep_marksman_str180_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_marksman_str180_2.png",
+"url":"weapons/wep_marksman_str180_2.html"
+},
+{
+"id":"wep.marksman.str180.3",
+"name":"Marksman A Str180 3",
+"slug":"wep_marksman_str180_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_marksman_str180_3.png",
+"url":"weapons/wep_marksman_str180_3.html"
+},
+{
+"id":"wep.marksman.str180.4",
+"name":"Marksman A Str180 4",
+"slug":"wep_marksman_str180_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_marksman_str180_4.png",
+"url":"weapons/wep_marksman_str180_4.html"
+},
+{
+"id":"wep.marksman.str180.5",
+"name":"Marksman A Str180 5",
+"slug":"wep_marksman_str180_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_marksman_str180_5.png",
+"url":"weapons/wep_marksman_str180_5.html"
+},
+{
+"id":"wep.marksman.str180.6",
+"name":"Marksman A Str180 6",
+"slug":"wep_marksman_str180_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_marksman_str180_6.png",
+"url":"weapons/wep_marksman_str180_6.html"
+},
+{
+"id":"wep.marksman.str180.7",
+"name":"Marksman A Str180 7",
+"slug":"wep_marksman_str180_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_marksman_str180_7.png",
+"url":"weapons/wep_marksman_str180_7.html"
+},
+{
+"id":"wep.marksman.str180l.0",
+"name":"Marksman B Str180l 0",
+"slug":"wep_marksman_str180l_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_marksman_str180l_0.png",
+"url":"weapons/wep_marksman_str180l_0.html"
+},
+{
+"id":"wep.marksman.str180l.1",
+"name":"Marksman B Str180l 1",
+"slug":"wep_marksman_str180l_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_marksman_str180l_1.png",
+"url":"weapons/wep_marksman_str180l_1.html"
+},
+{
+"id":"wep.marksman.str180l.2",
+"name":"Marksman B Str180l 2",
+"slug":"wep_marksman_str180l_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_marksman_str180l_2.png",
+"url":"weapons/wep_marksman_str180l_2.html"
+},
+{
+"id":"wep.marksman.str180l.3",
+"name":"Marksman B Str180l 3",
+"slug":"wep_marksman_str180l_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_marksman_str180l_3.png",
+"url":"weapons/wep_marksman_str180l_3.html"
+},
+{
+"id":"wep.marksman.str180l.4",
+"name":"Marksman B Str180l 4",
+"slug":"wep_marksman_str180l_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_marksman_str180l_4.png",
+"url":"weapons/wep_marksman_str180l_4.html"
+},
+{
+"id":"wep.marksman.str180l.5",
+"name":"Marksman B Str180l 5",
+"slug":"wep_marksman_str180l_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_marksman_str180l_5.png",
+"url":"weapons/wep_marksman_str180l_5.html"
+},
+{
+"id":"wep.marksman.str180l.6",
+"name":"Marksman B Str180l 6",
+"slug":"wep_marksman_str180l_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_marksman_str180l_6.png",
+"url":"weapons/wep_marksman_str180l_6.html"
+},
+{
+"id":"wep.marksman.str180l.7",
+"name":"Marksman B Str180l 7",
+"slug":"wep_marksman_str180l_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_marksman_str180l_7.png",
+"url":"weapons/wep_marksman_str180l_7.html"
+},
+{
+"id":"wep.marksman.str130.0",
+"name":"Marksman C Str130 0",
+"slug":"wep_marksman_str130_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_marksman_str130_0.png",
+"url":"weapons/wep_marksman_str130_0.html"
+},
+{
+"id":"wep.marksman.str130.1",
+"name":"Marksman C Str130 1",
+"slug":"wep_marksman_str130_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_marksman_str130_1.png",
+"url":"weapons/wep_marksman_str130_1.html"
+},
+{
+"id":"wep.marksman.str130.2",
+"name":"Marksman C Str130 2",
+"slug":"wep_marksman_str130_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_marksman_str130_2.png",
+"url":"weapons/wep_marksman_str130_2.html"
+},
+{
+"id":"wep.marksman.str130.3",
+"name":"Marksman C Str130 3",
+"slug":"wep_marksman_str130_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_marksman_str130_3.png",
+"url":"weapons/wep_marksman_str130_3.html"
+},
+{
+"id":"wep.marksman.str130.4",
+"name":"Marksman C Str130 4",
+"slug":"wep_marksman_str130_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_marksman_str130_4.png",
+"url":"weapons/wep_marksman_str130_4.html"
+},
+{
+"id":"wep.marksman.str130.5",
+"name":"Marksman C Str130 5",
+"slug":"wep_marksman_str130_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_marksman_str130_5.png",
+"url":"weapons/wep_marksman_str130_5.html"
+},
+{
+"id":"wep.marksman.str130.6",
+"name":"Marksman C Str130 6",
+"slug":"wep_marksman_str130_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_marksman_str130_6.png",
+"url":"weapons/wep_marksman_str130_6.html"
+},
+{
+"id":"wep.marksman.str130.7",
+"name":"Marksman C Str130 7",
+"slug":"wep_marksman_str130_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_marksman_str130_7.png",
+"url":"weapons/wep_marksman_str130_7.html"
+},
+{
+"id":"wep.marksman.str80xl.0",
+"name":"Marksman D Str80xl 0",
+"slug":"wep_marksman_str80xl_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_marksman_str80xl_0.png",
+"url":"weapons/wep_marksman_str80xl_0.html"
+},
+{
+"id":"wep.marksman.str80xl.1",
+"name":"Marksman D Str80xl 1",
+"slug":"wep_marksman_str80xl_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_marksman_str80xl_1.png",
+"url":"weapons/wep_marksman_str80xl_1.html"
+},
+{
+"id":"wep.marksman.str80xl.2",
+"name":"Marksman D Str80xl 2",
+"slug":"wep_marksman_str80xl_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_marksman_str80xl_2.png",
+"url":"weapons/wep_marksman_str80xl_2.html"
+},
+{
+"id":"wep.marksman.str80xl.3",
+"name":"Marksman D Str80xl 3",
+"slug":"wep_marksman_str80xl_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_marksman_str80xl_3.png",
+"url":"weapons/wep_marksman_str80xl_3.html"
+},
+{
+"id":"wep.marksman.str80xl.4",
+"name":"Marksman D Str80xl 4",
+"slug":"wep_marksman_str80xl_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_marksman_str80xl_4.png",
+"url":"weapons/wep_marksman_str80xl_4.html"
+},
+{
+"id":"wep.marksman.str80xl.5",
+"name":"Marksman D Str80xl 5",
+"slug":"wep_marksman_str80xl_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_marksman_str80xl_5.png",
+"url":"weapons/wep_marksman_str80xl_5.html"
+},
+{
+"id":"wep.marksman.str80xl.6",
+"name":"Marksman D Str80xl 6",
+"slug":"wep_marksman_str80xl_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_marksman_str80xl_6.png",
+"url":"weapons/wep_marksman_str80xl_6.html"
+},
+{
+"id":"wep.marksman.str80xl.7",
+"name":"Marksman D Str80xl 7",
+"slug":"wep_marksman_str80xl_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_marksman_str80xl_7.png",
+"url":"weapons/wep_marksman_str80xl_7.html"
+},
+{
+"id":"wep.marksman.str180le.0",
+"name":"Marksman E Str180le 0",
+"slug":"wep_marksman_str180le_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_marksman_str180le_0.png",
+"url":"weapons/wep_marksman_str180le_0.html"
+},
+{
+"id":"wep.marksman.str180le.1",
+"name":"Marksman E Str180le 1",
+"slug":"wep_marksman_str180le_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_marksman_str180le_1.png",
+"url":"weapons/wep_marksman_str180le_1.html"
+},
+{
+"id":"wep.marksman.str180le.2",
+"name":"Marksman E Str180le 2",
+"slug":"wep_marksman_str180le_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_marksman_str180le_2.png",
+"url":"weapons/wep_marksman_str180le_2.html"
+},
+{
+"id":"wep.marksman.str180le.3",
+"name":"Marksman E Str180le 3",
+"slug":"wep_marksman_str180le_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_marksman_str180le_3.png",
+"url":"weapons/wep_marksman_str180le_3.html"
+},
+{
+"id":"wep.marksman.str180le.4",
+"name":"Marksman E Str180le 4",
+"slug":"wep_marksman_str180le_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_marksman_str180le_4.png",
+"url":"weapons/wep_marksman_str180le_4.html"
+},
+{
+"id":"wep.marksman.str180le.5",
+"name":"Marksman E Str180le 5",
+"slug":"wep_marksman_str180le_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_marksman_str180le_5.png",
+"url":"weapons/wep_marksman_str180le_5.html"
+},
+{
+"id":"wep.marksman.str180le.6",
+"name":"Marksman E Str180le 6",
+"slug":"wep_marksman_str180le_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_marksman_str180le_6.png",
+"url":"weapons/wep_marksman_str180le_6.html"
+},
+{
+"id":"wep.marksman.str180le.7",
+"name":"Marksman E Str180le 7",
+"slug":"wep_marksman_str180le_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_marksman_str180le_7.png",
+"url":"weapons/wep_marksman_str180le_7.html"
+},
+{
+"id":"wep.marksman.nullifier.ancient.5",
+"name":"Nullifier Ancient 5",
+"slug":"wep_marksman_nullifier_ancient_5",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_marksman_nullifier_ancient_5.png",
+"url":"weapons/wep_marksman_nullifier_ancient_5.html"
+},
+{
+"id":"wep.rifle.obliterator.ancient.5",
+"name":"Obliterator Ancient 5",
+"slug":"wep_rifle_obliterator_ancient_5",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_rifle_obliterator_ancient_5.png",
+"url":"weapons/wep_rifle_obliterator_ancient_5.html"
+},
+{
+"id":"wep.pistol.pa20.0",
+"name":"Pistol A Pa20 0",
+"slug":"wep_pistol_pa20_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_pistol_pa20_0.png",
+"url":"weapons/wep_pistol_pa20_0.html"
+},
+{
+"id":"wep.pistol.pa20.1",
+"name":"Pistol A Pa20 1",
+"slug":"wep_pistol_pa20_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_pistol_pa20_1.png",
+"url":"weapons/wep_pistol_pa20_1.html"
+},
+{
+"id":"wep.pistol.pa20.2",
+"name":"Pistol A Pa20 2",
+"slug":"wep_pistol_pa20_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_pistol_pa20_2.png",
+"url":"weapons/wep_pistol_pa20_2.html"
+},
+{
+"id":"wep.pistol.pa20.3",
+"name":"Pistol A Pa20 3",
+"slug":"wep_pistol_pa20_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_pistol_pa20_3.png",
+"url":"weapons/wep_pistol_pa20_3.html"
+},
+{
+"id":"wep.pistol.pa20.4",
+"name":"Pistol A Pa20 4",
+"slug":"wep_pistol_pa20_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_pistol_pa20_4.png",
+"url":"weapons/wep_pistol_pa20_4.html"
+},
+{
+"id":"wep.pistol.pa20.5",
+"name":"Pistol A Pa20 5",
+"slug":"wep_pistol_pa20_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_pistol_pa20_5.png",
+"url":"weapons/wep_pistol_pa20_5.html"
+},
+{
+"id":"wep.pistol.pa20.6",
+"name":"Pistol A Pa20 6",
+"slug":"wep_pistol_pa20_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_pistol_pa20_6.png",
+"url":"weapons/wep_pistol_pa20_6.html"
+},
+{
+"id":"wep.pistol.pa20.7",
+"name":"Pistol A Pa20 7",
+"slug":"wep_pistol_pa20_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_pistol_pa20_7.png",
+"url":"weapons/wep_pistol_pa20_7.html"
+},
+{
+"id":"wep.pistol.r10.0",
+"name":"Pistol B R10 0",
+"slug":"wep_pistol_r10_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_pistol_r10_0.png",
+"url":"weapons/wep_pistol_r10_0.html"
+},
+{
+"id":"wep.pistol.r10.1",
+"name":"Pistol B R10 1",
+"slug":"wep_pistol_r10_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_pistol_r10_1.png",
+"url":"weapons/wep_pistol_r10_1.html"
+},
+{
+"id":"wep.pistol.r10.2",
+"name":"Pistol B R10 2",
+"slug":"wep_pistol_r10_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_pistol_r10_2.png",
+"url":"weapons/wep_pistol_r10_2.html"
+},
+{
+"id":"wep.pistol.r10.3",
+"name":"Pistol B R10 3",
+"slug":"wep_pistol_r10_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_pistol_r10_3.png",
+"url":"weapons/wep_pistol_r10_3.html"
+},
+{
+"id":"wep.pistol.r10.4",
+"name":"Pistol B R10 4",
+"slug":"wep_pistol_r10_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_pistol_r10_4.png",
+"url":"weapons/wep_pistol_r10_4.html"
+},
+{
+"id":"wep.pistol.r10.5",
+"name":"Pistol B R10 5",
+"slug":"wep_pistol_r10_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_pistol_r10_5.png",
+"url":"weapons/wep_pistol_r10_5.html"
+},
+{
+"id":"wep.pistol.r10.6",
+"name":"Pistol B R10 6",
+"slug":"wep_pistol_r10_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_pistol_r10_6.png",
+"url":"weapons/wep_pistol_r10_6.html"
+},
+{
+"id":"wep.pistol.r10.7",
+"name":"Pistol B R10 7",
+"slug":"wep_pistol_r10_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_pistol_r10_7.png",
+"url":"weapons/wep_pistol_r10_7.html"
+},
+{
+"id":"wep.pistol.rg25.0",
+"name":"Pistol C Rg25 0",
+"slug":"wep_pistol_rg25_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_pistol_rg25_0.png",
+"url":"weapons/wep_pistol_rg25_0.html"
+},
+{
+"id":"wep.pistol.rg25.1",
+"name":"Pistol C Rg25 1",
+"slug":"wep_pistol_rg25_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_pistol_rg25_1.png",
+"url":"weapons/wep_pistol_rg25_1.html"
+},
+{
+"id":"wep.pistol.rg25.2",
+"name":"Pistol C Rg25 2",
+"slug":"wep_pistol_rg25_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_pistol_rg25_2.png",
+"url":"weapons/wep_pistol_rg25_2.html"
+},
+{
+"id":"wep.pistol.rg25.3",
+"name":"Pistol C Rg25 3",
+"slug":"wep_pistol_rg25_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_pistol_rg25_3.png",
+"url":"weapons/wep_pistol_rg25_3.html"
+},
+{
+"id":"wep.pistol.rg25.4",
+"name":"Pistol C Rg25 4",
+"slug":"wep_pistol_rg25_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_pistol_rg25_4.png",
+"url":"weapons/wep_pistol_rg25_4.html"
+},
+{
+"id":"wep.pistol.rg25.5",
+"name":"Pistol C Rg25 5",
+"slug":"wep_pistol_rg25_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_pistol_rg25_5.png",
+"url":"weapons/wep_pistol_rg25_5.html"
+},
+{
+"id":"wep.pistol.rg25.6",
+"name":"Pistol C Rg25 6",
+"slug":"wep_pistol_rg25_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_pistol_rg25_6.png",
+"url":"weapons/wep_pistol_rg25_6.html"
+},
+{
+"id":"wep.pistol.rg25.7",
+"name":"Pistol C Rg25 7",
+"slug":"wep_pistol_rg25_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_pistol_rg25_7.png",
+"url":"weapons/wep_pistol_rg25_7.html"
+},
+{
+"id":"wep.pistol.se17.0",
+"name":"Pistol D Se17 0",
+"slug":"wep_pistol_se17_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_pistol_se17_0.png",
+"url":"weapons/wep_pistol_se17_0.html"
+},
+{
+"id":"wep.pistol.se17.1",
+"name":"Pistol D Se17 1",
+"slug":"wep_pistol_se17_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_pistol_se17_1.png",
+"url":"weapons/wep_pistol_se17_1.html"
+},
+{
+"id":"wep.pistol.se17.2",
+"name":"Pistol D Se17 2",
+"slug":"wep_pistol_se17_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_pistol_se17_2.png",
+"url":"weapons/wep_pistol_se17_2.html"
+},
+{
+"id":"wep.pistol.se17.3",
+"name":"Pistol D Se17 3",
+"slug":"wep_pistol_se17_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_pistol_se17_3.png",
+"url":"weapons/wep_pistol_se17_3.html"
+},
+{
+"id":"wep.pistol.se17.4",
+"name":"Pistol D Se17 4",
+"slug":"wep_pistol_se17_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_pistol_se17_4.png",
+"url":"weapons/wep_pistol_se17_4.html"
+},
+{
+"id":"wep.pistol.se17.5",
+"name":"Pistol D Se17 5",
+"slug":"wep_pistol_se17_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_pistol_se17_5.png",
+"url":"weapons/wep_pistol_se17_5.html"
+},
+{
+"id":"wep.pistol.se17.6",
+"name":"Pistol D Se17 6",
+"slug":"wep_pistol_se17_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_pistol_se17_6.png",
+"url":"weapons/wep_pistol_se17_6.html"
+},
+{
+"id":"wep.pistol.se17.7",
+"name":"Pistol D Se17 7",
+"slug":"wep_pistol_se17_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_pistol_se17_7.png",
+"url":"weapons/wep_pistol_se17_7.html"
+},
+{
+"id":"wep.pistol.rl20.0",
+"name":"Pistol E Rl20 0",
+"slug":"wep_pistol_rl20_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_pistol_rl20_0.png",
+"url":"weapons/wep_pistol_rl20_0.html"
+},
+{
+"id":"wep.pistol.rl20.1",
+"name":"Pistol E Rl20 1",
+"slug":"wep_pistol_rl20_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_pistol_rl20_1.png",
+"url":"weapons/wep_pistol_rl20_1.html"
+},
+{
+"id":"wep.pistol.rl20.2",
+"name":"Pistol E Rl20 2",
+"slug":"wep_pistol_rl20_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_pistol_rl20_2.png",
+"url":"weapons/wep_pistol_rl20_2.html"
+},
+{
+"id":"wep.pistol.rl20.3",
+"name":"Pistol E Rl20 3",
+"slug":"wep_pistol_rl20_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_pistol_rl20_3.png",
+"url":"weapons/wep_pistol_rl20_3.html"
+},
+{
+"id":"wep.pistol.rl20.4",
+"name":"Pistol E Rl20 4",
+"slug":"wep_pistol_rl20_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_pistol_rl20_4.png",
+"url":"weapons/wep_pistol_rl20_4.html"
+},
+{
+"id":"wep.pistol.rl20.5",
+"name":"Pistol E Rl20 5",
+"slug":"wep_pistol_rl20_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_pistol_rl20_5.png",
+"url":"weapons/wep_pistol_rl20_5.html"
+},
+{
+"id":"wep.pistol.rl20.6",
+"name":"Pistol E Rl20 6",
+"slug":"wep_pistol_rl20_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_pistol_rl20_6.png",
+"url":"weapons/wep_pistol_rl20_6.html"
+},
+{
+"id":"wep.pistol.rl20.7",
+"name":"Pistol E Rl20 7",
+"slug":"wep_pistol_rl20_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_pistol_rl20_7.png",
+"url":"weapons/wep_pistol_rl20_7.html"
+},
+{
+"id":"wep.plant_whip",
+"name":"Plant Whip",
+"slug":"wep_plant_whip",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_plant_whip.png",
+"url":"weapons/wep_plant_whip.html"
+},
+{
+"id":"wep.poison.laucher",
+"name":"Poison Launcher",
+"slug":"wep_poison_laucher",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_poison_laucher.png",
+"url":"weapons/wep_poison_laucher.html"
+},
+{
+"id":"wep.pistol.pulsar.ancient.5",
+"name":"Pulsar Ancient 5",
+"slug":"wep_pistol_pulsar_ancient_5",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_pistol_pulsar_ancient_5.png",
+"url":"weapons/wep_pistol_pulsar_ancient_5.html"
+},
+{
+"id":"wep.grenade.purify.1",
+"name":"Purify Grenade",
+"slug":"wep_grenade_purify_1",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_grenade_purify_1.png",
+"url":"weapons/wep_grenade_purify_1.html"
+},
+{
+"id":"wep.sword.laser.purple",
+"name":"Purple Plasma Sword",
+"slug":"wep_sword_laser_purple",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_sword_laser_purple.png",
+"url":"weapons/wep_sword_laser_purple.html"
+},
+{
+"id":"wep.rifle.ravager.ancient.5",
+"name":"Ravager Ancient 5",
+"slug":"wep_rifle_ravager_ancient_5",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_rifle_ravager_ancient_5.png",
+"url":"weapons/wep_rifle_ravager_ancient_5.html"
+},
+{
+"id":"wep.sword.laser.red",
+"name":"Red Plasma Sword",
+"slug":"wep_sword_laser_red",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_sword_laser_red.png",
+"url":"weapons/wep_sword_laser_red.html"
+},
+{
+"id":"wep.rifle.sma15e.0",
+"name":"Rifle A Sma15e 0",
+"slug":"wep_rifle_sma15e_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_rifle_sma15e_0.png",
+"url":"weapons/wep_rifle_sma15e_0.html"
+},
+{
+"id":"wep.rifle.sma15e.1",
+"name":"Rifle A Sma15e 1",
+"slug":"wep_rifle_sma15e_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_rifle_sma15e_1.png",
+"url":"weapons/wep_rifle_sma15e_1.html"
+},
+{
+"id":"wep.rifle.sma15e.2",
+"name":"Rifle A Sma15e 2",
+"slug":"wep_rifle_sma15e_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_rifle_sma15e_2.png",
+"url":"weapons/wep_rifle_sma15e_2.html"
+},
+{
+"id":"wep.rifle.sma15e.3",
+"name":"Rifle A Sma15e 3",
+"slug":"wep_rifle_sma15e_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_rifle_sma15e_3.png",
+"url":"weapons/wep_rifle_sma15e_3.html"
+},
+{
+"id":"wep.rifle.sma15e.4",
+"name":"Rifle A Sma15e 4",
+"slug":"wep_rifle_sma15e_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_rifle_sma15e_4.png",
+"url":"weapons/wep_rifle_sma15e_4.html"
+},
+{
+"id":"wep.rifle.sma15e.5",
+"name":"Rifle A Sma15e 5",
+"slug":"wep_rifle_sma15e_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_rifle_sma15e_5.png",
+"url":"weapons/wep_rifle_sma15e_5.html"
+},
+{
+"id":"wep.rifle.sma15e.6",
+"name":"Rifle A Sma15e 6",
+"slug":"wep_rifle_sma15e_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_rifle_sma15e_6.png",
+"url":"weapons/wep_rifle_sma15e_6.html"
+},
+{
+"id":"wep.rifle.sma15e.7",
+"name":"Rifle A Sma15e 7",
+"slug":"wep_rifle_sma15e_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_rifle_sma15e_7.png",
+"url":"weapons/wep_rifle_sma15e_7.html"
+},
+{
+"id":"wep.rifle.sma25d.0",
+"name":"Rifle B Sma25d 0",
+"slug":"wep_rifle_sma25d_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_rifle_sma25d_0.png",
+"url":"weapons/wep_rifle_sma25d_0.html"
+},
+{
+"id":"wep.rifle.sma25d.1",
+"name":"Rifle B Sma25d 1",
+"slug":"wep_rifle_sma25d_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_rifle_sma25d_1.png",
+"url":"weapons/wep_rifle_sma25d_1.html"
+},
+{
+"id":"wep.rifle.sma25d.2",
+"name":"Rifle B Sma25d 2",
+"slug":"wep_rifle_sma25d_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_rifle_sma25d_2.png",
+"url":"weapons/wep_rifle_sma25d_2.html"
+},
+{
+"id":"wep.rifle.sma25d.3",
+"name":"Rifle B Sma25d 3",
+"slug":"wep_rifle_sma25d_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_rifle_sma25d_3.png",
+"url":"weapons/wep_rifle_sma25d_3.html"
+},
+{
+"id":"wep.rifle.sma25d.4",
+"name":"Rifle B Sma25d 4",
+"slug":"wep_rifle_sma25d_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_rifle_sma25d_4.png",
+"url":"weapons/wep_rifle_sma25d_4.html"
+},
+{
+"id":"wep.rifle.sma25d.5",
+"name":"Rifle B Sma25d 5",
+"slug":"wep_rifle_sma25d_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_rifle_sma25d_5.png",
+"url":"weapons/wep_rifle_sma25d_5.html"
+},
+{
+"id":"wep.rifle.sma25d.6",
+"name":"Rifle B Sma25d 6",
+"slug":"wep_rifle_sma25d_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_rifle_sma25d_6.png",
+"url":"weapons/wep_rifle_sma25d_6.html"
+},
+{
+"id":"wep.rifle.sma25d.7",
+"name":"Rifle B Sma25d 7",
+"slug":"wep_rifle_sma25d_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_rifle_sma25d_7.png",
+"url":"weapons/wep_rifle_sma25d_7.html"
+},
+{
+"id":"wep.rifle.sma15fe.0",
+"name":"Rifle C Sma15fe 0",
+"slug":"wep_rifle_sma15fe_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_rifle_sma15fe_0.png",
+"url":"weapons/wep_rifle_sma15fe_0.html"
+},
+{
+"id":"wep.rifle.sma15fe.1",
+"name":"Rifle C Sma15fe 1",
+"slug":"wep_rifle_sma15fe_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_rifle_sma15fe_1.png",
+"url":"weapons/wep_rifle_sma15fe_1.html"
+},
+{
+"id":"wep.rifle.sma15fe.2",
+"name":"Rifle C Sma15fe 2",
+"slug":"wep_rifle_sma15fe_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_rifle_sma15fe_2.png",
+"url":"weapons/wep_rifle_sma15fe_2.html"
+},
+{
+"id":"wep.rifle.sma15fe.3",
+"name":"Rifle C Sma15fe 3",
+"slug":"wep_rifle_sma15fe_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_rifle_sma15fe_3.png",
+"url":"weapons/wep_rifle_sma15fe_3.html"
+},
+{
+"id":"wep.rifle.sma15fe.4",
+"name":"Rifle C Sma15fe 4",
+"slug":"wep_rifle_sma15fe_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_rifle_sma15fe_4.png",
+"url":"weapons/wep_rifle_sma15fe_4.html"
+},
+{
+"id":"wep.rifle.sma15fe.5",
+"name":"Rifle C Sma15fe 5",
+"slug":"wep_rifle_sma15fe_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_rifle_sma15fe_5.png",
+"url":"weapons/wep_rifle_sma15fe_5.html"
+},
+{
+"id":"wep.rifle.sma15fe.6",
+"name":"Rifle C Sma15fe 6",
+"slug":"wep_rifle_sma15fe_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_rifle_sma15fe_6.png",
+"url":"weapons/wep_rifle_sma15fe_6.html"
+},
+{
+"id":"wep.rifle.sma15fe.7",
+"name":"Rifle C Sma15fe 7",
+"slug":"wep_rifle_sma15fe_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_rifle_sma15fe_7.png",
+"url":"weapons/wep_rifle_sma15fe_7.html"
+},
+{
+"id":"wep.rifle.laser.1",
+"name":"Rifle Laser 1",
+"slug":"wep_rifle_laser_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_rifle_laser_1.png",
+"url":"weapons/wep_rifle_laser_1.html"
+},
+{
+"id":"wep.rocket.launcher.1",
+"name":"Rocket Launcher 1",
+"slug":"wep_rocket_launcher_1",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_rocket_launcher_1.png",
+"url":"weapons/wep_rocket_launcher_1.html"
+},
+{
+"id":"wep.shotgun.shatterstorm.ancient.5",
+"name":"Shatterstorm Ancient 5",
+"slug":"wep_shotgun_shatterstorm_ancient_5",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_shotgun_shatterstorm_ancient_5.png",
+"url":"weapons/wep_shotgun_shatterstorm_ancient_5.html"
+},
+{
+"id":"wep.melee.shock_stick.0",
+"name":"Shock Stick 0",
+"slug":"wep_melee_shock_stick_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_melee_shock_stick_0.png",
+"url":"weapons/wep_melee_shock_stick_0.html"
+},
+{
+"id":"wep.melee.shock_stick.1",
+"name":"Shock Stick 1",
+"slug":"wep_melee_shock_stick_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_melee_shock_stick_1.png",
+"url":"weapons/wep_melee_shock_stick_1.html"
+},
+{
+"id":"wep.melee.shock_stick.2",
+"name":"Shock Stick 2",
+"slug":"wep_melee_shock_stick_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_melee_shock_stick_2.png",
+"url":"weapons/wep_melee_shock_stick_2.html"
+},
+{
+"id":"wep.melee.shock_stick.3",
+"name":"Shock Stick 3",
+"slug":"wep_melee_shock_stick_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_melee_shock_stick_3.png",
+"url":"weapons/wep_melee_shock_stick_3.html"
+},
+{
+"id":"wep.melee.shock_stick.4",
+"name":"Shock Stick 4",
+"slug":"wep_melee_shock_stick_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_melee_shock_stick_4.png",
+"url":"weapons/wep_melee_shock_stick_4.html"
+},
+{
+"id":"wep.melee.shock_stick.5",
+"name":"Shock Stick 5",
+"slug":"wep_melee_shock_stick_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_melee_shock_stick_5.png",
+"url":"weapons/wep_melee_shock_stick_5.html"
+},
+{
+"id":"wep.melee.shock_stick.6",
+"name":"Shock Stick 6",
+"slug":"wep_melee_shock_stick_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_melee_shock_stick_6.png",
+"url":"weapons/wep_melee_shock_stick_6.html"
+},
+{
+"id":"wep.shotgun.sg82.0",
+"name":"Shotgun A Sg82 0",
+"slug":"wep_shotgun_sg82_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_shotgun_sg82_0.png",
+"url":"weapons/wep_shotgun_sg82_0.html"
+},
+{
+"id":"wep.shotgun.sg82.1",
+"name":"Shotgun A Sg82 1",
+"slug":"wep_shotgun_sg82_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_shotgun_sg82_1.png",
+"url":"weapons/wep_shotgun_sg82_1.html"
+},
+{
+"id":"wep.shotgun.sg82.2",
+"name":"Shotgun A Sg82 2",
+"slug":"wep_shotgun_sg82_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_shotgun_sg82_2.png",
+"url":"weapons/wep_shotgun_sg82_2.html"
+},
+{
+"id":"wep.shotgun.sg82.3",
+"name":"Shotgun A Sg82 3",
+"slug":"wep_shotgun_sg82_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_shotgun_sg82_3.png",
+"url":"weapons/wep_shotgun_sg82_3.html"
+},
+{
+"id":"wep.shotgun.sg82.4",
+"name":"Shotgun A Sg82 4",
+"slug":"wep_shotgun_sg82_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_shotgun_sg82_4.png",
+"url":"weapons/wep_shotgun_sg82_4.html"
+},
+{
+"id":"wep.shotgun.sg82.5",
+"name":"Shotgun A Sg82 5",
+"slug":"wep_shotgun_sg82_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_shotgun_sg82_5.png",
+"url":"weapons/wep_shotgun_sg82_5.html"
+},
+{
+"id":"wep.shotgun.sg82.6",
+"name":"Shotgun A Sg82 6",
+"slug":"wep_shotgun_sg82_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_shotgun_sg82_6.png",
+"url":"weapons/wep_shotgun_sg82_6.html"
+},
+{
+"id":"wep.shotgun.sg82.7",
+"name":"Shotgun A Sg82 7",
+"slug":"wep_shotgun_sg82_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_shotgun_sg82_7.png",
+"url":"weapons/wep_shotgun_sg82_7.html"
+},
+{
+"id":"wep.shotgun.sga106.0",
+"name":"Shotgun B Sga106 0",
+"slug":"wep_shotgun_sga106_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_shotgun_sga106_0.png",
+"url":"weapons/wep_shotgun_sga106_0.html"
+},
+{
+"id":"wep.shotgun.sga106.1",
+"name":"Shotgun B Sga106 1",
+"slug":"wep_shotgun_sga106_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_shotgun_sga106_1.png",
+"url":"weapons/wep_shotgun_sga106_1.html"
+},
+{
+"id":"wep.shotgun.sga106.2",
+"name":"Shotgun B Sga106 2",
+"slug":"wep_shotgun_sga106_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_shotgun_sga106_2.png",
+"url":"weapons/wep_shotgun_sga106_2.html"
+},
+{
+"id":"wep.shotgun.sga106.3",
+"name":"Shotgun B Sga106 3",
+"slug":"wep_shotgun_sga106_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_shotgun_sga106_3.png",
+"url":"weapons/wep_shotgun_sga106_3.html"
+},
+{
+"id":"wep.shotgun.sga106.4",
+"name":"Shotgun B Sga106 4",
+"slug":"wep_shotgun_sga106_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_shotgun_sga106_4.png",
+"url":"weapons/wep_shotgun_sga106_4.html"
+},
+{
+"id":"wep.shotgun.sga106.5",
+"name":"Shotgun B Sga106 5",
+"slug":"wep_shotgun_sga106_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_shotgun_sga106_5.png",
+"url":"weapons/wep_shotgun_sga106_5.html"
+},
+{
+"id":"wep.shotgun.sga106.6",
+"name":"Shotgun B Sga106 6",
+"slug":"wep_shotgun_sga106_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_shotgun_sga106_6.png",
+"url":"weapons/wep_shotgun_sga106_6.html"
+},
+{
+"id":"wep.shotgun.sga106.7",
+"name":"Shotgun B Sga106 7",
+"slug":"wep_shotgun_sga106_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_shotgun_sga106_7.png",
+"url":"weapons/wep_shotgun_sga106_7.html"
+},
+{
+"id":"wep.sword.small_spider",
+"name":"Small Spider Sword",
+"slug":"wep_sword_small_spider",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_sword_small_spider.png",
+"url":"weapons/wep_sword_small_spider.html"
+},
+{
+"id":"wep.smg.sma25.0",
+"name":"Smg A Sma25 0",
+"slug":"wep_smg_sma25_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_smg_sma25_0.png",
+"url":"weapons/wep_smg_sma25_0.html"
+},
+{
+"id":"wep.smg.sma25.1",
+"name":"Smg A Sma25 1",
+"slug":"wep_smg_sma25_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_smg_sma25_1.png",
+"url":"weapons/wep_smg_sma25_1.html"
+},
+{
+"id":"wep.smg.sma25.2",
+"name":"Smg A Sma25 2",
+"slug":"wep_smg_sma25_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_smg_sma25_2.png",
+"url":"weapons/wep_smg_sma25_2.html"
+},
+{
+"id":"wep.smg.sma25.3",
+"name":"Smg A Sma25 3",
+"slug":"wep_smg_sma25_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_smg_sma25_3.png",
+"url":"weapons/wep_smg_sma25_3.html"
+},
+{
+"id":"wep.smg.sma25.4",
+"name":"Smg A Sma25 4",
+"slug":"wep_smg_sma25_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_smg_sma25_4.png",
+"url":"weapons/wep_smg_sma25_4.html"
+},
+{
+"id":"wep.smg.sma25.5",
+"name":"Smg A Sma25 5",
+"slug":"wep_smg_sma25_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_smg_sma25_5.png",
+"url":"weapons/wep_smg_sma25_5.html"
+},
+{
+"id":"wep.smg.sma25.6",
+"name":"Smg A Sma25 6",
+"slug":"wep_smg_sma25_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_smg_sma25_6.png",
+"url":"weapons/wep_smg_sma25_6.html"
+},
+{
+"id":"wep.smg.sma25.7",
+"name":"Smg A Sma25 7",
+"slug":"wep_smg_sma25_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_smg_sma25_7.png",
+"url":"weapons/wep_smg_sma25_7.html"
+},
+{
+"id":"wep.smg.sma24.0",
+"name":"Smg B Sma24 0",
+"slug":"wep_smg_sma24_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_smg_sma24_0.png",
+"url":"weapons/wep_smg_sma24_0.html"
+},
+{
+"id":"wep.smg.sma24.1",
+"name":"Smg B Sma24 1",
+"slug":"wep_smg_sma24_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_smg_sma24_1.png",
+"url":"weapons/wep_smg_sma24_1.html"
+},
+{
+"id":"wep.smg.sma24.2",
+"name":"Smg B Sma24 2",
+"slug":"wep_smg_sma24_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_smg_sma24_2.png",
+"url":"weapons/wep_smg_sma24_2.html"
+},
+{
+"id":"wep.smg.sma24.3",
+"name":"Smg B Sma24 3",
+"slug":"wep_smg_sma24_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_smg_sma24_3.png",
+"url":"weapons/wep_smg_sma24_3.html"
+},
+{
+"id":"wep.smg.sma24.4",
+"name":"Smg B Sma24 4",
+"slug":"wep_smg_sma24_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_smg_sma24_4.png",
+"url":"weapons/wep_smg_sma24_4.html"
+},
+{
+"id":"wep.smg.sma24.5",
+"name":"Smg B Sma24 5",
+"slug":"wep_smg_sma24_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_smg_sma24_5.png",
+"url":"weapons/wep_smg_sma24_5.html"
+},
+{
+"id":"wep.smg.sma24.6",
+"name":"Smg B Sma24 6",
+"slug":"wep_smg_sma24_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_smg_sma24_6.png",
+"url":"weapons/wep_smg_sma24_6.html"
+},
+{
+"id":"wep.smg.sma24.7",
+"name":"Smg B Sma24 7",
+"slug":"wep_smg_sma24_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_smg_sma24_7.png",
+"url":"weapons/wep_smg_sma24_7.html"
+},
+{
+"id":"wep.smg.sma50.0",
+"name":"Smg C Sma50 0",
+"slug":"wep_smg_sma50_0",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_smg_sma50_0.png",
+"url":"weapons/wep_smg_sma50_0.html"
+},
+{
+"id":"wep.smg.sma50.1",
+"name":"Smg C Sma50 1",
+"slug":"wep_smg_sma50_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_smg_sma50_1.png",
+"url":"weapons/wep_smg_sma50_1.html"
+},
+{
+"id":"wep.smg.sma50.2",
+"name":"Smg C Sma50 2",
+"slug":"wep_smg_sma50_2",
+"category":"weapons",
+"tier":2,
+"icon":"assets/icons/wep_smg_sma50_2.png",
+"url":"weapons/wep_smg_sma50_2.html"
+},
+{
+"id":"wep.smg.sma50.3",
+"name":"Smg C Sma50 3",
+"slug":"wep_smg_sma50_3",
+"category":"weapons",
+"tier":3,
+"icon":"assets/icons/wep_smg_sma50_3.png",
+"url":"weapons/wep_smg_sma50_3.html"
+},
+{
+"id":"wep.smg.sma50.4",
+"name":"Smg C Sma50 4",
+"slug":"wep_smg_sma50_4",
+"category":"weapons",
+"tier":4,
+"icon":"assets/icons/wep_smg_sma50_4.png",
+"url":"weapons/wep_smg_sma50_4.html"
+},
+{
+"id":"wep.smg.sma50.5",
+"name":"Smg C Sma50 5",
+"slug":"wep_smg_sma50_5",
+"category":"weapons",
+"tier":5,
+"icon":"assets/icons/wep_smg_sma50_5.png",
+"url":"weapons/wep_smg_sma50_5.html"
+},
+{
+"id":"wep.smg.sma50.6",
+"name":"Smg C Sma50 6",
+"slug":"wep_smg_sma50_6",
+"category":"weapons",
+"tier":6,
+"icon":"assets/icons/wep_smg_sma50_6.png",
+"url":"weapons/wep_smg_sma50_6.html"
+},
+{
+"id":"wep.smg.sma50.7",
+"name":"Smg C Sma50 7",
+"slug":"wep_smg_sma50_7",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_smg_sma50_7.png",
+"url":"weapons/wep_smg_sma50_7.html"
+},
+{
+"id":"wep.sword.spider",
+"name":"Spider Sword",
+"slug":"wep_sword_spider",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_sword_spider.png",
+"url":"weapons/wep_sword_spider.html"
+},
+{
+"id":"wep.splitter.physical.1",
+"name":"Splitter Physical 1",
+"slug":"wep_splitter_physical_1",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_splitter_physical_1.png",
+"url":"weapons/wep_splitter_physical_1.html"
+},
+{
+"id":"wep.splitter.physical.2",
+"name":"Splitter Physical 2",
+"slug":"wep_splitter_physical_2",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_splitter_physical_2.png",
+"url":"weapons/wep_splitter_physical_2.html"
+},
+{
+"id":"wep.splitter.physical.3",
+"name":"Splitter Physical 3",
+"slug":"wep_splitter_physical_3",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_splitter_physical_3.png",
+"url":"weapons/wep_splitter_physical_3.html"
+},
+{
+"id":"wep.splitter.physical.4",
+"name":"Splitter Physical 4",
+"slug":"wep_splitter_physical_4",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_splitter_physical_4.png",
+"url":"weapons/wep_splitter_physical_4.html"
+},
+{
+"id":"wep.tentacle_whip",
+"name":"Tentacle Whip",
+"slug":"wep_tentacle_whip",
+"category":"weapons",
+"tier":1,
+"icon":"assets/icons/wep_tentacle_whip.png",
+"url":"weapons/wep_tentacle_whip.html"
+},
+{
+"id":"wep.heavy.titan.ancient.5",
+"name":"Titan Ancient 5",
+"slug":"wep_heavy_titan_ancient_5",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_heavy_titan_ancient_5.png",
+"url":"weapons/wep_heavy_titan_ancient_5.html"
+},
+{
+"id":"wep.marksman.vanquisher.ancient.5",
+"name":"Vanquisher Ancient 5",
+"slug":"wep_marksman_vanquisher_ancient_5",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_marksman_vanquisher_ancient_5.png",
+"url":"weapons/wep_marksman_vanquisher_ancient_5.html"
+},
+{
+"id":"wep.heavy.vortex.ancient.5",
+"name":"Vortex Ancient 5",
+"slug":"wep_heavy_vortex_ancient_5",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_heavy_vortex_ancient_5.png",
+"url":"weapons/wep_heavy_vortex_ancient_5.html"
+},
+{
+"id":"wep.marksman.whisperer.ancient.5",
+"name":"Whisperer Ancient 5",
+"slug":"wep_marksman_whisperer_ancient_5",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_marksman_whisperer_ancient_5.png",
+"url":"weapons/wep_marksman_whisperer_ancient_5.html"
+},
+{
+"id":"wep.sword.laser.yellow",
+"name":"Yellow Plasma Sword",
+"slug":"wep_sword_laser_yellow",
+"category":"weapons",
+"tier":7,
+"icon":"assets/icons/wep_sword_laser_yellow.png",
+"url":"weapons/wep_sword_laser_yellow.html"
+},
+{
+"id":"res.access.card.A",
+"name":"Access Card A",
+"slug":"res_access_card_a",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/res_access_card_a.png",
+"url":"resources/res_access_card_a.html"
+},
+{
+"id":"res.access.card.B",
+"name":"Access Card B",
+"slug":"res_access_card_b",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/res_access_card_b.png",
+"url":"resources/res_access_card_b.html"
+},
+{
+"id":"res.access.card.C",
+"name":"Access Card C",
+"slug":"res_access_card_c",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/res_access_card_c.png",
+"url":"resources/res_access_card_c.html"
+},
+{
+"id":"res.access.card.D",
+"name":"Access Card D",
+"slug":"res_access_card_d",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/res_access_card_d.png",
+"url":"resources/res_access_card_d.html"
+},
+{
+"id":"res.access.card.E",
+"name":"Access Card E",
+"slug":"res_access_card_e",
+"category":"resources",
+"tier":5,
+"icon":"assets/icons/res_access_card_e.png",
+"url":"resources/res_access_card_e.html"
+},
+{
+"id":"res.access.card.F",
+"name":"Access Card F",
+"slug":"res_access_card_f",
+"category":"resources",
+"tier":6,
+"icon":"assets/icons/res_access_card_f.png",
+"url":"resources/res_access_card_f.html"
+},
+{
+"id":"res.ancient.dark.key",
+"name":"Ancient Dark Key",
+"slug":"res_ancient_dark_key",
+"category":"resources",
+"tier":7,
+"icon":"assets/icons/res_ancient_dark_key.png",
+"url":"resources/res_ancient_dark_key.html"
+},
+{
+"id":"res.ancient.key",
+"name":"Ancient Key",
+"slug":"res_ancient_key",
+"category":"resources",
+"tier":7,
+"icon":"assets/icons/res_ancient_key.png",
+"url":"resources/res_ancient_key.html"
+},
+{
+"id":"res.rare.antimatter",
+"name":"Antimatter",
+"slug":"res_rare_antimatter",
+"category":"resources",
+"tier":6,
+"icon":"assets/icons/res_rare_antimatter.png",
+"url":"resources/res_rare_antimatter.html"
+},
+{
+"id":"res.rare.antimatter.cell",
+"name":"Antimatter Cell",
+"slug":"res_rare_antimatter_cell",
+"category":"resources",
+"tier":6,
+"icon":"assets/icons/res_rare_antimatter_cell.png",
+"url":"resources/res_rare_antimatter_cell.html"
+},
+{
+"id":"res.argilite.dust",
+"name":"Argilite Dust",
+"slug":"res_argilite_dust",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/res_argilite_dust.png",
+"url":"resources/res_argilite_dust.html"
+},
+{
+"id":"res.bones",
+"name":"Bones",
+"slug":"res_bones",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/res_bones.png",
+"url":"resources/res_bones.html"
+},
+{
+"id":"res.bone_meal",
+"name":"Bone Meal",
+"slug":"res_bone_meal",
+"category":"resources",
+"tier":1,
+"icon":"",
+"url":"resources/res_bone_meal.html"
+},
+{
+"id":"res.capacitor",
+"name":"Capacitor",
+"slug":"res_capacitor",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/res_capacitor.png",
+"url":"resources/res_capacitor.html"
+},
+{
+"id":"res.carapace",
+"name":"Carapace",
+"slug":"res_carapace",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/res_carapace.png",
+"url":"resources/res_carapace.html"
+},
+{
+"id":"res.circuit.board",
+"name":"Circuit Board",
+"slug":"res_circuit_board",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/res_circuit_board.png",
+"url":"resources/res_circuit_board.html"
+},
+{
+"id":"res.clay",
+"name":"Clay",
+"slug":"res_clay",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/res_clay.png",
+"url":"resources/res_clay.html"
+},
+{
+"id":"res.coal",
+"name":"Coal",
+"slug":"res_coal",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/res_coal.png",
+"url":"resources/res_coal.html"
+},
+{
+"id":"res.coin.small",
+"name":"Coin Small",
+"slug":"res_coin_small",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/res_coin_small.png",
+"url":"resources/res_coin_small.html"
+},
+{
+"id":"res.connector",
+"name":"Connector",
+"slug":"res_connector",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/res_connector.png",
+"url":"resources/res_connector.html"
+},
+{
+"id":"res.corruption.core.fragment",
+"name":"Corruption Core Fragment",
+"slug":"res_corruption_core_fragment",
+"category":"resources",
+"tier":7,
+"icon":"assets/icons/res_corruption_core_fragment.png",
+"url":"resources/res_corruption_core_fragment.html"
+},
+{
+"id":"res.rare.darkmatter",
+"name":"Darkmatter",
+"slug":"res_rare_darkmatter",
+"category":"resources",
+"tier":6,
+"icon":"assets/icons/res_rare_darkmatter.png",
+"url":"resources/res_rare_darkmatter.html"
+},
+{
+"id":"res.rare.darkmatter.cell",
+"name":"Darkmatter Cell",
+"slug":"res_rare_darkmatter_cell",
+"category":"resources",
+"tier":6,
+"icon":"assets/icons/res_rare_darkmatter_cell.png",
+"url":"resources/res_rare_darkmatter_cell.html"
+},
+{
+"id":"res.dark.armor",
+"name":"Dark Armor",
+"slug":"res_dark_armor",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/res_dark_armor.png",
+"url":"resources/res_dark_armor.html"
+},
+{
+"id":"res.dark.dust",
+"name":"Dark Dust",
+"slug":"res_dark_dust",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/res_dark_dust.png",
+"url":"resources/res_dark_dust.html"
+},
+{
+"id":"res.dark.fragment",
+"name":"Dark Fragment",
+"slug":"res_dark_fragment",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/res_dark_fragment.png",
+"url":"resources/res_dark_fragment.html"
+},
+{
+"id":"res.dark.liquid",
+"name":"Dark Liquid",
+"slug":"res_dark_liquid",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/res_dark_liquid.png",
+"url":"resources/res_dark_liquid.html"
+},
+{
+"id":"res.dark.weapon.melee",
+"name":"Dark Melee Weapon",
+"slug":"res_dark_weapon_melee",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/res_dark_weapon_melee.png",
+"url":"resources/res_dark_weapon_melee.html"
+},
+{
+"id":"res.dark.plate",
+"name":"Dark Plate",
+"slug":"res_dark_plate",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/res_dark_plate.png",
+"url":"resources/res_dark_plate.html"
+},
+{
+"id":"res.dark.rod",
+"name":"Dark Rod",
+"slug":"res_dark_rod",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/res_dark_rod.png",
+"url":"resources/res_dark_rod.html"
+},
+{
+"id":"res.shard.dark",
+"name":"Dark Shard",
+"slug":"res_shard_dark",
+"category":"resources",
+"tier":5,
+"icon":"assets/icons/res_shard_dark.png",
+"url":"resources/res_shard_dark.html"
+},
+{
+"id":"res.dark.flesh",
+"name":"Dark Tissue",
+"slug":"res_dark_flesh",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/res_dark_flesh.png",
+"url":"resources/res_dark_flesh.html"
+},
+{
+"id":"res.dark.weapon.ranged",
+"name":"Dark Weapon",
+"slug":"res_dark_weapon_ranged",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/res_dark_weapon_ranged.png",
+"url":"resources/res_dark_weapon_ranged.html"
+},
+{
+"id":"res.diamond",
+"name":"Diamond",
+"slug":"res_diamond",
+"category":"resources",
+"tier":5,
+"icon":"assets/icons/res_diamond.png",
+"url":"resources/res_diamond.html"
+},
+{
+"id":"res.drakonis.fangs",
+"name":"Drakonis Fangs",
+"slug":"res_drakonis_fangs",
+"category":"resources",
+"tier":7,
+"icon":"assets/icons/res_drakonis_fangs.png",
+"url":"resources/res_drakonis_fangs.html"
+},
+{
+"id":"res.drakonis.horns",
+"name":"Drakonis Horns",
+"slug":"res_drakonis_horns",
+"category":"resources",
+"tier":7,
+"icon":"assets/icons/res_drakonis_horns.png",
+"url":"resources/res_drakonis_horns.html"
+},
+{
+"id":"res.drakonis.scales",
+"name":"Drakonis Scales",
+"slug":"res_drakonis_scales",
+"category":"resources",
+"tier":7,
+"icon":"assets/icons/res_drakonis_scales.png",
+"url":"resources/res_drakonis_scales.html"
+},
+{
+"id":"res.emerald",
+"name":"Emerald",
+"slug":"res_emerald",
+"category":"resources",
+"tier":5,
+"icon":"assets/icons/res_emerald.png",
+"url":"resources/res_emerald.html"
+},
+{
+"id":"res.energy.capsule",
+"name":"Energy Capsule",
+"slug":"res_energy_capsule",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/res_energy_capsule.png",
+"url":"resources/res_energy_capsule.html"
+},
+{
+"id":"res.ethrich",
+"name":"Ethrich",
+"slug":"res_ethrich",
+"category":"resources",
+"tier":6,
+"icon":"assets/icons/res_ethrich.png",
+"url":"resources/res_ethrich.html"
+},
+{
+"id":"res.fangs",
+"name":"Fangs",
+"slug":"res_fangs",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/res_fangs.png",
+"url":"resources/res_fangs.html"
+},
+{
+"id":"res.fat_tissue",
+"name":"Fat Tissue",
+"slug":"res_fat_tissue",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/res_fat_tissue.png",
+"url":"resources/res_fat_tissue.html"
+},
+{
+"id":"res.feathers",
+"name":"Feathers",
+"slug":"res_feathers",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/res_feathers.png",
+"url":"resources/res_feathers.html"
+},
+{
+"id":"res.ferroglass.lense",
+"name":"Ferroglass Lense",
+"slug":"res_ferroglass_lense",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/res_ferroglass_lense.png",
+"url":"resources/res_ferroglass_lense.html"
+},
+{
+"id":"res.fish.large",
+"name":"Fish Large",
+"slug":"res_fish_large",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/res_fish_large.png",
+"url":"resources/res_fish_large.html"
+},
+{
+"id":"res.fish.medium",
+"name":"Fish Medium",
+"slug":"res_fish_medium",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/res_fish_medium.png",
+"url":"resources/res_fish_medium.html"
+},
+{
+"id":"res.fish.small",
+"name":"Fish Small",
+"slug":"res_fish_small",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/res_fish_small.png",
+"url":"resources/res_fish_small.html"
+},
+{
+"id":"res.rare.gammamatter",
+"name":"Gamma Matter",
+"slug":"res_rare_gammamatter",
+"category":"resources",
+"tier":6,
+"icon":"assets/icons/res_rare_gammamatter.png",
+"url":"resources/res_rare_gammamatter.html"
+},
+{
+"id":"res.rare.gammamatter.cell",
+"name":"Gamma Matter Cell",
+"slug":"res_rare_gammamatter_cell",
+"category":"resources",
+"tier":6,
+"icon":"assets/icons/res_rare_gammamatter_cell.png",
+"url":"resources/res_rare_gammamatter_cell.html"
+},
+{
+"id":"res.gem_plate",
+"name":"Gem Plate",
+"slug":"res_gem_plate",
+"category":"resources",
+"tier":5,
+"icon":"assets/icons/res_gem_plate.png",
+"url":"resources/res_gem_plate.html"
+},
+{
+"id":"res.glass.sheet",
+"name":"Glass Sheet",
+"slug":"res_glass_sheet",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/res_glass_sheet.png",
+"url":"resources/res_glass_sheet.html"
+},
+{
+"id":"res.glowing.diamond",
+"name":"Glowing Diamond",
+"slug":"res_glowing_diamond",
+"category":"resources",
+"tier":7,
+"icon":"assets/icons/res_glowing_diamond.png",
+"url":"resources/res_glowing_diamond.html"
+},
+{
+"id":"res.glowing.emerald",
+"name":"Glowing Emerald",
+"slug":"res_glowing_emerald",
+"category":"resources",
+"tier":7,
+"icon":"assets/icons/res_glowing_emerald.png",
+"url":"resources/res_glowing_emerald.html"
+},
+{
+"id":"res.glowing.ruby",
+"name":"Glowing Ruby",
+"slug":"res_glowing_ruby",
+"category":"resources",
+"tier":7,
+"icon":"assets/icons/res_glowing_ruby.png",
+"url":"resources/res_glowing_ruby.html"
+},
+{
+"id":"res.glowing.sapphire",
+"name":"Glowing Sapphire",
+"slug":"res_glowing_sapphire",
+"category":"resources",
+"tier":7,
+"icon":"assets/icons/res_glowing_sapphire.png",
+"url":"resources/res_glowing_sapphire.html"
+},
+{
+"id":"res.health.pack.0",
+"name":"Health Pack 0",
+"slug":"res_health_pack_0",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/res_health_pack_0.png",
+"url":"resources/res_health_pack_0.html"
+},
+{
+"id":"res.health.pack.1",
+"name":"Health Pack 1",
+"slug":"res_health_pack_1",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/res_health_pack_1.png",
+"url":"resources/res_health_pack_1.html"
+},
+{
+"id":"res.health.pack.2",
+"name":"Health Pack 2",
+"slug":"res_health_pack_2",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/res_health_pack_2.png",
+"url":"resources/res_health_pack_2.html"
+},
+{
+"id":"res.health.pack.3",
+"name":"Health Pack 3",
+"slug":"res_health_pack_3",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/res_health_pack_3.png",
+"url":"resources/res_health_pack_3.html"
+},
+{
+"id":"res.health.pack.4",
+"name":"Health Pack 4",
+"slug":"res_health_pack_4",
+"category":"resources",
+"tier":5,
+"icon":"assets/icons/res_health_pack_4.png",
+"url":"resources/res_health_pack_4.html"
+},
+{
+"id":"res.health.pack.5",
+"name":"Health Pack 5",
+"slug":"res_health_pack_5",
+"category":"resources",
+"tier":6,
+"icon":"assets/icons/res_health_pack_5.png",
+"url":"resources/res_health_pack_5.html"
+},
+{
+"id":"res.health.pack.6",
+"name":"Health Pack 6",
+"slug":"res_health_pack_6",
+"category":"resources",
+"tier":7,
+"icon":"assets/icons/res_health_pack_6.png",
+"url":"resources/res_health_pack_6.html"
+},
+{
+"id":"res.rare.higgsbosson",
+"name":"Higgs Bosson",
+"slug":"res_rare_higgsbosson",
+"category":"resources",
+"tier":7,
+"icon":"assets/icons/res_rare_higgsbosson.png",
+"url":"resources/res_rare_higgsbosson.html"
+},
+{
+"id":"res.rare.higgsbosson.cell",
+"name":"Higgs Bosson Cell",
+"slug":"res_rare_higgsbosson_cell",
+"category":"resources",
+"tier":7,
+"icon":"assets/icons/res_rare_higgsbosson_cell.png",
+"url":"resources/res_rare_higgsbosson_cell.html"
+},
+{
+"id":"res.horns",
+"name":"Horns",
+"slug":"res_horns",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/res_horns.png",
+"url":"resources/res_horns.html"
+},
+{
+"id":"res.ironstone.powder",
+"name":"Ironstone Powder",
+"slug":"res_ironstone_powder",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/res_ironstone_powder.png",
+"url":"resources/res_ironstone_powder.html"
+},
+{
+"id":"res.light.pill",
+"name":"Light Pill",
+"slug":"res_light_pill",
+"category":"resources",
+"tier":6,
+"icon":"assets/icons/res_light_pill.png",
+"url":"resources/res_light_pill.html"
+},
+{
+"id":"res.shard.light",
+"name":"Light Shard",
+"slug":"res_shard_light",
+"category":"resources",
+"tier":6,
+"icon":"assets/icons/res_shard_light.png",
+"url":"resources/res_shard_light.html"
+},
+{
+"id":"res.logic.board",
+"name":"Logic Board",
+"slug":"res_logic_board",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/res_logic_board.png",
+"url":"resources/res_logic_board.html"
+},
+{
+"id":"res.matter.container",
+"name":"Matter Container",
+"slug":"res_matter_container",
+"category":"resources",
+"tier":5,
+"icon":"assets/icons/res_matter_container.png",
+"url":"resources/res_matter_container.html"
+},
+{
+"id":"res.microprocessor",
+"name":"Microprocessor",
+"slug":"res_microprocessor",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/res_microprocessor.png",
+"url":"resources/res_microprocessor.html"
+},
+{
+"id":"res.mirror",
+"name":"Mirror",
+"slug":"res_mirror",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/res_mirror.png",
+"url":"resources/res_mirror.html"
+},
+{
+"id":"mod.jetpack_fuel.1",
+"name":"Mod Jetpack Fuel 1",
+"slug":"mod_jetpack_fuel_1",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/mod_jetpack_fuel_1.png",
+"url":"resources/mod_jetpack_fuel_1.html"
+},
+{
+"id":"mod.jetpack_fuel.2",
+"name":"Mod Jetpack Fuel 2",
+"slug":"mod_jetpack_fuel_2",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/mod_jetpack_fuel_2.png",
+"url":"resources/mod_jetpack_fuel_2.html"
+},
+{
+"id":"mod.jetpack_fuel.3",
+"name":"Mod Jetpack Fuel 3",
+"slug":"mod_jetpack_fuel_3",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/mod_jetpack_fuel_3.png",
+"url":"resources/mod_jetpack_fuel_3.html"
+},
+{
+"id":"mod.jetpack_fuel.4",
+"name":"Mod Jetpack Fuel 4",
+"slug":"mod_jetpack_fuel_4",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/mod_jetpack_fuel_4.png",
+"url":"resources/mod_jetpack_fuel_4.html"
+},
+{
+"id":"mod.jetpack_time.1",
+"name":"Mod Jetpack Time 1",
+"slug":"mod_jetpack_time_1",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/mod_jetpack_time_1.png",
+"url":"resources/mod_jetpack_time_1.html"
+},
+{
+"id":"mod.jetpack_time.2",
+"name":"Mod Jetpack Time 2",
+"slug":"mod_jetpack_time_2",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/mod_jetpack_time_2.png",
+"url":"resources/mod_jetpack_time_2.html"
+},
+{
+"id":"mod.jetpack_time.3",
+"name":"Mod Jetpack Time 3",
+"slug":"mod_jetpack_time_3",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/mod_jetpack_time_3.png",
+"url":"resources/mod_jetpack_time_3.html"
+},
+{
+"id":"mod.jetpack_time.4",
+"name":"Mod Jetpack Time 4",
+"slug":"mod_jetpack_time_4",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/mod_jetpack_time_4.png",
+"url":"resources/mod_jetpack_time_4.html"
+},
+{
+"id":"mod.mine.stone_damage.1",
+"name":"Mod Stone Damage 1",
+"slug":"mod_mine_stone_damage_1",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/mod_mine_stone_damage_1.png",
+"url":"resources/mod_mine_stone_damage_1.html"
+},
+{
+"id":"mod.mine.stone_damage.2",
+"name":"Mod Stone Damage 2",
+"slug":"mod_mine_stone_damage_2",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/mod_mine_stone_damage_2.png",
+"url":"resources/mod_mine_stone_damage_2.html"
+},
+{
+"id":"mod.mine.stone_damage.3",
+"name":"Mod Stone Damage 3",
+"slug":"mod_mine_stone_damage_3",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/mod_mine_stone_damage_3.png",
+"url":"resources/mod_mine_stone_damage_3.html"
+},
+{
+"id":"mod.mine.stone_damage.4",
+"name":"Mod Stone Damage 4",
+"slug":"mod_mine_stone_damage_4",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/mod_mine_stone_damage_4.png",
+"url":"resources/mod_mine_stone_damage_4.html"
+},
+{
+"id":"mod.mine.stone_damage.5",
+"name":"Mod Stone Damage 5",
+"slug":"mod_mine_stone_damage_5",
+"category":"resources",
+"tier":5,
+"icon":"assets/icons/mod_mine_stone_damage_5.png",
+"url":"resources/mod_mine_stone_damage_5.html"
+},
+{
+"id":"mod.suit_armor.1",
+"name":"Mod Suit Armor 1",
+"slug":"mod_suit_armor_1",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/mod_suit_armor_1.png",
+"url":"resources/mod_suit_armor_1.html"
+},
+{
+"id":"mod.suit_light.1",
+"name":"Mod Suit Light 1",
+"slug":"mod_suit_light_1",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/mod_suit_light_1.png",
+"url":"resources/mod_suit_light_1.html"
+},
+{
+"id":"mod.suit_light.2",
+"name":"Mod Suit Light 2",
+"slug":"mod_suit_light_2",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/mod_suit_light_2.png",
+"url":"resources/mod_suit_light_2.html"
+},
+{
+"id":"mod.suit_light.3",
+"name":"Mod Suit Light 3",
+"slug":"mod_suit_light_3",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/mod_suit_light_3.png",
+"url":"resources/mod_suit_light_3.html"
+},
+{
+"id":"mod.suit_light.4",
+"name":"Mod Suit Light 4",
+"slug":"mod_suit_light_4",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/mod_suit_light_4.png",
+"url":"resources/mod_suit_light_4.html"
+},
+{
+"id":"mod.suit_light_angle.1",
+"name":"Mod Suit Light Angle 1",
+"slug":"mod_suit_light_angle_1",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/mod_suit_light_angle_1.png",
+"url":"resources/mod_suit_light_angle_1.html"
+},
+{
+"id":"mod.suit_light_angle.2",
+"name":"Mod Suit Light Angle 2",
+"slug":"mod_suit_light_angle_2",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/mod_suit_light_angle_2.png",
+"url":"resources/mod_suit_light_angle_2.html"
+},
+{
+"id":"mod.suit_light_angle.3",
+"name":"Mod Suit Light Angle 3",
+"slug":"mod_suit_light_angle_3",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/mod_suit_light_angle_3.png",
+"url":"resources/mod_suit_light_angle_3.html"
+},
+{
+"id":"mod.suit_light_angle.4",
+"name":"Mod Suit Light Angle 4",
+"slug":"mod_suit_light_angle_4",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/mod_suit_light_angle_4.png",
+"url":"resources/mod_suit_light_angle_4.html"
+},
+{
+"id":"mod.suit_shield.1",
+"name":"Mod Suit Shield 1",
+"slug":"mod_suit_shield_1",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/mod_suit_shield_1.png",
+"url":"resources/mod_suit_shield_1.html"
+},
+{
+"id":"mod.suit_shield.2",
+"name":"Mod Suit Shield 2",
+"slug":"mod_suit_shield_2",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/mod_suit_shield_2.png",
+"url":"resources/mod_suit_shield_2.html"
+},
+{
+"id":"mod.suit_shield.3",
+"name":"Mod Suit Shield 3",
+"slug":"mod_suit_shield_3",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/mod_suit_shield_3.png",
+"url":"resources/mod_suit_shield_3.html"
+},
+{
+"id":"mod.suit_shield.4",
+"name":"Mod Suit Shield 4",
+"slug":"mod_suit_shield_4",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/mod_suit_shield_4.png",
+"url":"resources/mod_suit_shield_4.html"
+},
+{
+"id":"mod.mine.vx_bonus.1",
+"name":"Mod Voxel Bonus 1",
+"slug":"mod_mine_vx_bonus_1",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/mod_mine_vx_bonus_1.png",
+"url":"resources/mod_mine_vx_bonus_1.html"
+},
+{
+"id":"mod.mine.vx_bonus.2",
+"name":"Mod Voxel Bonus 2",
+"slug":"mod_mine_vx_bonus_2",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/mod_mine_vx_bonus_2.png",
+"url":"resources/mod_mine_vx_bonus_2.html"
+},
+{
+"id":"mod.mine.vx_bonus.3",
+"name":"Mod Voxel Bonus 3",
+"slug":"mod_mine_vx_bonus_3",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/mod_mine_vx_bonus_3.png",
+"url":"resources/mod_mine_vx_bonus_3.html"
+},
+{
+"id":"mod.mine.vx_bonus.4",
+"name":"Mod Voxel Bonus 4",
+"slug":"mod_mine_vx_bonus_4",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/mod_mine_vx_bonus_4.png",
+"url":"resources/mod_mine_vx_bonus_4.html"
+},
+{
+"id":"mod.mine.vx_bonus.5",
+"name":"Mod Voxel Bonus 5",
+"slug":"mod_mine_vx_bonus_5",
+"category":"resources",
+"tier":5,
+"icon":"assets/icons/mod_mine_vx_bonus_5.png",
+"url":"resources/mod_mine_vx_bonus_5.html"
+},
+{
+"id":"mod.mine.vx_damage.1",
+"name":"Mod Voxel Damage 1",
+"slug":"mod_mine_vx_damage_1",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/mod_mine_vx_damage_1.png",
+"url":"resources/mod_mine_vx_damage_1.html"
+},
+{
+"id":"mod.mine.vx_damage.2",
+"name":"Mod Voxel Damage 2",
+"slug":"mod_mine_vx_damage_2",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/mod_mine_vx_damage_2.png",
+"url":"resources/mod_mine_vx_damage_2.html"
+},
+{
+"id":"mod.mine.vx_damage.3",
+"name":"Mod Voxel Damage 3",
+"slug":"mod_mine_vx_damage_3",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/mod_mine_vx_damage_3.png",
+"url":"resources/mod_mine_vx_damage_3.html"
+},
+{
+"id":"mod.mine.vx_damage.4",
+"name":"Mod Voxel Damage 4",
+"slug":"mod_mine_vx_damage_4",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/mod_mine_vx_damage_4.png",
+"url":"resources/mod_mine_vx_damage_4.html"
+},
+{
+"id":"mod.mine.vx_damage.5",
+"name":"Mod Voxel Damage 5",
+"slug":"mod_mine_vx_damage_5",
+"category":"resources",
+"tier":5,
+"icon":"assets/icons/mod_mine_vx_damage_5.png",
+"url":"resources/mod_mine_vx_damage_5.html"
+},
+{
+"id":"mod.mine.vx_range.1",
+"name":"Mod Voxel Range 1",
+"slug":"mod_mine_vx_range_1",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/mod_mine_vx_range_1.png",
+"url":"resources/mod_mine_vx_range_1.html"
+},
+{
+"id":"mod.mine.vx_range.2",
+"name":"Mod Voxel Range 2",
+"slug":"mod_mine_vx_range_2",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/mod_mine_vx_range_2.png",
+"url":"resources/mod_mine_vx_range_2.html"
+},
+{
+"id":"mod.mine.vx_range.3",
+"name":"Mod Voxel Range 3",
+"slug":"mod_mine_vx_range_3",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/mod_mine_vx_range_3.png",
+"url":"resources/mod_mine_vx_range_3.html"
+},
+{
+"id":"mod.mine.vx_range.4",
+"name":"Mod Voxel Range 4",
+"slug":"mod_mine_vx_range_4",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/mod_mine_vx_range_4.png",
+"url":"resources/mod_mine_vx_range_4.html"
+},
+{
+"id":"mod.mine.vx_range.5",
+"name":"Mod Voxel Range 5",
+"slug":"mod_mine_vx_range_5",
+"category":"resources",
+"tier":5,
+"icon":"assets/icons/mod_mine_vx_range_5.png",
+"url":"resources/mod_mine_vx_range_5.html"
+},
+{
+"id":"mod.mine.vx_tier.1",
+"name":"Mod Voxel Tier 1",
+"slug":"mod_mine_vx_tier_1",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/mod_mine_vx_tier_1.png",
+"url":"resources/mod_mine_vx_tier_1.html"
+},
+{
+"id":"mod.mine.vx_tier.2",
+"name":"Mod Voxel Tier 2",
+"slug":"mod_mine_vx_tier_2",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/mod_mine_vx_tier_2.png",
+"url":"resources/mod_mine_vx_tier_2.html"
+},
+{
+"id":"mod.mine.vx_tier.3",
+"name":"Mod Voxel Tier 3",
+"slug":"mod_mine_vx_tier_3",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/mod_mine_vx_tier_3.png",
+"url":"resources/mod_mine_vx_tier_3.html"
+},
+{
+"id":"mod.weapon_damage.1",
+"name":"Mod Weapon Damage 1",
+"slug":"mod_weapon_damage_1",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/mod_weapon_damage_1.png",
+"url":"resources/mod_weapon_damage_1.html"
+},
+{
+"id":"mod.weapon_damage.2",
+"name":"Mod Weapon Damage 2",
+"slug":"mod_weapon_damage_2",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/mod_weapon_damage_2.png",
+"url":"resources/mod_weapon_damage_2.html"
+},
+{
+"id":"mod.weapon_damage.3",
+"name":"Mod Weapon Damage 3",
+"slug":"mod_weapon_damage_3",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/mod_weapon_damage_3.png",
+"url":"resources/mod_weapon_damage_3.html"
+},
+{
+"id":"mod.weapon_damage.4",
+"name":"Mod Weapon Damage 4",
+"slug":"mod_weapon_damage_4",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/mod_weapon_damage_4.png",
+"url":"resources/mod_weapon_damage_4.html"
+},
+{
+"id":"mod.weapon_damage.5",
+"name":"Mod Weapon Damage 5",
+"slug":"mod_weapon_damage_5",
+"category":"resources",
+"tier":5,
+"icon":"assets/icons/mod_weapon_damage_5.png",
+"url":"resources/mod_weapon_damage_5.html"
+},
+{
+"id":"mod.weapon_explosion.1",
+"name":"Mod Weapon Explosion 1",
+"slug":"mod_weapon_explosion_1",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/mod_weapon_explosion_1.png",
+"url":"resources/mod_weapon_explosion_1.html"
+},
+{
+"id":"mod.weapon_explosion.2",
+"name":"Mod Weapon Explosion 2",
+"slug":"mod_weapon_explosion_2",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/mod_weapon_explosion_2.png",
+"url":"resources/mod_weapon_explosion_2.html"
+},
+{
+"id":"mod.weapon_explosion.3",
+"name":"Mod Weapon Explosion 3",
+"slug":"mod_weapon_explosion_3",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/mod_weapon_explosion_3.png",
+"url":"resources/mod_weapon_explosion_3.html"
+},
+{
+"id":"mod.weapon_explosion.4",
+"name":"Mod Weapon Explosion 4",
+"slug":"mod_weapon_explosion_4",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/mod_weapon_explosion_4.png",
+"url":"resources/mod_weapon_explosion_4.html"
+},
+{
+"id":"mod.weapon_explosion.5",
+"name":"Mod Weapon Explosion 5",
+"slug":"mod_weapon_explosion_5",
+"category":"resources",
+"tier":5,
+"icon":"assets/icons/mod_weapon_explosion_5.png",
+"url":"resources/mod_weapon_explosion_5.html"
+},
+{
+"id":"mod.weapon_damage.light",
+"name":"Mod Weapon Light Damage",
+"slug":"mod_weapon_damage_light",
+"category":"resources",
+"tier":7,
+"icon":"assets/icons/mod_weapon_damage_light.png",
+"url":"resources/mod_weapon_damage_light.html"
+},
+{
+"id":"mod.weapon_rate.1",
+"name":"Mod Weapon Rate 1",
+"slug":"mod_weapon_rate_1",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/mod_weapon_rate_1.png",
+"url":"resources/mod_weapon_rate_1.html"
+},
+{
+"id":"mod.weapon_rate.2",
+"name":"Mod Weapon Rate 2",
+"slug":"mod_weapon_rate_2",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/mod_weapon_rate_2.png",
+"url":"resources/mod_weapon_rate_2.html"
+},
+{
+"id":"mod.weapon_rate.3",
+"name":"Mod Weapon Rate 3",
+"slug":"mod_weapon_rate_3",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/mod_weapon_rate_3.png",
+"url":"resources/mod_weapon_rate_3.html"
+},
+{
+"id":"mod.weapon_rate.4",
+"name":"Mod Weapon Rate 4",
+"slug":"mod_weapon_rate_4",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/mod_weapon_rate_4.png",
+"url":"resources/mod_weapon_rate_4.html"
+},
+{
+"id":"mod.weapon_rate.5",
+"name":"Mod Weapon Rate 5",
+"slug":"mod_weapon_rate_5",
+"category":"resources",
+"tier":5,
+"icon":"assets/icons/mod_weapon_rate_5.png",
+"url":"resources/mod_weapon_rate_5.html"
+},
+{
+"id":"mod.weapon_speed.1",
+"name":"Mod Weapon Speed 1",
+"slug":"mod_weapon_speed_1",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/mod_weapon_speed_1.png",
+"url":"resources/mod_weapon_speed_1.html"
+},
+{
+"id":"mod.weapon_speed.2",
+"name":"Mod Weapon Speed 2",
+"slug":"mod_weapon_speed_2",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/mod_weapon_speed_2.png",
+"url":"resources/mod_weapon_speed_2.html"
+},
+{
+"id":"mod.weapon_speed.3",
+"name":"Mod Weapon Speed 3",
+"slug":"mod_weapon_speed_3",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/mod_weapon_speed_3.png",
+"url":"resources/mod_weapon_speed_3.html"
+},
+{
+"id":"mod.weapon_speed.4",
+"name":"Mod Weapon Speed 4",
+"slug":"mod_weapon_speed_4",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/mod_weapon_speed_4.png",
+"url":"resources/mod_weapon_speed_4.html"
+},
+{
+"id":"mod.weapon_speed.5",
+"name":"Mod Weapon Speed 5",
+"slug":"mod_weapon_speed_5",
+"category":"resources",
+"tier":5,
+"icon":"assets/icons/mod_weapon_speed_5.png",
+"url":"resources/mod_weapon_speed_5.html"
+},
+{
+"id":"res.motherboard",
+"name":"Motherboard",
+"slug":"res_motherboard",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/res_motherboard.png",
+"url":"resources/res_motherboard.html"
+},
+{
+"id":"res.myconite",
+"name":"Myconite",
+"slug":"res_myconite",
+"category":"resources",
+"tier":6,
+"icon":"assets/icons/res_myconite.png",
+"url":"resources/res_myconite.html"
+},
+{
+"id":"res.nebulfur",
+"name":"Nebulfur",
+"slug":"res_nebulfur",
+"category":"resources",
+"tier":6,
+"icon":"assets/icons/res_nebulfur.png",
+"url":"resources/res_nebulfur.html"
+},
+{
+"id":"res.organic_matter",
+"name":"Organic Matter",
+"slug":"res_organic_matter",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/res_organic_matter.png",
+"url":"resources/res_organic_matter.html"
+},
+{
+"id":"res.quantum.processor",
+"name":"Quantum Processor",
+"slug":"res_quantum_processor",
+"category":"resources",
+"tier":6,
+"icon":"assets/icons/res_quantum_processor.png",
+"url":"resources/res_quantum_processor.html"
+},
+{
+"id":"res.quarkash",
+"name":"Quarkash",
+"slug":"res_quarkash",
+"category":"resources",
+"tier":6,
+"icon":"assets/icons/res_quarkash.png",
+"url":"resources/res_quarkash.html"
+},
+{
+"id":"res.radioplasm",
+"name":"Radioplasm",
+"slug":"res_radioplasm",
+"category":"resources",
+"tier":6,
+"icon":"assets/icons/res_radioplasm.png",
+"url":"resources/res_radioplasm.html"
+},
+{
+"id":"res.ruby",
+"name":"Ruby",
+"slug":"res_ruby",
+"category":"resources",
+"tier":5,
+"icon":"assets/icons/res_ruby.png",
+"url":"resources/res_ruby.html"
+},
+{
+"id":"res.sapphire",
+"name":"Sapphire",
+"slug":"res_sapphire",
+"category":"resources",
+"tier":5,
+"icon":"assets/icons/res_sapphire.png",
+"url":"resources/res_sapphire.html"
+},
+{
+"id":"res.sapweave.fibers",
+"name":"Sapweave Fibers",
+"slug":"res_sapweave_fibers",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/res_sapweave_fibers.png",
+"url":"resources/res_sapweave_fibers.html"
+},
+{
+"id":"res.scales",
+"name":"Scales",
+"slug":"res_scales",
+"category":"resources",
+"tier":2,
+"icon":"assets/icons/res_scales.png",
+"url":"resources/res_scales.html"
+},
+{
+"id":"res.starlume",
+"name":"Starlume",
+"slug":"res_starlume",
+"category":"resources",
+"tier":6,
+"icon":"assets/icons/res_starlume.png",
+"url":"resources/res_starlume.html"
+},
+{
+"id":"res.subzero.plasma.cell",
+"name":"Subzero Plasma Cell",
+"slug":"res_subzero_plasma_cell",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/res_subzero_plasma_cell.png",
+"url":"resources/res_subzero_plasma_cell.html"
+},
+{
+"id":"res.super.conductor",
+"name":"Super Conductor",
+"slug":"res_super_conductor",
+"category":"resources",
+"tier":5,
+"icon":"assets/icons/res_super_conductor.png",
+"url":"resources/res_super_conductor.html"
+},
+{
+"id":"res.transistor",
+"name":"Transistor",
+"slug":"res_transistor",
+"category":"resources",
+"tier":4,
+"icon":"assets/icons/res_transistor.png",
+"url":"resources/res_transistor.html"
+},
+{
+"id":"res.tusks",
+"name":"Tusks",
+"slug":"res_tusks",
+"category":"resources",
+"tier":3,
+"icon":"assets/icons/res_tusks.png",
+"url":"resources/res_tusks.html"
+},
+{
+"id":"res.vitalis.gel",
+"name":"Vitalis Gel",
+"slug":"res_vitalis_gel",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/res_vitalis_gel.png",
+"url":"resources/res_vitalis_gel.html"
+},
+{
+"id":"res.warez.pearl",
+"name":"Warez Pearl",
+"slug":"res_warez_pearl",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/res_warez_pearl.png",
+"url":"resources/res_warez_pearl.html"
+},
+{
+"id":"res.warez.treasuremap",
+"name":"Warez Treasuremap",
+"slug":"res_warez_treasuremap",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/res_warez_treasuremap.png",
+"url":"resources/res_warez_treasuremap.html"
+},
+{
+"id":"res.wiring",
+"name":"Wiring",
+"slug":"res_wiring",
+"category":"resources",
+"tier":1,
+"icon":"assets/icons/res_wiring.png",
+"url":"resources/res_wiring.html"
+},
+{
+"id":"res.rare.xmatter",
+"name":"Xmatter",
+"slug":"res_rare_xmatter",
+"category":"resources",
+"tier":6,
+"icon":"assets/icons/res_rare_xmatter.png",
+"url":"resources/res_rare_xmatter.html"
+},
+{
+"id":"res.rare.xmatter.cell",
+"name":"Xmatter Cell",
+"slug":"res_rare_xmatter_cell",
+"category":"resources",
+"tier":6,
+"icon":"assets/icons/res_rare_xmatter_cell.png",
+"url":"resources/res_rare_xmatter_cell.html"
+},
+{
+"id":"guide.motherboards",
+"name":"Finding Motherboards",
+"slug":"motherboards",
+"category":"guides",
+"tier":0,
+"icon":"",
+"url":"guides/motherboards.html"
+},
+{
+"id":"guide.leveling-mining",
+"name":"Leveling Mining",
+"slug":"leveling-mining",
+"category":"guides",
+"tier":0,
+"icon":"",
+"url":"guides/leveling-mining.html"
+},
+{
+"id":"guide.leveling-trading",
+"name":"Leveling Trading",
+"slug":"leveling-trading",
+"category":"guides",
+"tier":0,
+"icon":"",
+"url":"guides/leveling-trading.html"
+}
+]

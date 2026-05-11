@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Leveling Mining — Cubic Odyssey Wiki</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site">
+    <div class="inner">
+        <div class="brand">
+            <a href="../index.html">Cubic Odyssey</a>
+            <small>local wiki · 503 entries</small>
+        </div>
+        <nav>
+            <a href="../ores.html"      class="">Ores</a>
+            <a href="../ingots.html"    class="">Ingots</a>
+            <a href="../tools.html"     class="">Tools</a>
+            <a href="../weapons.html"   class="">Weapons</a>
+            <a href="../resources.html" class="">Resources</a>
+            <a href="../guides.html"    class="active">Guides</a>
+        </nav>
+    </div>
+</header>
+<main class="wrap">
+    
+<h1>Leveling Mining</h1>
+<p>The Mining skill is one of nine player skills in Cubic Odyssey (confirmed by <code>data/configs/achievements/max_level_mining.cfg</code>). It governs how quickly you break voxel-tier ores and how much ore you recover per swing.</p>
+
+<div class="section-grid">
+<div>
+
+<h2>How XP is earned</h2>
+<p>Mining XP comes from <strong>breaking ore voxels</strong> — every successful mining hit that lands on a block in category <code>E_VCAT_ORES</code> (the 26 ores listed on <a href="../ores.html">the Ores page</a>) credits Mining experience. Non-ore voxels (Stone, Limestone, Cliff, Lava etc.) do not. Higher-tier ores award more XP per block.</p>
+
+<h2>Step 1 — Always carry the best mining laser you can use</h2>
+<p>There are 8 mining lasers in the game. Each has a <code>voxel_tier</code> stat that caps the ore tier it can break:</p>
+
+<table class="wiki">
+<thead><tr><th class="icon"></th><th>Laser</th><th class="numeric">Voxel tier</th><th>Mines up to</th><th class="numeric">DPS hint</th></tr></thead>
+<tbody>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_mining_laser_0.png" alt=""></td>
+    <td><a href="../tools/wep_mining_laser_0.html">Mining Laser 0</a></td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td>voxel tier 1 (T1 ores)</td>
+    <td class="numeric mono">0.5</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_mining_laser_1.png" alt=""></td>
+    <td><a href="../tools/wep_mining_laser_1.html">Mining Laser 1</a></td>
+    <td class="numeric"><span class="tier tier-2">T2</span></td>
+    <td>voxel tier 2 (T2 ores)</td>
+    <td class="numeric mono">0.7</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_mining_laser_2.png" alt=""></td>
+    <td><a href="../tools/wep_mining_laser_2.html">Mining Laser 2</a></td>
+    <td class="numeric"><span class="tier tier-3">T3</span></td>
+    <td>voxel tier 3 (T3 ores)</td>
+    <td class="numeric mono">1.0</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_mining_laser_3.png" alt=""></td>
+    <td><a href="../tools/wep_mining_laser_3.html">Mining Laser 3</a></td>
+    <td class="numeric"><span class="tier tier-4">T4</span></td>
+    <td>voxel tier 4 (T4 ores)</td>
+    <td class="numeric mono">1.4</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_mining_laser_4.png" alt=""></td>
+    <td><a href="../tools/wep_mining_laser_4.html">Mining Laser 4</a></td>
+    <td class="numeric"><span class="tier tier-5">T5</span></td>
+    <td>voxel tier 5 (T5 ores)</td>
+    <td class="numeric mono">1.9</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_mining_laser_5.png" alt=""></td>
+    <td><a href="../tools/wep_mining_laser_5.html">Mining Laser 5</a></td>
+    <td class="numeric"><span class="tier tier-6">T6</span></td>
+    <td>voxel tier 6 (T6 ores)</td>
+    <td class="numeric mono">3.0</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_mining_laser_6.png" alt=""></td>
+    <td><a href="../tools/wep_mining_laser_6.html">Mining Laser 6</a></td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td>voxel tier 7 (T7 ores)</td>
+    <td class="numeric mono">3.9</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_mining_laser_7.png" alt=""></td>
+    <td><a href="../tools/wep_mining_laser_7.html">Mining Laser 7</a></td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td>voxel tier 7 (T7 ores)</td>
+    <td class="numeric mono">5.6</td>
+</tr>
+
+</tbody>
+</table>
+<p style="font-size:0.85em;color:var(--text-faint)">Note: Mining Laser 6 and 7 share <code>voxel_tier 7</code>; laser 7 has higher fire rate and damage so it mines faster but doesn't unlock new ores. Both can crack <a href="../ores/res_glowing_iron_ore.html">Glowing ores</a> and Higgs Bosson.</p>
+
+<h2>Step 2 — Match ore tier to your skill, not to your laser</h2>
+<p>Your laser determines which ores you <em>can</em> mine; your skill level (combined with the laser's <code>voxel_damage</code> and <code>fireRateRPM</code>) determines how <em>fast</em>. The most efficient grind is mining a tier you can break in under 2 seconds per block.</p>
+
+<div class="kvs">
+<dl>
+    <dt>Tier 1 (early)</dt><dd>Aluminum Ore, Copper Ore, Iron Ore — sub-second breaks even with Mining Laser 0.</dd>
+    <dt>Tier 2</dt><dd>Gold Ore, Silicon Ore, Silver Ore, Tin Ore — switch to laser 1.</dd>
+    <dt>Tier 3</dt><dd>Magnetite Ore, Quartz Ore, Sulfur Ore, Titanium Ore — laser 2.</dd>
+    <dt>Tier 4</dt><dd>Cobalt Ore, Polonium Ore, Radium Ore, Uranium Ore — laser 3 minimum, laser 4 preferred.</dd>
+    <dt>Tier 5 (gems)</dt><dd> — laser 4 minimum.</dd>
+    <dt>Tier 6 (Matter)</dt><dd> — laser 5+. These are rare-spawn end-game ores.</dd>
+    <dt>Tier 7 (Glowing / Higgs)</dt><dd>15 Glowing variants, plus Higgs Bosson — laser 6 or 7.</dd>
+</dl>
+</div>
+
+<h2>Step 3 — Backpack tier multiplies efficiency</h2>
+<p>Each tier of <a href="../tools.html">backpack</a> increases inventory capacity. Running back to a refinery every few veins wastes mining time. Backpack 5 is the realistic late-game target — see <a href="../guides/motherboards.html">the Motherboards guide</a> for the materials it eats.</p>
+
+<h2>Step 4 — Pick the right planet type</h2>
+<p>Ore concentration varies wildly between planet types. Use the <a href="../ores.html">ores table</a> to filter by tier, then click into an ore to see its location table. Quick highlights:</p>
+<ul>
+    <li><strong>Earth-like worlds</strong> (Earth, Bardwell I–III) host every tier-1 and tier-2 ore in good density. Best starter loop.</li>
+    <li><strong>Crystalline worlds</strong> are the gem (T5) hotspot.</li>
+    <li><strong>Scorched worlds</strong> stack rare-matter ores (T6) and Glowing variants.</li>
+    <li><strong>Barren worlds</strong> are good for T3–T4 (Magnetite, Cobalt) without the danger of scorched / xeno biomes.</li>
+</ul>
+
+<h2>Tips that compound</h2>
+<ul>
+    <li><strong>Mine in vertical shafts.</strong> Frequency (<code>m_frequency</code>) is the same across all Y-layers for most ores, but vein extent (<code>m_extent</code>) is highest in the deep layers. Drop a shaft to bedrock and mine outward.</li>
+    <li><strong>Don't sell ore — smelt it.</strong> The <a href="../ingots.html">ingot</a> form is worth more than the raw ore and is what crafting wants anyway.</li>
+    <li><strong>Glowing ores aren't just shinier — they're a separate tier-7 drop.</strong> They smelt into Glowing Ingots used in late-game crafting.</li>
+    <li><strong>Mining skill XP rewards are global</strong> — there's no per-planet cap. Pick a deep iron vein on Earth and grind cleanly.</li>
+</ul>
+
+</div>
+
+<aside class="infobox">
+<h3 style="margin-top:0">At a glance</h3>
+<dl>
+    <dt>Skill</dt><dd>Mining</dd>
+    <dt>Activity</dt><dd>Breaking ore voxels</dd>
+    <dt>Best tool family</dt><dd><a href="../tools.html">Mining Lasers</a> (8 tiers)</dd>
+    <dt>Best ore for grind</dt><dd>Iron / Coal (tier 1) early; Cobalt / Uranium (tier 4) mid; Diamond / Ruby (tier 5) late.</dd>
+    <dt>Capacity multiplier</dt><dd>Backpack tier</dd>
+    <dt>Achievement</dt><dd class="mono">ACH_MAX_LEVEL_MINING</dd>
+</dl>
+</aside>
+</div>
+
+<p style="margin-top:2.5rem"><a class="muted" href="../guides.html">← Back to all guides</a></p>
+
+</main>
+<footer class="site">
+    <div class="inner">
+        Generated 2026-05-11 02:55 UTC from game data (2026-04-26).
+        Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
+        Planet→biome distribution mapping is best-effort.
+    </div>
+</footer>
+
+</body>
+</html>

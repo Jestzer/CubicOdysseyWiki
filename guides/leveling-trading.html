@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Leveling Trading — Cubic Odyssey Wiki</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site">
+    <div class="inner">
+        <div class="brand">
+            <a href="../index.html">Cubic Odyssey</a>
+            <small>local wiki · 503 entries</small>
+        </div>
+        <nav>
+            <a href="../ores.html"      class="">Ores</a>
+            <a href="../ingots.html"    class="">Ingots</a>
+            <a href="../tools.html"     class="">Tools</a>
+            <a href="../weapons.html"   class="">Weapons</a>
+            <a href="../resources.html" class="">Resources</a>
+            <a href="../guides.html"    class="active">Guides</a>
+        </nav>
+    </div>
+</header>
+<main class="wrap">
+    
+<h1>Leveling Trading</h1>
+<p>The Trading skill governs your discount when buying from merchants and your bonus when selling to them. It's one of nine player skills (<code>data/configs/achievements/max_level_trading.cfg</code>) and the easiest skill to level without combat.</p>
+
+<div class="section-grid">
+<div>
+
+<h2 id="trade-discount">How XP is earned</h2>
+<p>Every completed buy or sell transaction at a merchant grants Trading XP. The value of the transaction is what feeds the bar — flipping one expensive item is roughly equivalent to many cheap ones, so volume <em>or</em> value works.</p>
+
+<h2>The outpost perk that compounds with skill</h2>
+<p>One of only three perks in <code>data/configs/outpostperks/</code> is trade-related:</p>
+
+<table class="wiki">
+<thead><tr><th>Perk</th><th class="mono">id</th><th class="numeric">Value</th><th>Effect</th></tr></thead>
+<tbody>
+<tr><td><strong>Trade Discount 1</strong></td><td class="mono">4</td><td class="numeric">0.02 (2.0%)</td><td>Per level, applied to merchant prices at the outpost.</td></tr>
+<tr><td>HP Regen 1</td><td class="mono">1</td><td class="numeric">—</td><td>Faster HP regeneration.</td></tr>
+<tr><td>Processing Speed 1</td><td class="mono">3</td><td class="numeric">—</td><td>Faster furnace / refinery cook times.</td></tr>
+</tbody>
+</table>
+<p>Build / level the trade-discount perk at your home outpost as soon as you have a stable income. The discount stacks with whatever skill-based reduction Trading itself grants.</p>
+
+<h2>What's profitable to flip — by the numbers</h2>
+<p>Items in the game expose two fields the engine uses for trade pricing: <code>base_price</code> (how the merchant prices it) and <code>base_demand</code> (positive = merchant <em>wants</em> it, will pay more; negative = merchant supplies it, sells cheaper than other shops). The most flippable items have <strong>high base price AND positive base demand</strong>:</p>
+
+<table class="wiki">
+<thead><tr><th class="icon"></th><th>Item</th><th class="numeric">Price</th><th class="numeric">Demand</th><th>Type</th></tr></thead>
+<tbody>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_shard_light.png" alt=""></td>
+    <td><a href="../resources/res_shard_light.html">Light Shard</a></td>
+    <td class="numeric">2000</td>
+    <td class="numeric">0.99</td>
+    <td class="mono">CONSUMABLE</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_dark_armor.png" alt=""></td>
+    <td><a href="../resources/res_dark_armor.html">Dark Armor</a></td>
+    <td class="numeric">2000</td>
+    <td class="numeric">0.85</td>
+    <td class="mono">DARK_RESOURCE</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_dark_weapon_melee.png" alt=""></td>
+    <td><a href="../resources/res_dark_weapon_melee.html">Dark Melee Weapon</a></td>
+    <td class="numeric">2000</td>
+    <td class="numeric">0.85</td>
+    <td class="mono">DARK_RESOURCE</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_dark_weapon_ranged.png" alt=""></td>
+    <td><a href="../resources/res_dark_weapon_ranged.html">Dark Weapon</a></td>
+    <td class="numeric">2000</td>
+    <td class="numeric">0.85</td>
+    <td class="mono">DARK_RESOURCE</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_shard_dark.png" alt=""></td>
+    <td><a href="../resources/res_shard_dark.html">Dark Shard</a></td>
+    <td class="numeric">1200</td>
+    <td class="numeric">0.85</td>
+    <td class="mono">DARK_RESOURCE</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_heavy_mg56_0.png" alt=""></td>
+    <td><a href="../weapons/wep_heavy_mg56_0.html">Heavy A Mg56 0</a></td>
+    <td class="numeric">403</td>
+    <td class="numeric">1</td>
+    <td class="mono">WEAPON_RANGED</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_heavy_mg56le_0.png" alt=""></td>
+    <td><a href="../weapons/wep_heavy_mg56le_0.html">Heavy B Mg56le 0</a></td>
+    <td class="numeric">403</td>
+    <td class="numeric">1</td>
+    <td class="mono">WEAPON_RANGED</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_heavy_mg39_0.png" alt=""></td>
+    <td><a href="../weapons/wep_heavy_mg39_0.html">Heavy C Mg39 0</a></td>
+    <td class="numeric">403</td>
+    <td class="numeric">1</td>
+    <td class="mono">WEAPON_RANGED</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_heavy_mg34_0.png" alt=""></td>
+    <td><a href="../weapons/wep_heavy_mg34_0.html">Heavy D Mg34 0</a></td>
+    <td class="numeric">403</td>
+    <td class="numeric">1</td>
+    <td class="mono">WEAPON_RANGED</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_marksman_str180_0.png" alt=""></td>
+    <td><a href="../weapons/wep_marksman_str180_0.html">Marksman A Str180 0</a></td>
+    <td class="numeric">403</td>
+    <td class="numeric">1</td>
+    <td class="mono">WEAPON_RANGED</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_marksman_str180l_0.png" alt=""></td>
+    <td><a href="../weapons/wep_marksman_str180l_0.html">Marksman B Str180l 0</a></td>
+    <td class="numeric">403</td>
+    <td class="numeric">1</td>
+    <td class="mono">WEAPON_RANGED</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_marksman_str130_0.png" alt=""></td>
+    <td><a href="../weapons/wep_marksman_str130_0.html">Marksman C Str130 0</a></td>
+    <td class="numeric">403</td>
+    <td class="numeric">1</td>
+    <td class="mono">WEAPON_RANGED</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_marksman_str80xl_0.png" alt=""></td>
+    <td><a href="../weapons/wep_marksman_str80xl_0.html">Marksman D Str80xl 0</a></td>
+    <td class="numeric">403</td>
+    <td class="numeric">1</td>
+    <td class="mono">WEAPON_RANGED</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_marksman_str180le_0.png" alt=""></td>
+    <td><a href="../weapons/wep_marksman_str180le_0.html">Marksman E Str180le 0</a></td>
+    <td class="numeric">403</td>
+    <td class="numeric">1</td>
+    <td class="mono">WEAPON_RANGED</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_pistol_rg25_0.png" alt=""></td>
+    <td><a href="../weapons/wep_pistol_rg25_0.html">Pistol C Rg25 0</a></td>
+    <td class="numeric">403</td>
+    <td class="numeric">1</td>
+    <td class="mono">WEAPON_RANGED</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_pistol_se17_0.png" alt=""></td>
+    <td><a href="../weapons/wep_pistol_se17_0.html">Pistol D Se17 0</a></td>
+    <td class="numeric">403</td>
+    <td class="numeric">1</td>
+    <td class="mono">WEAPON_RANGED</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_pistol_rl20_0.png" alt=""></td>
+    <td><a href="../weapons/wep_pistol_rl20_0.html">Pistol E Rl20 0</a></td>
+    <td class="numeric">403</td>
+    <td class="numeric">1</td>
+    <td class="mono">WEAPON_RANGED</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_rifle_sma15e_0.png" alt=""></td>
+    <td><a href="../weapons/wep_rifle_sma15e_0.html">Rifle A Sma15e 0</a></td>
+    <td class="numeric">403</td>
+    <td class="numeric">1</td>
+    <td class="mono">WEAPON_RANGED</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_rifle_sma25d_0.png" alt=""></td>
+    <td><a href="../weapons/wep_rifle_sma25d_0.html">Rifle B Sma25d 0</a></td>
+    <td class="numeric">403</td>
+    <td class="numeric">1</td>
+    <td class="mono">WEAPON_RANGED</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/wep_rifle_sma15fe_0.png" alt=""></td>
+    <td><a href="../weapons/wep_rifle_sma15fe_0.html">Rifle C Sma15fe 0</a></td>
+    <td class="numeric">403</td>
+    <td class="numeric">1</td>
+    <td class="mono">WEAPON_RANGED</td>
+</tr>
+
+</tbody>
+</table>
+<p style="font-size:0.85em;color:var(--text-faint)">Top 20 by <code>base_demand × base_price</code>, filtered to <code>base_demand &gt; 0</code>. These are merchant-wanted items — sell them at the right outpost type for maximum profit.</p>
+
+<h2>The opposite side — items merchants supply (don't flip these)</h2>
+<table class="wiki">
+<thead><tr><th class="icon"></th><th>Item</th><th class="numeric">Price</th><th class="numeric">Demand</th><th>Type</th></tr></thead>
+<tbody>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_circuit_board.png" alt=""></td>
+    <td><a href="../resources/res_circuit_board.html">Circuit Board</a></td>
+    <td class="numeric">10</td>
+    <td class="numeric">-11000</td>
+    <td class="mono">PART</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_logic_board.png" alt=""></td>
+    <td><a href="../resources/res_logic_board.html">Logic Board</a></td>
+    <td class="numeric">20</td>
+    <td class="numeric">-11000</td>
+    <td class="mono">PART</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_microprocessor.png" alt=""></td>
+    <td><a href="../resources/res_microprocessor.html">Microprocessor</a></td>
+    <td class="numeric">40</td>
+    <td class="numeric">-11000</td>
+    <td class="mono">PART</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_motherboard.png" alt=""></td>
+    <td><a href="../resources/res_motherboard.html">Motherboard</a></td>
+    <td class="numeric">30</td>
+    <td class="numeric">-11000</td>
+    <td class="mono">PART</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_quantum_processor.png" alt=""></td>
+    <td><a href="../resources/res_quantum_processor.html">Quantum Processor</a></td>
+    <td class="numeric">100</td>
+    <td class="numeric">-11000</td>
+    <td class="mono">PART</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_super_conductor.png" alt=""></td>
+    <td><a href="../resources/res_super_conductor.html">Super Conductor</a></td>
+    <td class="numeric">50</td>
+    <td class="numeric">-11000</td>
+    <td class="mono">PART</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/mod_jetpack_fuel_1.png" alt=""></td>
+    <td><a href="../resources/mod_jetpack_fuel_1.html">Mod Jetpack Fuel 1</a></td>
+    <td class="numeric">0</td>
+    <td class="numeric">-1</td>
+    <td class="mono">MOD</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/mod_jetpack_fuel_2.png" alt=""></td>
+    <td><a href="../resources/mod_jetpack_fuel_2.html">Mod Jetpack Fuel 2</a></td>
+    <td class="numeric">0</td>
+    <td class="numeric">-1</td>
+    <td class="mono">MOD</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/mod_jetpack_fuel_3.png" alt=""></td>
+    <td><a href="../resources/mod_jetpack_fuel_3.html">Mod Jetpack Fuel 3</a></td>
+    <td class="numeric">0</td>
+    <td class="numeric">-1</td>
+    <td class="mono">MOD</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/mod_jetpack_fuel_4.png" alt=""></td>
+    <td><a href="../resources/mod_jetpack_fuel_4.html">Mod Jetpack Fuel 4</a></td>
+    <td class="numeric">0</td>
+    <td class="numeric">-1</td>
+    <td class="mono">MOD</td>
+</tr>
+
+</tbody>
+</table>
+<p style="font-size:0.85em;color:var(--text-faint)">Lowest <code>base_demand</code>. These are the items you <em>buy</em> for cheap (Motherboards, Mirrors, Capacitors, etc.) and use, rather than flip.</p>
+
+<h2>Strategy</h2>
+<ol>
+    <li><strong>Mine and smelt, then sell ingots.</strong> The biggest reliable trading-XP source early. <a href="../ingots.html">Tier-1 ingots</a> have small price tags but you'll have thousands by the time you're advanced.</li>
+    <li><strong>Sell at the right outpost.</strong> Outpost specialisations affect which items have high demand. A mining-themed outpost pays more for ingots; a tech outpost for electronics; a farming outpost for fruit / seeds / saplings.</li>
+    <li><strong>Buy vendor-supplied items below their crafting cost.</strong> Motherboards, mirrors, and similar electronic parts are usually cheaper to buy in bulk than to chase as drops. Roll a trade-discount perk and stock up.</li>
+    <li><strong>Loot then sell.</strong> Cleared a bunker or pirate ship? Bring everything you don't need to the nearest outpost. Even creature resources and low-tier components add up.</li>
+    <li><strong>Don't carry corruption-stained items into civilised outposts</strong> — some quest stages disable trading temporarily, but otherwise stains are just an inventory penalty.</li>
+</ol>
+
+</div>
+
+<aside class="infobox">
+<h3 style="margin-top:0">At a glance</h3>
+<dl>
+    <dt>Skill</dt><dd>Trading</dd>
+    <dt>Activity</dt><dd>Buying / selling with merchants</dd>
+    <dt>Stacks with</dt><dd>Trade Discount perk (2% per level)</dd>
+    <dt>Where</dt><dd>Outposts, space stations, special merchants</dd>
+    <dt>Achievement</dt><dd class="mono">ACH_MAX_LEVEL_TRADING</dd>
+</dl>
+</aside>
+</div>
+
+<p style="margin-top:2.5rem"><a class="muted" href="../guides.html">← Back to all guides</a></p>
+
+</main>
+<footer class="site">
+    <div class="inner">
+        Generated 2026-05-11 02:55 UTC from game data (2026-04-26).
+        Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
+        Planet→biome distribution mapping is best-effort.
+    </div>
+</footer>
+
+</body>
+</html>

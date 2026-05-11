@@ -1,0 +1,29 @@
+{% extends "base.html.j2" %}
+{% block title %}Guides{% endblock %}
+{% block content %}
+<h1>Guides</h1>
+<p>Walkthroughs and reference pages for specific game-play questions. These mix data extracted from <code>data/configs/</code> with practical advice — anywhere a claim is data-backed it is linked or quoted from the config; everywhere else is general gameplay knowledge.</p>
+
+<div class="cards">
+    <a class="card" href="{{ root }}guides/motherboards.html">
+        <h3>Finding Motherboards</h3>
+        <div class="count">{{ guides.motherboards.subtitle }}</div>
+        <p>{{ guides.motherboards.summary }}</p>
+    </a>
+    <a class="card" href="{{ root }}guides/leveling-mining.html">
+        <h3>Leveling Mining</h3>
+        <div class="count">{{ guides.mining.subtitle }}</div>
+        <p>{{ guides.mining.summary }}</p>
+    </a>
+    <a class="card" href="{{ root }}guides/leveling-trading.html">
+        <h3>Leveling Trading</h3>
+        <div class="count">{{ guides.trading.subtitle }}</div>
+        <p>{{ guides.trading.summary }}</p>
+    </a>
+</div>
+
+<div class="note">
+    <strong>Skill list (from <code>data/configs/achievements/max_level_*.cfg</code>):</strong>
+    Building · Corruption · Crafting · Knighthood · Melee · Mining · Ranged · Space Combat · Trading · plus an overall player level.
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Guides — Cubic Odyssey Wiki</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+    <div class="inner">
+        <div class="brand">
+            <a href="index.html">Cubic Odyssey</a>
+            <small>local wiki · 503 entries</small>
+        </div>
+        <nav>
+            <a href="ores.html"      class="">Ores</a>
+            <a href="ingots.html"    class="">Ingots</a>
+            <a href="tools.html"     class="">Tools</a>
+            <a href="weapons.html"   class="">Weapons</a>
+            <a href="resources.html" class="">Resources</a>
+            <a href="guides.html"    class="active">Guides</a>
+        </nav>
+    </div>
+</header>
+<main class="wrap">
+    
+<h1>Guides</h1>
+<p>Walkthroughs and reference pages for specific game-play questions. These mix data extracted from <code>data/configs/</code> with practical advice — anywhere a claim is data-backed it is linked or quoted from the config; everywhere else is general gameplay knowledge.</p>
+
+<div class="cards">
+    <a class="card" href="guides/motherboards.html">
+        <h3>Finding Motherboards</h3>
+        <div class="count">Tier-3 part — not craftable</div>
+        <p>Motherboards gate every tier-4 personal upgrade and MK3 ship component. Locate them, hoard them, spend them wisely.</p>
+    </a>
+    <a class="card" href="guides/leveling-mining.html">
+        <h3>Leveling Mining</h3>
+        <div class="count">Skill #1 of the 9 — easiest to grind</div>
+        <p>How Mining XP works, which mining laser to chase, which ores reward best per tier, and where to find them.</p>
+    </a>
+    <a class="card" href="guides/leveling-trading.html">
+        <h3>Leveling Trading</h3>
+        <div class="count">Stack discounts and flip what merchants want</div>
+        <p>Where Trading XP comes from, the Trade Discount perk, and which items have actual flip value based on base_price × base_demand.</p>
+    </a>
+</div>
+
+<div class="note">
+    <strong>Skill list (from <code>data/configs/achievements/max_level_*.cfg</code>):</strong>
+    Building · Corruption · Crafting · Knighthood · Melee · Mining · Ranged · Space Combat · Trading · plus an overall player level.
+</div>
+
+</main>
+<footer class="site">
+    <div class="inner">
+        Generated 2026-05-11 02:55 UTC from game data (2026-04-26).
+        Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
+        Planet→biome distribution mapping is best-effort.
+    </div>
+</footer>
+
+</body>
+</html>

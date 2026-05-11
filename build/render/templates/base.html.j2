@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{ title }}{% endblock %} — Cubic Odyssey Wiki</title>
+    <link rel="stylesheet" href="{{ root }}assets/style.css">
+</head>
+<body>
+<header class="site">
+    <div class="inner">
+        <div class="brand">
+            <a href="{{ root }}index.html">Cubic Odyssey</a>
+            <small>local wiki · {{ counts.total }} entries</small>
+        </div>
+        <nav>
+            <a href="{{ root }}ores.html"      class="{% if category == 'ores' %}active{% endif %}">Ores</a>
+            <a href="{{ root }}ingots.html"    class="{% if category == 'ingots' %}active{% endif %}">Ingots</a>
+            <a href="{{ root }}tools.html"     class="{% if category == 'tools' %}active{% endif %}">Tools</a>
+            <a href="{{ root }}weapons.html"   class="{% if category == 'weapons' %}active{% endif %}">Weapons</a>
+            <a href="{{ root }}resources.html" class="{% if category == 'resources' %}active{% endif %}">Resources</a>
+            <a href="{{ root }}guides.html"    class="{% if category == 'guides' %}active{% endif %}">Guides</a>
+        </nav>
+    </div>
+</header>
+<main class="wrap">
+    {% block content %}{% endblock %}
+</main>
+<footer class="site">
+    <div class="inner">
+        Generated {{ build_time }} from game data ({{ game_version }}).
+        Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
+        Planet→biome distribution mapping is best-effort.
+    </div>
+</footer>
+{% block scripts %}{% endblock %}
+</body>
+</html>

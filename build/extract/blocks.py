@@ -70,7 +70,7 @@ def _link_for_drop(drop_id: Optional[str], cat: Catalog) -> Optional[str]:
 
 
 def build_block_records(cat: Catalog,
-                          texture_urls: Optional[Dict[str, str]] = None
+                          texture_urls: Optional[Dict[str, Dict[str, str]]] = None
                           ) -> List[dict]:
     texture_urls = texture_urls or {}
     records: List[dict] = []
@@ -78,6 +78,7 @@ def build_block_records(cat: Catalog,
         cat_raw = v.get('m_category', '')
         drop_id = v.get('m_dropItem')
         tex = v.get('m_defaultTexture')
+        urls = texture_urls.get(tex, {}) if tex else {}
         records.append({
             'name': vname,
             'slug': _slug(vname).replace(' ', '_'),
@@ -94,7 +95,8 @@ def build_block_records(cat: Catalog,
             'transparent': v.get('m_transparent', 0),
             'reg_ore': v.get('m_regOre', 0),
             'default_texture': tex,
-            'texture_url': texture_urls.get(tex) if tex else None,
+            'texture_url': urls.get('thumb'),
+            'texture_url_large': urls.get('large'),
             'title_str_id': v.get('titleStrId'),
         })
 
@@ -117,6 +119,7 @@ def block_categories_summary(records: List[dict]) -> List[dict]:
             'category_order': rs[0]['category_order'],
             'count': len(rs),
             'sample_textures': [r['texture_url'] for r in rs[:6] if r.get('texture_url')],
+            'sample_slugs': [r['slug'] for r in rs[:6] if r.get('texture_url')],
             'sample_colors': [r['color'] for r in rs[:6] if r['color']],
             'sample_names': [r['display'] for r in rs[:5]],
         })

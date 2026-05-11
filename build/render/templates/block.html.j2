@@ -1,0 +1,58 @@
+{% extends "base.html.j2" %}
+{% block title %}{{ r.display }}{% endblock %}
+{% block content %}
+<div class="detail-head">
+    {% if r.texture_url_large %}<div class="icon-big"><img src="{{ root }}{{ r.texture_url_large }}" alt="{{ r.display }} block" style="width:160px;height:160px"></div>
+    {% else %}<div class="icon-big placeholder">{{ r.display[:2]|upper }}</div>{% endif %}
+    <div class="meta">
+        <h1>{{ r.display }}{% if r.tier is not none %} {% if r.tier <= 7 %}<span class="tier tier-{{ r.tier }}">Tier {{ r.tier }}</span>{% else %}<span class="tier tier-100">Tier {{ r.tier }}</span>{% endif %}{% endif %}</h1>
+        <div class="id">{{ r.name }}</div>
+        <p class="desc">
+            <a href="{{ root }}blocks.html#cat-{{ r.category_raw|lower }}">{{ r.category_label }}</a>
+            <span style="color:var(--text-faint)">· <code>{{ r.category_raw }}</code></span>
+        </p>
+    </div>
+</div>
+
+<div class="section-grid">
+<div>
+
+<h2>Mining</h2>
+<div class="kvs">
+<dl>
+    {% if r.tier is not none %}<dt>Tier</dt><dd>{{ r.tier }}</dd>{% endif %}
+    {% if r.mine_unit is not none %}<dt>Block hardness</dt><dd>{{ r.mine_unit }} <span style="color:var(--text-faint)">(<code>m_mineUnit</code>; lower = faster)</span></dd>{% endif %}
+    <dt>Drops</dt>
+    <dd>
+        {% if r.drop_url %}<a href="{{ root }}{{ r.drop_url }}">{{ r.drop_display }}</a>{% elif r.drop_item %}<span class="mono">{{ r.drop_item }}</span>{% else %}<span style="color:var(--text-faint)">—</span>{% endif %}
+    </dd>
+</dl>
+</div>
+
+<h2>Source data</h2>
+<p style="color:var(--text-faint);font-size:0.9em">From <code>data/configs/voxels/{{ r.name|lower|replace(' ', '_') }}.cfg</code>. The face textures live under <code>data/models/voxels/</code>:</p>
+<div class="kvs">
+<dl>
+    {% if r.default_texture %}<dt>m_defaultTexture</dt><dd class="mono">{{ r.default_texture }}.dds</dd>{% endif %}
+    {% if r.title_str_id %}<dt>titleStrId</dt><dd class="mono">{{ r.title_str_id }}</dd>{% endif %}
+    <dt>m_transparent</dt><dd>{{ r.transparent }}</dd>
+    <dt>m_regOre</dt><dd>{{ r.reg_ore }}</dd>
+</dl>
+</div>
+
+</div>
+
+<aside class="infobox">
+<h3 style="margin-top:0">At a glance</h3>
+<dl>
+    {% if r.tier is not none %}<dt>Tier</dt><dd>{{ r.tier }}</dd>{% endif %}
+    <dt>Category</dt><dd>{{ r.category_label }}</dd>
+    {% if r.mine_unit is not none %}<dt>Mine unit</dt><dd>{{ r.mine_unit }}</dd>{% endif %}
+    {% if r.color %}<dt>Tint colour</dt><dd><span style="display:inline-block;width:14px;height:14px;background:rgb({{ r.color[0] }},{{ r.color[1] }},{{ r.color[2] }});border:1px solid var(--border);border-radius:2px;margin-right:0.4em;vertical-align:-2px"></span>rgb({{ r.color[0] }}, {{ r.color[1] }}, {{ r.color[2] }})</dd>{% endif %}
+    {% if r.drop_item %}<dt>Drop</dt><dd>{% if r.drop_url %}<a href="{{ root }}{{ r.drop_url }}">{{ r.drop_display }}</a>{% else %}<span class="mono">{{ r.drop_item }}</span>{% endif %}</dd>{% endif %}
+</dl>
+</aside>
+</div>
+
+<p style="margin-top:2.5rem"><a class="muted" href="{{ root }}blocks.html">← Back to all blocks</a></p>
+{% endblock %}

@@ -95,7 +95,9 @@ def slice_icons(items: Dict[str, dict], atlases, out_dir: Path) -> int:
 
 
 def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
-                           out_dir: Path, size: int = 128) -> Dict[str, str]:
+                           out_dir: Path, size: int = 256,
+                           thumb_size: int = 128
+                           ) -> Dict[str, Dict[str, str]]:
     """Render each voxel as an isometric cube PNG, like the in-game block icon.
 
     The cube uses three faces: the top, plus left and right sides at 85% / 70%
@@ -186,17 +188,26 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
     # mistake because table rows (var(--bg)) and category cards
     # (var(--bg-card)) use different shades, so any single fill colour
     # leaves a visible rectangle in one of the two contexts.
-    urls: Dict[str, str] = {}
+    thumb_dir = out_dir.parent / 'voxels_thumb'
+    thumb_dir.mkdir(parents=True, exist_ok=True)
+    urls: Dict[str, Dict[str, str]] = {}
     stems = {v.get('m_defaultTexture') for v in voxels.values()
               if v.get('m_defaultTexture')}
     for stem in stems:
         top, side = faces_for(stem)
         if top is None and side is None:
             continue
-        cube = render(top, side)
-        out_path = out_dir / f'{stem}.png'
-        cube.save(out_path, 'PNG', optimize=True)
-        urls[stem] = f'assets/textures/voxels/{stem}.png'
+        cube = render(top, side, S=size)
+        large_path = out_dir / f'{stem}.png'
+        cube.save(large_path, 'PNG', optimize=True)
+        thumb = cube.resize((thumb_size, thumb_size),
+                             Image.Resampling.LANCZOS)
+        thumb_path = thumb_dir / f'{stem}.png'
+        thumb.save(thumb_path, 'PNG', optimize=True)
+        urls[stem] = {
+            'large': f'assets/textures/voxels/{stem}.png',
+            'thumb': f'assets/textures/voxels_thumb/{stem}.png',
+        }
     return urls
 
 

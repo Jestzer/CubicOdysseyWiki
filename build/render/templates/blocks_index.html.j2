@@ -41,8 +41,8 @@
 <tbody>
 {% for r in rows if r.category_raw == c.category_raw %}
 <tr data-search="{{ (r.display ~ ' ' ~ (r.drop_item or '') ~ ' ' ~ (r.default_texture or ''))|lower }}">
-    <td>{% if r.texture_url %}<img src="{{ root }}{{ r.texture_url }}" alt="" style="width:48px;height:48px">{% elif r.color %}<span style="display:inline-block;width:32px;height:32px;background:rgb({{ r.color[0] }},{{ r.color[1] }},{{ r.color[2] }});border:1px solid var(--border);border-radius:3px"></span>{% endif %}</td>
-    <td>{{ r.display }}</td>
+    <td><a href="{{ root }}blocks/{{ r.slug }}.html">{% if r.texture_url %}<img src="{{ root }}{{ r.texture_url }}" alt="" loading="lazy" style="width:48px;height:48px">{% elif r.color %}<span style="display:inline-block;width:32px;height:32px;background:rgb({{ r.color[0] }},{{ r.color[1] }},{{ r.color[2] }});border:1px solid var(--border);border-radius:3px"></span>{% endif %}</a></td>
+    <td><a href="{{ root }}blocks/{{ r.slug }}.html">{{ r.display }}</a></td>
     <td class="numeric">{% if r.tier is not none %}{% if r.tier <= 7 %}<span class="tier tier-{{ r.tier }}">T{{ r.tier }}</span>{% else %}<span class="tier tier-100">T{{ r.tier }}</span>{% endif %}{% else %}—{% endif %}</td>
     <td class="numeric mono">{{ r.mine_unit if r.mine_unit is not none else '—' }}</td>
     <td>{% if r.drop_url %}<a href="{{ root }}{{ r.drop_url }}">{{ r.drop_display }}</a>{% elif r.drop_item %}<span class="mono">{{ r.drop_item }}</span>{% else %}<span style="color:var(--text-faint)">—</span>{% endif %}</td>

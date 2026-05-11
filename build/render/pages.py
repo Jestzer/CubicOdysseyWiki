@@ -300,6 +300,11 @@ class WikiRenderer:
                 counts=self.counts,
                 rows=block_records,
                 categories=block_categories)
+            for r in block_records:
+                self._render_template('block.html.j2',
+                    self.out / 'blocks' / (r['slug'] + '.html'),
+                    root='../', category='blocks', title=r['display'],
+                    counts=self.counts, r=r)
 
         # Speeders
         if speeder_records:

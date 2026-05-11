@@ -2,7 +2,7 @@
 {% block title %}{{ r.display }}{% endblock %}
 {% block content %}
 <div class="detail-head">
-    {% if r.texture_url_large %}<div class="icon-big block-hero"><img src="{{ root }}{{ r.texture_url_large }}" alt="{{ r.display }} block"></div>
+    {% if r.texture_url_large %}<div class="icon-big block-hero"><img id="block-hero-img" src="{{ root }}{{ r.texture_url_large }}" data-canonical="{{ root }}{{ r.texture_url_large }}" alt="{{ r.display }} block"></div>
     {% else %}<div class="icon-big placeholder">{{ r.display[:2]|upper }}</div>{% endif %}
     <div class="meta">
         <h1>{{ r.display }}{% if r.tier is not none %} {% if r.tier <= 7 %}<span class="tier tier-{{ r.tier }}">Tier {{ r.tier }}</span>{% else %}<span class="tier tier-100">Tier {{ r.tier }}</span>{% endif %}{% endif %}</h1>
@@ -56,11 +56,11 @@
 
 {% if r.texture_url_variants and r.texture_url_variants|length > 1 %}
 <h2>Visual variants</h2>
-<p style="color:var(--text-faint)">This voxel's source <code>.dds</code> texture contains <strong>{{ r.texture_url_variants|length }}</strong> stacked variants. The hero above uses variant {{ r.texture_url_variants|length }} (the bottom strip — usually the cleanest); the engine appears to pick between these per-instance or as an animation frame.</p>
+<p style="color:var(--text-faint)">This voxel's source <code>.dds</code> texture contains <strong>{{ r.texture_url_variants|length }}</strong> stacked variants. The hero above uses variant {{ r.texture_url_variants|length }} (the bottom strip — usually the cleanest); the engine appears to pick between these per-instance or as an animation frame. Click any thumbnail to swap it into the hero frame, click the hero to revert.</p>
 <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:0.8rem">
 {% for v in r.texture_url_variants %}
 <figure style="margin:0;text-align:center">
-    <img src="{{ root }}{{ v }}" alt="Variant {{ loop.index }}" style="width:128px;height:128px;display:block">
+    <img src="{{ root }}{{ v }}" alt="Variant {{ loop.index }}" class="block-variant" data-src="{{ root }}{{ v }}" style="width:128px;height:128px;display:block;cursor:pointer" title="Click to view in the hero frame">
     <figcaption style="color:var(--text-faint);font-size:0.85em;margin-top:0.2em">Variant {{ loop.index }}</figcaption>
 </figure>
 {% endfor %}
@@ -68,4 +68,25 @@
 {% endif %}
 
 <p style="margin-top:2.5rem"><a class="muted" href="{{ root }}blocks.html">← Back to all blocks</a></p>
+{% endblock %}
+{% block scripts %}
+{% if r.texture_url_variants and r.texture_url_variants|length > 1 %}
+<script>
+(function(){
+    const hero = document.getElementById('block-hero-img');
+    if (!hero) return;
+    const canonical = hero.dataset.canonical;
+    hero.style.cursor = 'pointer';
+    hero.title = 'Click to revert to the canonical variant';
+    document.querySelectorAll('img.block-variant').forEach(img => {
+        img.addEventListener('click', () => {
+            hero.src = img.dataset.src;
+        });
+    });
+    hero.addEventListener('click', () => {
+        hero.src = canonical;
+    });
+})();
+</script>
+{% endif %}
 {% endblock %}

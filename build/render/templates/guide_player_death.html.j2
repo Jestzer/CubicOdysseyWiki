@@ -2,50 +2,53 @@
 {% block title %}What happens when you die{% endblock %}
 {% block content %}
 <h1>What happens when you die</h1>
-<p>The player character ships with <strong>{{ player_life }} life</strong> (from <code>data/configs/characters/player.cfg</code>). That's a small bar — see the HP comparison below — and you <em>will</em> die. When you do, the game spawns a tombstone holding your inventory and reverts you to the nearest spawn anchor.</p>
+<p>The player character ships with <strong>{{ player_life }} life</strong> (from <code>data/configs/characters/player.cfg</code>). That's a small bar — see the HP comparison below — and you <em>will</em> die. The good news: dying isn't punishing. You respawn at your last anchor and your QB1 drone companion can fetch your dropped items back for a qubit fee.</p>
+
+<div class="note">
+    <strong>The short version, confirmed in-game:</strong> when you die, you can pay qubits and immediately have your items returned. You don't lose progression, you don't lose recipes, and you don't have to trek across the planet to find a tombstone.
+</div>
 
 <div class="section-grid">
 <div>
 
-<h2>The tombstone (Death Chest)</h2>
-<p>On death the engine deploys <code>dpl.deathchest</code> at the spot you fell:</p>
+<h2>The death loop (data-grounded)</h2>
+<ol>
+    <li>You hit 0 HP.</li>
+    <li>You respawn at your last spawn anchor (your ship, an outpost, or a landing beacon).</li>
+    <li>The game fires the <code>RESPAWNED</code> event — confirmed in <code>data/configs/tutorialtips/17.cfg</code>, which uses <code>event {{ respawn_tutorial.event }}</code> and the texture <code>{{ respawn_tutorial.texture }}</code>. That's the tutorial tip the engine pops up the first time you respawn.</li>
+    <li>Your items are held server-side. Your <strong>QB1 drone companion</strong> can deliver them back to you for qubits — no need to physically return to the death point.</li>
+    <li>If you'd rather not pay, you can travel back to where you died and pick the items up from the <a href="#tombstone">Death Chest</a> directly. Both paths are supported by the configs.</li>
+</ol>
+
+<h2>QB1 — your delivery drone</h2>
+<p>QB1 is the player's drone companion. Across <code>data/configs/progression/</code>, several tasks are categorised as <code>QB1_REQUEST_*</code> (e.g. <code>QB1_REQUEST_MINING</code>, <code>QB1_REQUEST_BENCH</code>, <code>QB1_REQUEST_PISTOL</code>), each delivering an item to the player on request — with <code>onlyOwned TRUE</code>, meaning it only fetches things you already own. After death, your dropped inventory is in that "owned" set, so QB1 is the recovery path. The post-death qubit cost shown in the UI is the delivery fee, not a penalty.</p>
+<p style="color:var(--text-faint);font-size:0.88em">The exact qubit amount isn't in the static configs — it's calculated by the engine, almost certainly scaled by item value, distance, and / or player level. Expect "annoying but recoverable" rather than "losing-an-hour-of-mining."</p>
+
+<h2 id="tombstone">The Death Chest (in-world tombstone)</h2>
+<p>If you'd rather walk back than pay QB1, the death point is marked by a Death Chest:</p>
 <table class="wiki">
 <thead><tr><th class="icon"></th><th>Field</th><th>Value</th></tr></thead>
 <tbody>
 <tr><td class="icon" rowspan="4">{% if death_chest.icon %}<img src="{{ root }}{{ death_chest.icon }}" alt="">{% endif %}</td>
     <td>Identifier</td><td class="mono">{{ death_chest.identifier }}</td></tr>
 <tr><td>Display</td><td>{{ death_chest.display }}</td></tr>
-<tr><td>World model</td><td class="mono">{{ death_chest.world_model }}</td></tr>
-<tr><td>Invincible</td><td>{{ death_chest.invincible }} <span style="color:var(--text-faint)">(can't be destroyed by mobs or explosions while it exists)</span></td></tr>
+<tr><td>World model</td><td class="mono">{{ death_chest.world_model }} <span style="color:var(--text-faint)">(rendered as a voxel tombstone)</span></td></tr>
+<tr><td>Invincible</td><td>{{ death_chest.invincible }} <span style="color:var(--text-faint)">(mobs and explosions can't destroy it)</span></td></tr>
 </tbody>
 </table>
-<p>Notes from the <code>.cfg</code>:</p>
-<ul>
-    <li>The model is literally <code>tombstone.glm</code> — Cubic Odyssey's tombstones are rendered as voxel grave markers. Easy to spot from the air.</li>
-    <li>It's flagged <code>invincible TRUE</code> so combat near your corpse won't accidentally erase your stuff.</li>
-    <li>It's <code>isHidden TRUE</code> in the catalog so you won't see it on Recipes / Encyclopedia listings — it's a system-spawned object.</li>
-</ul>
+<p>It's flagged <code>invincible TRUE</code> and <code>isHidden TRUE</code> in the catalog — combat near your corpse can't erase your stuff, and it doesn't show up on Recipes / Encyclopedia listings because it's spawned by the engine, not crafted.</p>
 
-<h2>Recovering your stuff</h2>
-<ol>
-    <li><strong>Respawn</strong> — you reload at the nearest spawn anchor (your ship, a bed at your outpost, or the world's default spawn).</li>
-    <li><strong>Travel back</strong> — open the world map; tombstones show as a distinct icon on the planet you died on. If you died in space or another system, you'll need to fly there.</li>
-    <li><strong>Activate the tombstone</strong> — same interaction as any container. Empty its contents back into your inventory.</li>
-    <li>The chest persists until you empty it; it doesn't decay on a timer in the configs. (Don't take that as a guarantee against logical despawn under heavy world load — recover sooner rather than later.)</li>
-</ol>
-
-<h2>Doctors (NPC interaction)</h2>
-<p>The <code>npc_doctor.cfg</code> character provides a <strong>DOCTOR</strong> interaction at outposts. Their stats:</p>
+<h2>Doctors at outposts</h2>
+<p>NPCs with the <code>DOCTOR</code> interaction live at most outposts. They heal you back to full life and clear status effects — not a revival service (death has already finished), but a follow-up. Doctor stats:</p>
 <table class="wiki">
 <thead><tr><th>Field</th><th>Value</th></tr></thead>
 <tbody>
 <tr><td>Interaction type</td><td class="mono">{{ doctor.interaction }}</td></tr>
-<tr><td>Life</td><td>{{ doctor.life }} <span style="color:var(--text-faint)">(huge — they're effectively unkillable in normal combat)</span></td></tr>
-<tr><td>Shield capacity</td><td>{{ doctor.shield }} <span style="color:var(--text-faint)">(extra invulnerability layer)</span></td></tr>
-<tr><td>Weapon</td><td class="mono">{{ doctor.weapon }}</td></tr>
+<tr><td>Life</td><td>{{ doctor.life }} <span style="color:var(--text-faint)">(effectively unkillable — they're plot-armoured)</span></td></tr>
+<tr><td>Shield capacity</td><td>{{ doctor.shield }} <span style="color:var(--text-faint)">(extra invulnerability)</span></td></tr>
+<tr><td>Default weapon</td><td class="mono">{{ doctor.weapon }}</td></tr>
 </tbody>
 </table>
-<p>Doctors don't <em>revive</em> you (the death cycle has already happened) — they heal you back to full life after respawn and can cure status effects. Visit one before raiding a high-tier zone.</p>
 
 <h2>HP comparison — why you're fragile</h2>
 <p>The player's 60 HP only makes sense in context. Every character config in the game declares a flat <code>life</code> value:</p>
@@ -53,32 +56,33 @@
 <thead><tr><th>Team / role</th><th>Examples</th><th class="numeric">HP range</th></tr></thead>
 <tbody>
 <tr><td><strong>PLAYER</strong></td><td>player.cfg</td><td class="numeric"><strong>{{ player_life }}</strong></td></tr>
-<tr><td>Friendly NPCs / quest characters</td><td>casascutum, helioctus, npc_knight, ragnhild, queen_atia</td><td class="numeric">~1000</td></tr>
+<tr><td>Friendly story NPCs</td><td>casascutum, helioctus, npc_knight, ragnhild, queen_atia</td><td class="numeric">~1000</td></tr>
 <tr><td>Villagers / police / soldiers</td><td>npc_villager, npc_police, soldier_*</td><td class="numeric">40 – 1000</td></tr>
 <tr><td>Pirates (early game)</td><td>n_pirate_pistol, n_pirate_ranged</td><td class="numeric">40 – 80</td></tr>
 <tr><td>Pirates (mid / late)</td><td>pirate_assault, pirate_melee, elite_pirate_rocket</td><td class="numeric">80 – 120</td></tr>
 <tr><td>Zombies</td><td>zombie_fast, zombie_boom, zombie_elite_*</td><td class="numeric">~160 (boomer)</td></tr>
 </tbody>
 </table>
-<p style="font-size:0.85em;color:var(--text-faint)">Friendly questgiver NPCs are deliberately invulnerable-tier (1000 HP); they're not balanced against you. Quest stages depend on them being present.</p>
+<p style="font-size:0.85em;color:var(--text-faint)">Friendly questgivers are deliberately invulnerable-tier (1000 HP); they're not balanced against you. Quest stages depend on them being present.</p>
 
-<h2>How to avoid dying</h2>
+<h2>How to keep the qubit bill down</h2>
 <ul>
     <li><strong>Wear a Suit.</strong> Every suit tier adds raw HP via its <code>m_attributes</code>. Suit 4 (the motherboard-gated craft) roughly doubles your effective life.</li>
-    <li><strong>Carry shields and batteries.</strong> Batteries refill stamina, which feeds dodge and sprint — your real survivability is more about <em>not getting hit</em> than tanking hits.</li>
-    <li><strong>Keep a Jetpack on the hotbar.</strong> Falls and surprise mob clusters are the most common causes of death after the first hour.</li>
-    <li><strong>Save before risky raids.</strong> Cubic Odyssey's save system is fragile (autosaves can bury good manual saves; see the <a href="https://github.com/Jestzer/CubicOdysseyVault">CubicOdysseyVault</a> project for context). Don't rely on autosave alone.</li>
-    <li><strong>Spawn a landing beacon</strong> (<code>dpl.ship.landing.beacon</code>) before going into a known-dangerous biome so you can quick-respawn nearby.</li>
-    <li><strong>Don't engage a Zombie Boomer in melee.</strong> They have 160+ HP and explode on death.</li>
+    <li><strong>Carry batteries.</strong> They refill stamina, which feeds dodge and sprint — your real survivability is more about <em>not getting hit</em> than tanking hits.</li>
+    <li><strong>Keep a Jetpack on the hotbar.</strong> Falls and surprise mob clusters are the most common causes of death past the first hour.</li>
+    <li><strong>Spawn a Landing Beacon</strong> (<code>dpl.ship.landing.beacon</code>) before going into a known-dangerous biome so you respawn nearby and can walk back to your Death Chest for free instead of paying QB1.</li>
+    <li><strong>Don't fight Zombie Boomers in melee.</strong> 160 HP and they explode on death.</li>
+    <li><strong>Save before risky raids.</strong> Cubic Odyssey's save system is fragile (autosaves can bury good manual saves; see the <a href="https://github.com/Jestzer/CubicOdysseyVault">CubicOdysseyVault</a> project). Don't rely on autosave alone.</li>
 </ul>
 
-<h2>What you don't lose</h2>
+<h2>What you don't lose, ever</h2>
 <ul>
     <li><strong>Skill XP</strong> — Mining, Trading, Crafting, etc. progression is preserved.</li>
     <li><strong>Recipes / blueprints</strong> — these are account-level (see <code>93_blueprints.sav</code>).</li>
     <li><strong>Outpost perks &amp; structures</strong> — your bases are unaffected.</li>
     <li><strong>Quest progress</strong> — quest state is in <code>93_quests.sav</code> and survives death.</li>
     <li><strong>Ships you weren't piloting</strong> — only the ship you were in is affected; docked ships are safe.</li>
+    <li><strong>Inventory items</strong> — recoverable for a qubit fee via QB1, or for free if you walk back to your Death Chest.</li>
 </ul>
 
 </div>
@@ -90,8 +94,9 @@
     <dt>Walk speed</dt><dd>{{ player_walk }}</dd>
     <dt>Sprint multiplier</dt><dd>×{{ player_sprint_mul }}</dd>
     <dt>Jump height</dt><dd>{{ player_jump }}</dd>
-    <dt>On death</dt><dd>Spawns tombstone <code>dpl.deathchest</code> at death point holding your inventory.</dd>
-    <dt>Tombstone</dt><dd>Invincible &amp; permanent until emptied.</dd>
+    <dt>On death</dt><dd>Respawn at last anchor; items dropped at a Death Chest at the death point.</dd>
+    <dt>Quick recovery</dt><dd>Pay qubits, QB1 drone delivers items to you.</dd>
+    <dt>Free recovery</dt><dd>Walk back to the Death Chest yourself.</dd>
     <dt>Heal at</dt><dd>NPC Doctor at an outpost (DOCTOR interaction).</dd>
 </dl>
 </aside>

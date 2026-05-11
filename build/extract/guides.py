@@ -287,11 +287,21 @@ def item_damage_context(cat: Catalog, icons_dir: Path) -> dict:
 
 
 def player_death_context(cat: Catalog, icons_dir: Path) -> dict:
-    """Pull player HP, death-chest data, doctor data, mob HP comparison."""
+    """Pull player HP, death-chest data, doctor data, mob HP comparison,
+    and the QB1-respawn tutorial reference."""
     # Read player.cfg
     player_path = cat.game_root / 'data' / 'configs' / 'characters' / 'player.cfg'
     from parsers.cfg import parse_file
     player_data = parse_file(player_path) or {}
+
+    # Tutorial tip 17 fires on RESPAWNED — confirm by reading it
+    tut17_path = cat.game_root / 'data' / 'configs' / 'tutorialtips' / '17.cfg'
+    tut17_data = parse_file(tut17_path) or {}
+    respawn_tutorial = {
+        'event': tut17_data.get('event'),
+        'texture': tut17_data.get('texture'),
+        'title_string': tut17_data.get('title_string'),
+    }
 
     # All other characters (life + team)
     chars_dir = cat.game_root / 'data' / 'configs' / 'characters'
@@ -352,6 +362,7 @@ def player_death_context(cat: Catalog, icons_dir: Path) -> dict:
         'doctor': doctor,
         'mobs': mobs,
         'buckets': buckets,
+        'respawn_tutorial': respawn_tutorial,
     }
 
 

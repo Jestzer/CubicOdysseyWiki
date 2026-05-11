@@ -26,6 +26,8 @@ from extract.catalog import Catalog
 from extract.ores import build_ore_records, _humanize, _slug
 from extract.gems import build_gem_records, gem_identifiers
 from extract.worlds import build_world_records
+from extract.enemies import build_enemy_records
+from extract.ships import build_ship_records, build_speeder_records
 from extract.guides import (
     motherboard_context, mining_context, trading_context,
     item_damage_context, player_death_context, perks_context,
@@ -296,6 +298,9 @@ def main():
     dist_meta_clean = {k: v for k, v in dist_meta.items() if not k.startswith('_')}
     gem_records = build_gem_records(cat, dist_meta_clean)
     world_records = build_world_records(cat, dist_meta_clean)
+    enemy_records = build_enemy_records(cat)
+    ship_records = build_ship_records(cat)
+    speeder_records = build_speeder_records(cat)
 
     ingot_records = build_ingots(cat, ores_by_drop)
     tool_records = build_tools(cat, ore_records)
@@ -305,7 +310,8 @@ def main():
     print(f'       ores={len(ore_records)} gems={len(gem_records)} '
           f'ingots={len(ingot_records)} tools={len(tool_records)} '
           f'weapons={len(weapon_records)} resources={len(resource_records)} '
-          f'worlds={len(world_records)}')
+          f'worlds={len(world_records)} enemies={len(enemy_records)} '
+          f'ships={len(ship_records)} speeders={len(speeder_records)}')
 
     print('[5/6] writing catalog.json…')
     (out / 'data').mkdir(exist_ok=True)
@@ -340,6 +346,9 @@ def main():
         weapon_records=weapon_records,
         resource_records=resource_records,
         world_records=world_records,
+        enemy_records=enemy_records,
+        ship_records=ship_records,
+        speeder_records=speeder_records,
     )
 
     print('[6.5/6] rendering Guides…')
@@ -366,8 +375,9 @@ def main():
     print(f'== built in {t1 - t0:.1f}s')
     print(f'   {len(ore_records)} ores + {len(gem_records)} gems + '
           f'{len(ingot_records)} ingots + {len(tool_records)} tools + '
-          f'{len(weapon_records)} weapons + {len(resource_records)} '
-          f'resources + {len(world_records)} worlds + 7 guides')
+          f'{len(weapon_records)} weapons + {len(resource_records)} resources + '
+          f'{len(world_records)} worlds + {len(enemy_records)} enemies + '
+          f'{len(ship_records)} ships + {len(speeder_records)} speeders + 7 guides')
     print(f'   open file://{out}/index.html')
 
 

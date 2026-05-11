@@ -1,0 +1,42 @@
+{% extends "base.html.j2" %}
+{% block title %}{{ r.display }}{% endblock %}
+{% block content %}
+<div class="detail-head">
+    {% if r.icon %}<div class="icon-big"><img src="{{ root }}{{ r.icon }}" alt=""></div>
+    {% else %}<div class="icon-big placeholder">{{ r.display[:2]|upper }}</div>{% endif %}
+    <div class="meta">
+        <h1>{{ r.display }} <span class="tier tier-{{ r.tier }}">Tier {{ r.tier }}</span></h1>
+        <div class="id">{{ r.identifier }}</div>
+        {% if r.camo_color %}<div class="id" style="margin-top:0.4em"><span style="display:inline-block;width:12px;height:12px;background:rgb({{ r.camo_color[0] }},{{ r.camo_color[1] }},{{ r.camo_color[2] }});border:1px solid var(--border);border-radius:2px;margin-right:0.4em;vertical-align:-2px"></span>Signature colour rgb({{ r.camo_color[0] }}, {{ r.camo_color[1] }}, {{ r.camo_color[2] }})</div>{% endif %}
+        <p class="desc">Land-speeder, tier {{ r.tier }}. Purchased from speeder dealers and the speeder track NPCs at outposts.</p>
+    </div>
+</div>
+
+<div class="section-grid">
+<div>
+
+<h2>Where to get this speeder</h2>
+<ul>
+    <li><strong>Outpost speeder dealers</strong> — most numbered speeders unlock by tier, mirroring your trading reputation and the outpost's specialisation.</li>
+    <li><strong>Quest rewards</strong> — a handful of speeders are awarded at story milestones; the engine tags those via <code>BUY_SPEEDER</code> progression entries that don't require purchase.</li>
+    <li><strong>Speeder races</strong> — beat the time on tracks scattered across populated planets; some tracks unlock the "P" variants.</li>
+</ul>
+<p>The exact dealer-to-speeder catalogue isn't exposed in static configs, so the rules above are general patterns — let us know if a specific speeder turned up somewhere unexpected.</p>
+
+</div>
+
+<aside class="infobox">
+<h3 style="margin-top:0">Item info</h3>
+<dl>
+    <dt>Type</dt><dd class="mono">{{ r.type }}</dd>
+    {% if r.stack_size %}<dt>Stack size</dt><dd>{{ r.stack_size }}</dd>{% endif %}
+    {% if r.base_price %}<dt>Base price</dt><dd>{{ r.base_price }}</dd>{% endif %}
+    {% if r.inv_frame is not none %}<dt>inv_frame</dt><dd class="mono">{{ r.inv_frame }}</dd>{% endif %}
+    {% if r.world_model %}<dt>Body model</dt><dd class="mono" style="word-break:break-all">{{ r.world_model }}</dd>{% endif %}
+    {% if r.description_string %}<dt>desc_id</dt><dd class="mono">{{ r.description_string }}</dd>{% endif %}
+</dl>
+</aside>
+</div>
+
+<p style="margin-top:2.5rem"><a class="muted" href="{{ root }}speeders.html">← Back to all speeders</a></p>
+{% endblock %}

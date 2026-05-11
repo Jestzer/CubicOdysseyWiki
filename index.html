@@ -15,7 +15,7 @@
     <div class="inner">
         <div class="brand">
             <a href="index.html">Cubic Odyssey</a>
-            <small>local wiki · 516 entries</small>
+            <small>local wiki · 631 entries</small>
         </div>
         <nav>
             <a href="ores.html"      class="">Ores</a>
@@ -25,6 +25,9 @@
             <a href="weapons.html"   class="">Weapons</a>
             <a href="resources.html" class="">Resources</a>
             <a href="worlds.html"    class="">Worlds</a>
+            <a href="enemies.html"   class="">Enemies</a>
+            <a href="ships.html"     class="">Ships</a>
+            <a href="speeders.html"  class="">Speeders</a>
             <a href="guides.html"    class="">Guides</a>
         </nav>
     </div>
@@ -35,7 +38,7 @@
 <p>A locally-generated reference for ores, ingots, tools, weapons, and resources in Cubic Odyssey. All data extracted directly from the game's <code>data/configs/</code> on every build.</p>
 
 <div class="controls">
-    <input type="search" class="search" id="globalSearch" placeholder="Search all 516 entries (e.g. iron, mining laser, diamond)…" autocomplete="off">
+    <input type="search" class="search" id="globalSearch" placeholder="Search all 631 entries (e.g. iron, mining laser, diamond)…" autocomplete="off">
 </div>
 <div class="results" id="results"></div>
 
@@ -76,10 +79,25 @@
         <div class="count">9 types</div>
         <p>Earth-like, Crystalline, Scorched, and friends. Biome bands and per-layer ore distribution per world type.</p>
     </a>
+    <a class="card" href="enemies.html">
+        <h3>Enemies</h3>
+        <div class="count">22 hostile</div>
+        <p>Pirates and Zombies with parsed drop tables (chance / count per item), HP, weapon, and where you'll meet them.</p>
+    </a>
+    <a class="card" href="ships.html">
+        <h3>Ships</h3>
+        <div class="count">73 entries</div>
+        <p>5 classes × 4 factions. Class-locked components (MK1–MK5). Includes the answer to "can scout parts apply to newer ships?"</p>
+    </a>
+    <a class="card" href="speeders.html">
+        <h3>Speeders</h3>
+        <div class="count">20 speeders</div>
+        <p>Landspeeders tier 1–T?, hover-cars to retro-coupes. Including DeLorian.</p>
+    </a>
     <a class="card" href="guides.html">
         <h3>Guides</h3>
         <div class="count">7 guides</div>
-        <p>Walkthroughs: finding Motherboards, leveling Mining, leveling Trading.</p>
+        <p>Walkthroughs: finding Motherboards, leveling Mining, leveling Trading, and more.</p>
     </a>
 </div>
 
@@ -143,7 +161,7 @@
 </main>
 <footer class="site">
     <div class="inner">
-        Generated 2026-05-11 04:44 UTC from game data (2026-04-26).
+        Generated 2026-05-11 05:07 UTC from game data (2026-04-26).
         Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
         Planet→biome distribution mapping is best-effort.
     </div>

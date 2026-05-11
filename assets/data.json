@@ -4581,6 +4581,1041 @@
 "url":"worlds/xeno.html"
 },
 {
+"id":"n_pirate_pistol",
+"name":"Newbie Pirate Pistol",
+"slug":"n_pirate_pistol",
+"category":"enemies",
+"tier":1,
+"icon":"",
+"url":"enemies/n_pirate_pistol.html"
+},
+{
+"id":"s_pirate_sniper",
+"name":"Special Pirate Sniper",
+"slug":"s_pirate_sniper",
+"category":"enemies",
+"tier":1,
+"icon":"",
+"url":"enemies/s_pirate_sniper.html"
+},
+{
+"id":"n_pirate_ranged",
+"name":"Newbie Pirate Ranged",
+"slug":"n_pirate_ranged",
+"category":"enemies",
+"tier":1,
+"icon":"",
+"url":"enemies/n_pirate_ranged.html"
+},
+{
+"id":"n_pirate_assault",
+"name":"Newbie Pirate Assault",
+"slug":"n_pirate_assault",
+"category":"enemies",
+"tier":2,
+"icon":"",
+"url":"enemies/n_pirate_assault.html"
+},
+{
+"id":"n_pirate_heavy",
+"name":"Newbie Pirate Heavy",
+"slug":"n_pirate_heavy",
+"category":"enemies",
+"tier":2,
+"icon":"",
+"url":"enemies/n_pirate_heavy.html"
+},
+{
+"id":"n_pirate_flames",
+"name":"Newbie Pirate Flames",
+"slug":"n_pirate_flames",
+"category":"enemies",
+"tier":2,
+"icon":"",
+"url":"enemies/n_pirate_flames.html"
+},
+{
+"id":"pirate_assault",
+"name":"Pirate Assault",
+"slug":"pirate_assault",
+"category":"enemies",
+"tier":2,
+"icon":"",
+"url":"enemies/pirate_assault.html"
+},
+{
+"id":"pirate_pistol",
+"name":"Pirate Pistol",
+"slug":"pirate_pistol",
+"category":"enemies",
+"tier":2,
+"icon":"",
+"url":"enemies/pirate_pistol.html"
+},
+{
+"id":"pirate_ranged",
+"name":"Pirate Ranged",
+"slug":"pirate_ranged",
+"category":"enemies",
+"tier":2,
+"icon":"",
+"url":"enemies/pirate_ranged.html"
+},
+{
+"id":"pirate_sniper",
+"name":"Pirate Sniper",
+"slug":"pirate_sniper",
+"category":"enemies",
+"tier":2,
+"icon":"",
+"url":"enemies/pirate_sniper.html"
+},
+{
+"id":"pirate_flames",
+"name":"Pirate Flames",
+"slug":"pirate_flames",
+"category":"enemies",
+"tier":3,
+"icon":"",
+"url":"enemies/pirate_flames.html"
+},
+{
+"id":"pirate_heavy",
+"name":"Pirate Heavy",
+"slug":"pirate_heavy",
+"category":"enemies",
+"tier":3,
+"icon":"",
+"url":"enemies/pirate_heavy.html"
+},
+{
+"id":"elite_pirate_rocket",
+"name":"Elite Pirate Rocket",
+"slug":"elite_pirate_rocket",
+"category":"enemies",
+"tier":4,
+"icon":"",
+"url":"enemies/elite_pirate_rocket.html"
+},
+{
+"id":"pirate_melee",
+"name":"Pirate Melee",
+"slug":"pirate_melee",
+"category":"enemies",
+"tier":4,
+"icon":"",
+"url":"enemies/pirate_melee.html"
+},
+{
+"id":"zombie_fast",
+"name":"Zombie Fast",
+"slug":"zombie_fast",
+"category":"enemies",
+"tier":3,
+"icon":"",
+"url":"enemies/zombie_fast.html"
+},
+{
+"id":"zombie_corruptor",
+"name":"Zombie Corruptor",
+"slug":"zombie_corruptor",
+"category":"enemies",
+"tier":4,
+"icon":"",
+"url":"enemies/zombie_corruptor.html"
+},
+{
+"id":"zombie_slow",
+"name":"Zombie Slow",
+"slug":"zombie_slow",
+"category":"enemies",
+"tier":4,
+"icon":"",
+"url":"enemies/zombie_slow.html"
+},
+{
+"id":"zombie_boom",
+"name":"Zombie Boom",
+"slug":"zombie_boom",
+"category":"enemies",
+"tier":4,
+"icon":"",
+"url":"enemies/zombie_boom.html"
+},
+{
+"id":"zombie_elite_fast",
+"name":"Zombie Elite Fast",
+"slug":"zombie_elite_fast",
+"category":"enemies",
+"tier":4,
+"icon":"",
+"url":"enemies/zombie_elite_fast.html"
+},
+{
+"id":"zombie_elite_corruptor",
+"name":"Zombie Elite Corruptor",
+"slug":"zombie_elite_corruptor",
+"category":"enemies",
+"tier":4,
+"icon":"",
+"url":"enemies/zombie_elite_corruptor.html"
+},
+{
+"id":"zombie_elite_slow",
+"name":"Zombie Elite Slow",
+"slug":"zombie_elite_slow",
+"category":"enemies",
+"tier":4,
+"icon":"",
+"url":"enemies/zombie_elite_slow.html"
+},
+{
+"id":"zombie_envoy",
+"name":"Zombie Envoy",
+"slug":"zombie_envoy",
+"category":"enemies",
+"tier":4,
+"icon":"",
+"url":"enemies/zombie_envoy.html"
+},
+{
+"id":"ship.pirate.drone.mk1",
+"name":"Ship Pirate Drone Mk1",
+"slug":"ship_pirate_drone_mk1",
+"category":"ships",
+"tier":1,
+"icon":"assets/icons/ship_pirate_drone_mk1.png",
+"url":"ships/ship_pirate_drone_mk1.html"
+},
+{
+"id":"ship.basilisk",
+"name":"Ship Basilisk",
+"slug":"ship_basilisk",
+"category":"ships",
+"tier":3,
+"icon":"assets/icons/ship_basilisk.png",
+"url":"ships/ship_basilisk.html"
+},
+{
+"id":"ship.excalibur",
+"name":"Ship Excalibur",
+"slug":"ship_excalibur",
+"category":"ships",
+"tier":5,
+"icon":"assets/icons/ship_excalibur.png",
+"url":"ships/ship_excalibur.html"
+},
+{
+"id":"ship.galactix.racer",
+"name":"Ship Galactix Racer",
+"slug":"ship_galactix_racer",
+"category":"ships",
+"tier":2,
+"icon":"assets/icons/ship_galactix_racer.png",
+"url":"ships/ship_galactix_racer.html"
+},
+{
+"id":"ship.hipersonic",
+"name":"Ship Hipersonic",
+"slug":"ship_hipersonic",
+"category":"ships",
+"tier":4,
+"icon":"assets/icons/ship_hipersonic.png",
+"url":"ships/ship_hipersonic.html"
+},
+{
+"id":"ship.infinity",
+"name":"Ship Infinity",
+"slug":"ship_infinity",
+"category":"ships",
+"tier":3,
+"icon":"assets/icons/ship_infinity.png",
+"url":"ships/ship_infinity.html"
+},
+{
+"id":"ship.interstellar.runner",
+"name":"Ship Interstellar Runner",
+"slug":"ship_interstellar_runner",
+"category":"ships",
+"tier":4,
+"icon":"assets/icons/ship_interstellar_runner.png",
+"url":"ships/ship_interstellar_runner.html"
+},
+{
+"id":"ship.micro.recon",
+"name":"Ship Micro Recon",
+"slug":"ship_micro_recon",
+"category":"ships",
+"tier":1,
+"icon":"assets/icons/ship_micro_recon.png",
+"url":"ships/ship_micro_recon.html"
+},
+{
+"id":"ship.planet.purifier.mobile",
+"name":"Ship Planet Purifier Mobile",
+"slug":"ship_planet_purifier_mobile",
+"category":"ships",
+"tier":4,
+"icon":"assets/icons/ship_planet_purifier_mobile.png",
+"url":"ships/ship_planet_purifier_mobile.html"
+},
+{
+"id":"ship.red.fury",
+"name":"Ship Red Fury",
+"slug":"ship_red_fury",
+"category":"ships",
+"tier":5,
+"icon":"assets/icons/ship_red_fury.png",
+"url":"ships/ship_red_fury.html"
+},
+{
+"id":"ship.shell",
+"name":"Ship Shell",
+"slug":"ship_shell",
+"category":"ships",
+"tier":2,
+"icon":"assets/icons/ship_shell.png",
+"url":"ships/ship_shell.html"
+},
+{
+"id":"ship.supersonic.small",
+"name":"Ship Supersonic Small",
+"slug":"ship_supersonic_small",
+"category":"ships",
+"tier":5,
+"icon":"assets/icons/ship_supersonic_small.png",
+"url":"ships/ship_supersonic_small.html"
+},
+{
+"id":"ship.pirate.corvette.mk1",
+"name":"Ship Pirate Corvette Mk1",
+"slug":"ship_pirate_corvette_mk1",
+"category":"ships",
+"tier":1,
+"icon":"assets/icons/ship_pirate_corvette_mk1.png",
+"url":"ships/ship_pirate_corvette_mk1.html"
+},
+{
+"id":"ship.pirate.corvette.mk2",
+"name":"Ship Pirate Corvette Mk2",
+"slug":"ship_pirate_corvette_mk2",
+"category":"ships",
+"tier":2,
+"icon":"assets/icons/ship_pirate_corvette_mk2.png",
+"url":"ships/ship_pirate_corvette_mk2.html"
+},
+{
+"id":"ship.pirate.corvette.mk3",
+"name":"Ship Pirate Corvette Mk3",
+"slug":"ship_pirate_corvette_mk3",
+"category":"ships",
+"tier":3,
+"icon":"assets/icons/ship_pirate_corvette_mk3.png",
+"url":"ships/ship_pirate_corvette_mk3.html"
+},
+{
+"id":"ship.pirate.corvette.mk4",
+"name":"Ship Pirate Corvette Mk4",
+"slug":"ship_pirate_corvette_mk4",
+"category":"ships",
+"tier":4,
+"icon":"assets/icons/ship_pirate_corvette_mk4.png",
+"url":"ships/ship_pirate_corvette_mk4.html"
+},
+{
+"id":"ship.pirate.corvette.mk5",
+"name":"Ship Pirate Corvette Mk5",
+"slug":"ship_pirate_corvette_mk5",
+"category":"ships",
+"tier":5,
+"icon":"assets/icons/ship_pirate_corvette_mk5.png",
+"url":"ships/ship_pirate_corvette_mk5.html"
+},
+{
+"id":"ship.pirate.dvergr",
+"name":"Ship Pirate Dvergr",
+"slug":"ship_pirate_dvergr",
+"category":"ships",
+"tier":5,
+"icon":"assets/icons/ship_pirate_dvergr.png",
+"url":"ships/ship_pirate_dvergr.html"
+},
+{
+"id":"ship.pirate.mean",
+"name":"Ship Pirate Mean",
+"slug":"ship_pirate_mean",
+"category":"ships",
+"tier":4,
+"icon":"assets/icons/ship_pirate_mean.png",
+"url":"ships/ship_pirate_mean.html"
+},
+{
+"id":"ship.pirate.sly.runner",
+"name":"Ship Pirate Sly Runner",
+"slug":"ship_pirate_sly_runner",
+"category":"ships",
+"tier":2,
+"icon":"assets/icons/ship_pirate_sly_runner.png",
+"url":"ships/ship_pirate_sly_runner.html"
+},
+{
+"id":"ship.pirate.tiny.runner",
+"name":"Ship Pirate Tiny Runner",
+"slug":"ship_pirate_tiny_runner",
+"category":"ships",
+"tier":1,
+"icon":"assets/icons/ship_pirate_tiny_runner.png",
+"url":"ships/ship_pirate_tiny_runner.html"
+},
+{
+"id":"ship.pirate.vector",
+"name":"Ship Pirate Vector",
+"slug":"ship_pirate_vector",
+"category":"ships",
+"tier":3,
+"icon":"assets/icons/ship_pirate_vector.png",
+"url":"ships/ship_pirate_vector.html"
+},
+{
+"id":"ship.police.quick.redeemer",
+"name":"Ship Police Quick Redeemer",
+"slug":"ship_police_quick_redeemer",
+"category":"ships",
+"tier":3,
+"icon":"assets/icons/ship_police_quick_redeemer.png",
+"url":"ships/ship_police_quick_redeemer.html"
+},
+{
+"id":"ship.artemis",
+"name":"Ship Artemis",
+"slug":"ship_artemis",
+"category":"ships",
+"tier":5,
+"icon":"assets/icons/ship_artemis.png",
+"url":"ships/ship_artemis.html"
+},
+{
+"id":"ship.defiant",
+"name":"Ship Defiant",
+"slug":"ship_defiant",
+"category":"ships",
+"tier":5,
+"icon":"assets/icons/ship_defiant.png",
+"url":"ships/ship_defiant.html"
+},
+{
+"id":"ship.endeavour",
+"name":"Ship Endeavour",
+"slug":"ship_endeavour",
+"category":"ships",
+"tier":4,
+"icon":"assets/icons/ship_endeavour.png",
+"url":"ships/ship_endeavour.html"
+},
+{
+"id":"ship.hermes",
+"name":"Ship Hermes",
+"slug":"ship_hermes",
+"category":"ships",
+"tier":5,
+"icon":"assets/icons/ship_hermes.png",
+"url":"ships/ship_hermes.html"
+},
+{
+"id":"ship.infrared.furtive",
+"name":"Ship Infrared Furtive",
+"slug":"ship_infrared_furtive",
+"category":"ships",
+"tier":3,
+"icon":"assets/icons/ship_infrared_furtive.png",
+"url":"ships/ship_infrared_furtive.html"
+},
+{
+"id":"ship.red.fighter",
+"name":"Ship Red Fighter",
+"slug":"ship_red_fighter",
+"category":"ships",
+"tier":5,
+"icon":"assets/icons/ship_red_fighter.png",
+"url":"ships/ship_red_fighter.html"
+},
+{
+"id":"ship.star.marine.trooper",
+"name":"Ship Star Marine Trooper",
+"slug":"ship_star_marine_trooper",
+"category":"ships",
+"tier":3,
+"icon":"assets/icons/ship_star_marine_trooper.png",
+"url":"ships/ship_star_marine_trooper.html"
+},
+{
+"id":"ship.transtellar",
+"name":"Ship Transtellar",
+"slug":"ship_transtellar",
+"category":"ships",
+"tier":4,
+"icon":"assets/icons/ship_transtellar.png",
+"url":"ships/ship_transtellar.html"
+},
+{
+"id":"ship.ultraviolet.intruder",
+"name":"Ship Ultraviolet Intruder",
+"slug":"ship_ultraviolet_intruder",
+"category":"ships",
+"tier":1,
+"icon":"assets/icons/ship_ultraviolet_intruder.png",
+"url":"ships/ship_ultraviolet_intruder.html"
+},
+{
+"id":"ship.warship",
+"name":"Ship Warship",
+"slug":"ship_warship",
+"category":"ships",
+"tier":2,
+"icon":"assets/icons/ship_warship.png",
+"url":"ships/ship_warship.html"
+},
+{
+"id":"ship.pirate.frigate.mk1",
+"name":"Ship Pirate Frigate Mk1",
+"slug":"ship_pirate_frigate_mk1",
+"category":"ships",
+"tier":1,
+"icon":"assets/icons/ship_pirate_frigate_mk1.png",
+"url":"ships/ship_pirate_frigate_mk1.html"
+},
+{
+"id":"ship.pirate.frigate.mk2",
+"name":"Ship Pirate Frigate Mk2",
+"slug":"ship_pirate_frigate_mk2",
+"category":"ships",
+"tier":2,
+"icon":"assets/icons/ship_pirate_frigate_mk2.png",
+"url":"ships/ship_pirate_frigate_mk2.html"
+},
+{
+"id":"ship.pirate.frigate.mk3",
+"name":"Ship Pirate Frigate Mk3",
+"slug":"ship_pirate_frigate_mk3",
+"category":"ships",
+"tier":3,
+"icon":"assets/icons/ship_pirate_frigate_mk3.png",
+"url":"ships/ship_pirate_frigate_mk3.html"
+},
+{
+"id":"ship.pirate.frigate.mk4",
+"name":"Ship Pirate Frigate Mk4",
+"slug":"ship_pirate_frigate_mk4",
+"category":"ships",
+"tier":4,
+"icon":"assets/icons/ship_pirate_frigate_mk4.png",
+"url":"ships/ship_pirate_frigate_mk4.html"
+},
+{
+"id":"ship.pirate.frigate.mk5",
+"name":"Ship Pirate Frigate Mk5",
+"slug":"ship_pirate_frigate_mk5",
+"category":"ships",
+"tier":5,
+"icon":"assets/icons/ship_pirate_frigate_mk5.png",
+"url":"ships/ship_pirate_frigate_mk5.html"
+},
+{
+"id":"ship.pirate.seeker",
+"name":"Ship Pirate Seeker",
+"slug":"ship_pirate_seeker",
+"category":"ships",
+"tier":3,
+"icon":"assets/icons/ship_pirate_seeker.png",
+"url":"ships/ship_pirate_seeker.html"
+},
+{
+"id":"ship.pirate.straight.runner",
+"name":"Ship Pirate Straight Runner",
+"slug":"ship_pirate_straight_runner",
+"category":"ships",
+"tier":2,
+"icon":"assets/icons/ship_pirate_straight_runner.png",
+"url":"ships/ship_pirate_straight_runner.html"
+},
+{
+"id":"ship.pirate.supersonic",
+"name":"Ship Pirate Supersonic",
+"slug":"ship_pirate_supersonic",
+"category":"ships",
+"tier":5,
+"icon":"assets/icons/ship_pirate_supersonic.png",
+"url":"ships/ship_pirate_supersonic.html"
+},
+{
+"id":"ship.pirate.tri.runner",
+"name":"Ship Pirate Tri Runner",
+"slug":"ship_pirate_tri_runner",
+"category":"ships",
+"tier":1,
+"icon":"assets/icons/ship_pirate_tri_runner.png",
+"url":"ships/ship_pirate_tri_runner.html"
+},
+{
+"id":"ship.police.patrol.runner",
+"name":"Ship Police Patrol Runner",
+"slug":"ship_police_patrol_runner",
+"category":"ships",
+"tier":3,
+"icon":"assets/icons/ship_police_patrol_runner.png",
+"url":"ships/ship_police_patrol_runner.html"
+},
+{
+"id":"ship.argonaut",
+"name":"Ship Argonaut",
+"slug":"ship_argonaut",
+"category":"ships",
+"tier":4,
+"icon":"assets/icons/ship_argonaut.png",
+"url":"ships/ship_argonaut.html"
+},
+{
+"id":"ship.leviathan",
+"name":"Ship Leviathan",
+"slug":"ship_leviathan",
+"category":"ships",
+"tier":5,
+"icon":"assets/icons/ship_leviathan.png",
+"url":"ships/ship_leviathan.html"
+},
+{
+"id":"ship.neutron",
+"name":"Ship Neutron",
+"slug":"ship_neutron",
+"category":"ships",
+"tier":3,
+"icon":"assets/icons/ship_neutron.png",
+"url":"ships/ship_neutron.html"
+},
+{
+"id":"ship.planet.biter",
+"name":"Ship Planet Biter",
+"slug":"ship_planet_biter",
+"category":"ships",
+"tier":3,
+"icon":"assets/icons/ship_planet_biter.png",
+"url":"ships/ship_planet_biter.html"
+},
+{
+"id":"ship.primo.regalis",
+"name":"Ship Primo Regalis",
+"slug":"ship_primo_regalis",
+"category":"ships",
+"tier":5,
+"icon":"assets/icons/ship_primo_regalis.png",
+"url":"ships/ship_primo_regalis.html"
+},
+{
+"id":"ship.vespira",
+"name":"Ship Vespira",
+"slug":"ship_vespira",
+"category":"ships",
+"tier":3,
+"icon":"assets/icons/ship_vespira.png",
+"url":"ships/ship_vespira.html"
+},
+{
+"id":"ship.pirate.bulky",
+"name":"Ship Pirate Bulky",
+"slug":"ship_pirate_bulky",
+"category":"ships",
+"tier":5,
+"icon":"assets/icons/ship_pirate_bulky.png",
+"url":"ships/ship_pirate_bulky.html"
+},
+{
+"id":"ship.pirate.dreadnought.mk1",
+"name":"Ship Pirate Dreadnought Mk1",
+"slug":"ship_pirate_dreadnought_mk1",
+"category":"ships",
+"tier":1,
+"icon":"assets/icons/ship_pirate_dreadnought_mk1.png",
+"url":"ships/ship_pirate_dreadnought_mk1.html"
+},
+{
+"id":"ship.pirate.dreadnought.mk2",
+"name":"Ship Pirate Dreadnought Mk2",
+"slug":"ship_pirate_dreadnought_mk2",
+"category":"ships",
+"tier":2,
+"icon":"assets/icons/ship_pirate_dreadnought_mk2.png",
+"url":"ships/ship_pirate_dreadnought_mk2.html"
+},
+{
+"id":"ship.pirate.dreadnought.mk3",
+"name":"Ship Pirate Dreadnought Mk3",
+"slug":"ship_pirate_dreadnought_mk3",
+"category":"ships",
+"tier":3,
+"icon":"assets/icons/ship_pirate_dreadnought_mk3.png",
+"url":"ships/ship_pirate_dreadnought_mk3.html"
+},
+{
+"id":"ship.pirate.dreadnought.mk4",
+"name":"Ship Pirate Dreadnought Mk4",
+"slug":"ship_pirate_dreadnought_mk4",
+"category":"ships",
+"tier":4,
+"icon":"assets/icons/ship_pirate_dreadnought_mk4.png",
+"url":"ships/ship_pirate_dreadnought_mk4.html"
+},
+{
+"id":"ship.pirate.dreadnought.mk5",
+"name":"Ship Pirate Dreadnought Mk5",
+"slug":"ship_pirate_dreadnought_mk5",
+"category":"ships",
+"tier":5,
+"icon":"assets/icons/ship_pirate_dreadnought_mk5.png",
+"url":"ships/ship_pirate_dreadnought_mk5.html"
+},
+{
+"id":"ship.pirate.massive.runner",
+"name":"Ship Pirate Massive Runner",
+"slug":"ship_pirate_massive_runner",
+"category":"ships",
+"tier":2,
+"icon":"assets/icons/ship_pirate_massive_runner.png",
+"url":"ships/ship_pirate_massive_runner.html"
+},
+{
+"id":"ship.police.master.redeemer",
+"name":"Ship Police Master Redeemer",
+"slug":"ship_police_master_redeemer",
+"category":"ships",
+"tier":5,
+"icon":"assets/icons/ship_police_master_redeemer.png",
+"url":"ships/ship_police_master_redeemer.html"
+},
+{
+"id":"ship.police.relentless.blazer",
+"name":"Ship Police Relentless Blazer",
+"slug":"ship_police_relentless_blazer",
+"category":"ships",
+"tier":4,
+"icon":"assets/icons/ship_police_relentless_blazer.png",
+"url":"ships/ship_police_relentless_blazer.html"
+},
+{
+"id":"ship.camo.stellar.jet",
+"name":"Ship Camo Stellar Jet",
+"slug":"ship_camo_stellar_jet",
+"category":"ships",
+"tier":3,
+"icon":"assets/icons/ship_camo_stellar_jet.png",
+"url":"ships/ship_camo_stellar_jet.html"
+},
+{
+"id":"ship.chariot",
+"name":"Ship Chariot",
+"slug":"ship_chariot",
+"category":"ships",
+"tier":2,
+"icon":"assets/icons/ship_chariot.png",
+"url":"ships/ship_chariot.html"
+},
+{
+"id":"ship.cube.basic",
+"name":"Ship Cube Basic",
+"slug":"ship_cube_basic",
+"category":"ships",
+"tier":1,
+"icon":"assets/icons/ship_cube_basic.png",
+"url":"ships/ship_cube_basic.html"
+},
+{
+"id":"ship.dual.striker",
+"name":"Ship Dual Striker",
+"slug":"ship_dual_striker",
+"category":"ships",
+"tier":4,
+"icon":"assets/icons/ship_dual_striker.png",
+"url":"ships/ship_dual_striker.html"
+},
+{
+"id":"ship.planet.bane",
+"name":"Ship Planet Bane",
+"slug":"ship_planet_bane",
+"category":"ships",
+"tier":5,
+"icon":"assets/icons/ship_planet_bane.png",
+"url":"ships/ship_planet_bane.html"
+},
+{
+"id":"ship.pirate.dual.runner",
+"name":"Ship Pirate Dual Runner",
+"slug":"ship_pirate_dual_runner",
+"category":"ships",
+"tier":4,
+"icon":"assets/icons/ship_pirate_dual_runner.png",
+"url":"ships/ship_pirate_dual_runner.html"
+},
+{
+"id":"ship.pirate.galleon.mk1",
+"name":"Ship Pirate Galleon Mk1",
+"slug":"ship_pirate_galleon_mk1",
+"category":"ships",
+"tier":1,
+"icon":"assets/icons/ship_pirate_galleon_mk1.png",
+"url":"ships/ship_pirate_galleon_mk1.html"
+},
+{
+"id":"ship.pirate.galleon.mk2",
+"name":"Ship Pirate Galleon Mk2",
+"slug":"ship_pirate_galleon_mk2",
+"category":"ships",
+"tier":2,
+"icon":"assets/icons/ship_pirate_galleon_mk2.png",
+"url":"ships/ship_pirate_galleon_mk2.html"
+},
+{
+"id":"ship.pirate.galleon.mk3",
+"name":"Ship Pirate Galleon Mk3",
+"slug":"ship_pirate_galleon_mk3",
+"category":"ships",
+"tier":3,
+"icon":"assets/icons/ship_pirate_galleon_mk3.png",
+"url":"ships/ship_pirate_galleon_mk3.html"
+},
+{
+"id":"ship.pirate.galleon.mk4",
+"name":"Ship Pirate Galleon Mk4",
+"slug":"ship_pirate_galleon_mk4",
+"category":"ships",
+"tier":4,
+"icon":"assets/icons/ship_pirate_galleon_mk4.png",
+"url":"ships/ship_pirate_galleon_mk4.html"
+},
+{
+"id":"ship.pirate.galleon.mk5",
+"name":"Ship Pirate Galleon Mk5",
+"slug":"ship_pirate_galleon_mk5",
+"category":"ships",
+"tier":5,
+"icon":"assets/icons/ship_pirate_galleon_mk5.png",
+"url":"ships/ship_pirate_galleon_mk5.html"
+},
+{
+"id":"ship.pirate.long.runner",
+"name":"Ship Pirate Long Runner",
+"slug":"ship_pirate_long_runner",
+"category":"ships",
+"tier":2,
+"icon":"assets/icons/ship_pirate_long_runner.png",
+"url":"ships/ship_pirate_long_runner.html"
+},
+{
+"id":"ship.pirate.scavenger",
+"name":"Ship Pirate Scavenger",
+"slug":"ship_pirate_scavenger",
+"category":"ships",
+"tier":5,
+"icon":"assets/icons/ship_pirate_scavenger.png",
+"url":"ships/ship_pirate_scavenger.html"
+},
+{
+"id":"ship.police.fast.blazer",
+"name":"Ship Police Fast Blazer",
+"slug":"ship_police_fast_blazer",
+"category":"ships",
+"tier":5,
+"icon":"assets/icons/ship_police_fast_blazer.png",
+"url":"ships/ship_police_fast_blazer.html"
+},
+{
+"id":"ship.police.straight.watcher",
+"name":"Ship Police Straight Watcher",
+"slug":"ship_police_straight_watcher",
+"category":"ships",
+"tier":4,
+"icon":"assets/icons/ship_police_straight_watcher.png",
+"url":"ships/ship_police_straight_watcher.html"
+},
+{
+"id":"speeder.4",
+"name":"Speeder 4",
+"slug":"speeder_4",
+"category":"speeders",
+"tier":1,
+"icon":"assets/icons/speeder_4.png",
+"url":"speeders/speeder_4.html"
+},
+{
+"id":"speeder.5",
+"name":"Speeder 5",
+"slug":"speeder_5",
+"category":"speeders",
+"tier":1,
+"icon":"assets/icons/speeder_5.png",
+"url":"speeders/speeder_5.html"
+},
+{
+"id":"speeder.1",
+"name":"Speeder 1",
+"slug":"speeder_1",
+"category":"speeders",
+"tier":2,
+"icon":"assets/icons/speeder_1.png",
+"url":"speeders/speeder_1.html"
+},
+{
+"id":"speeder.2",
+"name":"Speeder 2",
+"slug":"speeder_2",
+"category":"speeders",
+"tier":3,
+"icon":"assets/icons/speeder_2.png",
+"url":"speeders/speeder_2.html"
+},
+{
+"id":"speeder.6",
+"name":"Speeder 6",
+"slug":"speeder_6",
+"category":"speeders",
+"tier":4,
+"icon":"assets/icons/speeder_6.png",
+"url":"speeders/speeder_6.html"
+},
+{
+"id":"speeder.3",
+"name":"Speeder 3",
+"slug":"speeder_3",
+"category":"speeders",
+"tier":5,
+"icon":"assets/icons/speeder_3.png",
+"url":"speeders/speeder_3.html"
+},
+{
+"id":"speeder.9",
+"name":"Speeder 9",
+"slug":"speeder_9",
+"category":"speeders",
+"tier":5,
+"icon":"assets/icons/speeder_9.png",
+"url":"speeders/speeder_9.html"
+},
+{
+"id":"speeder.10",
+"name":"Speeder 10",
+"slug":"speeder_10",
+"category":"speeders",
+"tier":6,
+"icon":"assets/icons/speeder_10.png",
+"url":"speeders/speeder_10.html"
+},
+{
+"id":"speeder.13",
+"name":"Speeder 13",
+"slug":"speeder_13",
+"category":"speeders",
+"tier":6,
+"icon":"assets/icons/speeder_13.png",
+"url":"speeders/speeder_13.html"
+},
+{
+"id":"speeder.14",
+"name":"Speeder 14",
+"slug":"speeder_14",
+"category":"speeders",
+"tier":6,
+"icon":"",
+"url":"speeders/speeder_14.html"
+},
+{
+"id":"speeder.15",
+"name":"Speeder 15",
+"slug":"speeder_15",
+"category":"speeders",
+"tier":6,
+"icon":"",
+"url":"speeders/speeder_15.html"
+},
+{
+"id":"speeder.16",
+"name":"Speeder 16",
+"slug":"speeder_16",
+"category":"speeders",
+"tier":6,
+"icon":"",
+"url":"speeders/speeder_16.html"
+},
+{
+"id":"speeder.17",
+"name":"Speeder 17",
+"slug":"speeder_17",
+"category":"speeders",
+"tier":6,
+"icon":"",
+"url":"speeders/speeder_17.html"
+},
+{
+"id":"speeder.18",
+"name":"Speeder 18",
+"slug":"speeder_18",
+"category":"speeders",
+"tier":6,
+"icon":"",
+"url":"speeders/speeder_18.html"
+},
+{
+"id":"speeder.car0",
+"name":"Speeder Car 0",
+"slug":"speeder_car0",
+"category":"speeders",
+"tier":6,
+"icon":"assets/icons/speeder_car0.png",
+"url":"speeders/speeder_car0.html"
+},
+{
+"id":"speeder.delorian",
+"name":"Speeder Delorian",
+"slug":"speeder_delorian",
+"category":"speeders",
+"tier":6,
+"icon":"assets/icons/speeder_delorian.png",
+"url":"speeders/speeder_delorian.html"
+},
+{
+"id":"speeder.11",
+"name":"Speeder 11",
+"slug":"speeder_11",
+"category":"speeders",
+"tier":7,
+"icon":"assets/icons/speeder_11.png",
+"url":"speeders/speeder_11.html"
+},
+{
+"id":"speeder.12",
+"name":"Speeder 12",
+"slug":"speeder_12",
+"category":"speeders",
+"tier":7,
+"icon":"assets/icons/speeder_12.png",
+"url":"speeders/speeder_12.html"
+},
+{
+"id":"speeder.7",
+"name":"Speeder 7",
+"slug":"speeder_7",
+"category":"speeders",
+"tier":7,
+"icon":"assets/icons/speeder_7.png",
+"url":"speeders/speeder_7.html"
+},
+{
+"id":"speeder.8",
+"name":"Speeder 8",
+"slug":"speeder_8",
+"category":"speeders",
+"tier":7,
+"icon":"assets/icons/speeder_8.png",
+"url":"speeders/speeder_8.html"
+},
+{
 "id":"guide.motherboards",
 "name":"Finding Motherboards",
 "slug":"motherboards",

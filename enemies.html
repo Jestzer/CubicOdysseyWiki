@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Enemies — Cubic Odyssey Wiki</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+    <link rel="shortcut icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+    <div class="inner">
+        <div class="brand">
+            <a href="index.html">Cubic Odyssey</a>
+            <small>local wiki · 631 entries</small>
+        </div>
+        <nav>
+            <a href="ores.html"      class="">Ores</a>
+            <a href="gems.html"      class="">Gems</a>
+            <a href="ingots.html"    class="">Ingots</a>
+            <a href="tools.html"     class="">Tools</a>
+            <a href="weapons.html"   class="">Weapons</a>
+            <a href="resources.html" class="">Resources</a>
+            <a href="worlds.html"    class="">Worlds</a>
+            <a href="enemies.html"   class="active">Enemies</a>
+            <a href="ships.html"     class="">Ships</a>
+            <a href="speeders.html"  class="">Speeders</a>
+            <a href="guides.html"    class="">Guides</a>
+        </nav>
+    </div>
+</header>
+<main class="wrap">
+    
+<h1>Enemies</h1>
+<p>Hostile characters from <code>data/configs/characters/</code> on the <strong>PIRATES</strong> or <strong>ZOMBIES</strong> team. Each enemy's drop table is parsed from its <code>dropLoot</code> randomset and listed on its detail page.</p>
+
+<div class="controls">
+    <input type="search" class="search" id="catSearch" placeholder="Filter 22 enemies…" autocomplete="off">
+    <div class="pills" id="teamPills">
+        <span class="pill active" data-team="all">All teams</span>
+        <span class="pill" data-team="PIRATES">Pirates</span>
+        <span class="pill" data-team="ZOMBIES">Zombies</span>
+    </div>
+</div>
+
+<table class="wiki" id="catTable">
+<thead><tr>
+    <th data-key="display">Name</th>
+    <th data-key="team">Team</th>
+    <th data-key="life" class="numeric">HP</th>
+    <th>Weapon</th>
+    <th>Drops</th>
+</tr></thead>
+<tbody>
+
+<tr data-team="PIRATES" data-search="newbie pirate pistol n_pirate_pistol pirates">
+    <td><a href="enemies/n_pirate_pistol.html">Newbie Pirate Pistol</a></td>
+    <td><span class="obtain obtain-loot">PIRATES</span></td>
+    <td class="numeric">40</td>
+    <td></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">—</td>
+</tr>
+
+<tr data-team="PIRATES" data-search="special pirate sniper s_pirate_sniper pirates">
+    <td><a href="enemies/s_pirate_sniper.html">Special Pirate Sniper</a></td>
+    <td><span class="obtain obtain-loot">PIRATES</span></td>
+    <td class="numeric">40</td>
+    <td></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">pirate</td>
+</tr>
+
+<tr data-team="PIRATES" data-search="newbie pirate ranged n_pirate_ranged pirates">
+    <td><a href="enemies/n_pirate_ranged.html">Newbie Pirate Ranged</a></td>
+    <td><span class="obtain obtain-loot">PIRATES</span></td>
+    <td class="numeric">50</td>
+    <td></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">—</td>
+</tr>
+
+<tr data-team="PIRATES" data-search="newbie pirate assault n_pirate_assault pirates">
+    <td><a href="enemies/n_pirate_assault.html">Newbie Pirate Assault</a></td>
+    <td><span class="obtain obtain-loot">PIRATES</span></td>
+    <td class="numeric">60</td>
+    <td></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">—</td>
+</tr>
+
+<tr data-team="PIRATES" data-search="newbie pirate heavy n_pirate_heavy pirates">
+    <td><a href="enemies/n_pirate_heavy.html">Newbie Pirate Heavy</a></td>
+    <td><span class="obtain obtain-loot">PIRATES</span></td>
+    <td class="numeric">75</td>
+    <td></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">—</td>
+</tr>
+
+<tr data-team="PIRATES" data-search="newbie pirate flames n_pirate_flames pirates">
+    <td><a href="enemies/n_pirate_flames.html">Newbie Pirate Flames</a></td>
+    <td><span class="obtain obtain-loot">PIRATES</span></td>
+    <td class="numeric">80</td>
+    <td></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">—</td>
+</tr>
+
+<tr data-team="PIRATES" data-search="pirate assault pirate_assault pirates">
+    <td><a href="enemies/pirate_assault.html">Pirate Assault</a></td>
+    <td><span class="obtain obtain-loot">PIRATES</span></td>
+    <td class="numeric">80</td>
+    <td></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">—</td>
+</tr>
+
+<tr data-team="PIRATES" data-search="pirate pistol pirate_pistol pirates">
+    <td><a href="enemies/pirate_pistol.html">Pirate Pistol</a></td>
+    <td><span class="obtain obtain-loot">PIRATES</span></td>
+    <td class="numeric">80</td>
+    <td></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">—</td>
+</tr>
+
+<tr data-team="PIRATES" data-search="pirate ranged pirate_ranged pirates">
+    <td><a href="enemies/pirate_ranged.html">Pirate Ranged</a></td>
+    <td><span class="obtain obtain-loot">PIRATES</span></td>
+    <td class="numeric">80</td>
+    <td></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">—</td>
+</tr>
+
+<tr data-team="PIRATES" data-search="pirate sniper pirate_sniper pirates">
+    <td><a href="enemies/pirate_sniper.html">Pirate Sniper</a></td>
+    <td><span class="obtain obtain-loot">PIRATES</span></td>
+    <td class="numeric">80</td>
+    <td></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">—</td>
+</tr>
+
+<tr data-team="PIRATES" data-search="pirate flames pirate_flames pirates">
+    <td><a href="enemies/pirate_flames.html">Pirate Flames</a></td>
+    <td><span class="obtain obtain-loot">PIRATES</span></td>
+    <td class="numeric">100</td>
+    <td></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">—</td>
+</tr>
+
+<tr data-team="PIRATES" data-search="pirate heavy pirate_heavy pirates">
+    <td><a href="enemies/pirate_heavy.html">Pirate Heavy</a></td>
+    <td><span class="obtain obtain-loot">PIRATES</span></td>
+    <td class="numeric">100</td>
+    <td></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">—</td>
+</tr>
+
+<tr data-team="PIRATES" data-search="elite pirate rocket elite_pirate_rocket pirates">
+    <td><a href="enemies/elite_pirate_rocket.html">Elite Pirate Rocket</a></td>
+    <td><span class="obtain obtain-loot">PIRATES</span></td>
+    <td class="numeric">120</td>
+    <td><a href="weapons/wep_rocket_launcher_1.html">Rocket Launcher 1</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">—</td>
+</tr>
+
+<tr data-team="PIRATES" data-search="pirate melee pirate_melee pirates">
+    <td><a href="enemies/pirate_melee.html">Pirate Melee</a></td>
+    <td><span class="obtain obtain-loot">PIRATES</span></td>
+    <td class="numeric">120</td>
+    <td></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">—</td>
+</tr>
+
+<tr data-team="ZOMBIES" data-search="zombie fast zombie_fast zombies">
+    <td><a href="enemies/zombie_fast.html">Zombie Fast</a></td>
+    <td><span class="obtain obtain-npc">ZOMBIES</span></td>
+    <td class="numeric">100</td>
+    <td><a href="weapons/wep_melee_shock_stick_1.html">Shock Stick 1</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">zombie</td>
+</tr>
+
+<tr data-team="ZOMBIES" data-search="zombie corruptor zombie_corruptor zombies">
+    <td><a href="enemies/zombie_corruptor.html">Zombie Corruptor</a></td>
+    <td><span class="obtain obtain-npc">ZOMBIES</span></td>
+    <td class="numeric">120</td>
+    <td><a href="weapons/wep_darkness_launcher_1.html">Darkness Launcher 1</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">zombie</td>
+</tr>
+
+<tr data-team="ZOMBIES" data-search="zombie slow zombie_slow zombies">
+    <td><a href="enemies/zombie_slow.html">Zombie Slow</a></td>
+    <td><span class="obtain obtain-npc">ZOMBIES</span></td>
+    <td class="numeric">130</td>
+    <td><a href="weapons/wep_poison_laucher.html">Poison Launcher</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">zombie</td>
+</tr>
+
+<tr data-team="ZOMBIES" data-search="zombie boom zombie_boom zombies">
+    <td><a href="enemies/zombie_boom.html">Zombie Boom</a></td>
+    <td><span class="obtain obtain-npc">ZOMBIES</span></td>
+    <td class="numeric">160</td>
+    <td><a href="tools/wep_bomb_instant.html">Bomb Instant</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">zombie</td>
+</tr>
+
+<tr data-team="ZOMBIES" data-search="zombie elite fast zombie_elite_fast zombies">
+    <td><a href="enemies/zombie_elite_fast.html">Zombie Elite Fast</a></td>
+    <td><span class="obtain obtain-npc">ZOMBIES</span></td>
+    <td class="numeric">160</td>
+    <td><a href="weapons/wep_melee_shock_stick_1.html">Shock Stick 1</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">zombie_elite</td>
+</tr>
+
+<tr data-team="ZOMBIES" data-search="zombie elite corruptor zombie_elite_corruptor zombies">
+    <td><a href="enemies/zombie_elite_corruptor.html">Zombie Elite Corruptor</a></td>
+    <td><span class="obtain obtain-npc">ZOMBIES</span></td>
+    <td class="numeric">170</td>
+    <td><a href="weapons/wep_darkness_launcher_1.html">Darkness Launcher 1</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">zombie_elite</td>
+</tr>
+
+<tr data-team="ZOMBIES" data-search="zombie elite slow zombie_elite_slow zombies">
+    <td><a href="enemies/zombie_elite_slow.html">Zombie Elite Slow</a></td>
+    <td><span class="obtain obtain-npc">ZOMBIES</span></td>
+    <td class="numeric">200</td>
+    <td><a href="weapons/wep_poison_laucher.html">Poison Launcher</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">zombie_elite</td>
+</tr>
+
+<tr data-team="ZOMBIES" data-search="zombie envoy zombie_envoy zombies">
+    <td><a href="enemies/zombie_envoy.html">Zombie Envoy</a></td>
+    <td><span class="obtain obtain-npc">ZOMBIES</span></td>
+    <td class="numeric">200</td>
+    <td><a href="weapons/wep_darkness_launcher_1.html">Darkness Launcher 1</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">zombie_envoy</td>
+</tr>
+
+</tbody>
+</table>
+
+</main>
+<footer class="site">
+    <div class="inner">
+        Generated 2026-05-11 05:07 UTC from game data (2026-04-26).
+        Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
+        Planet→biome distribution mapping is best-effort.
+    </div>
+</footer>
+
+<script>
+(function(){
+    const table = document.getElementById('catTable');
+    if (!table) return;
+    const tbody = table.tBodies[0];
+    const rows = Array.from(tbody.rows);
+    const search = document.getElementById('catSearch');
+    const pills = document.getElementById('teamPills');
+    let teamFilter = 'all';
+    function apply(){
+        const q = (search?.value || '').trim().toLowerCase();
+        for (const r of rows) {
+            const matchQ = !q || r.dataset.search.indexOf(q) !== -1;
+            const matchT = teamFilter === 'all' || r.dataset.team === teamFilter;
+            r.style.display = (matchQ && matchT) ? '' : 'none';
+        }
+    }
+    search?.addEventListener('input', apply);
+    pills?.addEventListener('click', e => {
+        const p = e.target.closest('.pill');
+        if (!p) return;
+        pills.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
+        p.classList.add('active');
+        teamFilter = p.dataset.team;
+        apply();
+    });
+})();
+</script>
+
+</body>
+</html>

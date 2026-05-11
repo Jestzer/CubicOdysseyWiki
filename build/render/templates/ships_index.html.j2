@@ -1,0 +1,81 @@
+{% extends "base.html.j2" %}
+{% block title %}Ships{% endblock %}
+{% block content %}
+<h1>Ships</h1>
+<p>Every entry in <code>data/configs/ships/</code> plus every item with <code>type SHIP</code>. The game has <strong>5 ship classes</strong> and <strong>4 factions</strong>; components (chassis / cargo / shield / engine) are <em>class-locked</em>, see the box below.</p>
+
+<div class="note" style="border-left-color:#ff9a4c">
+    <strong>Can I apply scout-ship parts to a newer ship?</strong> No. Ship components in <code>data/configs/recipes/V_*.cfg</code> are split into four parallel ladders — <code>V_CORVETTE_*</code>, <code>V_FRIGATE_*</code>, <code>V_DREADNOUGHT_*</code>, <code>V_GALLEON_*</code> — each with its own MK1 → MK5 progression. There is no <em>recipe</em> in the data that converts a Corvette part to a Frigate part. Within a class you upgrade by crafting MK<sup>n+1</sup> components; across classes you scrap your old setup or sell the old ship outright.
+</div>
+
+<div class="controls">
+    <input type="search" class="search" id="catSearch" placeholder="Filter {{ rows|length }} ships…" autocomplete="off">
+    <div class="pills" id="classPills">
+        <span class="pill active" data-class="all">All classes</span>
+        {% for c in classes %}<span class="pill" data-class="{{ c }}">{{ c|replace('L0_', '')|replace('L1_', '')|replace('L2_', '')|replace('L3_', '')|replace('L4_', '')|capitalize }}</span>{% endfor %}
+    </div>
+    <div class="pills" id="factionPills">
+        <span class="pill active" data-faction="all">All factions</span>
+        {% for f in factions %}<span class="pill" data-faction="{{ f }}">{{ f|capitalize }}</span>{% endfor %}
+    </div>
+</div>
+
+<table class="wiki" id="catTable">
+<thead><tr>
+    <th data-key="display">Name</th>
+    <th data-key="class_label">Class</th>
+    <th data-key="faction">Faction</th>
+    <th data-key="tier" class="numeric">Tier</th>
+    <th data-key="base_price" class="numeric">Price</th>
+    <th>Status</th>
+</tr></thead>
+<tbody>
+{% for r in rows %}
+<tr data-class="{{ r.class_raw }}" data-faction="{{ r.faction }}" data-search="{{ (r.display ~ ' ' ~ r.identifier ~ ' ' ~ r.class_label ~ ' ' ~ r.faction)|lower }}">
+    <td><a href="{{ root }}ships/{{ r.slug }}.html">{{ r.display }}</a></td>
+    <td>{{ r.class_label }}</td>
+    <td>{{ r.faction|capitalize }}</td>
+    <td class="numeric">{% if r.tier %}<span class="tier tier-{{ r.tier }}">T{{ r.tier }}</span>{% else %}—{% endif %}</td>
+    <td class="numeric">{% if r.base_price %}{{ r.base_price }}{% else %}—{% endif %}</td>
+    <td><span class="obtain obtain-{% if r.player_obtainable %}craftable{% else %}npc{% endif %}">{% if r.player_obtainable %}Buy / craft{% else %}Enemy{% endif %}</span></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}
+{% block scripts %}
+<script>
+(function(){
+    const table = document.getElementById('catTable');
+    if (!table) return;
+    const tbody = table.tBodies[0];
+    const rows = Array.from(tbody.rows);
+    const search = document.getElementById('catSearch');
+    let classFilter = 'all';
+    let factionFilter = 'all';
+    function apply(){
+        const q = (search?.value || '').trim().toLowerCase();
+        for (const r of rows) {
+            const matchQ = !q || r.dataset.search.indexOf(q) !== -1;
+            const matchC = classFilter === 'all' || r.dataset.class === classFilter;
+            const matchF = factionFilter === 'all' || r.dataset.faction === factionFilter;
+            r.style.display = (matchQ && matchC && matchF) ? '' : 'none';
+        }
+    }
+    search?.addEventListener('input', apply);
+    function wirePills(id, getter, setter){
+        const el = document.getElementById(id);
+        el?.addEventListener('click', e => {
+            const p = e.target.closest('.pill');
+            if (!p) return;
+            el.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
+            p.classList.add('active');
+            setter(p.dataset[getter]);
+            apply();
+        });
+    }
+    wirePills('classPills', 'class', v => classFilter = v);
+    wirePills('factionPills', 'faction', v => factionFilter = v);
+})();
+</script>
+{% endblock %}

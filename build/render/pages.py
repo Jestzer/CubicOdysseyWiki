@@ -91,9 +91,15 @@ class WikiRenderer:
                weapon_records: list,
                resource_records: list,
                gem_records: list = None,
-               world_records: list = None):
+               world_records: list = None,
+               enemy_records: list = None,
+               ship_records: list = None,
+               speeder_records: list = None):
         gem_records = gem_records or []
         world_records = world_records or []
+        enemy_records = enemy_records or []
+        ship_records = ship_records or []
+        speeder_records = speeder_records or []
         # Resolve icons + cross-links once
         ingot_lookup = {r['identifier']: r for r in ingot_records}
         ore_lookup = {r['identifier']: r for r in ore_records}
@@ -104,6 +110,7 @@ class WikiRenderer:
             (ingot_records, 'ingots'),
             (tool_records, 'tools'), (weapon_records, 'weapons'),
             (resource_records, 'resources'),
+            (ship_records, 'ships'), (speeder_records, 'speeders'),
         ):
             for r in rec_list:
                 r['icon'] = _icon_path(r['identifier'], self.icons_dir)
@@ -130,10 +137,15 @@ class WikiRenderer:
             'weapons': len(weapon_records),
             'resources': len(resource_records),
             'worlds': len(world_records),
+            'enemies': len(enemy_records),
+            'ships': len(ship_records),
+            'speeders': len(speeder_records),
             'guides': 7,
             'total': (len(ore_records) + len(gem_records) + len(ingot_records)
                        + len(tool_records) + len(weapon_records)
-                       + len(resource_records) + len(world_records) + 7),
+                       + len(resource_records) + len(world_records)
+                       + len(enemy_records) + len(ship_records)
+                       + len(speeder_records) + 7),
         }
 
         # Render index
@@ -245,6 +257,46 @@ class WikiRenderer:
                     root='../', category='worlds', title=r['display'],
                     counts=self.counts, r=r)
 
+        # Enemies
+        if enemy_records:
+            self._render_template('enemies_index.html.j2',
+                self.out / 'enemies.html',
+                root='', category='enemies', title='Enemies',
+                counts=self.counts, rows=enemy_records)
+            for r in enemy_records:
+                self._render_template('enemy.html.j2',
+                    self.out / 'enemies' / (r['slug'] + '.html'),
+                    root='../', category='enemies', title=r['display'],
+                    counts=self.counts, r=r)
+
+        # Ships
+        if ship_records:
+            classes = sorted({r['class_raw'] for r in ship_records if r.get('class_raw')})
+            factions = sorted({r['faction'] for r in ship_records})
+            self._render_template('ships_index.html.j2',
+                self.out / 'ships.html',
+                root='', category='ships', title='Ships',
+                counts=self.counts, rows=ship_records,
+                classes=classes, factions=factions)
+            for r in ship_records:
+                self._render_template('ship.html.j2',
+                    self.out / 'ships' / (r['slug'] + '.html'),
+                    root='../', category='ships', title=r['display'],
+                    counts=self.counts, r=r)
+
+        # Speeders
+        if speeder_records:
+            tiers = sorted({r['tier'] for r in speeder_records if isinstance(r.get('tier'), int)})
+            self._render_template('speeders_index.html.j2',
+                self.out / 'speeders.html',
+                root='', category='speeders', title='Speeders',
+                counts=self.counts, rows=speeder_records, tiers=tiers)
+            for r in speeder_records:
+                self._render_template('speeder.html.j2',
+                    self.out / 'speeders' / (r['slug'] + '.html'),
+                    root='../', category='speeders', title=r['display'],
+                    counts=self.counts, r=r)
+
         # data.json search manifest
         manifest = []
         for cat, rec_list in (
@@ -272,6 +324,36 @@ class WikiRenderer:
                 'tier': 0,
                 'icon': '',
                 'url': f"worlds/{r['slug']}.html",
+            })
+        for r in enemy_records:
+            manifest.append({
+                'id': r['identifier'],
+                'name': r['display'],
+                'slug': r['slug'],
+                'category': 'enemies',
+                'tier': r.get('tier', 0),
+                'icon': '',
+                'url': f"enemies/{r['slug']}.html",
+            })
+        for r in ship_records:
+            manifest.append({
+                'id': r['identifier'],
+                'name': r['display'],
+                'slug': r['slug'],
+                'category': 'ships',
+                'tier': r.get('tier') or 0,
+                'icon': r.get('icon') or '',
+                'url': f"ships/{r['slug']}.html",
+            })
+        for r in speeder_records:
+            manifest.append({
+                'id': r['identifier'],
+                'name': r['display'],
+                'slug': r['slug'],
+                'category': 'speeders',
+                'tier': r.get('tier', 0),
+                'icon': r.get('icon') or '',
+                'url': f"speeders/{r['slug']}.html",
             })
         # Guides also surface in global search
         for slug, title in (

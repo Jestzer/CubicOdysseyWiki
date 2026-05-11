@@ -1,0 +1,67 @@
+{% extends "base.html.j2" %}
+{% block title %}Speeders{% endblock %}
+{% block content %}
+<h1>Landspeeders</h1>
+<p>{{ rows|length }} speeders ship in the game data (<code>type SPEEDER</code>), spanning hover-cars, retro coupes, and stylised variants. The numbered series (Speeder 1–18) is the main progression; specials like the DeLorian and "P" variants are cosmetic/premium.</p>
+
+<div class="controls">
+    <input type="search" class="search" id="catSearch" placeholder="Filter {{ rows|length }} speeders…" autocomplete="off">
+    <div class="pills" id="tierPills">
+        <span class="pill active" data-tier="all">All tiers</span>
+        {% for t in tiers %}<span class="pill" data-tier="{{ t }}">T{{ t }}</span>{% endfor %}
+    </div>
+</div>
+
+<table class="wiki" id="catTable">
+<thead><tr>
+    <th class="icon"></th>
+    <th data-key="display">Name</th>
+    <th data-key="tier" class="numeric">Tier</th>
+    <th data-key="identifier">Identifier</th>
+    <th data-key="base_price" class="numeric">Base price</th>
+    <th>Body model</th>
+</tr></thead>
+<tbody>
+{% for r in rows %}
+<tr data-tier="{{ r.tier }}" data-search="{{ (r.display ~ ' ' ~ r.identifier)|lower }}">
+    <td class="icon">{% if r.icon %}<img src="{{ root }}{{ r.icon }}" alt="">{% endif %}</td>
+    <td><a href="{{ root }}speeders/{{ r.slug }}.html">{{ r.display }}</a></td>
+    <td class="numeric"><span class="tier tier-{{ r.tier }}">T{{ r.tier }}</span></td>
+    <td class="mono">{{ r.identifier }}</td>
+    <td class="numeric">{% if r.base_price %}{{ r.base_price }}{% else %}—{% endif %}</td>
+    <td class="mono" style="font-size:0.82em;color:var(--text-faint)">{{ r.world_model|replace('data/models/c_objects/', '')|replace('.glm', '') if r.world_model else '—' }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}
+{% block scripts %}
+<script>
+(function(){
+    const table = document.getElementById('catTable');
+    if (!table) return;
+    const tbody = table.tBodies[0];
+    const rows = Array.from(tbody.rows);
+    const search = document.getElementById('catSearch');
+    const pills = document.getElementById('tierPills');
+    let tierFilter = 'all';
+    function apply(){
+        const q = (search?.value || '').trim().toLowerCase();
+        for (const r of rows) {
+            const matchQ = !q || r.dataset.search.indexOf(q) !== -1;
+            const matchT = tierFilter === 'all' || r.dataset.tier === tierFilter;
+            r.style.display = (matchQ && matchT) ? '' : 'none';
+        }
+    }
+    search?.addEventListener('input', apply);
+    pills?.addEventListener('click', e => {
+        const p = e.target.closest('.pill');
+        if (!p) return;
+        pills.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
+        p.classList.add('active');
+        tierFilter = p.dataset.tier;
+        apply();
+    });
+})();
+</script>
+{% endblock %}

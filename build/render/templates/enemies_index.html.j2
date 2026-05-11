@@ -1,0 +1,66 @@
+{% extends "base.html.j2" %}
+{% block title %}Enemies{% endblock %}
+{% block content %}
+<h1>Enemies</h1>
+<p>Hostile characters from <code>data/configs/characters/</code> on the <strong>PIRATES</strong> or <strong>ZOMBIES</strong> team. Each enemy's drop table is parsed from its <code>dropLoot</code> randomset and listed on its detail page.</p>
+
+<div class="controls">
+    <input type="search" class="search" id="catSearch" placeholder="Filter {{ rows|length }} enemies…" autocomplete="off">
+    <div class="pills" id="teamPills">
+        <span class="pill active" data-team="all">All teams</span>
+        <span class="pill" data-team="PIRATES">Pirates</span>
+        <span class="pill" data-team="ZOMBIES">Zombies</span>
+    </div>
+</div>
+
+<table class="wiki" id="catTable">
+<thead><tr>
+    <th data-key="display">Name</th>
+    <th data-key="team">Team</th>
+    <th data-key="life" class="numeric">HP</th>
+    <th>Weapon</th>
+    <th>Drops</th>
+</tr></thead>
+<tbody>
+{% for r in rows %}
+<tr data-team="{{ r.team }}" data-search="{{ (r.display ~ ' ' ~ r.identifier ~ ' ' ~ r.team)|lower }}">
+    <td><a href="{{ root }}enemies/{{ r.slug }}.html">{{ r.display }}</a></td>
+    <td><span class="obtain obtain-{% if r.team == 'PIRATES' %}loot{% elif r.team == 'ZOMBIES' %}npc{% else %}unobtainable{% endif %}">{{ r.team }}</span></td>
+    <td class="numeric">{{ r.life }}</td>
+    <td>{% if r.weapon_display %}{% if r.weapon_link %}<a href="{{ root }}{{ r.weapon_link }}">{{ r.weapon_display }}</a>{% else %}{{ r.weapon_display }}{% endif %}{% endif %}</td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">{{ r.drop_table_name or '—' }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}
+{% block scripts %}
+<script>
+(function(){
+    const table = document.getElementById('catTable');
+    if (!table) return;
+    const tbody = table.tBodies[0];
+    const rows = Array.from(tbody.rows);
+    const search = document.getElementById('catSearch');
+    const pills = document.getElementById('teamPills');
+    let teamFilter = 'all';
+    function apply(){
+        const q = (search?.value || '').trim().toLowerCase();
+        for (const r of rows) {
+            const matchQ = !q || r.dataset.search.indexOf(q) !== -1;
+            const matchT = teamFilter === 'all' || r.dataset.team === teamFilter;
+            r.style.display = (matchQ && matchT) ? '' : 'none';
+        }
+    }
+    search?.addEventListener('input', apply);
+    pills?.addEventListener('click', e => {
+        const p = e.target.closest('.pill');
+        if (!p) return;
+        pills.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
+        p.classList.add('active');
+        teamFilter = p.dataset.team;
+        apply();
+    });
+})();
+</script>
+{% endblock %}

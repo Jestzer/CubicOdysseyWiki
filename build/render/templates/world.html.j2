@@ -40,29 +40,37 @@
 {% endif %}
 
 <h2>Altitude profile</h2>
-<p>Cross-section of the world's voxel layers — surface at the top, bedrock at the bottom. Each ore badge links to its detail page; hover for the deposit's frequency at that depth.</p>
-<div class="altitude-profile">
-<div class="layer-stack">
+<p>Cross-section of the world's voxel layers — sky at the top, bedrock at the bottom. Hover an ore tile to see its name + frequency; click to open the detail page.</p>
+<div class="cross-section">
 {% for layer in r.layers|sort(attribute='startY', reverse=True) %}
 {% set ores = layer.ores|selectattr('frequency','gt',0)|list %}
-<div class="layer">
-    <span class="layer-y">Y <strong>{{ layer.startY }}</strong> … <strong>{{ layer.endY }}</strong></span>
-    {% if ores %}
+<div class="cs-layer">
+    <span class="cs-y">Y <strong>{{ layer.startY }}</strong>–<strong>{{ layer.endY }}</strong></span>
+    <div class="cs-ores">
     {% for o in ores %}
-    {% if o.url %}<a href="{{ root }}{{ o.url }}" class="ore-badge" title="Frequency {{ o.frequency }}{% if o.extent %}, vein up to {{ o.extent }}{% endif %}">{% else %}<span class="ore-badge">{% endif %}
-        {% if o.color %}<span class="swatch" style="background:rgb({{ o.color[0] }},{{ o.color[1] }},{{ o.color[2] }})"></span>{% endif %}
-        {{ o.voxel_name }}
-        <span class="freq">×{{ o.frequency }}</span>
-    {% if o.url %}</a>{% else %}</span>{% endif %}
-    {% endfor %}
+        {% if o.url %}<a href="{{ root }}{{ o.url }}" class="cs-tile" title="{{ o.voxel_name }} · freq {{ o.frequency }}{% if o.extent %} · vein up to {{ o.extent }}{% endif %}">{% else %}<span class="cs-tile" title="{{ o.voxel_name }} · freq {{ o.frequency }}">{% endif %}
+        {% if o.texture_url %}<img src="{{ root }}{{ o.texture_url }}" alt="{{ o.voxel_name }}">{% elif o.color %}<span class="swatch" style="background:rgb({{ o.color[0] }},{{ o.color[1] }},{{ o.color[2] }})"></span>{% else %}<span class="swatch"></span>{% endif %}
+        {% if o.url %}</a>{% else %}</span>{% endif %}
     {% else %}
-    <span class="layer-empty">no ore deposits</span>
-    {% endif %}
+        <span class="cs-empty">no ore deposits</span>
+    {% endfor %}
+    </div>
 </div>
 {% endfor %}
 </div>
+{% if r.ore_summary %}
+<details style="margin:0.6rem 0 0.4rem">
+<summary style="cursor:pointer;color:var(--text-dim);font-size:0.9em">Legend — every ore this world spawns</summary>
+<div class="cs-legend">
+{% for o in r.ore_summary %}
+{% if o.url %}<a href="{{ root }}{{ o.url }}" class="cs-tile cs-tile-labeled">{% else %}<span class="cs-tile cs-tile-labeled">{% endif %}
+    {% if o.texture_url %}<img src="{{ root }}{{ o.texture_url }}" alt="{{ o.voxel_name }}">{% elif o.color %}<span class="swatch" style="background:rgb({{ o.color[0] }},{{ o.color[1] }},{{ o.color[2] }})"></span>{% endif %}
+    <span class="cs-name">{{ o.voxel_name }}</span>
+{% if o.url %}</a>{% else %}</span>{% endif %}
+{% endfor %}
 </div>
-<p style="color:var(--text-faint);font-size:0.85em;margin-top:0.3em">Y values are the voxel altitude band each layer occupies. Each ore badge's <span class="mono">×N</span> is the layer's <code>m_frequency</code> for that ore — higher = denser deposits.</p>
+</details>
+{% endif %}
 
 <h2>Layer-by-layer breakdown</h2>
 <p>Each layer is a Y band (voxel altitude). The engine fills the band with whatever's in <code>m_voxels</code> (stone-class blocks) plus <code>m_ores</code> entries (the rare resource nodes). Layers are listed top-down — Y 256 is open sky, low Y is bedrock.</p>

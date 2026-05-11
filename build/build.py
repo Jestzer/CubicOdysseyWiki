@@ -116,7 +116,15 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
         img = None
         if f.exists():
             try:
-                img = Image.open(f).convert('RGBA')
+                raw = Image.open(f).convert('RGBA')
+                # The DDS alpha channel carries shading / PBR data, not real
+                # transparency — every face has alpha in the 120-250 range,
+                # which makes the cube body render translucent if we use it
+                # as-is. Strip the alpha so the cube interior is fully opaque;
+                # the hex corners stay transparent via the polygon mask below.
+                r, g, b, _ = raw.split()
+                img = Image.merge('RGBA',
+                    (r, g, b, Image.new('L', raw.size, 255)))
                 # Pre-filter the 1024-pixel source down to ~2× face size so the
                 # affine transform doesn't have to do a 30× downscale through
                 # bilinear sampling (which loses most of the source pixels).

@@ -24,6 +24,7 @@ sys.path.insert(0, str(HERE))
 from parsers.bspr import parse_bspr_file, SpriteFrame
 from extract.catalog import Catalog
 from extract.ores import build_ore_records, _humanize, _slug
+from extract.gems import build_gem_records, gem_identifiers
 from extract.guides import (
     motherboard_context, mining_context, trading_context,
     item_damage_context, player_death_context, perks_context,
@@ -191,9 +192,12 @@ RESOURCE_TYPES = {
 }
 
 
-def build_resources(cat: Catalog) -> List[dict]:
+def build_resources(cat: Catalog, exclude_ids: set = None) -> List[dict]:
+    exclude_ids = exclude_ids or set()
     rows = []
     for ident, item in cat.items.items():
+        if ident in exclude_ids:
+            continue
         if item.get('type') in RESOURCE_TYPES:
             rows.append(_common_fields(item))
     return rows
@@ -246,18 +250,24 @@ def main():
     ore_records = [r.to_dict() for r in ore_records_objs]
     ores_by_drop = {r['identifier']: r for r in ore_records}
 
+    gem_records = build_gem_records(
+        cat, {k: v for k, v in dist_meta.items() if not k.startswith('_')}
+    )
+
     ingot_records = build_ingots(cat, ores_by_drop)
     tool_records = build_tools(cat, ore_records)
     weapon_records = build_weapons(cat)
-    resource_records = build_resources(cat)
-    print(f'       ores={len(ore_records)} ingots={len(ingot_records)} '
-          f'tools={len(tool_records)} weapons={len(weapon_records)} '
-          f'resources={len(resource_records)}')
+    # Gems are RESOURCE type but get their own category — exclude here.
+    resource_records = build_resources(cat, exclude_ids=gem_identifiers())
+    print(f'       ores={len(ore_records)} gems={len(gem_records)} '
+          f'ingots={len(ingot_records)} tools={len(tool_records)} '
+          f'weapons={len(weapon_records)} resources={len(resource_records)}')
 
     print('[5/6] writing catalog.json…')
     (out / 'data').mkdir(exist_ok=True)
     (out / 'data' / 'catalog.json').write_text(json.dumps({
         'ores': ore_records,
+        'gems': gem_records,
         'ingots': ingot_records,
         'tools': tool_records,
         'weapons': weapon_records,
@@ -279,6 +289,7 @@ def main():
     )
     renderer.render(
         ore_records=ore_records,
+        gem_records=gem_records,
         ingot_records=ingot_records,
         tool_records=tool_records,
         weapon_records=weapon_records,
@@ -307,9 +318,10 @@ def main():
 
     t1 = time.time()
     print(f'== built in {t1 - t0:.1f}s')
-    print(f'   {len(ore_records)} ores + {len(ingot_records)} ingots + '
-          f'{len(tool_records)} tools + {len(weapon_records)} weapons + '
-          f'{len(resource_records)} resources + 7 guides')
+    print(f'   {len(ore_records)} ores + {len(gem_records)} gems + '
+          f'{len(ingot_records)} ingots + {len(tool_records)} tools + '
+          f'{len(weapon_records)} weapons + {len(resource_records)} '
+          f'resources + 7 guides')
     print(f'   open file://{out}/index.html')
 
 

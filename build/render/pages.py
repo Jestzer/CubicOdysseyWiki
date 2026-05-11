@@ -89,14 +89,17 @@ class WikiRenderer:
                ingot_records: list,
                tool_records: list,
                weapon_records: list,
-               resource_records: list):
+               resource_records: list,
+               gem_records: list = None):
+        gem_records = gem_records or []
         # Resolve icons + cross-links once
         ingot_lookup = {r['identifier']: r for r in ingot_records}
         ore_lookup = {r['identifier']: r for r in ore_records}
 
         # Attach icons to every record
         for rec_list, sub in (
-            (ore_records, 'ores'), (ingot_records, 'ingots'),
+            (ore_records, 'ores'), (gem_records, 'gems'),
+            (ingot_records, 'ingots'),
             (tool_records, 'tools'), (weapon_records, 'weapons'),
             (resource_records, 'resources'),
         ):
@@ -119,13 +122,15 @@ class WikiRenderer:
         # Counts (guides added by render_guides; default to 7 here)
         self.counts = {
             'ores': len(ore_records),
+            'gems': len(gem_records),
             'ingots': len(ingot_records),
             'tools': len(tool_records),
             'weapons': len(weapon_records),
             'resources': len(resource_records),
             'guides': 7,
-            'total': (len(ore_records) + len(ingot_records) + len(tool_records)
-                       + len(weapon_records) + len(resource_records) + 7),
+            'total': (len(ore_records) + len(gem_records) + len(ingot_records)
+                       + len(tool_records) + len(weapon_records)
+                       + len(resource_records) + 7),
         }
 
         # Render index
@@ -146,6 +151,13 @@ class WikiRenderer:
             ore_records,
             title='Ores',
             intro='Mineable ore blocks. Mining laser requirement and world distribution shown per entry.',
+            extra_cols=[{'key': 'required_laser_file', 'label': 'Tool', 'mono': True}],
+        )
+
+        self._render_category('gems',
+            gem_records,
+            title='Gems',
+            intro='Diamond, Ruby, Emerald, Sapphire (tier 5) and Glowing variants (tier 7). All four base gems share identical spawn tables — they always appear together in the same layer.',
             extra_cols=[{'key': 'required_laser_file', 'label': 'Tool', 'mono': True}],
         )
 
@@ -192,6 +204,11 @@ class WikiRenderer:
                 self.out / 'ores' / (r['slug'] + '.html'),
                 root='../', category='ores', title=r['display'],
                 counts=self.counts, r=r, ingot_displays=ingot_displays)
+        for r in gem_records:
+            self._render_template('gem.html.j2',
+                self.out / 'gems' / (r['slug'] + '.html'),
+                root='../', category='gems', title=r['display'],
+                counts=self.counts, r=r)
         for r in ingot_records:
             self._render_template('ingot.html.j2',
                 self.out / 'ingots' / (r['slug'] + '.html'),
@@ -216,7 +233,8 @@ class WikiRenderer:
         # data.json search manifest
         manifest = []
         for cat, rec_list in (
-            ('ores', ore_records), ('ingots', ingot_records),
+            ('ores', ore_records), ('gems', gem_records),
+            ('ingots', ingot_records),
             ('tools', tool_records), ('weapons', weapon_records),
             ('resources', resource_records),
         ):

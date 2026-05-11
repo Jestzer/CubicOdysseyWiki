@@ -1,0 +1,98 @@
+{% extends "base.html.j2" %}
+{% block title %}{{ r.display }}{% endblock %}
+{% block content %}
+<div class="detail-head">
+    {% if r.icon %}<div class="icon-big"><img src="{{ root }}{{ r.icon }}" alt=""></div>
+    {% else %}<div class="icon-big placeholder">{{ r.display[:2]|upper }}</div>{% endif %}
+    <div class="meta">
+        <h1>{{ r.display }} <span class="tier tier-{{ r.tier }}">Tier {{ r.tier }}</span>{% if r.is_glowing %} <span class="tier tier-7">Glowing</span>{% endif %}</h1>
+        <div class="id">{{ r.identifier }}</div>
+        {% if r.color %}<div class="id" style="margin-top:0.4em"><span class="swatch" style="background: rgb({{ r.color[0] }},{{ r.color[1] }},{{ r.color[2] }});width:12px;height:12px;display:inline-block;border:1px solid var(--border);border-radius:2px;margin-right:0.4em;vertical-align:-2px"></span>Block colour rgb({{ r.color[0] }}, {{ r.color[1] }}, {{ r.color[2] }})</div>{% endif %}
+        <p class="desc">Tier-{{ r.tier }} gem voxel{% if r.is_glowing %}, Glowing variant — spawns via special events or biomes, not in standard distributions{% else %}. Always spawns alongside the other three base gems{% endif %}.{% if r.voxel_name %} Source voxel: <code>{{ r.voxel_name }}</code>.{% endif %}</p>
+    </div>
+</div>
+
+<div class="section-grid">
+<div>
+
+<h2>Mining</h2>
+<div class="kvs">
+<dl>
+    <dt>Tier</dt><dd>{{ r.tier }}</dd>
+    {% if r.mine_unit is not none %}<dt>Block hardness</dt><dd>{{ r.mine_unit }} <span style="color:var(--text-faint)">(<code>m_mineUnit</code>; lower = slower — gems are the hardest blocks in the game)</span></dd>{% endif %}
+    <dt>Required mining tool</dt>
+    <dd>
+        {% if r.required_laser_file %}
+            <a href="{{ root }}tools/{{ r.required_laser|replace('.', '_') }}.html"><strong>{{ r.required_laser_file|replace('_', ' ')|title }}</strong></a>
+            <span style="color:var(--text-faint)">(or any laser with voxel_tier ≥ {{ r.tier }})</span>
+        {% else %}
+            <span style="color:var(--text-faint)">No standard mining laser covers this tier.</span>
+        {% endif %}
+    </dd>
+</dl>
+</div>
+
+<h2>Where to find</h2>
+{% if r.locations %}
+<p>Sorted by depth (deepest layers first). The deepest layer in each distribution is highlighted — it's usually the richest spawn band.</p>
+<table class="wiki">
+<thead><tr><th>World type</th><th>Layer Y</th><th class="numeric">Freq.</th><th class="numeric">Vein size</th><th>Spawns with</th></tr></thead>
+<tbody>
+{% for loc in r.locations %}
+<tr {% if loc.is_deepest %}style="background:rgba(103,176,255,0.08)"{% endif %}>
+    <td>
+        <strong>{{ loc.world_type }}</strong>{% if loc.is_deepest %} <span style="color:var(--accent);font-size:0.78em;text-transform:uppercase;letter-spacing:0.05em">deepest layer</span>{% endif %}<br>
+        <span style="color:var(--text-faint);font-size:0.85em">layer {{ loc.layer_index }}{% if loc.planets %} · {{ loc.planets|join(', ') }}{% endif %}</span>
+    </td>
+    <td class="mono">{{ loc.y_start }} … {{ loc.y_end }}</td>
+    <td class="numeric">{{ loc.frequency }}</td>
+    <td class="numeric">{{ loc.extent if loc.extent else '—' }}</td>
+    <td>
+        {% if loc.co_occurring %}
+            {% for co in loc.co_occurring %}<a href="{{ root }}gems/{{ co.slug }}.html">{{ co.display }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
+        {% else %}<span style="color:var(--text-faint)">—</span>{% endif %}
+    </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<p style="color:var(--text-faint);font-size:0.85em;margin-top:0.4em"><strong>Reading this table:</strong> Y values are voxel altitudes; lower Y = closer to the planet core. Frequency is the raw <code>m_frequency</code> from <code>data/configs/voxeldistributions/</code> — higher means more ore nodes per chunk. Vein size is <code>m_extent</code> (rough vein radius).</p>
+
+{% set unique_partners = [] %}
+{% for loc in r.locations %}{% for co in loc.co_occurring %}{% if co.identifier not in unique_partners %}{% set _ = unique_partners.append(co.identifier) %}{% endif %}{% endfor %}{% endfor %}
+{% if unique_partners %}
+<div class="note">
+    <strong>Co-spawning summary:</strong> across every layer where {{ r.display }} appears, it's accompanied by
+    {% for loc in r.locations[:1] %}
+        {% for co in loc.co_occurring %}<a href="{{ root }}gems/{{ co.slug }}.html">{{ co.display }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
+    {% endfor %}.
+    The four base gems share identical spawn tables — find one node, dig the layer for the rest.
+</div>
+{% endif %}
+
+{% else %}
+<div class="note">
+    <strong>No layer entries in voxel-distribution files.</strong>{% if r.is_glowing %} Glowing gems are not part of standard world generation — they're spawned by the engine for special events, specific biome modifiers, or quest scripting that isn't exposed in the static configs. If you've found them in-game (and you probably have), let us know where, and we can document it.{% else %} The data doesn't list this gem in any planet distribution.{% endif %}
+</div>
+{% endif %}
+
+</div>
+
+<aside class="infobox">
+<h3 style="margin-top:0">Item info</h3>
+<dl>
+    {% if r.stack_size %}<dt>Stack size</dt><dd>{{ r.stack_size }}</dd>{% endif %}
+    {% if r.base_price is not none %}<dt>Base price</dt><dd>{{ r.base_price }}</dd>{% endif %}
+    {% if r.base_demand is not none %}<dt>Base demand</dt><dd>{{ r.base_demand }} <span style="color:var(--text-faint)">{% if r.base_demand > 0 %}(merchants want it){% else %}(vendor-supplied){% endif %}</span></dd>{% endif %}
+    {% if r.recycle_value is not none %}<dt>Recycle</dt><dd>{{ r.recycle_value }}</dd>{% endif %}
+    {% if r.voxel_name %}<dt>Voxel</dt><dd class="mono">{{ r.voxel_name }}</dd>{% endif %}
+    {% if r.inv_frame is not none %}<dt>inv_frame</dt><dd class="mono">{{ r.inv_frame }}</dd>{% endif %}
+    {% if r.description_string %}<dt>desc_id</dt><dd class="mono">{{ r.description_string }}</dd>{% endif %}
+    <dt>Type</dt><dd class="mono">{{ r.type }}</dd>
+</dl>
+<p style="margin-top:0.8em;font-size:0.85em;color:var(--text-dim)">See <a href="{{ root }}guides/gems.html">the Gems guide</a> for the Gem Plate combine, the 87 plate-consuming recipes, and a per-planet density comparison.</p>
+</aside>
+</div>
+
+<p style="margin-top:2.5rem"><a class="muted" href="{{ root }}gems.html">← Back to all gems</a></p>
+{% endblock %}

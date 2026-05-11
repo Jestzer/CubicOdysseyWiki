@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gems — Cubic Odyssey Wiki</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+    <div class="inner">
+        <div class="brand">
+            <a href="index.html">Cubic Odyssey</a>
+            <small>local wiki · 507 entries</small>
+        </div>
+        <nav>
+            <a href="ores.html"      class="">Ores</a>
+            <a href="gems.html"      class="active">Gems</a>
+            <a href="ingots.html"    class="">Ingots</a>
+            <a href="tools.html"     class="">Tools</a>
+            <a href="weapons.html"   class="">Weapons</a>
+            <a href="resources.html" class="">Resources</a>
+            <a href="guides.html"    class="">Guides</a>
+        </nav>
+    </div>
+</header>
+<main class="wrap">
+    
+<h1>Gems</h1>
+<p>Diamond, Ruby, Emerald, Sapphire (tier 5) and Glowing variants (tier 7). All four base gems share identical spawn tables — they always appear together in the same layer.</p>
+
+<div class="controls">
+    <input type="search" class="search" id="catSearch" placeholder="Filter 8 gems…" autocomplete="off">
+    
+    <div class="pills" id="tierPills">
+        <span class="pill active" data-tier="all">All tiers</span>
+        <span class="pill" data-tier="5">T5</span><span class="pill" data-tier="7">T7</span>
+    </div>
+    
+</div>
+
+<table class="wiki" id="catTable">
+    <thead>
+        <tr>
+            <th class="icon"></th>
+            <th data-key="display">Name</th>
+            <th data-key="tier" class="numeric">Tier</th>
+            <th data-key="identifier">Identifier</th>
+            
+            <th data-key="required_laser_file" >Tool</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr data-tier="5" data-search="diamond res.diamond">
+            <td class="icon">
+                <img src="assets/icons/res_diamond.png" alt="">
+            </td>
+            <td><a href="gems/res_diamond.html">Diamond</a></td>
+            <td class="numeric"><span class="tier tier-5">T5</span></td>
+            <td class="mono">res.diamond</td>
+            
+            <td  class="mono">MINING_LASER_4</td>
+            
+        </tr>
+        
+        <tr data-tier="5" data-search="emerald res.emerald">
+            <td class="icon">
+                <img src="assets/icons/res_emerald.png" alt="">
+            </td>
+            <td><a href="gems/res_emerald.html">Emerald</a></td>
+            <td class="numeric"><span class="tier tier-5">T5</span></td>
+            <td class="mono">res.emerald</td>
+            
+            <td  class="mono">MINING_LASER_4</td>
+            
+        </tr>
+        
+        <tr data-tier="5" data-search="ruby res.ruby">
+            <td class="icon">
+                <img src="assets/icons/res_ruby.png" alt="">
+            </td>
+            <td><a href="gems/res_ruby.html">Ruby</a></td>
+            <td class="numeric"><span class="tier tier-5">T5</span></td>
+            <td class="mono">res.ruby</td>
+            
+            <td  class="mono">MINING_LASER_4</td>
+            
+        </tr>
+        
+        <tr data-tier="5" data-search="sapphire res.sapphire">
+            <td class="icon">
+                <img src="assets/icons/res_sapphire.png" alt="">
+            </td>
+            <td><a href="gems/res_sapphire.html">Sapphire</a></td>
+            <td class="numeric"><span class="tier tier-5">T5</span></td>
+            <td class="mono">res.sapphire</td>
+            
+            <td  class="mono">MINING_LASER_4</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing diamond res.glowing.diamond">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_diamond.png" alt="">
+            </td>
+            <td><a href="gems/res_glowing_diamond.html">Glowing Diamond</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.diamond</td>
+            
+            <td  class="mono">MINING_LASER_6</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing emerald res.glowing.emerald">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_emerald.png" alt="">
+            </td>
+            <td><a href="gems/res_glowing_emerald.html">Glowing Emerald</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.emerald</td>
+            
+            <td  class="mono">MINING_LASER_6</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing ruby res.glowing.ruby">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_ruby.png" alt="">
+            </td>
+            <td><a href="gems/res_glowing_ruby.html">Glowing Ruby</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.ruby</td>
+            
+            <td  class="mono">MINING_LASER_6</td>
+            
+        </tr>
+        
+        <tr data-tier="7" data-search="glowing sapphire res.glowing.sapphire">
+            <td class="icon">
+                <img src="assets/icons/res_glowing_sapphire.png" alt="">
+            </td>
+            <td><a href="gems/res_glowing_sapphire.html">Glowing Sapphire</a></td>
+            <td class="numeric"><span class="tier tier-7">T7</span></td>
+            <td class="mono">res.glowing.sapphire</td>
+            
+            <td  class="mono">MINING_LASER_6</td>
+            
+        </tr>
+        
+    </tbody>
+</table>
+
+
+
+</main>
+<footer class="site">
+    <div class="inner">
+        Generated 2026-05-11 04:14 UTC from game data (2026-04-26).
+        Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
+        Planet→biome distribution mapping is best-effort.
+    </div>
+</footer>
+
+<script>
+(function(){
+    const table = document.getElementById('catTable');
+    if(!table) return;
+    const tbody = table.tBodies[0];
+    const rows = Array.from(tbody.rows);
+    const search = document.getElementById('catSearch');
+    const pills = document.getElementById('tierPills');
+    let tierFilter = 'all';
+
+    function apply(){
+        const q = (search?.value || '').trim().toLowerCase();
+        let visible = 0;
+        for(const r of rows){
+            const text = r.dataset.search;
+            const t = r.dataset.tier;
+            const matchQ = !q || text.indexOf(q) !== -1;
+            const matchT = tierFilter === 'all' || t === tierFilter;
+            r.style.display = (matchQ && matchT) ? '' : 'none';
+            if(matchQ && matchT) visible++;
+        }
+    }
+    search?.addEventListener('input', apply);
+    if(pills){
+        pills.addEventListener('click', e => {
+            const p = e.target.closest('.pill');
+            if(!p) return;
+            pills.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
+            p.classList.add('active');
+            tierFilter = p.dataset.tier;
+            apply();
+        });
+    }
+
+    // sortable columns
+    table.querySelectorAll('thead th[data-key]').forEach(th => {
+        th.addEventListener('click', () => {
+            const key = th.dataset.key;
+            const asc = !th.classList.contains('sort-asc');
+            table.querySelectorAll('th').forEach(x => x.classList.remove('sort-asc','sort-desc'));
+            th.classList.add(asc ? 'sort-asc' : 'sort-desc');
+            rows.sort((a, b) => {
+                const av = a.querySelector(`td:nth-child(${th.cellIndex+1})`).textContent.trim();
+                const bv = b.querySelector(`td:nth-child(${th.cellIndex+1})`).textContent.trim();
+                const an = parseFloat(av), bn = parseFloat(bv);
+                if(!isNaN(an) && !isNaN(bn)) return asc ? an-bn : bn-an;
+                return asc ? av.localeCompare(bv) : bv.localeCompare(av);
+            });
+            rows.forEach(r => tbody.appendChild(r));
+        });
+    });
+})();
+</script>
+
+</body>
+</html>

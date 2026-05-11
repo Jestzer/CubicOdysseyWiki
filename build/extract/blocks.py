@@ -79,6 +79,11 @@ def build_block_records(cat: Catalog,
         drop_id = v.get('m_dropItem')
         tex = v.get('m_defaultTexture')
         urls = texture_urls.get(tex, {}) if tex else {}
+        # Dev/placeholder voxels use the `dev` texture (red error block) and
+        # an out-of-range tier (e.g. 100). These are abstract base voxels
+        # (Biome Surface, Biome Sub Surface) or the explicit debug `dev`
+        # voxel — none of them are encountered in normal play.
+        is_dev = tex == 'dev'
         records.append({
             'name': vname,
             'slug': _slug(vname).replace(' ', '_'),
@@ -99,6 +104,7 @@ def build_block_records(cat: Catalog,
             'texture_url_large': urls.get('large'),
             'texture_url_variants': urls.get('variants') or ([urls['large']] if urls.get('large') else []),
             'title_str_id': v.get('titleStrId'),
+            'obtain_kind': 'unobtainable' if is_dev else 'obtainable',
         })
 
     records.sort(key=lambda r: (r['category_order'],
@@ -108,9 +114,14 @@ def build_block_records(cat: Catalog,
 
 
 def block_categories_summary(records: List[dict]) -> List[dict]:
-    """Return one row per category for the overview page."""
+    """Return one row per category for the overview page. Dev/placeholder
+    voxels are excluded from counts and sample previews so the cards
+    match the default 'Obtainable' filter; categories whose only members
+    are dev blocks are dropped entirely."""
     buckets: Dict[str, List[dict]] = {}
     for r in records:
+        if r.get('obtain_kind') == 'unobtainable':
+            continue
         buckets.setdefault(r['category_raw'], []).append(r)
     out = []
     for cat_raw, rs in buckets.items():

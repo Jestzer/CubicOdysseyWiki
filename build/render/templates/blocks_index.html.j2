@@ -25,6 +25,11 @@
         <span class="pill active" data-cat="all">All</span>
         {% for c in categories %}<span class="pill" data-cat="{{ c.category_raw }}">{{ c.category_label }}</span>{% endfor %}
     </div>
+    <div class="pills" id="obtainPills">
+        <span class="pill active" data-obtain="obtainable">Obtainable</span>
+        <span class="pill" data-obtain="unobtainable">Dev / placeholder</span>
+        <span class="pill" data-obtain="all">Show all</span>
+    </div>
 </div>
 
 {% for c in categories %}
@@ -40,7 +45,7 @@
 </tr></thead>
 <tbody>
 {% for r in rows if r.category_raw == c.category_raw %}
-<tr data-search="{{ (r.display ~ ' ' ~ (r.drop_item or '') ~ ' ' ~ (r.default_texture or ''))|lower }}">
+<tr data-obtain="{{ r.obtain_kind }}" data-search="{{ (r.display ~ ' ' ~ (r.drop_item or '') ~ ' ' ~ (r.default_texture or ''))|lower }}">
     <td><a href="{{ root }}blocks/{{ r.slug }}.html">{% if r.texture_url %}<img src="{{ root }}{{ r.texture_url }}" alt="" loading="lazy" style="width:48px;height:48px">{% elif r.color %}<span style="display:inline-block;width:32px;height:32px;background:rgb({{ r.color[0] }},{{ r.color[1] }},{{ r.color[2] }});border:1px solid var(--border);border-radius:3px"></span>{% endif %}</a></td>
     <td><a href="{{ root }}blocks/{{ r.slug }}.html">{{ r.display }}</a></td>
     <td class="numeric">{% if r.tier is not none %}{% if r.tier <= 7 %}<span class="tier tier-{{ r.tier }}">T{{ r.tier }}</span>{% else %}<span class="tier tier-100">T{{ r.tier }}</span>{% endif %}{% else %}—{% endif %}</td>
@@ -59,7 +64,9 @@
     const tables = document.querySelectorAll('table[data-cat]');
     const search = document.getElementById('catSearch');
     const pills = document.getElementById('catPills');
+    const obtainPills = document.getElementById('obtainPills');
     let catFilter = 'all';
+    let obtainFilter = 'obtainable';
 
     function apply(){
         const q = (search?.value || '').trim().toLowerCase();
@@ -70,7 +77,8 @@
             for (const r of t.tBodies[0].rows) {
                 const matchQ = !q || r.dataset.search.indexOf(q) !== -1;
                 const matchC = catFilter === 'all' || cat === catFilter;
-                const show = matchQ && matchC;
+                const matchO = obtainFilter === 'all' || r.dataset.obtain === obtainFilter;
+                const show = matchQ && matchC && matchO;
                 r.style.display = show ? '' : 'none';
                 if (show) visibleInTable++;
             }
@@ -80,14 +88,19 @@
         }
     }
     search?.addEventListener('input', apply);
-    pills?.addEventListener('click', e => {
-        const p = e.target.closest('.pill');
-        if (!p) return;
-        pills.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
-        p.classList.add('active');
-        catFilter = p.dataset.cat;
-        apply();
-    });
+    function wirePills(el, set){
+        el?.addEventListener('click', e => {
+            const p = e.target.closest('.pill');
+            if (!p) return;
+            el.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
+            p.classList.add('active');
+            set(p);
+            apply();
+        });
+    }
+    wirePills(pills, p => catFilter = p.dataset.cat);
+    wirePills(obtainPills, p => obtainFilter = p.dataset.obtain);
+    apply();
 })();
 </script>
 {% endblock %}

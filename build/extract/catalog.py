@@ -22,6 +22,8 @@ class Catalog:
     recipes: List[dict] = field(default_factory=list)
     recipes_by_input: Dict[str, dict] = field(default_factory=dict)
     crafting_recipes: List[dict] = field(default_factory=list)
+    randomsets: Dict[str, dict] = field(default_factory=dict)
+    characters: Dict[str, dict] = field(default_factory=dict)
     distributions: Dict[str, dict] = field(default_factory=dict)
     biomes: Dict[str, dict] = field(default_factory=dict)
     worlds: Dict[str, dict] = field(default_factory=dict)
@@ -37,6 +39,8 @@ class Catalog:
         cat._load_weapons(cfg / 'meleeweapons', cat.melee_weapons)
         cat._load_furnace(cfg / 'furnace')
         cat._load_recipes(cfg / 'recipes')
+        cat._load_dir_as_dict(cfg / 'randomsets', cat.randomsets)
+        cat._load_dir_as_dict(cfg / 'characters', cat.characters)
         cat._load_dir_as_dict(cfg / 'voxeldistributions', cat.distributions)
         cat._load_dir_as_dict(cfg / 'worldbiomes', cat.biomes)
         cat._load_dir_as_dict(cfg / 'worlds', cat.worlds)
@@ -96,6 +100,27 @@ class Catalog:
                 if isinstance(inp, dict) and inp.get('item') == item_identifier:
                     out.append(r)
                     break
+        return out
+
+    def recipes_producing(self, item_identifier: str) -> List[dict]:
+        return [r for r in self.crafting_recipes
+                if r.get('craftedObject') == item_identifier]
+
+    def randomsets_containing(self, item_identifier: str) -> List[dict]:
+        out = []
+        for name, rs in self.randomsets.items():
+            for e in (rs.get('m_items') or []):
+                if isinstance(e, dict) and e.get('m_item') == item_identifier:
+                    out.append({**rs, '_file': name})
+                    break
+        return out
+
+    def characters_using_weapon(self, weapon_identifier: str) -> List[dict]:
+        """Characters whose `weapon` field equals this weapon."""
+        out = []
+        for name, c in self.characters.items():
+            if c.get('weapon') == weapon_identifier:
+                out.append({**c, '_file': name})
         return out
 
     def _load_dir_as_dict(self, d: Path, target: Dict[str, dict]):

@@ -5,11 +5,22 @@
     {% if r.icon %}<div class="icon-big"><img src="{{ root }}{{ r.icon }}" alt=""></div>
     {% else %}<div class="icon-big placeholder">{{ r.display[:2]|upper }}</div>{% endif %}
     <div class="meta">
-        <h1>{{ r.display }} <span class="tier tier-{{ r.tier }}">Tier {{ r.tier }}</span></h1>
+        <h1>{{ r.display }} <span class="tier tier-{{ r.tier }}">Tier {{ r.tier }}</span>{% if r.obtain %} <span class="obtain obtain-{{ r.obtain.kind }}">{{ r.obtain.label }}</span>{% endif %}</h1>
         <div class="id">{{ r.identifier }}</div>
         <p class="desc">{{ r.type|replace('_', ' ')|title }}.</p>
     </div>
 </div>
+
+{% if r.obtain %}
+<div class="note" style="border-left-color: {% if r.obtain.kind == 'craftable' %}#5ca85a{% elif r.obtain.kind == 'loot' %}#d4a64a{% elif r.obtain.kind == 'npc' %}#d96565{% else %}#6e7681{% endif %}">
+    <strong>{{ r.obtain.label }}.</strong> {{ r.obtain.detail }}
+    {% if r.obtain.kind == 'craftable' and r.obtain.recipe_skill %}
+        Open a workbench and look under category {{ r.type|replace('_', ' ')|title }} once you hit {{ r.obtain.recipe_skill }} {{ r.obtain.recipe_skill_level }}.
+    {% elif r.obtain.kind == 'unobtainable' %}
+        If you've encountered this weapon in-game, let us know how — a quest grant or a scripted enemy that isn't captured by the standard character configs is the most likely explanation.
+    {% endif %}
+</div>
+{% endif %}
 
 <div class="section-grid">
 <div>

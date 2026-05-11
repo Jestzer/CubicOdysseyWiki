@@ -2,6 +2,8 @@
 {% block title %}{{ r.display }}{% endblock %}
 {% block content %}
 <h1>{{ r.display }}</h1>
+<img src="{{ root }}assets/worlds/{{ r.slug }}.png" alt="{{ r.display }} palette banner" style="display:block;width:100%;max-width:100%;border-radius:6px;border:1px solid var(--border);image-rendering:pixelated;margin:0.6rem 0 1rem">
+<p style="font-size:0.82em;color:var(--text-faint);margin-top:-0.4rem">Stylised banner using the world's voxel palette — not an in-game screenshot.</p>
 {% if r.description %}<p style="font-size:1.05em;color:var(--text)">{{ r.description }}</p>{% endif %}
 
 <div class="kvs" style="margin:1rem 0">

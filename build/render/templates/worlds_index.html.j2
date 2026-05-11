@@ -6,11 +6,14 @@
 
 <div class="cards">
 {% for r in worlds %}
-<a class="card" href="{{ root }}worlds/{{ r.slug }}.html">
-    <h3>{{ r.display }}</h3>
-    <div class="count">{{ r.biome_region_count }} biomes · {{ r.ore_summary_count }} ores</div>
-    {% if r.description %}<p>{{ r.description }}</p>{% endif %}
-    {% if r.planets %}<p style="color:var(--text-faint);font-size:0.85em;margin-top:0.4em">Known planets: {{ r.planets|join(', ') }}</p>{% endif %}
+<a class="card" href="{{ root }}worlds/{{ r.slug }}.html" style="padding:0;overflow:hidden">
+    <img src="{{ root }}assets/worlds/{{ r.slug }}.png" alt="" style="display:block;width:100%;height:120px;object-fit:cover;image-rendering:pixelated;border-bottom:1px solid var(--border)">
+    <div style="padding:1rem 1.1rem">
+        <h3 style="margin-top:0">{{ r.display }}</h3>
+        <div class="count">{{ r.biome_region_count }} biomes · {{ r.ore_summary_count }} ores</div>
+        {% if r.description %}<p>{{ r.description }}</p>{% endif %}
+        {% if r.planets %}<p style="color:var(--text-faint);font-size:0.85em;margin-top:0.4em">Known planets: {{ r.planets|join(', ') }}</p>{% endif %}
+    </div>
 </a>
 {% endfor %}
 </div>

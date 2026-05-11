@@ -374,3 +374,20 @@ table.wiki td.mono { font-family: ui-monospace, monospace; font-size: 0.85rem; c
 tr.locked::after { content: ""; }
 tr.locked td { color: var(--text-faint); }
 tr.locked td a { color: var(--text-faint); pointer-events: none; }
+
+/* Obtainability badges (weapons) ---------------------------------------- */
+.obtain {
+    display: inline-block;
+    border-radius: 3px;
+    padding: 0.1em 0.55em;
+    font-family: ui-monospace, monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    line-height: 1.5;
+}
+.obtain-craftable     { background: #1e4d2e; color: #b7e8c5; }
+.obtain-loot          { background: #4a3f1c; color: #f0d579; }
+.obtain-npc           { background: #4a1f1c; color: #f0a098; }
+.obtain-unobtainable  { background: #2f2f3a; color: #888a92; }

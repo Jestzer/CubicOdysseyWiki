@@ -190,8 +190,8 @@ class WikiRenderer:
         self._render_category('weapons',
             weapon_records,
             title='Weapons',
-            intro='Ranged and melee combat weapons. Mining lasers (utility) are listed under Tools.',
-            extra_cols=[],
+            intro='Ranged and melee combat weapons. Mining lasers (utility) are listed under Tools. Each weapon shows whether it is craftable, looted, NPC-only, or unobtainable — derived from the game\'s recipes, randomsets, and character configs.',
+            extra_cols=[{'key': 'obtain_label', 'label': 'Obtain', 'mono': False}],
         )
         self._render_category('resources',
             resource_records,

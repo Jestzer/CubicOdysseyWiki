@@ -238,7 +238,12 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
             # the internal cube seams. Replicate padding makes the OOB
             # samples equal to the edge values, so the bilinear average
             # produces the correct edge colour.
-            pad = 4
+            # pad needs to cover the polygon overlap (ov below) PLUS the
+            # outline/line stroke width PLUS PIL's bilinear kernel width
+            # (a×1 for affine `a` factor). With ov=2 and a=2 on the side
+            # faces, the kernel needs to land at most at input x = 270 for
+            # output x = 131; padded width must be ≥ 272, so pad ≥ 8.
+            pad = 8
             tw, th = tex.size
             pt = Image.new('RGBA', (tw + 2*pad, th + 2*pad))
             pt.paste(tex, (pad, pad))

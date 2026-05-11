@@ -1,0 +1,102 @@
+{% extends "base.html.j2" %}
+{% block title %}{{ r.display }}{% endblock %}
+{% block content %}
+<h1>{{ r.display }}</h1>
+{% if r.description %}<p style="font-size:1.05em;color:var(--text)">{{ r.description }}</p>{% endif %}
+
+<div class="kvs" style="margin:1rem 0">
+<dl>
+    <dt>Biome set</dt><dd class="mono">{{ r.biomes_name }}</dd>
+    <dt>Distribution</dt><dd class="mono">{{ r.distribution_name }}</dd>
+    <dt>Biome regions</dt><dd>{{ r.biome_region_count }}</dd>
+    <dt>Voxel layers</dt><dd>{{ r.layer_count }}</dd>
+    <dt>Unique ores</dt><dd>{{ r.ore_summary_count }}</dd>
+    {% if r.planets %}<dt>Known planets</dt><dd>{{ r.planets|join(', ') }}</dd>
+    {% else %}<dt>Known planets</dt><dd><span style="color:var(--text-faint)">None confirmed — most planets pick biomes procedurally and can't be linked to a single world type from the static configs.</span></dd>{% endif %}
+</dl>
+</div>
+
+<h2>Ores you can find here</h2>
+<p>Aggregated from every layer in this world's distribution. Frequency is the sum across layers (higher = denser); vein size is the largest <code>m_extent</code> seen; deepest Y is the lowest <code>m_startY</code> a layer with this ore occupies (lower Y = closer to the planet core).</p>
+{% if r.ore_summary %}
+<table class="wiki">
+<thead><tr><th>Voxel</th><th class="numeric">Layers</th><th class="numeric">Total freq</th><th class="numeric">Max vein</th><th class="numeric">Deepest Y</th></tr></thead>
+<tbody>
+{% for o in r.ore_summary %}
+<tr>
+    <td>{% if o.url %}<a href="{{ root }}{{ o.url }}">{{ o.voxel_name }}</a>{% else %}{{ o.voxel_name }}{% endif %}</td>
+    <td class="numeric">{{ o.layer_count }}</td>
+    <td class="numeric"><strong>{{ o.total_freq }}</strong></td>
+    <td class="numeric">{{ o.max_extent if o.max_extent else '—' }}</td>
+    <td class="numeric mono">{{ o.deepest_y }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+<p style="color:var(--text-faint)">No ore entries in this distribution.</p>
+{% endif %}
+
+<h2>Layer-by-layer breakdown</h2>
+<p>Each layer is a Y band (voxel altitude). The engine fills the band with whatever's in <code>m_voxels</code> (stone-class blocks) plus <code>m_ores</code> entries (the rare resource nodes). Layers are listed top-down — Y 256 is open sky, low Y is bedrock.</p>
+
+{% for layer in r.layers %}
+<details {% if loop.first %}open{% endif %} style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;margin:0.6rem 0;padding:0">
+<summary style="padding:0.7em 1em;cursor:pointer;font-family:ui-monospace,monospace;font-weight:600">
+    Layer {{ layer.index }} · <span class="mono">Y {{ layer.startY }} … {{ layer.endY }}</span>
+    <span style="color:var(--text-faint);font-weight:400;font-size:0.85em">
+        ({{ (layer.voxels|length) }} voxel{% if layer.voxels|length != 1 %}s{% endif %}, {{ layer.ores|selectattr('frequency','gt',0)|list|length }} ore type{% if layer.ores|selectattr('frequency','gt',0)|list|length != 1 %}s{% endif %})
+    </span>
+</summary>
+<div style="padding:0 1em 0.8em">
+
+{% if layer.voxels %}
+<h3 style="margin-top:0.8em">Voxels (terrain blocks)</h3>
+<table class="wiki">
+<thead><tr><th>Voxel</th><th class="numeric">Frequency</th></tr></thead>
+<tbody>
+{% for v in layer.voxels %}
+<tr><td class="mono">{{ v.voxel_name }}</td><td class="numeric">{{ v.frequency }}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+{% endif %}
+
+{% set visible_ores = layer.ores|selectattr('frequency','gt',0)|list %}
+{% if visible_ores %}
+<h3>Ores (resource nodes)</h3>
+<table class="wiki">
+<thead><tr><th>Voxel</th><th class="numeric">Frequency</th><th class="numeric">Vein size</th></tr></thead>
+<tbody>
+{% for e in visible_ores %}
+<tr>
+    <td>{% if e.url %}<a href="{{ root }}{{ e.url }}">{{ e.voxel_name }}</a>{% else %}{{ e.voxel_name }}{% endif %}</td>
+    <td class="numeric">{{ e.frequency }}</td>
+    <td class="numeric">{{ e.extent if e.extent else '—' }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endif %}
+
+</div>
+</details>
+{% endfor %}
+
+<h2>Biome regions</h2>
+<p>Biomes are picked at runtime by temperature × altitude. The same world type can host any of these climate-zone variants on any single planet.</p>
+<table class="wiki">
+<thead><tr><th>Biome</th><th class="numeric">Temp range (°)</th><th class="numeric">Altitude range</th></tr></thead>
+<tbody>
+{% for b in r.biome_regions %}
+<tr>
+    <td>{{ b.display }}<br><span style="color:var(--text-faint);font-size:0.85em" class="mono">{{ b.name }}</span></td>
+    <td class="numeric mono">{{ b.startTemp }} … {{ b.endTemp }}</td>
+    <td class="numeric mono">{{ b.startAlt }} … {{ b.endAlt }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<p style="margin-top:2.5rem"><a class="muted" href="{{ root }}worlds.html">← Back to all worlds</a></p>
+{% endblock %}

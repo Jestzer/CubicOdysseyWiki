@@ -25,6 +25,7 @@ from parsers.bspr import parse_bspr_file, SpriteFrame
 from extract.catalog import Catalog
 from extract.ores import build_ore_records, _humanize, _slug
 from extract.gems import build_gem_records, gem_identifiers
+from extract.worlds import build_world_records
 from extract.guides import (
     motherboard_context, mining_context, trading_context,
     item_damage_context, player_death_context, perks_context,
@@ -250,9 +251,9 @@ def main():
     ore_records = [r.to_dict() for r in ore_records_objs]
     ores_by_drop = {r['identifier']: r for r in ore_records}
 
-    gem_records = build_gem_records(
-        cat, {k: v for k, v in dist_meta.items() if not k.startswith('_')}
-    )
+    dist_meta_clean = {k: v for k, v in dist_meta.items() if not k.startswith('_')}
+    gem_records = build_gem_records(cat, dist_meta_clean)
+    world_records = build_world_records(cat, dist_meta_clean)
 
     ingot_records = build_ingots(cat, ores_by_drop)
     tool_records = build_tools(cat, ore_records)
@@ -261,7 +262,8 @@ def main():
     resource_records = build_resources(cat, exclude_ids=gem_identifiers())
     print(f'       ores={len(ore_records)} gems={len(gem_records)} '
           f'ingots={len(ingot_records)} tools={len(tool_records)} '
-          f'weapons={len(weapon_records)} resources={len(resource_records)}')
+          f'weapons={len(weapon_records)} resources={len(resource_records)} '
+          f'worlds={len(world_records)}')
 
     print('[5/6] writing catalog.json…')
     (out / 'data').mkdir(exist_ok=True)
@@ -272,6 +274,7 @@ def main():
         'tools': tool_records,
         'weapons': weapon_records,
         'resources': resource_records,
+        'worlds': world_records,
     }, default=str, indent=0, separators=(',', ':')), encoding='utf-8')
 
     print('[6/6] rendering HTML…')
@@ -294,6 +297,7 @@ def main():
         tool_records=tool_records,
         weapon_records=weapon_records,
         resource_records=resource_records,
+        world_records=world_records,
     )
 
     print('[6.5/6] rendering Guides…')
@@ -321,7 +325,7 @@ def main():
     print(f'   {len(ore_records)} ores + {len(gem_records)} gems + '
           f'{len(ingot_records)} ingots + {len(tool_records)} tools + '
           f'{len(weapon_records)} weapons + {len(resource_records)} '
-          f'resources + 7 guides')
+          f'resources + {len(world_records)} worlds + 7 guides')
     print(f'   open file://{out}/index.html')
 
 

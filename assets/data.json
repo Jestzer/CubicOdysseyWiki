@@ -4500,6 +4500,87 @@
 "url":"resources/res_rare_xmatter_cell.html"
 },
 {
+"id":"earth_biomes",
+"name":"Earth-like worlds",
+"slug":"earth",
+"category":"worlds",
+"tier":0,
+"icon":"",
+"url":"worlds/earth.html"
+},
+{
+"id":"scorched_biomes",
+"name":"Scorched worlds",
+"slug":"scorched",
+"category":"worlds",
+"tier":0,
+"icon":"",
+"url":"worlds/scorched.html"
+},
+{
+"id":"barren_biomes",
+"name":"Barren worlds",
+"slug":"barren",
+"category":"worlds",
+"tier":0,
+"icon":"",
+"url":"worlds/barren.html"
+},
+{
+"id":"crystalline_biomes",
+"name":"Crystalline worlds",
+"slug":"crystalline",
+"category":"worlds",
+"tier":0,
+"icon":"",
+"url":"worlds/crystalline.html"
+},
+{
+"id":"majestic_biomes",
+"name":"Majestic worlds",
+"slug":"majestic",
+"category":"worlds",
+"tier":0,
+"icon":"",
+"url":"worlds/majestic.html"
+},
+{
+"id":"oceanic_biomes",
+"name":"Oceanic worlds",
+"slug":"oceanic",
+"category":"worlds",
+"tier":0,
+"icon":"",
+"url":"worlds/oceanic.html"
+},
+{
+"id":"shroomy_biomes",
+"name":"Shroomy worlds",
+"slug":"shroomy",
+"category":"worlds",
+"tier":0,
+"icon":"",
+"url":"worlds/shroomy.html"
+},
+{
+"id":"slimy_biomes",
+"name":"Slimy worlds",
+"slug":"slimy",
+"category":"worlds",
+"tier":0,
+"icon":"",
+"url":"worlds/slimy.html"
+},
+{
+"id":"xeno_biomes",
+"name":"Xeno worlds",
+"slug":"xeno",
+"category":"worlds",
+"tier":0,
+"icon":"",
+"url":"worlds/xeno.html"
+},
+{
 "id":"guide.motherboards",
 "name":"Finding Motherboards",
 "slug":"motherboards",

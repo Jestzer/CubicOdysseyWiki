@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Worlds — Cubic Odyssey Wiki</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+    <div class="inner">
+        <div class="brand">
+            <a href="index.html">Cubic Odyssey</a>
+            <small>local wiki · 516 entries</small>
+        </div>
+        <nav>
+            <a href="ores.html"      class="">Ores</a>
+            <a href="gems.html"      class="">Gems</a>
+            <a href="ingots.html"    class="">Ingots</a>
+            <a href="tools.html"     class="">Tools</a>
+            <a href="weapons.html"   class="">Weapons</a>
+            <a href="resources.html" class="">Resources</a>
+            <a href="worlds.html"    class="active">Worlds</a>
+            <a href="guides.html"    class="">Guides</a>
+        </nav>
+    </div>
+</header>
+<main class="wrap">
+    
+<h1>World types</h1>
+<p>Cubic Odyssey ships <strong>9 world types</strong> in <code>data/configs/worldbiomes/</code>. Each defines a set of climate biomes and pairs with a voxel-distribution file that controls which ores spawn at each depth. Most planets pick biomes procedurally (<code>m_biome*</code> as "random"), so the world type tells you what to expect more reliably than the planet name.</p>
+
+<div class="cards">
+
+<a class="card" href="worlds/earth.html">
+    <h3>Earth-like worlds</h3>
+    <div class="count">28 biomes · 20 ores</div>
+    <p>Temperate terrestrial planets: deserts, plains, mountains, hills, and lakes. The classic mining playground.</p>
+    <p style="color:var(--text-faint);font-size:0.85em;margin-top:0.4em">Known planets: Earth, Bardwell I, Bardwell II, Bardwell III</p>
+</a>
+
+<a class="card" href="worlds/scorched.html">
+    <h3>Scorched worlds</h3>
+    <div class="count">18 biomes · 8 ores</div>
+    <p>Hot, volcanic, lava-flow planets. Rare-matter rich.</p>
+    <p style="color:var(--text-faint);font-size:0.85em;margin-top:0.4em">Known planets: TEST_01</p>
+</a>
+
+<a class="card" href="worlds/barren.html">
+    <h3>Barren worlds</h3>
+    <div class="count">18 biomes · 8 ores</div>
+    <p>Rocky, low-vegetation planets with sparse atmosphere. Mid-tier ore rich.</p>
+    
+</a>
+
+<a class="card" href="worlds/crystalline.html">
+    <h3>Crystalline worlds</h3>
+    <div class="count">28 biomes · 8 ores</div>
+    <p>Worlds with glass and crystal terrain. Gem-bearing layers.</p>
+    
+</a>
+
+<a class="card" href="worlds/majestic.html">
+    <h3>Majestic worlds</h3>
+    <div class="count">28 biomes · 20 ores</div>
+    <p>Rare scenic worlds with unusual ore mixes.</p>
+    
+</a>
+
+<a class="card" href="worlds/oceanic.html">
+    <h3>Oceanic worlds</h3>
+    <div class="count">28 biomes · 8 ores</div>
+    <p>Water-dominated planets with sea-floor mineral deposits.</p>
+    
+</a>
+
+<a class="card" href="worlds/shroomy.html">
+    <h3>Shroomy worlds</h3>
+    <div class="count">28 biomes · 8 ores</div>
+    <p>Fungal-biome planets dominated by mushrooms and damp terrain.</p>
+    
+</a>
+
+<a class="card" href="worlds/slimy.html">
+    <h3>Slimy worlds</h3>
+    <div class="count">24 biomes · 8 ores</div>
+    <p>Gel / slime planets with reactive surface terrain.</p>
+    
+</a>
+
+<a class="card" href="worlds/xeno.html">
+    <h3>Xeno worlds</h3>
+    <div class="count">28 biomes · 8 ores</div>
+    <p>Alien terrain — exotic biomes outside the normal classification.</p>
+    
+</a>
+
+</div>
+
+<div class="note">
+    "Known planets" is best-effort: only Earth and the Bardwell series declare specific biome types in <code>data/configs/worlds/*.cfg</code>. The rest roll their biome list at runtime, so a "Crystalline world" is what the engine generates rather than a fixed roster.
+</div>
+
+</main>
+<footer class="site">
+    <div class="inner">
+        Generated 2026-05-11 04:33 UTC from game data (2026-04-26).
+        Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
+        Planet→biome distribution mapping is best-effort.
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends "base.html.j2" %}
+{% block title %}Worlds{% endblock %}
+{% block content %}
+<h1>World types</h1>
+<p>Cubic Odyssey ships <strong>{{ worlds|length }} world types</strong> in <code>data/configs/worldbiomes/</code>. Each defines a set of climate biomes and pairs with a voxel-distribution file that controls which ores spawn at each depth. Most planets pick biomes procedurally (<code>m_biome*</code> as "random"), so the world type tells you what to expect more reliably than the planet name.</p>
+
+<div class="cards">
+{% for r in worlds %}
+<a class="card" href="{{ root }}worlds/{{ r.slug }}.html">
+    <h3>{{ r.display }}</h3>
+    <div class="count">{{ r.biome_region_count }} biomes · {{ r.ore_summary_count }} ores</div>
+    {% if r.description %}<p>{{ r.description }}</p>{% endif %}
+    {% if r.planets %}<p style="color:var(--text-faint);font-size:0.85em;margin-top:0.4em">Known planets: {{ r.planets|join(', ') }}</p>{% endif %}
+</a>
+{% endfor %}
+</div>
+
+<div class="note">
+    "Known planets" is best-effort: only Earth and the Bardwell series declare specific biome types in <code>data/configs/worlds/*.cfg</code>. The rest roll their biome list at runtime, so a "Crystalline world" is what the engine generates rather than a fixed roster.
+</div>
+{% endblock %}

@@ -90,8 +90,10 @@ class WikiRenderer:
                tool_records: list,
                weapon_records: list,
                resource_records: list,
-               gem_records: list = None):
+               gem_records: list = None,
+               world_records: list = None):
         gem_records = gem_records or []
+        world_records = world_records or []
         # Resolve icons + cross-links once
         ingot_lookup = {r['identifier']: r for r in ingot_records}
         ore_lookup = {r['identifier']: r for r in ore_records}
@@ -127,10 +129,11 @@ class WikiRenderer:
             'tools': len(tool_records),
             'weapons': len(weapon_records),
             'resources': len(resource_records),
+            'worlds': len(world_records),
             'guides': 7,
             'total': (len(ore_records) + len(gem_records) + len(ingot_records)
                        + len(tool_records) + len(weapon_records)
-                       + len(resource_records) + 7),
+                       + len(resource_records) + len(world_records) + 7),
         }
 
         # Render index
@@ -230,6 +233,18 @@ class WikiRenderer:
                 root='../', category='resources', title=r['display'],
                 counts=self.counts, r=r)
 
+        # World types: overview + per-world detail
+        if world_records:
+            self._render_template('worlds_index.html.j2',
+                self.out / 'worlds.html',
+                root='', category='worlds', title='Worlds',
+                counts=self.counts, worlds=world_records)
+            for r in world_records:
+                self._render_template('world.html.j2',
+                    self.out / 'worlds' / (r['slug'] + '.html'),
+                    root='../', category='worlds', title=r['display'],
+                    counts=self.counts, r=r)
+
         # data.json search manifest
         manifest = []
         for cat, rec_list in (
@@ -248,6 +263,16 @@ class WikiRenderer:
                     'icon': r.get('icon') or '',
                     'url': f"{cat}/{r['slug']}.html",
                 })
+        for r in world_records:
+            manifest.append({
+                'id': r['biomes_name'],
+                'name': r['display'],
+                'slug': r['slug'],
+                'category': 'worlds',
+                'tier': 0,
+                'icon': '',
+                'url': f"worlds/{r['slug']}.html",
+            })
         # Guides also surface in global search
         for slug, title in (
             ('motherboards', 'Finding Motherboards'),

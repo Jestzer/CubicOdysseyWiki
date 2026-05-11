@@ -153,15 +153,12 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
             means = [ImageStat.Stat(s.convert('L')).mean[0]
                       for s in strips]
             if max(means) - min(means) > 25:
-                result = []
-                for strip in strips:
-                    if tile_h < w:
-                        tiled = Image.new('RGBA', (w, w))
-                        for y in range(0, w, tile_h):
-                            tiled.paste(strip, (0, y))
-                        result.append(tiled)
-                    else:
-                        result.append(strip)
+                # Pass the rectangular strip directly to the affine so it
+                # stretches naturally onto the face polygon. Tiling the strip
+                # 4× vertically to make it square produced visible horizontal
+                # seams on textures whose content didn't tile cleanly
+                # (e.g. radium, where each strip is a wide single image).
+                result = list(strips)
         # Pre-filter each variant to ~2× face size so the affine transform
         # only does a ~2× downscale through bilinear sampling.
         target = size * 2
@@ -202,7 +199,10 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
                     Image.merge('RGB', (r, g, b))).enhance(brightness)
                 t = Image.merge('RGBA', (*rgb.split(), a))
             mask = Image.new('L', (S, S), 0)
-            ImageDraw.Draw(mask).polygon(polygon, fill=255)
+            # outline=255 ensures the boundary pixels are part of the mask;
+            # without it adjacent face polygons can both miss the diagonal
+            # row of pixels along their shared edge, leaving a 1 px gap.
+            ImageDraw.Draw(mask).polygon(polygon, fill=255, outline=255)
             out.paste(t, (0, 0), mask)
 
         if top is not None:
@@ -236,22 +236,30 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
         # Pair variants: cube i uses top[i] and side[i], clipping to the
         # last available variant when one side has fewer than the other.
         n = max(len(top_variants), len(side_variants), 1)
+        # The last variant is the canonical face (highest-detail / "freshest"
+        # frame; for radium-style ore sheets this is the bottom strip with
+        # the cleanest texture). The hero, index thumb, and category cards
+        # all source from it; intermediate variants stay accessible via the
+        # gallery on the detail page.
+        canonical_idx = n - 1
         variant_urls: List[str] = []
         for i in range(n):
             top_i = top_variants[min(i, len(top_variants)-1)] if top_variants else None
             side_i = side_variants[min(i, len(side_variants)-1)] if side_variants else None
             cube = render(top_i, side_i, S=size)
-            suffix = '' if i == 0 else f'__v{i}'
-            large_path = out_dir / f'{stem}{suffix}.png'
-            cube.save(large_path, 'PNG', optimize=True)
-            variant_urls.append(f'assets/textures/voxels/{stem}{suffix}.png')
-            if i == 0:
+            if i == canonical_idx:
+                large_path = out_dir / f'{stem}.png'
+                cube.save(large_path, 'PNG', optimize=True)
+                variant_urls.append(f'assets/textures/voxels/{stem}.png')
                 thumb = cube.resize((thumb_size, thumb_size),
                                      Image.Resampling.LANCZOS)
-                thumb_path = thumb_dir / f'{stem}.png'
-                thumb.save(thumb_path, 'PNG', optimize=True)
+                thumb.save(thumb_dir / f'{stem}.png', 'PNG', optimize=True)
+            else:
+                v_path = out_dir / f'{stem}__v{i+1}.png'
+                cube.save(v_path, 'PNG', optimize=True)
+                variant_urls.append(f'assets/textures/voxels/{stem}__v{i+1}.png')
         urls[stem] = {
-            'large': variant_urls[0],
+            'large': f'assets/textures/voxels/{stem}.png',
             'thumb': f'assets/textures/voxels_thumb/{stem}.png',
             'variants': variant_urls,
         }

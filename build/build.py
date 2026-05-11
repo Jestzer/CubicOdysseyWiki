@@ -275,38 +275,26 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
                     Image.merge('RGB', (r, g, b))).enhance(brightness)
                 t = Image.merge('RGBA', (*rgb.split(), a))
             mask = Image.new('L', (S, S), 0)
-            md = ImageDraw.Draw(mask)
-            md.polygon(polygon, fill=255, outline=255)
-            # PIL's polygon outline is a 1 px stroke that occasionally leaves
-            # a sub-pixel sliver along a diagonal shared between two faces
-            # (visible as a thin gap on the right face of the iso cube).
-            # Draw an explicit 2-px line along the polygon boundary so the
-            # adjacent face's mask always covers that row.
-            md.line(list(polygon) + [polygon[0]], fill=255, width=2)
+            ImageDraw.Draw(mask).polygon(polygon, fill=255, outline=255)
             out.paste(t, (0, 0), mask)
 
-        # Enlarge each face polygon by 2 px along its shared seams so the
-        # mask of adjacent faces overlaps and no pixel is missed at the
-        # boundary. Painting order is top → right → left so the LAST
-        # paint covers any boundary; the overlaps are entirely within the
-        # cube body and never poke outside the hex.
-        ov = 2  # overlap in pixels
+        # Natural face polygons with no overlap. Each polygon's fill +
+        # outline covers x=128 (the centre vertical seam) and the two
+        # diagonals exactly; the last-paint-wins order resolves the
+        # one-pixel-shared boundary deterministically.
         if top is not None:
             W, H = top.size
             paint(top,
                   (W/S, -2*W/S, W/2, H/S, 2*H/S, -H/2),
-                  [(0, q + ov), (S//2, 0), (S, q + ov),
-                   (S//2, S//2 + ov)], 1.0)
+                  [(0, q), (S//2, 0), (S, q), (S//2, S//2)], 1.0)
         if side is not None:
             W, H = side.size
             paint(side,
                   (2*W/S, 0, -W, H/S, 2*H/S, -3*H/2),
-                  [(S//2 - ov, S//2), (S, q), (S, 3*q),
-                   (S//2 - ov, S)], 0.85)
+                  [(S//2, S//2), (S, q), (S, 3*q), (S//2, S)], 0.85)
             paint(side,
                   (2*W/S, 0, 0, -H/S, 2*H/S, -H/2),
-                  [(0, q), (S//2 + ov, S//2), (S//2 + ov, S),
-                   (0, 3*q)], 0.7)
+                  [(0, q), (S//2, S//2), (S//2, S), (0, 3*q)], 0.7)
         return out
 
     # Keep cubes as RGBA — flattening onto a fixed background colour was a

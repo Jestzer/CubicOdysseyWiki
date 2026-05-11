@@ -130,12 +130,21 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
             (r, g, b, Image.new('L', raw.size, 255)))
 
     def variants_of(stem: str) -> List['Image.Image']:
-        """Return a list of face-ready square textures for one DDS.
+        """Return a list of face-ready textures for one DDS.
 
-        Many _side textures are vertical tile sheets — e.g. 1024×1024 holding
-        four 1024×256 variant strips. Sampling the whole image onto a face
-        stacks every variant as bands, so we split by strip and tile each
-        back to a square. Uniform textures return a single-element list.
+        A few DDS sources are genuine vertical tile sheets — e.g.
+        shroomy_tropical_turf_side is 1024×1024 with a hard band of dirt
+        over a hard band of turf, and hull_plate_5_side stacks distinct
+        panel variants. But others (radium.dds, snow.dds) are *coherent*
+        textures whose brightness happens to vary smoothly across rows;
+        a naive brightness check misclassifies them as tile sheets and
+        crops out 3/4 of the texture content.
+
+        Distinguish the two cases by comparing the average per-row colour
+        delta AT strip boundaries vs INSIDE strips: a real tile sheet
+        has sharp jumps every 256 rows, a coherent texture varies
+        smoothly. If we detect a tile sheet, return its strips as
+        variants; otherwise return the full image as a single variant.
         """
         if stem in variant_cache:
             return variant_cache[stem]
@@ -145,35 +154,48 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
             return []
         w, h = img.size
         result: List['Image.Image'] = [img]
-        if h >= 512 and h % 256 == 0:
-            tile_h = 256
-            n = h // tile_h
-            strips = [img.crop((0, i*tile_h, w, (i+1)*tile_h))
-                       for i in range(n)]
-            means = [ImageStat.Stat(s.convert('L')).mean[0]
-                      for s in strips]
-            if max(means) - min(means) > 25:
-                # Each variant strip is typically a horizontal row of N
-                # 256×256 sub-tiles (the game picks one per face). Crop
-                # each strip to the sub-tile with the highest grayscale
-                # stddev — that's where the visible content sits (radium's
-                # crystal blob, hull plate's lit panel). The earlier
-                # attempt to tile this 2×2 produced a visible grid pattern
-                # on the cube faces; show one sub-tile per face instead.
-                result = []
-                for strip in strips:
-                    if w > tile_h:
-                        n_cols = w // tile_h
-                        sub_tiles = [strip.crop((c*tile_h, 0,
-                                                  (c+1)*tile_h, tile_h))
-                                      for c in range(n_cols)]
-                        stds = [ImageStat.Stat(s.convert('L')).stddev[0]
-                                 for s in sub_tiles]
-                        result.append(sub_tiles[stds.index(max(stds))])
-                    else:
-                        result.append(strip)
+        if h >= 256 and w >= 256:
+            # A tile sheet has visibly different content top vs bottom (the
+            # snow_side and biome turfs put dirt above turf/snow; hull
+            # plates stack lit panels above white). The mean RGB of the
+            # top vs bottom halves differs by 100+ in those cases. A
+            # coherent texture (radium, snow, aluminium) has similar mean
+            # colour in both halves — the local features may differ but
+            # the global content is uniform.
+            top_half = img.crop((0, 0, w, h // 2)).convert('RGB')
+            bot_half = img.crop((0, h // 2, w, h)).convert('RGB')
+            tm = ImageStat.Stat(top_half).mean
+            bm = ImageStat.Stat(bot_half).mean
+            color_delta = sum(abs(tm[i] - bm[i]) for i in range(3))
+            if color_delta > 60:
+                # It's a tile sheet. Find the row where the brightness
+                # gradient is sharpest using a sliding window (the actual
+                # transition can be many rows wide — gradual dirt → turf
+                # — and at any row, not just 256-aligned).
+                gray = img.convert('L')
+                row_means = [ImageStat.Stat(
+                    gray.crop((0, y, w, y+1))).mean[0] for y in range(h)]
+                window = max(16, h // 32)
+                best_y, best_delta = h // 2, 0.0
+                cum_sums = [0.0]
+                for v in row_means:
+                    cum_sums.append(cum_sums[-1] + v)
+                for y in range(window, h - window):
+                    prev_mean = (cum_sums[y] - cum_sums[y - window]) / window
+                    next_mean = (cum_sums[y + window] - cum_sums[y]) / window
+                    d = abs(next_mean - prev_mean)
+                    if d > best_delta:
+                        best_delta = d
+                        best_y = y
+                if best_delta > 15:
+                    strips: List['Image.Image'] = []
+                    for top_y, bot_y in ((0, best_y), (best_y, h)):
+                        if bot_y - top_y >= 32:
+                            strips.append(img.crop((0, top_y, w, bot_y)))
+                    if len(strips) >= 2:
+                        result = strips
         # Pre-filter each variant to ~2× face size so the affine transform
-        # only does a ~2× downscale through bilinear sampling.
+        # only does a moderate downscale through bilinear sampling.
         target = size * 2
         scaled: List['Image.Image'] = []
         for v in result:
@@ -204,12 +226,11 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
         def paint(tex, affine, polygon, brightness):
             if tex is None:
                 return
-            # NEAREST preserves crisp pixel-art detail. BILINEAR was
-            # softening the side-face textures at the 2:1 horizontal
-            # compression their polygons impose, which the top face didn't
-            # show, producing visibly blurry sides on snow / clean textures.
+            # BILINEAR samples 4 source pixels per output pixel — gives the
+            # smooth shaded look the in-game block icons have. NEAREST
+            # produced a noisy pixel-art appearance the user didn't want.
             t = tex.transform((S, S), Image.AFFINE, affine,
-                              resample=Image.Resampling.NEAREST)
+                              resample=Image.Resampling.BILINEAR)
             if brightness != 1.0:
                 r, g, b, a = t.split()
                 rgb = ImageEnhance.Brightness(

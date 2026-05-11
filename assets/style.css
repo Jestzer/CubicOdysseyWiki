@@ -215,7 +215,7 @@ table.wiki td.mono { font-family: ui-monospace, monospace; font-size: 0.85rem; c
 }
 .detail-head .icon-big img { width: 112px; height: 112px; image-rendering: pixelated; }
 .detail-head .icon-big.block-hero { width: 272px; height: 272px; flex: 0 0 272px; }
-.detail-head .icon-big.block-hero img { width: 256px; height: 256px; image-rendering: pixelated; }
+.detail-head .icon-big.block-hero img { width: 256px; height: 256px; image-rendering: auto; }
 .detail-head .icon-big.placeholder {
     color: var(--text-dim);
     font-family: ui-monospace, monospace;

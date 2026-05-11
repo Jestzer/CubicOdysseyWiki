@@ -82,11 +82,13 @@ def build_world_records(cat: Catalog, dist_meta: dict) -> List[dict]:
                     vn = e.get('m_voxelType', '')
                     freq = e.get('m_frequency', 0) or 0
                     ext = e.get('m_extent')
+                    vox = cat.voxels.get(vn) or {}
                     ore_entries.append({
                         'voxel_name': vn,
                         'frequency': freq,
                         'extent': ext,
                         'url': voxel_url.get(vn),
+                        'color': vox.get('m_color'),
                     })
                     # Aggregate
                     if freq > 0:

@@ -56,7 +56,7 @@
 <tbody>
 {% for loc in r.locations_grouped %}
 <tr>
-    <td><strong>{{ loc.label }}</strong><br><span style="color:var(--text-faint);font-size:0.85em">{{ loc.short }}</span></td>
+    <td><strong>{% if loc.world_slug %}<a href="{{ root }}worlds/{{ loc.world_slug }}.html">{{ loc.label }}</a>{% else %}{{ loc.label }}{% endif %}</strong><br><span style="color:var(--text-faint);font-size:0.85em">{{ loc.short }}</span></td>
     <td class="mono">{{ loc.y_start }} … {{ loc.y_end }}</td>
     <td class="numeric">{{ loc.frequency }}</td>
     <td class="numeric">{{ loc.extent if loc.extent else '—' }}</td>

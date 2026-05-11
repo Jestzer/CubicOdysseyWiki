@@ -39,6 +39,31 @@
 <p style="color:var(--text-faint)">No ore entries in this distribution.</p>
 {% endif %}
 
+<h2>Altitude profile</h2>
+<p>Cross-section of the world's voxel layers — surface at the top, bedrock at the bottom. Each ore badge links to its detail page; hover for the deposit's frequency at that depth.</p>
+<div class="altitude-profile">
+<div class="layer-stack">
+{% for layer in r.layers|sort(attribute='startY', reverse=True) %}
+{% set ores = layer.ores|selectattr('frequency','gt',0)|list %}
+<div class="layer">
+    <span class="layer-y">Y <strong>{{ layer.startY }}</strong> … <strong>{{ layer.endY }}</strong></span>
+    {% if ores %}
+    {% for o in ores %}
+    {% if o.url %}<a href="{{ root }}{{ o.url }}" class="ore-badge" title="Frequency {{ o.frequency }}{% if o.extent %}, vein up to {{ o.extent }}{% endif %}">{% else %}<span class="ore-badge">{% endif %}
+        {% if o.color %}<span class="swatch" style="background:rgb({{ o.color[0] }},{{ o.color[1] }},{{ o.color[2] }})"></span>{% endif %}
+        {{ o.voxel_name }}
+        <span class="freq">×{{ o.frequency }}</span>
+    {% if o.url %}</a>{% else %}</span>{% endif %}
+    {% endfor %}
+    {% else %}
+    <span class="layer-empty">no ore deposits</span>
+    {% endif %}
+</div>
+{% endfor %}
+</div>
+</div>
+<p style="color:var(--text-faint);font-size:0.85em;margin-top:0.3em">Y values are the voxel altitude band each layer occupies. Each ore badge's <span class="mono">×N</span> is the layer's <code>m_frequency</code> for that ore — higher = denser deposits.</p>
+
 <h2>Layer-by-layer breakdown</h2>
 <p>Each layer is a Y band (voxel altitude). The engine fills the band with whatever's in <code>m_voxels</code> (stone-class blocks) plus <code>m_ores</code> entries (the rare resource nodes). Layers are listed top-down — Y 256 is open sky, low Y is bedrock.</p>
 

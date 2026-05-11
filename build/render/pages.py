@@ -37,11 +37,14 @@ def _icon_path(identifier: str, icons_dir: Path, root_assets: str = 'assets/icon
     return None
 
 
-def _group_locations(locations: List[Any], dist_meta: dict) -> List[dict]:
+def _group_locations(locations: List[Any], dist_meta: dict,
+                      dist_to_world_slug: Optional[Dict[str, str]] = None
+                      ) -> List[dict]:
     """Collapse multiple layer entries per distribution into one row per
     (distribution, role) with the union Y range and the maximum frequency.
     Keeps the output tight on each ore page. Layers with m_frequency == 0
     are skipped (the engine treats that as absent)."""
+    dist_to_world_slug = dist_to_world_slug or {}
     by_dist = defaultdict(list)
     for loc in locations:
         if (loc.frequency or 0) == 0:
@@ -67,6 +70,7 @@ def _group_locations(locations: List[Any], dist_meta: dict) -> List[dict]:
             'frequency': max_freq,
             'extent': avg_ext,
             'planets': meta.get('planets') or [],
+            'world_slug': dist_to_world_slug.get(dist),
         })
     rows.sort(key=lambda r: (-r['frequency'], r['label']))
     return rows
@@ -120,6 +124,9 @@ class WikiRenderer:
                 r['icon'] = _icon_path(r['identifier'], self.icons_dir)
 
         # Pre-compute ore locations grouping for templates
+        dist_to_world_slug = {w['distribution_name']: w['slug']
+                               for w in world_records
+                               if w.get('distribution_name') and w.get('slug')}
         for r in ore_records:
             locs = r.get('locations') or []
             class _L:  # cheap dataclass-y wrapper so _group_locations can use attrs
@@ -130,7 +137,8 @@ class WikiRenderer:
                 for k, v in l.items():
                     setattr(o, k, v)
                 loc_objs.append(o)
-            r['locations_grouped'] = _group_locations(loc_objs, self.dist_meta)
+            r['locations_grouped'] = _group_locations(
+                loc_objs, self.dist_meta, dist_to_world_slug)
 
         # Counts (guides added by render_guides; default to 7 here)
         self.counts = {

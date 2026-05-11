@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gems and Gem Plates — Cubic Odyssey Wiki</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site">
+    <div class="inner">
+        <div class="brand">
+            <a href="../index.html">Cubic Odyssey</a>
+            <small>local wiki · 507 entries</small>
+        </div>
+        <nav>
+            <a href="../ores.html"      class="">Ores</a>
+            <a href="../ingots.html"    class="">Ingots</a>
+            <a href="../tools.html"     class="">Tools</a>
+            <a href="../weapons.html"   class="">Weapons</a>
+            <a href="../resources.html" class="">Resources</a>
+            <a href="../guides.html"    class="active">Guides</a>
+        </nav>
+    </div>
+</header>
+<main class="wrap">
+    
+<h1>Gems and Gem Plates</h1>
+<p>Cubic Odyssey ships <strong>four base gems</strong> — Diamond, Ruby, Emerald, Sapphire — plus a <strong>Glowing</strong> variant of each at tier&nbsp;7. They're all <code>type RESOURCE</code> in the items catalog (not <code>RAW_ORE</code> like the metals), but they spawn the same way: as mineable voxels in the world. They're the hardest blocks in the game to break and feed one of the biggest crafting categories.</p>
+
+<div class="section-grid">
+<div>
+
+<h2>The four base gems</h2>
+<table class="wiki">
+<thead><tr><th class="icon"></th><th>Gem</th><th class="numeric">Tier</th><th class="numeric">Mine unit</th><th class="numeric">Price</th><th class="numeric">Demand</th><th>Color</th></tr></thead>
+<tbody>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_diamond.png" alt=""></td>
+    <td><a href="../resources/res_diamond.html">Diamond</a></td>
+    <td class="numeric"><span class="tier tier-5">T5</span></td>
+    <td class="numeric mono">0.2</td>
+    <td class="numeric">120</td>
+    <td class="numeric">0.5</td>
+    <td><span style="display:inline-block;width:1em;height:1em;background:rgb(125,128,129);border:1px solid var(--border);border-radius:2px;vertical-align:-2px;margin-right:0.4em"></span>rgb(125,128,129)</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_ruby.png" alt=""></td>
+    <td><a href="../resources/res_ruby.html">Ruby</a></td>
+    <td class="numeric"><span class="tier tier-5">T5</span></td>
+    <td class="numeric mono">0.2</td>
+    <td class="numeric">120</td>
+    <td class="numeric">0.5</td>
+    <td><span style="display:inline-block;width:1em;height:1em;background:rgb(130,71,68);border:1px solid var(--border);border-radius:2px;vertical-align:-2px;margin-right:0.4em"></span>rgb(130,71,68)</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_emerald.png" alt=""></td>
+    <td><a href="../resources/res_emerald.html">Emerald</a></td>
+    <td class="numeric"><span class="tier tier-5">T5</span></td>
+    <td class="numeric mono">0.2</td>
+    <td class="numeric">120</td>
+    <td class="numeric">0.5</td>
+    <td><span style="display:inline-block;width:1em;height:1em;background:rgb(87,115,76);border:1px solid var(--border);border-radius:2px;vertical-align:-2px;margin-right:0.4em"></span>rgb(87,115,76)</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_sapphire.png" alt=""></td>
+    <td><a href="../resources/res_sapphire.html">Sapphire</a></td>
+    <td class="numeric"><span class="tier tier-5">T5</span></td>
+    <td class="numeric mono">0.2</td>
+    <td class="numeric">120</td>
+    <td class="numeric">0.5</td>
+    <td><span style="display:inline-block;width:1em;height:1em;background:rgb(89,105,123);border:1px solid var(--border);border-radius:2px;vertical-align:-2px;margin-right:0.4em"></span>rgb(89,105,123)</td>
+</tr>
+
+</tbody>
+</table>
+<p style="font-size:0.85em;color:var(--text-faint)"><strong>Mine unit 0.2</strong> is the lowest value in the game — gems are roughly 3–4× harder to break than Iron (mineUnit 0.7). You'll feel that on every swing.</p>
+
+<h2>The Glowing variants (tier 7)</h2>
+<p>Each base gem has a Glowing twin. They share the same voxel colour and texture but live in voxel category <code>E_VCAT_GLOWING_ORES</code> and require a higher-tier mining laser. Prices double, demand stays positive.</p>
+<table class="wiki">
+<thead><tr><th class="icon"></th><th>Glowing gem</th><th class="numeric">Tier</th><th class="numeric">Mine unit</th><th class="numeric">Price</th><th class="numeric">Recycle</th></tr></thead>
+<tbody>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_glowing_diamond.png" alt=""></td>
+    <td><a href="../resources/res_glowing_diamond.html">Glowing Diamond</a></td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.2</td>
+    <td class="numeric">260</td>
+    <td class="numeric">2</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_glowing_ruby.png" alt=""></td>
+    <td><a href="../resources/res_glowing_ruby.html">Glowing Ruby</a></td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.2</td>
+    <td class="numeric">170</td>
+    <td class="numeric">2</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_glowing_emerald.png" alt=""></td>
+    <td><a href="../resources/res_glowing_emerald.html">Glowing Emerald</a></td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.2</td>
+    <td class="numeric">360</td>
+    <td class="numeric">2</td>
+</tr>
+
+<tr>
+    <td class="icon"><img src="../assets/icons/res_glowing_sapphire.png" alt=""></td>
+    <td><a href="../resources/res_glowing_sapphire.html">Glowing Sapphire</a></td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.2</td>
+    <td class="numeric">360</td>
+    <td class="numeric">2</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="plate">The Gem Plate — gems' "ingot"</h2>
+<p>Gems don't go through a furnace. The closest analogue to an ingot is the <strong>Gem Plate</strong>, made by combining <em>one of each</em> gem at a crafting bench:</p>
+
+
+<table class="wiki">
+<thead><tr><th class="icon"></th><th>Recipe</th><th class="numeric">Qty</th></tr></thead>
+<tbody>
+
+<tr>
+    <td class="icon"></td>
+    <td><a href="../resources/res_diamond.html">Diamond</a></td>
+    <td class="numeric">1</td>
+</tr>
+
+<tr>
+    <td class="icon"></td>
+    <td><a href="../resources/res_ruby.html">Ruby</a></td>
+    <td class="numeric">1</td>
+</tr>
+
+<tr>
+    <td class="icon"></td>
+    <td><a href="../resources/res_emerald.html">Emerald</a></td>
+    <td class="numeric">1</td>
+</tr>
+
+<tr>
+    <td class="icon"></td>
+    <td><a href="../resources/res_sapphire.html">Sapphire</a></td>
+    <td class="numeric">1</td>
+</tr>
+
+<tr style="background:var(--bg-elev)">
+    <td class="icon"><img src="../assets/icons/res_gem_plate.png" alt=""></td>
+    <td><strong>→ Gem Plate</strong> <span class="tier tier-5">T5</span> · price 600, recycle 5</td>
+    <td class="numeric"><strong>1</strong></td>
+</tr>
+</tbody>
+</table>
+<p style="font-size:0.85em;color:var(--text-faint)">Requires <strong>CRAFTING 16</strong>. The Plate's base price (600) is a small markup over the raw inputs (4× 120 = 480), so the combine is for <em>access</em>, not for flipping. Every gem-eating craft past Crafting&nbsp;16 wants plates, not individual gems.</p>
+
+
+<h2>What the plate goes into</h2>
+<p>Across all 500 catalog items, <strong>87 crafting recipes consume Gem Plates</strong>. The top consumers:</p>
+<table class="wiki">
+<thead><tr><th>Crafts</th><th class="numeric">Plates</th><th class="numeric">Skill</th></tr></thead>
+<tbody>
+
+<tr>
+    <td>Suit 12</td>
+    <td class="numeric"><strong>50</strong></td>
+    <td class="numeric">CRAFTING@0</td>
+</tr>
+
+<tr>
+    <td><a href="../weapons/wep_corruption_purifier_5.html">Corruption Purifier 5</a></td>
+    <td class="numeric"><strong>50</strong></td>
+    <td class="numeric">CRAFTING@24</td>
+</tr>
+
+<tr>
+    <td>V Dreadnought Cargo Mk5</td>
+    <td class="numeric"><strong>48</strong></td>
+    <td class="numeric">CRAFTING@20</td>
+</tr>
+
+<tr>
+    <td>V Dreadnought Space Engine Mk5</td>
+    <td class="numeric"><strong>48</strong></td>
+    <td class="numeric">CRAFTING@20</td>
+</tr>
+
+<tr>
+    <td>V Dreadnought Shield Mk5</td>
+    <td class="numeric"><strong>48</strong></td>
+    <td class="numeric">CRAFTING@20</td>
+</tr>
+
+<tr>
+    <td>V Frigate Cargo Mk5</td>
+    <td class="numeric"><strong>48</strong></td>
+    <td class="numeric">CRAFTING@20</td>
+</tr>
+
+<tr>
+    <td>V Frigate Space Engine Mk5</td>
+    <td class="numeric"><strong>48</strong></td>
+    <td class="numeric">CRAFTING@20</td>
+</tr>
+
+<tr>
+    <td>V Frigate Shield Mk5</td>
+    <td class="numeric"><strong>48</strong></td>
+    <td class="numeric">CRAFTING@20</td>
+</tr>
+
+<tr>
+    <td>V Laser Dreadnought Mk5</td>
+    <td class="numeric"><strong>48</strong></td>
+    <td class="numeric">CRAFTING@20</td>
+</tr>
+
+<tr>
+    <td>V Laser Frigate Mk5</td>
+    <td class="numeric"><strong>48</strong></td>
+    <td class="numeric">CRAFTING@20</td>
+</tr>
+
+<tr>
+    <td>Suit 11</td>
+    <td class="numeric"><strong>40</strong></td>
+    <td class="numeric">CRAFTING@0</td>
+</tr>
+
+<tr>
+    <td>V Corvette Cargo Mk5</td>
+    <td class="numeric"><strong>32</strong></td>
+    <td class="numeric">CRAFTING@20</td>
+</tr>
+
+<tr>
+    <td>V Corvette Space Engine Mk5</td>
+    <td class="numeric"><strong>32</strong></td>
+    <td class="numeric">CRAFTING@20</td>
+</tr>
+
+<tr>
+    <td>V Corvette Shield Mk5</td>
+    <td class="numeric"><strong>32</strong></td>
+    <td class="numeric">CRAFTING@20</td>
+</tr>
+
+<tr>
+    <td>V Galleon Cargo Mk5</td>
+    <td class="numeric"><strong>32</strong></td>
+    <td class="numeric">CRAFTING@20</td>
+</tr>
+
+<tr>
+    <td>V Galleon Space Engine Mk5</td>
+    <td class="numeric"><strong>32</strong></td>
+    <td class="numeric">CRAFTING@20</td>
+</tr>
+
+<tr>
+    <td>V Galleon Shield Mk5</td>
+    <td class="numeric"><strong>32</strong></td>
+    <td class="numeric">CRAFTING@20</td>
+</tr>
+
+<tr>
+    <td>V Laser Corvette Mk5</td>
+    <td class="numeric"><strong>32</strong></td>
+    <td class="numeric">CRAFTING@20</td>
+</tr>
+
+<tr>
+    <td>V Laser Galleon Mk5</td>
+    <td class="numeric"><strong>32</strong></td>
+    <td class="numeric">CRAFTING@20</td>
+</tr>
+
+<tr>
+    <td>Ship Battery 5</td>
+    <td class="numeric"><strong>32</strong></td>
+    <td class="numeric">CRAFTING@16</td>
+</tr>
+
+<tr>
+    <td>Suit 10</td>
+    <td class="numeric"><strong>30</strong></td>
+    <td class="numeric">CRAFTING@0</td>
+</tr>
+
+<tr>
+    <td><a href="../weapons/wep_corruption_purifier_4.html">Corruption Purifier 4</a></td>
+    <td class="numeric"><strong>30</strong></td>
+    <td class="numeric">CRAFTING@20</td>
+</tr>
+
+<tr>
+    <td>Suit 9</td>
+    <td class="numeric"><strong>25</strong></td>
+    <td class="numeric">CRAFTING@0</td>
+</tr>
+
+<tr>
+    <td>V Dreadnought Cargo Mk4</td>
+    <td class="numeric"><strong>24</strong></td>
+    <td class="numeric">CRAFTING@16</td>
+</tr>
+
+<tr>
+    <td>V Dreadnought Space Engine Mk4</td>
+    <td class="numeric"><strong>24</strong></td>
+    <td class="numeric">CRAFTING@16</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="direct">Direct uses (raw gem, no plate)</h2>
+<p>Some recipes call for a <em>specific</em> gem rather than a plate — usually because the gem's identity matters (a Ruby laser sword is red, not just "gem-coloured"). The top consumers per gem:</p>
+
+
+<h3>Diamond</h3>
+<table class="wiki">
+<thead><tr><th>Crafts</th><th class="numeric">Qty</th><th class="numeric">Skill</th></tr></thead>
+<tbody>
+
+<tr>
+    <td><a href="../weapons/wep_sword_laser_yellow.html">Yellow Plasma Sword</a></td>
+    <td class="numeric">20</td>
+    <td class="numeric">CRAFTING@24</td>
+</tr>
+
+<tr>
+    <td>Suit 4</td>
+    <td class="numeric">12</td>
+    <td class="numeric">CRAFTING@8</td>
+</tr>
+
+<tr>
+    <td>V Dreadnought Chassis Mk2</td>
+    <td class="numeric">9</td>
+    <td class="numeric">CRAFTING@4</td>
+</tr>
+
+<tr>
+    <td>V Galleon Chassis Mk2</td>
+    <td class="numeric">7</td>
+    <td class="numeric">CRAFTING@4</td>
+</tr>
+
+<tr>
+    <td>V Frigate Chassis Mk2</td>
+    <td class="numeric">6</td>
+    <td class="numeric">CRAFTING@4</td>
+</tr>
+
+<tr>
+    <td>V Corvette Chassis Mk2</td>
+    <td class="numeric">4</td>
+    <td class="numeric">CRAFTING@4</td>
+</tr>
+
+<tr>
+    <td><a href="../resources/res_gem_plate.html">Gem Plate</a></td>
+    <td class="numeric">1</td>
+    <td class="numeric">CRAFTING@16</td>
+</tr>
+
+<tr>
+    <td>Voxel Ancient Hull Emissive2</td>
+    <td class="numeric">1</td>
+    <td class="numeric">CRAFTING@0</td>
+</tr>
+
+</tbody>
+</table>
+
+<h3>Ruby</h3>
+<table class="wiki">
+<thead><tr><th>Crafts</th><th class="numeric">Qty</th><th class="numeric">Skill</th></tr></thead>
+<tbody>
+
+<tr>
+    <td><a href="../weapons/wep_sword_laser_red.html">Red Plasma Sword</a></td>
+    <td class="numeric">20</td>
+    <td class="numeric">CRAFTING@24</td>
+</tr>
+
+<tr>
+    <td>Suit Corrupt 2</td>
+    <td class="numeric">12</td>
+    <td class="numeric">CRAFTING@8</td>
+</tr>
+
+<tr>
+    <td>V Dreadnought Chassis Mk3</td>
+    <td class="numeric">9</td>
+    <td class="numeric">CRAFTING@8</td>
+</tr>
+
+<tr>
+    <td>V Galleon Chassis Mk3</td>
+    <td class="numeric">7</td>
+    <td class="numeric">CRAFTING@8</td>
+</tr>
+
+<tr>
+    <td>V Frigate Chassis Mk3</td>
+    <td class="numeric">6</td>
+    <td class="numeric">CRAFTING@8</td>
+</tr>
+
+<tr>
+    <td>V Corvette Chassis Mk3</td>
+    <td class="numeric">4</td>
+    <td class="numeric">CRAFTING@8</td>
+</tr>
+
+<tr>
+    <td><a href="../resources/res_gem_plate.html">Gem Plate</a></td>
+    <td class="numeric">1</td>
+    <td class="numeric">CRAFTING@16</td>
+</tr>
+
+</tbody>
+</table>
+
+<h3>Emerald</h3>
+<table class="wiki">
+<thead><tr><th>Crafts</th><th class="numeric">Qty</th><th class="numeric">Skill</th></tr></thead>
+<tbody>
+
+<tr>
+    <td><a href="../weapons/wep_sword_laser_green.html">Green Plasma Sword</a></td>
+    <td class="numeric">20</td>
+    <td class="numeric">CRAFTING@24</td>
+</tr>
+
+<tr>
+    <td>V Dreadnought Chassis Mk2</td>
+    <td class="numeric">9</td>
+    <td class="numeric">CRAFTING@4</td>
+</tr>
+
+<tr>
+    <td>V Galleon Chassis Mk2</td>
+    <td class="numeric">7</td>
+    <td class="numeric">CRAFTING@4</td>
+</tr>
+
+<tr>
+    <td>V Frigate Chassis Mk2</td>
+    <td class="numeric">6</td>
+    <td class="numeric">CRAFTING@4</td>
+</tr>
+
+<tr>
+    <td>Drone Pmu 5</td>
+    <td class="numeric">4</td>
+    <td class="numeric">CRAFTING@20</td>
+</tr>
+
+<tr>
+    <td>V Corvette Chassis Mk2</td>
+    <td class="numeric">4</td>
+    <td class="numeric">CRAFTING@4</td>
+</tr>
+
+<tr>
+    <td>Drone Pmu 4</td>
+    <td class="numeric">2</td>
+    <td class="numeric">CRAFTING@16</td>
+</tr>
+
+<tr>
+    <td><a href="../resources/res_gem_plate.html">Gem Plate</a></td>
+    <td class="numeric">1</td>
+    <td class="numeric">CRAFTING@16</td>
+</tr>
+
+</tbody>
+</table>
+
+<h3>Sapphire</h3>
+<table class="wiki">
+<thead><tr><th>Crafts</th><th class="numeric">Qty</th><th class="numeric">Skill</th></tr></thead>
+<tbody>
+
+<tr>
+    <td><a href="../weapons/wep_sword_laser_blue.html">Blue Plasma Sword</a></td>
+    <td class="numeric">20</td>
+    <td class="numeric">CRAFTING@24</td>
+</tr>
+
+<tr>
+    <td>V Dreadnought Chassis Mk3</td>
+    <td class="numeric">9</td>
+    <td class="numeric">CRAFTING@8</td>
+</tr>
+
+<tr>
+    <td>V Galleon Chassis Mk3</td>
+    <td class="numeric">7</td>
+    <td class="numeric">CRAFTING@8</td>
+</tr>
+
+<tr>
+    <td>V Frigate Chassis Mk3</td>
+    <td class="numeric">6</td>
+    <td class="numeric">CRAFTING@8</td>
+</tr>
+
+<tr>
+    <td>Portal Planet</td>
+    <td class="numeric">5</td>
+    <td class="numeric">CRAFTING@1</td>
+</tr>
+
+<tr>
+    <td>V Corvette Chassis Mk3</td>
+    <td class="numeric">4</td>
+    <td class="numeric">CRAFTING@8</td>
+</tr>
+
+<tr>
+    <td><a href="../resources/res_gem_plate.html">Gem Plate</a></td>
+    <td class="numeric">1</td>
+    <td class="numeric">CRAFTING@16</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<h2 id="find">Where to find them</h2>
+<p>Density data from <code>data/configs/voxeldistributions/</code> — frequencies summed across all layers, max <code>m_extent</code> kept per distribution. Higher freq = more nodes per chunk; higher extent = larger veins.</p>
+
+<h3>Diamond</h3>
+<table class="wiki">
+<thead><tr><th>World type</th><th class="numeric">Total freq</th><th class="numeric">Max vein</th></tr></thead>
+<tbody>
+
+<tr>
+    <td class="mono">crystalline_voxels</td>
+    <td class="numeric"><strong>128</strong></td>
+    <td class="numeric">100</td>
+</tr>
+
+<tr>
+    <td class="mono">xeno_voxels</td>
+    <td class="numeric"><strong>100</strong></td>
+    <td class="numeric">35</td>
+</tr>
+
+<tr>
+    <td class="mono">earth_voxels</td>
+    <td class="numeric"><strong>54</strong></td>
+    <td class="numeric">40</td>
+</tr>
+
+<tr>
+    <td class="mono">majestic_voxels</td>
+    <td class="numeric"><strong>37</strong></td>
+    <td class="numeric">30</td>
+</tr>
+
+<tr>
+    <td class="mono">default_deposits</td>
+    <td class="numeric"><strong>10</strong></td>
+    <td class="numeric">0</td>
+</tr>
+
+<tr>
+    <td class="mono">default</td>
+    <td class="numeric"><strong>5</strong></td>
+    <td class="numeric">14</td>
+</tr>
+
+</tbody>
+</table>
+
+<h3>Ruby</h3>
+<table class="wiki">
+<thead><tr><th>World type</th><th class="numeric">Total freq</th><th class="numeric">Max vein</th></tr></thead>
+<tbody>
+
+<tr>
+    <td class="mono">crystalline_voxels</td>
+    <td class="numeric"><strong>128</strong></td>
+    <td class="numeric">100</td>
+</tr>
+
+<tr>
+    <td class="mono">xeno_voxels</td>
+    <td class="numeric"><strong>76</strong></td>
+    <td class="numeric">35</td>
+</tr>
+
+<tr>
+    <td class="mono">earth_voxels</td>
+    <td class="numeric"><strong>54</strong></td>
+    <td class="numeric">40</td>
+</tr>
+
+<tr>
+    <td class="mono">majestic_voxels</td>
+    <td class="numeric"><strong>37</strong></td>
+    <td class="numeric">30</td>
+</tr>
+
+<tr>
+    <td class="mono">debug</td>
+    <td class="numeric"><strong>16</strong></td>
+    <td class="numeric">0</td>
+</tr>
+
+<tr>
+    <td class="mono">default_deposits</td>
+    <td class="numeric"><strong>10</strong></td>
+    <td class="numeric">0</td>
+</tr>
+
+<tr>
+    <td class="mono">default</td>
+    <td class="numeric"><strong>5</strong></td>
+    <td class="numeric">26</td>
+</tr>
+
+</tbody>
+</table>
+
+<h3>Emerald</h3>
+<table class="wiki">
+<thead><tr><th>World type</th><th class="numeric">Total freq</th><th class="numeric">Max vein</th></tr></thead>
+<tbody>
+
+<tr>
+    <td class="mono">crystalline_voxels</td>
+    <td class="numeric"><strong>128</strong></td>
+    <td class="numeric">100</td>
+</tr>
+
+<tr>
+    <td class="mono">xeno_voxels</td>
+    <td class="numeric"><strong>76</strong></td>
+    <td class="numeric">35</td>
+</tr>
+
+<tr>
+    <td class="mono">earth_voxels</td>
+    <td class="numeric"><strong>54</strong></td>
+    <td class="numeric">40</td>
+</tr>
+
+<tr>
+    <td class="mono">majestic_voxels</td>
+    <td class="numeric"><strong>37</strong></td>
+    <td class="numeric">30</td>
+</tr>
+
+<tr>
+    <td class="mono">default_deposits</td>
+    <td class="numeric"><strong>10</strong></td>
+    <td class="numeric">0</td>
+</tr>
+
+<tr>
+    <td class="mono">default</td>
+    <td class="numeric"><strong>5</strong></td>
+    <td class="numeric">22</td>
+</tr>
+
+</tbody>
+</table>
+
+<h3>Sapphire</h3>
+<table class="wiki">
+<thead><tr><th>World type</th><th class="numeric">Total freq</th><th class="numeric">Max vein</th></tr></thead>
+<tbody>
+
+<tr>
+    <td class="mono">crystalline_voxels</td>
+    <td class="numeric"><strong>128</strong></td>
+    <td class="numeric">100</td>
+</tr>
+
+<tr>
+    <td class="mono">xeno_voxels</td>
+    <td class="numeric"><strong>76</strong></td>
+    <td class="numeric">35</td>
+</tr>
+
+<tr>
+    <td class="mono">earth_voxels</td>
+    <td class="numeric"><strong>54</strong></td>
+    <td class="numeric">40</td>
+</tr>
+
+<tr>
+    <td class="mono">majestic_voxels</td>
+    <td class="numeric"><strong>37</strong></td>
+    <td class="numeric">30</td>
+</tr>
+
+<tr>
+    <td class="mono">default_deposits</td>
+    <td class="numeric"><strong>10</strong></td>
+    <td class="numeric">0</td>
+</tr>
+
+<tr>
+    <td class="mono">default</td>
+    <td class="numeric"><strong>5</strong></td>
+    <td class="numeric">20</td>
+</tr>
+
+</tbody>
+</table>
+
+<p style="font-size:0.85em;color:var(--text-faint)"><strong>Crystalline planets</strong> consistently win for every gem: roughly 2–3× the spawn frequency of Earth-like and larger veins (extent up to 50 vs ~30). If you've got serious gem demand, fly to Crystalline.</p>
+
+<h2>Mining strategy</h2>
+<ul>
+    <li><strong>Mining Laser 4 minimum</strong> (voxel_tier 5). Laser 3 and below cannot break gems at all.</li>
+    <li><strong>Mining Laser 6 or 7</strong> if you're going after Glowing gems (tier 7).</li>
+    <li><strong>Bring a fully-charged battery.</strong> mineUnit 0.2 means longer beam duration per block; energy drains fast.</li>
+    <li><strong>Run vertical shafts on Crystalline worlds.</strong> Gem veins cluster in mid-to-deep layers; extent 50 means larger veins are worth the dig.</li>
+    <li><strong>Save full Plates, not stacks of 100 single gems.</strong> Plate combines need 1 of each — so a stockpile of 30/30/30/30 = 30 plates. Mixing matters more than total count.</li>
+</ul>
+
+<h2>Trading angle</h2>
+<p>Every gem has <code>base_demand</code> 0.5 (mildly positive — merchants will buy them) and Gem Plates have a 600-qubit base price. Selling raw gems is fine early; selling Plates is better once you have Crafting 16 because the plate is more compact (one plate per inventory slot vs four single gems). For high-volume flipping, see the <a href="../guides/leveling-trading.html#perk">Trade Discount perk</a> and the high-demand items table on that guide.</p>
+
+</div>
+
+<aside class="infobox">
+<h3 style="margin-top:0">Gems at a glance</h3>
+<dl>
+    <dt>Base gems</dt><dd>4 (Diamond, Ruby, Emerald, Sapphire)</dd>
+    <dt>Glowing variants</dt><dd>4 (T7)</dd>
+    <dt>Voxel category</dt><dd class="mono">E_VCAT_ORES</dd>
+    <dt>Item type</dt><dd class="mono">RESOURCE</dd>
+    <dt>Hardness</dt><dd>mineUnit 0.2 (hardest in game)</dd>
+    <dt>Required tool</dt><dd>Mining Laser 4 (T5) or 6+ (T7 Glowing)</dd>
+    <dt>Combines into</dt><dd><a href="#plate">Gem Plate</a> (1+1+1+1 → 1)</dd>
+    <dt>Plate recipes</dt><dd>87</dd>
+    <dt>Best planet type</dt><dd>Crystalline</dd>
+</dl>
+</aside>
+</div>
+
+<p style="margin-top:2.5rem"><a class="muted" href="../guides.html">← Back to all guides</a></p>
+
+</main>
+<footer class="site">
+    <div class="inner">
+        Generated 2026-05-11 04:07 UTC from game data (2026-04-26).
+        Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
+        Planet→biome distribution mapping is best-effort.
+    </div>
+</footer>
+
+</body>
+</html>

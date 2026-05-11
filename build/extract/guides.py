@@ -35,6 +35,10 @@ GUIDE_SUMMARIES = {
         'subtitle': 'Outpost perks — 3 in the data',
         'summary': 'HP Regen, Processing Speed, and Trade Discount. Where they live in the configs, who manages them, and which to prioritise.',
     },
+    'gems': {
+        'subtitle': 'Diamond / Ruby / Emerald / Sapphire + Gem Plate',
+        'summary': 'Tier-5 voxels with the hardest mineUnit in the game. How they spawn, the Gem Plate combine, the 87 crafts that need them, and which planet to farm them on.',
+    },
 }
 
 
@@ -426,6 +430,128 @@ def perks_context(cat: Catalog) -> dict:
         'perk_count': len(perks),
         'missing_ids': missing_ids,
         'max_id': max_id,
+    }
+
+
+def gems_context(cat: Catalog, icons_dir: Path) -> dict:
+    """Collect everything the configs say about the 4 gems + Gem Plate."""
+    gem_ids = ['res.diamond', 'res.ruby', 'res.emerald', 'res.sapphire']
+    glowing_ids = ['res.glowing.diamond', 'res.glowing.ruby',
+                    'res.glowing.emerald', 'res.glowing.sapphire']
+
+    def view(ident, voxel_name):
+        it = cat.items.get(ident) or {}
+        v = cat.voxels.get(voxel_name) or {}
+        slug = _slug(ident)
+        icon = f'assets/icons/{slug}.png' if (icons_dir / (slug + '.png')).exists() else None
+        return {
+            'identifier': ident,
+            'display': _humanize(it.get('title_string') or ident),
+            'tier': it.get('tier'),
+            'voxel_name': voxel_name,
+            'mine_unit': v.get('m_mineUnit'),
+            'color': v.get('m_color'),
+            'base_price': it.get('base_price'),
+            'base_demand': it.get('base_demand'),
+            'recycle_value': it.get('recycle_value'),
+            'stack_size': it.get('stack_size'),
+            'icon': icon,
+            'url': _link_for(ident, cat) or '#',
+        }
+
+    base_gems = [view(g, g.split('.', 1)[1].title()) for g in gem_ids]
+    glowing_gems = [view(g, ' '.join(w.capitalize() for w in g.split('.')[1:])) for g in glowing_ids]
+    # Voxel name for glowing differs slightly: "Glowing Diamond" etc.
+    for entry, ident in zip(glowing_gems, glowing_ids):
+        entry['voxel_name'] = 'Glowing ' + ident.split('.')[-1].capitalize()
+        v = cat.voxels.get(entry['voxel_name']) or {}
+        entry['mine_unit'] = v.get('m_mineUnit')
+        entry['color'] = v.get('m_color')
+
+    # Gem plate
+    gp = cat.items.get('res.gem_plate') or {}
+    gp_view = {
+        'identifier': 'res.gem_plate',
+        'display': _humanize(gp.get('title_string') or 'STR_GEM_PLATE'),
+        'tier': gp.get('tier'),
+        'base_price': gp.get('base_price'),
+        'recycle_value': gp.get('recycle_value'),
+        'stack_size': gp.get('stack_size'),
+        'icon': f'assets/icons/res_gem_plate.png' if (icons_dir / 'res_gem_plate.png').exists() else None,
+    }
+
+    # Find the Gem Plate recipe
+    gp_recipe = None
+    for r in cat.crafting_recipes:
+        if r.get('craftedObject') == 'res.gem_plate':
+            gp_recipe = r
+            break
+    gp_recipe_view = None
+    if gp_recipe:
+        gp_recipe_view = {
+            'skill': gp_recipe.get('neededSkillType'),
+            'skill_level': gp_recipe.get('neededSkillLevel'),
+            'inputs': [
+                {'item': i.get('item'), 'qty': i.get('quantity'),
+                 'display': _humanize(cat.items.get(i.get('item'), {}).get('title_string') or i.get('item')),
+                 'url': _link_for(i.get('item'), cat) or '#'}
+                for i in (gp_recipe.get('inputItems') or []) if isinstance(i, dict)
+            ],
+        }
+
+    # Recipes that use each gem (direct) and the gem plate
+    def recipe_users(ident, limit=10):
+        rows = []
+        for r in cat.recipes_using(ident):
+            qty = next((i.get('quantity', 0) for i in r.get('inputItems', [])
+                         if isinstance(i, dict) and i.get('item') == ident), 0)
+            crafted = r.get('craftedObject', '')
+            rows.append({
+                'crafted_object': crafted,
+                'crafted_display': _humanize(cat.items.get(crafted, {}).get('title_string') or crafted),
+                'crafted_link': _link_for(crafted, cat),
+                'qty': qty,
+                'skill_type': r.get('neededSkillType'),
+                'skill_level': r.get('neededSkillLevel'),
+            })
+        rows.sort(key=lambda r: (-r['qty'], r['crafted_object']))
+        return rows[:limit]
+
+    direct_uses = {ident.split('.')[-1]: recipe_users(ident) for ident in gem_ids}
+    plate_uses = recipe_users('res.gem_plate', limit=25)
+
+    # Distribution density: scan each distribution file for each gem voxel
+    densities = {}
+    for ident in gem_ids:
+        voxel_name = ident.split('.', 1)[1].capitalize()
+        per_dist = {}
+        for dname, dist in cat.distributions.items():
+            layers = dist.get('m_layerCfgs') or []
+            if not isinstance(layers, list):
+                continue
+            total_freq = 0
+            max_extent = 0
+            for layer in layers:
+                for entry in layer.get('m_ores') or []:
+                    if entry.get('m_voxelType') == voxel_name:
+                        total_freq += entry.get('m_frequency', 0) or 0
+                        max_extent = max(max_extent, entry.get('m_extent', 0) or 0)
+            if total_freq > 0:
+                per_dist[dname] = {'freq_total': total_freq, 'max_extent': max_extent}
+        densities[voxel_name] = per_dist
+
+    # Total counts for plate recipes
+    plate_total = len(cat.recipes_using('res.gem_plate'))
+
+    return {
+        'base_gems': base_gems,
+        'glowing_gems': glowing_gems,
+        'gem_plate': gp_view,
+        'gem_plate_recipe': gp_recipe_view,
+        'direct_uses': direct_uses,
+        'plate_uses': plate_uses,
+        'plate_total': plate_total,
+        'densities': densities,
     }
 
 

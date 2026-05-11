@@ -1,0 +1,155 @@
+{% extends "base.html.j2" %}
+{% block title %}Gems and Gem Plates{% endblock %}
+{% block content %}
+<h1>Gems and Gem Plates</h1>
+<p>Cubic Odyssey ships <strong>four base gems</strong> — Diamond, Ruby, Emerald, Sapphire — plus a <strong>Glowing</strong> variant of each at tier&nbsp;7. They're all <code>type RESOURCE</code> in the items catalog (not <code>RAW_ORE</code> like the metals), but they spawn the same way: as mineable voxels in the world. They're the hardest blocks in the game to break and feed one of the biggest crafting categories.</p>
+
+<div class="section-grid">
+<div>
+
+<h2>The four base gems</h2>
+<table class="wiki">
+<thead><tr><th class="icon"></th><th>Gem</th><th class="numeric">Tier</th><th class="numeric">Mine unit</th><th class="numeric">Price</th><th class="numeric">Demand</th><th>Color</th></tr></thead>
+<tbody>
+{% for g in base_gems %}
+<tr>
+    <td class="icon">{% if g.icon %}<img src="{{ root }}{{ g.icon }}" alt="">{% endif %}</td>
+    <td><a href="{{ root }}{{ g.url }}">{{ g.display }}</a></td>
+    <td class="numeric"><span class="tier tier-{{ g.tier }}">T{{ g.tier }}</span></td>
+    <td class="numeric mono">{{ g.mine_unit }}</td>
+    <td class="numeric">{{ g.base_price }}</td>
+    <td class="numeric">{{ g.base_demand }}</td>
+    <td>{% if g.color %}<span style="display:inline-block;width:1em;height:1em;background:rgb({{ g.color[0] }},{{ g.color[1] }},{{ g.color[2] }});border:1px solid var(--border);border-radius:2px;vertical-align:-2px;margin-right:0.4em"></span>rgb({{ g.color[0] }},{{ g.color[1] }},{{ g.color[2] }}){% endif %}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<p style="font-size:0.85em;color:var(--text-faint)"><strong>Mine unit 0.2</strong> is the lowest value in the game — gems are roughly 3–4× harder to break than Iron (mineUnit 0.7). You'll feel that on every swing.</p>
+
+<h2>The Glowing variants (tier 7)</h2>
+<p>Each base gem has a Glowing twin. They share the same voxel colour and texture but live in voxel category <code>E_VCAT_GLOWING_ORES</code> and require a higher-tier mining laser. Prices double, demand stays positive.</p>
+<table class="wiki">
+<thead><tr><th class="icon"></th><th>Glowing gem</th><th class="numeric">Tier</th><th class="numeric">Mine unit</th><th class="numeric">Price</th><th class="numeric">Recycle</th></tr></thead>
+<tbody>
+{% for g in glowing_gems %}
+<tr>
+    <td class="icon">{% if g.icon %}<img src="{{ root }}{{ g.icon }}" alt="">{% endif %}</td>
+    <td><a href="{{ root }}{{ g.url }}">{{ g.display }}</a></td>
+    <td class="numeric"><span class="tier tier-{{ g.tier }}">T{{ g.tier }}</span></td>
+    <td class="numeric mono">{{ g.mine_unit }}</td>
+    <td class="numeric">{{ g.base_price }}</td>
+    <td class="numeric">{{ g.recycle_value }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<h2 id="plate">The Gem Plate — gems' "ingot"</h2>
+<p>Gems don't go through a furnace. The closest analogue to an ingot is the <strong>Gem Plate</strong>, made by combining <em>one of each</em> gem at a crafting bench:</p>
+
+{% if gem_plate_recipe %}
+<table class="wiki">
+<thead><tr><th class="icon"></th><th>Recipe</th><th class="numeric">Qty</th></tr></thead>
+<tbody>
+{% for inp in gem_plate_recipe.inputs %}
+<tr>
+    <td class="icon"></td>
+    <td>{% if inp.url != '#' %}<a href="{{ root }}{{ inp.url }}">{{ inp.display }}</a>{% else %}{{ inp.display }}{% endif %}</td>
+    <td class="numeric">{{ inp.qty }}</td>
+</tr>
+{% endfor %}
+<tr style="background:var(--bg-elev)">
+    <td class="icon">{% if gem_plate.icon %}<img src="{{ root }}{{ gem_plate.icon }}" alt="">{% endif %}</td>
+    <td><strong>→ {{ gem_plate.display }}</strong> <span class="tier tier-{{ gem_plate.tier }}">T{{ gem_plate.tier }}</span> · price {{ gem_plate.base_price }}, recycle {{ gem_plate.recycle_value }}</td>
+    <td class="numeric"><strong>1</strong></td>
+</tr>
+</tbody>
+</table>
+<p style="font-size:0.85em;color:var(--text-faint)">Requires <strong>{{ gem_plate_recipe.skill }} {{ gem_plate_recipe.skill_level }}</strong>. The Plate's base price ({{ gem_plate.base_price }}) is a small markup over the raw inputs (4× 120 = 480), so the combine is for <em>access</em>, not for flipping. Every gem-eating craft past Crafting&nbsp;16 wants plates, not individual gems.</p>
+{% endif %}
+
+<h2>What the plate goes into</h2>
+<p>Across all {{ counts.total - counts.guides }} catalog items, <strong>{{ plate_total }} crafting recipes consume Gem Plates</strong>. The top consumers:</p>
+<table class="wiki">
+<thead><tr><th>Crafts</th><th class="numeric">Plates</th><th class="numeric">Skill</th></tr></thead>
+<tbody>
+{% for r in plate_uses %}
+<tr>
+    <td>{% if r.crafted_link %}<a href="{{ root }}{{ r.crafted_link }}">{{ r.crafted_display }}</a>{% else %}{{ r.crafted_display }}{% endif %}</td>
+    <td class="numeric"><strong>{{ r.qty }}</strong></td>
+    <td class="numeric">{{ r.skill_type }}@{{ r.skill_level }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<h2 id="direct">Direct uses (raw gem, no plate)</h2>
+<p>Some recipes call for a <em>specific</em> gem rather than a plate — usually because the gem's identity matters (a Ruby laser sword is red, not just "gem-coloured"). The top consumers per gem:</p>
+
+{% for gem_name, rows in direct_uses.items() %}
+<h3>{{ gem_name|capitalize }}</h3>
+<table class="wiki">
+<thead><tr><th>Crafts</th><th class="numeric">Qty</th><th class="numeric">Skill</th></tr></thead>
+<tbody>
+{% for r in rows %}
+<tr>
+    <td>{% if r.crafted_link %}<a href="{{ root }}{{ r.crafted_link }}">{{ r.crafted_display }}</a>{% else %}{{ r.crafted_display }}{% endif %}</td>
+    <td class="numeric">{{ r.qty }}</td>
+    <td class="numeric">{{ r.skill_type }}@{{ r.skill_level }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endfor %}
+
+<h2 id="find">Where to find them</h2>
+<p>Density data from <code>data/configs/voxeldistributions/</code> — frequencies summed across all layers, max <code>m_extent</code> kept per distribution. Higher freq = more nodes per chunk; higher extent = larger veins.</p>
+{% for voxel_name, per_dist in densities.items() %}
+<h3>{{ voxel_name }}</h3>
+<table class="wiki">
+<thead><tr><th>World type</th><th class="numeric">Total freq</th><th class="numeric">Max vein</th></tr></thead>
+<tbody>
+{% for dist_name, stats in (per_dist.items()|list|sort(attribute='1.freq_total', reverse=True)) %}
+<tr>
+    <td class="mono">{{ dist_name }}</td>
+    <td class="numeric"><strong>{{ stats.freq_total }}</strong></td>
+    <td class="numeric">{{ stats.max_extent }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endfor %}
+<p style="font-size:0.85em;color:var(--text-faint)"><strong>Crystalline planets</strong> consistently win for every gem: roughly 2–3× the spawn frequency of Earth-like and larger veins (extent up to 50 vs ~30). If you've got serious gem demand, fly to Crystalline.</p>
+
+<h2>Mining strategy</h2>
+<ul>
+    <li><strong>Mining Laser 4 minimum</strong> (voxel_tier 5). Laser 3 and below cannot break gems at all.</li>
+    <li><strong>Mining Laser 6 or 7</strong> if you're going after Glowing gems (tier 7).</li>
+    <li><strong>Bring a fully-charged battery.</strong> mineUnit 0.2 means longer beam duration per block; energy drains fast.</li>
+    <li><strong>Run vertical shafts on Crystalline worlds.</strong> Gem veins cluster in mid-to-deep layers; extent 50 means larger veins are worth the dig.</li>
+    <li><strong>Save full Plates, not stacks of 100 single gems.</strong> Plate combines need 1 of each — so a stockpile of 30/30/30/30 = 30 plates. Mixing matters more than total count.</li>
+</ul>
+
+<h2>Trading angle</h2>
+<p>Every gem has <code>base_demand</code> 0.5 (mildly positive — merchants will buy them) and Gem Plates have a 600-qubit base price. Selling raw gems is fine early; selling Plates is better once you have Crafting 16 because the plate is more compact (one plate per inventory slot vs four single gems). For high-volume flipping, see the <a href="{{ root }}guides/leveling-trading.html#perk">Trade Discount perk</a> and the high-demand items table on that guide.</p>
+
+</div>
+
+<aside class="infobox">
+<h3 style="margin-top:0">Gems at a glance</h3>
+<dl>
+    <dt>Base gems</dt><dd>4 (Diamond, Ruby, Emerald, Sapphire)</dd>
+    <dt>Glowing variants</dt><dd>4 (T7)</dd>
+    <dt>Voxel category</dt><dd class="mono">E_VCAT_ORES</dd>
+    <dt>Item type</dt><dd class="mono">RESOURCE</dd>
+    <dt>Hardness</dt><dd>mineUnit 0.2 (hardest in game)</dd>
+    <dt>Required tool</dt><dd>Mining Laser 4 (T5) or 6+ (T7 Glowing)</dd>
+    <dt>Combines into</dt><dd><a href="#plate">Gem Plate</a> (1+1+1+1 → 1)</dd>
+    <dt>Plate recipes</dt><dd>{{ plate_total }}</dd>
+    <dt>Best planet type</dt><dd>Crystalline</dd>
+</dl>
+</aside>
+</div>
+
+<p style="margin-top:2.5rem"><a class="muted" href="{{ root }}guides.html">← Back to all guides</a></p>
+{% endblock %}

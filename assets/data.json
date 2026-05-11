@@ -4552,5 +4552,14 @@
 "tier":0,
 "icon":"",
 "url":"guides/perks.html"
+},
+{
+"id":"guide.gems",
+"name":"Gems and Gem Plates",
+"slug":"gems",
+"category":"guides",
+"tier":0,
+"icon":"",
+"url":"guides/gems.html"
 }
 ]

@@ -431,7 +431,7 @@
 </main>
 <footer class="site">
     <div class="inner">
-        Generated 2026-05-11 23:06 UTC from game data (2026-04-26).
+        Generated 2026-05-11 23:40 UTC from game data (2026-04-26).
         Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
         Planet→biome distribution mapping is best-effort.
     </div>
@@ -447,14 +447,18 @@
     const tierPills = document.getElementById('tierPills');
     const obtainPills = document.getElementById('obtainPills');
     let tierFilter = 'all';
-    let obtainFilter = 'all';
+    let obtainFilter = 'obtainable';
 
     function apply(){
         const q = (search?.value || '').trim().toLowerCase();
         for(const r of rows){
             const matchQ = !q || r.dataset.search.indexOf(q) !== -1;
             const matchT = tierFilter === 'all' || r.dataset.tier === tierFilter;
-            const matchO = obtainFilter === 'all' || r.dataset.obtain === obtainFilter;
+            const kind = r.dataset.obtain;
+            let matchO;
+            if(obtainFilter === 'all') matchO = true;
+            else if(obtainFilter === 'obtainable') matchO = kind === 'craftable' || kind === 'loot';
+            else matchO = kind === obtainFilter;
             r.style.display = (matchQ && matchT && matchO) ? '' : 'none';
         }
     }
@@ -471,6 +475,7 @@
     }
     wirePills(tierPills, 'tier', v => tierFilter = v);
     wirePills(obtainPills, 'obtain', v => obtainFilter = v);
+    apply();
 })();
 </script>
 

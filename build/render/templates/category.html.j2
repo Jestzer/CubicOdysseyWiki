@@ -14,8 +14,9 @@
     {% endif %}
     {% if obtains and obtains|length > 1 %}
     <div class="pills" id="obtainPills">
-        <span class="pill active" data-obtain="all">All sources</span>
+        <span class="pill active" data-obtain="obtainable">Obtainable</span>
         {% for k in obtains %}<span class="pill" data-obtain="{{ k }}">{{ {'craftable':'Craftable','loot':'Loot','npc':'NPC','unobtainable':'Unobtainable'}[k] }}</span>{% endfor %}
+        <span class="pill" data-obtain="all">Show all</span>
     </div>
     {% endif %}
 </div>
@@ -62,14 +63,18 @@
     const tierPills = document.getElementById('tierPills');
     const obtainPills = document.getElementById('obtainPills');
     let tierFilter = 'all';
-    let obtainFilter = 'all';
+    let obtainFilter = 'obtainable';
 
     function apply(){
         const q = (search?.value || '').trim().toLowerCase();
         for(const r of rows){
             const matchQ = !q || r.dataset.search.indexOf(q) !== -1;
             const matchT = tierFilter === 'all' || r.dataset.tier === tierFilter;
-            const matchO = obtainFilter === 'all' || r.dataset.obtain === obtainFilter;
+            const kind = r.dataset.obtain;
+            let matchO;
+            if(obtainFilter === 'all') matchO = true;
+            else if(obtainFilter === 'obtainable') matchO = kind === 'craftable' || kind === 'loot';
+            else matchO = kind === obtainFilter;
             r.style.display = (matchQ && matchT && matchO) ? '' : 'none';
         }
     }
@@ -86,6 +91,7 @@
     }
     wirePills(tierPills, 'tier', v => tierFilter = v);
     wirePills(obtainPills, 'obtain', v => obtainFilter = v);
+    apply();
 })();
 </script>
 {% endblock %}

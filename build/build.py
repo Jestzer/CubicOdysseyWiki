@@ -436,6 +436,50 @@ def _weapon_stats_for(item: dict, cat: Catalog) -> Optional[dict]:
     return None
 
 
+def _classify_obtain(ident: str, cat: Catalog) -> dict:
+    """Classify how the player obtains an equippable item (weapon/tool).
+
+    Returns a dict with keys ``kind`` (craftable | loot | npc | unobtainable),
+    ``label``, and a longer ``detail`` string; also includes the supporting
+    identifiers (recipe_file, randomsets, npc_users) where applicable so
+    detail pages can render them.
+    """
+    recipes = cat.recipes_producing(ident)
+    if recipes:
+        recipe = recipes[0]
+        return {
+            'kind': 'craftable',
+            'label': 'Craftable',
+            'detail': f"Recipe `{recipe.get('_file')}`, requires {recipe.get('neededSkillType')} {recipe.get('neededSkillLevel')}.",
+            'recipe_file': recipe.get('_file'),
+            'recipe_skill': recipe.get('neededSkillType'),
+            'recipe_skill_level': recipe.get('neededSkillLevel'),
+        }
+    randomsets = cat.randomsets_containing(ident)
+    if randomsets:
+        rs_names = [r.get('_file') for r in randomsets]
+        return {
+            'kind': 'loot',
+            'label': 'Loot drop',
+            'detail': f"Appears in randomset{'s' if len(rs_names) > 1 else ''}: {', '.join(rs_names[:4])}{'…' if len(rs_names) > 4 else ''}.",
+            'randomsets': rs_names,
+        }
+    npc_users = cat.characters_using_weapon(ident)
+    if npc_users:
+        npc_user_names = [u.get('_file') for u in npc_users]
+        return {
+            'kind': 'npc',
+            'label': 'NPC weapon',
+            'detail': f"Used by NPC/mob: {', '.join(npc_user_names[:5])}{'…' if len(npc_user_names) > 5 else ''}. Not directly obtainable by the player from item drops or crafting.",
+            'npc_users': npc_user_names,
+        }
+    return {
+        'kind': 'unobtainable',
+        'label': 'Unobtainable',
+        'detail': 'Not produced by any recipe, not in any random loot set, and not assigned to a character config. May be a debug/unused asset, a quest-script grant, or used by a hardcoded enemy not captured in the standard character configs.',
+    }
+
+
 def build_tools(cat: Catalog, ore_records: List[dict]) -> List[dict]:
     rows = []
     # Map of voxel_tier -> ores it can mine
@@ -460,6 +504,9 @@ def build_tools(cat: Catalog, ore_records: List[dict]) -> List[dict]:
         rec['mines_ores'] = mines
         rec['subtype_label'] = ('Mining laser.' if stats and stats.get('type') == 'MINER'
                                   else 'Utility item.')
+        rec['obtain'] = _classify_obtain(ident, cat)
+        rec['obtain_kind'] = rec['obtain']['kind']
+        rec['obtain_label'] = rec['obtain']['label']
         rows.append(rec)
     return rows
 
@@ -472,46 +519,7 @@ def build_weapons(cat: Catalog) -> List[dict]:
             continue
         rec = _common_fields(item)
         rec['weapon_stats'] = _weapon_stats_for(item, cat)
-
-        # Obtainability
-        recipes = cat.recipes_producing(ident)
-        randomsets = cat.randomsets_containing(ident)
-        npc_users = cat.characters_using_weapon(ident)
-
-        # Skip NPC/critter-only attack profiles when classifying obtainability
-        npc_user_names = [u.get('_file') for u in npc_users]
-
-        if recipes:
-            recipe = recipes[0]
-            rec['obtain'] = {
-                'kind': 'craftable',
-                'label': 'Craftable',
-                'detail': f"Recipe `{recipe.get('_file')}`, requires {recipe.get('neededSkillType')} {recipe.get('neededSkillLevel')}.",
-                'recipe_file': recipe.get('_file'),
-                'recipe_skill': recipe.get('neededSkillType'),
-                'recipe_skill_level': recipe.get('neededSkillLevel'),
-            }
-        elif randomsets:
-            rs_names = [r.get('_file') for r in randomsets]
-            rec['obtain'] = {
-                'kind': 'loot',
-                'label': 'Loot drop',
-                'detail': f"Appears in randomset{'s' if len(rs_names) > 1 else ''}: {', '.join(rs_names[:4])}{'…' if len(rs_names) > 4 else ''}.",
-                'randomsets': rs_names,
-            }
-        elif npc_user_names:
-            rec['obtain'] = {
-                'kind': 'npc',
-                'label': 'NPC weapon',
-                'detail': f"Used by NPC/mob: {', '.join(npc_user_names[:5])}{'…' if len(npc_user_names) > 5 else ''}. Not directly obtainable by the player from item drops or crafting.",
-                'npc_users': npc_user_names,
-            }
-        else:
-            rec['obtain'] = {
-                'kind': 'unobtainable',
-                'label': 'Unobtainable',
-                'detail': 'Not produced by any recipe, not in any random loot set, and not assigned to a character config. May be a debug/unused asset, a quest-script grant, or used by a hardcoded enemy not captured in the standard character configs.',
-            }
+        rec['obtain'] = _classify_obtain(ident, cat)
         rec['obtain_kind'] = rec['obtain']['kind']
         rec['obtain_label'] = rec['obtain']['label']
         rows.append(rec)

@@ -1,9 +1,11 @@
 {% extends "base.html.j2" %}
 {% block title %}{{ r.display }}{% endblock %}
 {% block content %}
+{% set pilot_class = {'player':'craftable','police':'loot','pirate':'npc','npc':'unobtainable'}[r.pilot] %}
+{% set pilot_label = {'player':'Player ship','police':'Police ship','pirate':'Pirate ship','npc':'NPC ship'}[r.pilot] %}
 <h1>{{ r.display }}
     {% if r.tier %}<span class="tier tier-{{ r.tier }}">Tier {{ r.tier }}</span>{% endif %}
-    <span class="obtain obtain-{% if r.player_obtainable %}craftable{% else %}npc{% endif %}">{% if r.player_obtainable %}Player ship{% else %}Enemy ship{% endif %}</span>
+    <span class="obtain obtain-{{ pilot_class }}">{{ pilot_label }}</span>
 </h1>
 <div class="id" style="margin-bottom:1rem">{{ r.identifier }}</div>
 
@@ -57,7 +59,7 @@
     {% if r.base_price %}<dt>Base price</dt><dd>{{ r.base_price }}</dd>{% endif %}
     {% if r.stack_size %}<dt>Stack</dt><dd>{{ r.stack_size }}</dd>{% endif %}
     {% if r.inv_frame is not none %}<dt>inv_frame</dt><dd class="mono">{{ r.inv_frame }}</dd>{% endif %}
-    <dt>Owner</dt><dd>{% if r.player_obtainable %}Player obtainable{% else %}Enemy / NPC{% endif %}</dd>
+    <dt>Owner</dt><dd>{{ pilot_label }}</dd>
 </dl>
 </aside>
 </div>

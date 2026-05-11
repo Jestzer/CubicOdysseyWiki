@@ -5,7 +5,7 @@
 <p>Every entry in <code>data/configs/ships/</code> plus every item with <code>type SHIP</code>. The game has <strong>5 ship classes</strong> and <strong>4 factions</strong>; components (chassis / cargo / shield / engine) are <em>class-locked</em>, see the box below.</p>
 
 <div class="note" style="border-left-color:#67b0ff">
-    <strong>Starter ship:</strong> The "scout" ship players begin with is <a href="{{ root }}ships/ship_micro_recon.html">Micro Recon</a> — identifier <code>ship.micro.recon</code>, class L1_CORVETTE, base price 6000. Filter "All factions → Generic" + "All classes → Corvette" below to see other entry-level options. Higher-tier player ships (Argonaut, Excalibur, Leviathan, Neutron) sit at the bottom of the Generic / Ancients buckets.
+    <strong>Spotting your ships:</strong> the <span class="obtain obtain-craftable">Player</span> badge in the Pilot column flags every hull you can actually fly — derived from the model's asset path (<code>data/models/.../player*/</code>). Pirates / Police / NPC variants get their own badges. The "scout" you start with is <a href="{{ root }}ships/ship_micro_recon.html">Micro Recon</a> (T1 Corvette, base price 6000). Other early hulls: Cube Basic, Ultraviolet Intruder. Higher-tier player ships (Argonaut, Excalibur, Leviathan, Neutron) sit at the bottom of the Generic / Ancients buckets.
 </div>
 
 <div class="note" style="border-left-color:#ff9a4c">
@@ -31,17 +31,19 @@
     <th data-key="faction">Faction</th>
     <th data-key="tier" class="numeric">Tier</th>
     <th data-key="base_price" class="numeric">Price</th>
-    <th>Status</th>
+    <th data-key="pilot">Pilot</th>
 </tr></thead>
 <tbody>
 {% for r in rows %}
-<tr data-class="{{ r.class_raw }}" data-faction="{{ r.faction }}" data-search="{{ (r.display ~ ' ' ~ r.identifier ~ ' ' ~ r.class_label ~ ' ' ~ r.faction)|lower }}">
+{% set pilot_class = {'player':'craftable','police':'loot','pirate':'npc','npc':'unobtainable'}[r.pilot] %}
+{% set pilot_label = {'player':'Player','police':'Police','pirate':'Pirate','npc':'NPC'}[r.pilot] %}
+<tr data-class="{{ r.class_raw }}" data-faction="{{ r.faction }}" data-pilot="{{ r.pilot }}" data-search="{{ (r.display ~ ' ' ~ r.identifier ~ ' ' ~ r.class_label ~ ' ' ~ r.faction ~ ' ' ~ pilot_label)|lower }}">
     <td><a href="{{ root }}ships/{{ r.slug }}.html">{{ r.display }}</a></td>
     <td>{{ r.class_label }}</td>
     <td>{{ r.faction|capitalize }}</td>
     <td class="numeric">{% if r.tier %}<span class="tier tier-{{ r.tier }}">T{{ r.tier }}</span>{% else %}—{% endif %}</td>
     <td class="numeric">{% if r.base_price %}{{ r.base_price }}{% else %}—{% endif %}</td>
-    <td><span class="obtain obtain-{% if r.player_obtainable %}craftable{% else %}npc{% endif %}">{% if r.player_obtainable %}Buy / craft{% else %}Enemy{% endif %}</span></td>
+    <td><span class="obtain obtain-{{ pilot_class }}">{{ pilot_label }}</span></td>
 </tr>
 {% endfor %}
 </tbody>

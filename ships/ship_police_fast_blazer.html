@@ -35,9 +35,11 @@
 </header>
 <main class="wrap">
     
+
+
 <h1>Police Fast Blazer
     <span class="tier tier-5">Tier 5</span>
-    <span class="obtain obtain-craftable">Player ship</span>
+    <span class="obtain obtain-loot">Police ship</span>
 </h1>
 <div class="id" style="margin-bottom:1rem">ship.police.fast.blazer</div>
 
@@ -56,17 +58,18 @@
 </div>
 
 
+<h2>AI scaling (enemy ship)</h2>
+<p>The engine tunes pirate / ancients ship behaviour with these multipliers, applied on top of the underlying class stats.</p>
+<div class="kvs">
+<dl>
+    <dt>Damage scale</dt><dd>×0.25</dd>
+    <dt>Speed scale</dt><dd>×0.5</dd>
+    <dt>Turn rate scale</dt><dd>×0.5</dd>
+    <dt>Drops</dt><dd class="mono">voxel_vehicle</dd>
+</dl>
+</div>
 
 
-<h2>Buying / upgrading</h2>
-<p>This is a <strong>Galleon-class</strong> ship. To upgrade it, craft components from the <code>V_GALLEON_*</code> recipe family (MK1 → MK5):</p>
-<ul>
-    <li><strong>Chassis</strong> — hull integrity; MK5 variants exist as named alts (e.g. Excalibur, Red Fury for Corvettes).</li>
-    <li><strong>Cargo</strong> — inventory capacity in the ship's hold.</li>
-    <li><strong>Shield</strong> — energy shield buffer before hull damage.</li>
-    <li><strong>Engine</strong> (<code>SPACE_ENGINE</code>) — sublight / warp speed.</li>
-</ul>
-<p>You <em>cannot</em> transplant a Corvette component into a Frigate (or vice versa) — see the note on the <a href="../ships.html">Ships overview</a>.</p>
 
 
 </div>
@@ -80,7 +83,7 @@
     
     <dt>Stack</dt><dd>1</dd>
     <dt>inv_frame</dt><dd class="mono">265</dd>
-    <dt>Owner</dt><dd>Player obtainable</dd>
+    <dt>Owner</dt><dd>Police ship</dd>
 </dl>
 </aside>
 </div>
@@ -90,7 +93,7 @@
 </main>
 <footer class="site">
     <div class="inner">
-        Generated 2026-05-11 12:05 UTC from game data (2026-04-26).
+        Generated 2026-05-11 12:33 UTC from game data (2026-04-26).
         Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
         Planet→biome distribution mapping is best-effort.
     </div>

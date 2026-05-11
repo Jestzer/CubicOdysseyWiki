@@ -66,6 +66,7 @@ def _record_from_item(ident: str, item: dict, config_stem: Optional[str],
                        config: Optional[dict]) -> dict:
     config = config or {}
     klass = config.get('class', '')
+    pilot = _pilot_kind(item, config)
     return {
         'identifier': ident,
         'slug': _slug(ident),
@@ -86,13 +87,15 @@ def _record_from_item(ident: str, item: dict, config_stem: Optional[str],
         'ai_speed_scale': config.get('aiSpeedScale'),
         'ai_turn_rate_scale': config.get('aiTurnRateScale'),
         'config_stem': config_stem,
-        'player_obtainable': not _looks_pirate_only(ident, config),
+        'pilot': pilot,
+        'player_obtainable': pilot == 'player',
         'type': 'SHIP',
     }
 
 
 def _record_from_config(stem: str, config: dict) -> dict:
     klass = config.get('class', '')
+    pilot = _pilot_kind({}, config)
     return {
         'identifier': f'cfg.{stem.lower()}',
         'slug': _slug(stem),
@@ -113,7 +116,8 @@ def _record_from_config(stem: str, config: dict) -> dict:
         'ai_speed_scale': config.get('aiSpeedScale'),
         'ai_turn_rate_scale': config.get('aiTurnRateScale'),
         'config_stem': stem,
-        'player_obtainable': False,
+        'pilot': pilot,
+        'player_obtainable': pilot == 'player',
         'type': 'SHIP_CONFIG',
     }
 
@@ -123,12 +127,24 @@ def _class_order(klass: str) -> int:
     return order.index(klass) if klass in order else 99
 
 
-def _looks_pirate_only(ident: str, config: dict) -> bool:
-    if config.get('faction') == 'PIRATES':
-        return True
-    if 'pirate' in ident.lower():
-        return True
-    return False
+def _pilot_kind(item: dict, config: dict) -> str:
+    """Classify who pilots this ship: 'player', 'pirate', 'police', or 'npc'.
+
+    The strongest signal is the asset path — ships meant for the player live
+    under data/models/.../player[_itch]/. Pirate/police variants live in their
+    own folders and never have base_price set. Anything left over (e.g.
+    SHIP_PLANET_PURIFIER_MOBILE, a quest-instance ship) falls into 'npc'.
+    """
+    faction = config.get('faction', '')
+    binvox = (config.get('binvoxFile') or '').lower()
+    world_model = (item.get('world_model') or '').lower()
+    if '/player' in world_model or '/player' in binvox:
+        return 'player'
+    if faction == 'POLICE':
+        return 'police'
+    if faction == 'PIRATES':
+        return 'pirate'
+    return 'npc'
 
 
 def build_speeder_records(cat: Catalog) -> List[dict]:

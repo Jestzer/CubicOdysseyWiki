@@ -95,7 +95,7 @@ def slice_icons(items: Dict[str, dict], atlases, out_dir: Path) -> int:
 
 
 def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
-                           out_dir: Path, size: int = 64) -> Dict[str, str]:
+                           out_dir: Path, size: int = 128) -> Dict[str, str]:
     """Render each voxel as an isometric cube PNG, like the in-game block icon.
 
     The cube uses three faces: the top, plus left and right sides at 85% / 70%
@@ -117,6 +117,12 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
         if f.exists():
             try:
                 img = Image.open(f).convert('RGBA')
+                # Pre-filter the 1024-pixel source down to ~2× face size so the
+                # affine transform doesn't have to do a 30× downscale through
+                # bilinear sampling (which loses most of the source pixels).
+                target = size * 2
+                if max(img.size) > target:
+                    img.thumbnail((target, target), Image.Resampling.LANCZOS)
             except Exception:
                 img = None
         tex_cache[stem] = img

@@ -46,6 +46,7 @@
         <span class="pill" data-tier="5">T5</span><span class="pill" data-tier="7">T7</span>
     </div>
     
+    
 </div>
 
 <table class="wiki" id="catTable">
@@ -62,7 +63,7 @@
     </thead>
     <tbody>
         
-        <tr data-tier="5" data-search="diamond res.diamond">
+        <tr data-tier="5" data-search="diamond res.diamond ">
             <td class="icon">
                 <img src="assets/icons/res_diamond.png" alt="">
             </td>
@@ -74,7 +75,7 @@
             
         </tr>
         
-        <tr data-tier="5" data-search="emerald res.emerald">
+        <tr data-tier="5" data-search="emerald res.emerald ">
             <td class="icon">
                 <img src="assets/icons/res_emerald.png" alt="">
             </td>
@@ -86,7 +87,7 @@
             
         </tr>
         
-        <tr data-tier="5" data-search="ruby res.ruby">
+        <tr data-tier="5" data-search="ruby res.ruby ">
             <td class="icon">
                 <img src="assets/icons/res_ruby.png" alt="">
             </td>
@@ -98,7 +99,7 @@
             
         </tr>
         
-        <tr data-tier="5" data-search="sapphire res.sapphire">
+        <tr data-tier="5" data-search="sapphire res.sapphire ">
             <td class="icon">
                 <img src="assets/icons/res_sapphire.png" alt="">
             </td>
@@ -110,7 +111,7 @@
             
         </tr>
         
-        <tr data-tier="7" data-search="glowing diamond res.glowing.diamond">
+        <tr data-tier="7" data-search="glowing diamond res.glowing.diamond ">
             <td class="icon">
                 <img src="assets/icons/res_glowing_diamond.png" alt="">
             </td>
@@ -122,7 +123,7 @@
             
         </tr>
         
-        <tr data-tier="7" data-search="glowing emerald res.glowing.emerald">
+        <tr data-tier="7" data-search="glowing emerald res.glowing.emerald ">
             <td class="icon">
                 <img src="assets/icons/res_glowing_emerald.png" alt="">
             </td>
@@ -134,7 +135,7 @@
             
         </tr>
         
-        <tr data-tier="7" data-search="glowing ruby res.glowing.ruby">
+        <tr data-tier="7" data-search="glowing ruby res.glowing.ruby ">
             <td class="icon">
                 <img src="assets/icons/res_glowing_ruby.png" alt="">
             </td>
@@ -146,7 +147,7 @@
             
         </tr>
         
-        <tr data-tier="7" data-search="glowing sapphire res.glowing.sapphire">
+        <tr data-tier="7" data-search="glowing sapphire res.glowing.sapphire ">
             <td class="icon">
                 <img src="assets/icons/res_glowing_sapphire.png" alt="">
             </td>
@@ -166,7 +167,7 @@
 </main>
 <footer class="site">
     <div class="inner">
-        Generated 2026-05-11 14:28 UTC from game data (2026-04-26).
+        Generated 2026-05-11 14:34 UTC from game data (2026-04-26).
         Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
         Planet→biome distribution mapping is best-effort.
     </div>
@@ -179,32 +180,33 @@
     const tbody = table.tBodies[0];
     const rows = Array.from(tbody.rows);
     const search = document.getElementById('catSearch');
-    const pills = document.getElementById('tierPills');
+    const tierPills = document.getElementById('tierPills');
+    const obtainPills = document.getElementById('obtainPills');
     let tierFilter = 'all';
+    let obtainFilter = 'all';
 
     function apply(){
         const q = (search?.value || '').trim().toLowerCase();
-        let visible = 0;
         for(const r of rows){
-            const text = r.dataset.search;
-            const t = r.dataset.tier;
-            const matchQ = !q || text.indexOf(q) !== -1;
-            const matchT = tierFilter === 'all' || t === tierFilter;
-            r.style.display = (matchQ && matchT) ? '' : 'none';
-            if(matchQ && matchT) visible++;
+            const matchQ = !q || r.dataset.search.indexOf(q) !== -1;
+            const matchT = tierFilter === 'all' || r.dataset.tier === tierFilter;
+            const matchO = obtainFilter === 'all' || r.dataset.obtain === obtainFilter;
+            r.style.display = (matchQ && matchT && matchO) ? '' : 'none';
         }
     }
     search?.addEventListener('input', apply);
-    if(pills){
-        pills.addEventListener('click', e => {
+    function wirePills(el, attr, set){
+        el?.addEventListener('click', e => {
             const p = e.target.closest('.pill');
             if(!p) return;
-            pills.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
+            el.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
             p.classList.add('active');
-            tierFilter = p.dataset.tier;
+            set(p.dataset[attr]);
             apply();
         });
     }
+    wirePills(tierPills, 'tier', v => tierFilter = v);
+    wirePills(obtainPills, 'obtain', v => obtainFilter = v);
 })();
 </script>
 

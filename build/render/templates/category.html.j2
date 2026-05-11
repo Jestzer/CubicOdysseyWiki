@@ -12,6 +12,12 @@
         {% for t in tiers %}<span class="pill" data-tier="{{ t }}">T{{ t }}</span>{% endfor %}
     </div>
     {% endif %}
+    {% if obtains and obtains|length > 1 %}
+    <div class="pills" id="obtainPills">
+        <span class="pill active" data-obtain="all">All sources</span>
+        {% for k in obtains %}<span class="pill" data-obtain="{{ k }}">{{ {'craftable':'Craftable','loot':'Loot','npc':'NPC','unobtainable':'Unobtainable'}[k] }}</span>{% endfor %}
+    </div>
+    {% endif %}
 </div>
 
 <table class="wiki" id="catTable">
@@ -28,7 +34,7 @@
     </thead>
     <tbody>
         {% for r in rows %}
-        <tr data-tier="{{ r.tier }}" data-search="{{ (r.display ~ ' ' ~ r.identifier)|lower }}">
+        <tr data-tier="{{ r.tier }}"{% if r.obtain_kind %} data-obtain="{{ r.obtain_kind }}"{% endif %} data-search="{{ (r.display ~ ' ' ~ r.identifier ~ ' ' ~ (r.obtain_label or ''))|lower }}">
             <td class="icon">
                 {% if r.icon %}<img src="{{ root }}{{ r.icon }}" alt="">{% else %}<div class="tier tier-{{ r.tier }}" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:0.9rem">{{ r.display[:2]|upper }}</div>{% endif %}
             </td>
@@ -53,32 +59,33 @@
     const tbody = table.tBodies[0];
     const rows = Array.from(tbody.rows);
     const search = document.getElementById('catSearch');
-    const pills = document.getElementById('tierPills');
+    const tierPills = document.getElementById('tierPills');
+    const obtainPills = document.getElementById('obtainPills');
     let tierFilter = 'all';
+    let obtainFilter = 'all';
 
     function apply(){
         const q = (search?.value || '').trim().toLowerCase();
-        let visible = 0;
         for(const r of rows){
-            const text = r.dataset.search;
-            const t = r.dataset.tier;
-            const matchQ = !q || text.indexOf(q) !== -1;
-            const matchT = tierFilter === 'all' || t === tierFilter;
-            r.style.display = (matchQ && matchT) ? '' : 'none';
-            if(matchQ && matchT) visible++;
+            const matchQ = !q || r.dataset.search.indexOf(q) !== -1;
+            const matchT = tierFilter === 'all' || r.dataset.tier === tierFilter;
+            const matchO = obtainFilter === 'all' || r.dataset.obtain === obtainFilter;
+            r.style.display = (matchQ && matchT && matchO) ? '' : 'none';
         }
     }
     search?.addEventListener('input', apply);
-    if(pills){
-        pills.addEventListener('click', e => {
+    function wirePills(el, attr, set){
+        el?.addEventListener('click', e => {
             const p = e.target.closest('.pill');
             if(!p) return;
-            pills.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
+            el.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
             p.classList.add('active');
-            tierFilter = p.dataset.tier;
+            set(p.dataset[attr]);
             apply();
         });
     }
+    wirePills(tierPills, 'tier', v => tierFilter = v);
+    wirePills(obtainPills, 'obtain', v => obtainFilter = v);
 })();
 </script>
 {% endblock %}

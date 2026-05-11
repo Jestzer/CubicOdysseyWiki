@@ -492,6 +492,9 @@ class WikiRenderer:
                           title: str, intro: str = '',
                           extra_cols: Optional[List[dict]] = None):
         tiers = sorted({r['tier'] for r in rows if isinstance(r.get('tier'), int)})
+        obtain_order = ['craftable', 'loot', 'npc', 'unobtainable']
+        present_obtains = {r.get('obtain_kind') for r in rows if r.get('obtain_kind')}
+        obtains = [k for k in obtain_order if k in present_obtains]
         self._render_template(
             'category.html.j2',
             self.out / f'{slug}.html',
@@ -502,6 +505,7 @@ class WikiRenderer:
             counts=self.counts,
             rows=sorted(rows, key=lambda r: (r['tier'], r['display'])),
             tiers=tiers,
+            obtains=obtains,
             extra_cols=extra_cols or [],
         )
 

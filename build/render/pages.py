@@ -94,12 +94,16 @@ class WikiRenderer:
                world_records: list = None,
                enemy_records: list = None,
                ship_records: list = None,
-               speeder_records: list = None):
+               speeder_records: list = None,
+               block_records: list = None,
+               block_categories: list = None):
         gem_records = gem_records or []
         world_records = world_records or []
         enemy_records = enemy_records or []
         ship_records = ship_records or []
         speeder_records = speeder_records or []
+        block_records = block_records or []
+        block_categories = block_categories or []
         # Resolve icons + cross-links once
         ingot_lookup = {r['identifier']: r for r in ingot_records}
         ore_lookup = {r['identifier']: r for r in ore_records}
@@ -140,7 +144,8 @@ class WikiRenderer:
             'enemies': len(enemy_records),
             'ships': len(ship_records),
             'speeders': len(speeder_records),
-            'guides': 7,
+            'blocks': len(block_records),
+            'guides': 9,
             'total': (len(ore_records) + len(gem_records) + len(ingot_records)
                        + len(tool_records) + len(weapon_records)
                        + len(resource_records) + len(world_records)
@@ -284,6 +289,15 @@ class WikiRenderer:
                     root='../', category='ships', title=r['display'],
                     counts=self.counts, r=r)
 
+        # Blocks (voxels)
+        if block_records:
+            self._render_template('blocks_index.html.j2',
+                self.out / 'blocks.html',
+                root='', category='blocks', title='Blocks',
+                counts=self.counts,
+                rows=block_records,
+                categories=block_categories)
+
         # Speeders
         if speeder_records:
             tiers = sorted({r['tier'] for r in speeder_records if isinstance(r.get('tier'), int)})
@@ -355,6 +369,16 @@ class WikiRenderer:
                 'icon': r.get('icon') or '',
                 'url': f"speeders/{r['slug']}.html",
             })
+        for r in block_records:
+            manifest.append({
+                'id': r['name'],
+                'name': r['display'],
+                'slug': r['slug'],
+                'category': 'blocks',
+                'tier': r.get('tier') or 0,
+                'icon': '',
+                'url': f"blocks.html#cat-{r['category_raw'].lower()}",
+            })
         # Guides also surface in global search
         for slug, title in (
             ('motherboards', 'Finding Motherboards'),
@@ -364,6 +388,8 @@ class WikiRenderer:
             ('player-death', 'What happens when you die'),
             ('perks', 'Outpost perks'),
             ('gems', 'Gems and Gem Plates'),
+            ('quests', 'Quests'),
+            ('vendor-stock', 'Vendor-only items'),
         ):
             manifest.append({
                 'id': f'guide.{slug}',
@@ -381,7 +407,8 @@ class WikiRenderer:
     def render_guides(self, *, motherboards_ctx: dict, mining_ctx: dict,
                        trading_ctx: dict, item_damage_ctx: dict,
                        player_death_ctx: dict, perks_ctx: dict,
-                       gems_ctx: dict, summaries: dict):
+                       gems_ctx: dict, quests_ctx: dict,
+                       vendor_stock_ctx: dict, summaries: dict):
         # Guides index
         self._render_template(
             'guides_index.html.j2',
@@ -440,6 +467,20 @@ class WikiRenderer:
             root='../', category='guides', title='Gems and Gem Plates',
             counts=self.counts,
             **gems_ctx,
+        )
+        self._render_template(
+            'guide_quests.html.j2',
+            self.out / 'guides' / 'quests.html',
+            root='../', category='guides', title='Quests',
+            counts=self.counts,
+            **quests_ctx,
+        )
+        self._render_template(
+            'guide_vendor_stock.html.j2',
+            self.out / 'guides' / 'vendor-stock.html',
+            root='../', category='guides', title='Vendor-only items',
+            counts=self.counts,
+            **vendor_stock_ctx,
         )
 
     # ------------------------------------------------------------------

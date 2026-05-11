@@ -1,0 +1,61 @@
+{% extends "base.html.j2" %}
+{% block title %}Vendor-only items{% endblock %}
+{% block content %}
+<h1>Vendor-only items</h1>
+<p>These are items the player <strong>cannot craft or loot</strong> — they show up in merchant inventories instead. The list is computed by cross-referencing every item against:</p>
+<ul>
+    <li><code>data/configs/recipes/</code> — no recipe produces this item</li>
+    <li><code>data/configs/randomsets/</code> — not in any creature / bunker / pirate drop table</li>
+    <li><code>data/configs/voxels/</code> — not a mineable ore drop</li>
+</ul>
+<p>If all three sources miss, the item is sourced from merchants. <strong>{{ total }} items</strong> match. Sorted by <code>base_demand</code> ascending — the most-supplied (vendor-stocked) items come first.</p>
+
+<div class="note">
+    <strong>Why this matters:</strong> the parts on this list gate most of your tier-3 / tier-4 crafting. Motherboards, mirrors, capacitors, transistors, ferroglass lenses, wiring — every advanced recipe asks for them, and the only way to stockpile is to buy in bulk. Roll the <a href="{{ root }}guides/leveling-trading.html#perk">Trade Discount outpost perk</a> first.
+</div>
+
+<div class="controls">
+    <input type="search" class="search" id="vSearch" placeholder="Filter {{ total }} items…" autocomplete="off">
+</div>
+
+<table class="wiki" id="vTable">
+<thead><tr>
+    <th class="icon"></th>
+    <th>Item</th>
+    <th class="numeric">Tier</th>
+    <th>Type</th>
+    <th class="numeric">Price</th>
+    <th class="numeric">Demand</th>
+</tr></thead>
+<tbody>
+{% for r in rows %}
+<tr data-search="{{ (r.display ~ ' ' ~ r.identifier ~ ' ' ~ r.type)|lower }}">
+    <td class="icon">{% if r.icon %}<img src="{{ root }}{{ r.icon }}" alt="">{% endif %}</td>
+    <td>{% if r.url != '#' %}<a href="{{ root }}{{ r.url }}">{{ r.display }}</a>{% else %}{{ r.display }}{% endif %}<br><span class="mono" style="color:var(--text-faint);font-size:0.82em">{{ r.identifier }}</span></td>
+    <td class="numeric">{% if r.tier %}<span class="tier tier-{{ r.tier }}">T{{ r.tier }}</span>{% else %}—{% endif %}</td>
+    <td class="mono">{{ r.type }}</td>
+    <td class="numeric">{{ r.base_price if r.base_price is not none else '—' }}</td>
+    <td class="numeric">{{ r.base_demand if r.base_demand is not none else '—' }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<p style="margin-top:2.5rem"><a class="muted" href="{{ root }}guides.html">← Back to all guides</a></p>
+{% endblock %}
+{% block scripts %}
+<script>
+(function(){
+    const t = document.getElementById('vTable');
+    const s = document.getElementById('vSearch');
+    if (!t || !s) return;
+    const rows = Array.from(t.tBodies[0].rows);
+    s.addEventListener('input', () => {
+        const q = s.value.trim().toLowerCase();
+        for (const r of rows) {
+            r.style.display = !q || r.dataset.search.indexOf(q) !== -1 ? '' : 'none';
+        }
+    });
+})();
+</script>
+{% endblock %}

@@ -39,6 +39,14 @@ GUIDE_SUMMARIES = {
         'subtitle': 'Diamond / Ruby / Emerald / Sapphire + Gem Plate',
         'summary': 'Tier-5 voxels with the hardest mineUnit in the game. How they spawn, the Gem Plate combine, the 87 crafts that need them, and which planet to farm them on.',
     },
+    'quests': {
+        'subtitle': 'Story progression + 5 random quest types',
+        'summary': 'How quests work in Cubic Odyssey: 149 progression tasks driving the main story, plus 5 random quest types with frequencies from quests_distribution.cfg.',
+    },
+    'vendor-stock': {
+        'subtitle': 'Items you can\'t craft — buy them instead',
+        'summary': 'Every item with no recipe + no random drop, sorted by base_demand. Motherboards, mirrors, capacitors, transistors — the parts that gate every tier-4 upgrade.',
+    },
 }
 
 
@@ -552,6 +560,125 @@ def gems_context(cat: Catalog, icons_dir: Path) -> dict:
         'plate_uses': plate_uses,
         'plate_total': plate_total,
         'densities': densities,
+    }
+
+
+def quests_context(cat: Catalog) -> dict:
+    """Pull random-quest-type frequencies and main-story task counts."""
+    from parsers.cfg import parse_file
+    dist_path = cat.game_root / 'data' / 'configs' / 'quests_distribution.cfg'
+    dist = parse_file(dist_path) if dist_path.exists() else {}
+    entries = (dist or {}).get('m_entries') or []
+    quest_types = []
+    for e in entries:
+        if not isinstance(e, dict):
+            continue
+        quest_types.append({
+            'type': e.get('m_type', ''),
+            'frequency': e.get('m_frequency', 0),
+        })
+    total_freq = sum(q['frequency'] for q in quest_types) or 1
+    for q in quest_types:
+        q['pct'] = f"{q['frequency'] / total_freq * 100:.1f}%"
+    quest_types.sort(key=lambda q: -q['frequency'])
+
+    # Story progression tasks — count by category to give a sense of the
+    # mix without dumping all 149 in here
+    prog_dir = cat.game_root / 'data' / 'configs' / 'progression'
+    categories: Dict[str, int] = {}
+    story_steps: Dict[str, int] = {}
+    total_tasks = 0
+    for p in sorted(prog_dir.glob('*.cfg')):
+        d = parse_file(p)
+        if not isinstance(d, dict):
+            continue
+        total_tasks += 1
+        c = d.get('category', 'UNKNOWN')
+        categories[c] = categories.get(c, 0) + 1
+        ss = d.get('storyStep')
+        if ss:
+            story_steps[ss] = story_steps.get(ss, 0) + 1
+
+    top_categories = sorted(categories.items(), key=lambda kv: -kv[1])[:12]
+    notable_story_steps = sorted(story_steps.keys())[:18]
+
+    # Main story "Acts" / chapters from tasks/*.cfg
+    tasks_dir = cat.game_root / 'data' / 'configs' / 'tasks'
+    acts = []
+    for p in sorted(tasks_dir.glob('*.cfg'), key=lambda p: int(p.stem) if p.stem.isdigit() else 999):
+        d = parse_file(p)
+        if not isinstance(d, dict):
+            continue
+        acts.append({
+            'id': d.get('id'),
+            'chapter': d.get('chapter'),
+            'description_string': d.get('description'),
+            'long_text_string': d.get('long_text'),
+        })
+
+    return {
+        'quest_types': quest_types,
+        'total_freq': total_freq,
+        'progression_tasks': total_tasks,
+        'top_categories': top_categories,
+        'notable_story_steps': notable_story_steps,
+        'acts': acts,
+    }
+
+
+def vendor_stock_context(cat: Catalog, icons_dir: Path) -> dict:
+    """Items the player can't produce — no recipe, no random drop, no
+    character-usage. The catalog flags these via the obtainability logic
+    in build_weapons(); here we apply the same heuristic to every item
+    type and surface the top finds."""
+
+    def is_player_obtainable(ident: str, item: dict) -> str:
+        """Return obtain kind: 'craftable', 'loot', 'self', 'vendor'."""
+        if cat.recipes_producing(ident):
+            return 'craftable'
+        # Many ores / gems are "self" — you mine them, no recipe produces them
+        if item.get('type') in ('RAW_ORE',):
+            return 'self'
+        if item.get('type') == 'RESOURCE' and ident in {
+                'res.diamond', 'res.ruby', 'res.emerald', 'res.sapphire',
+                'res.glowing.diamond', 'res.glowing.ruby',
+                'res.glowing.emerald', 'res.glowing.sapphire'}:
+            return 'self'
+        if cat.randomsets_containing(ident):
+            return 'loot'
+        return 'vendor'
+
+    rows = []
+    for ident, item in cat.items.items():
+        # Skip categories we don't care about for "vendor stock"
+        t = item.get('type', '')
+        if t in ('SHIP', 'SPEEDER', 'HABITAT', 'DEPLOYABLE',
+                  'STAIR', 'SLOPE'):
+            continue
+        if t.startswith('SHIP_COMPONENT_'):
+            continue
+        kind = is_player_obtainable(ident, item)
+        if kind != 'vendor':
+            continue
+        rows.append({
+            'identifier': ident,
+            'display': _humanize(item.get('title_string') or ident),
+            'tier': item.get('tier', 1),
+            'type': t,
+            'base_price': item.get('base_price'),
+            'base_demand': item.get('base_demand'),
+            'stack_size': item.get('stack_size'),
+            'icon': f'assets/icons/{_slug(ident)}.png' if (
+                icons_dir / (_slug(ident) + '.png')).exists() else None,
+            'url': _link_for(ident, cat) or '#',
+        })
+
+    # Sort: most-negative base_demand first (= most-supplied by vendors),
+    # then by base_price desc
+    rows.sort(key=lambda r: ((r['base_demand'] or 0), -(r['base_price'] or 0)))
+    return {
+        'rows': rows,
+        'total': len(rows),
     }
 
 

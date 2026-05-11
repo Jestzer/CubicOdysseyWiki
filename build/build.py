@@ -28,10 +28,12 @@ from extract.gems import build_gem_records, gem_identifiers
 from extract.worlds import build_world_records
 from extract.enemies import build_enemy_records
 from extract.ships import build_ship_records, build_speeder_records
+from extract.blocks import build_block_records, block_categories_summary
 from extract.guides import (
     motherboard_context, mining_context, trading_context,
     item_damage_context, player_death_context, perks_context,
-    gems_context, all_guide_summaries,
+    gems_context, quests_context, vendor_stock_context,
+    all_guide_summaries,
 )
 from render.pages import WikiRenderer
 
@@ -301,6 +303,8 @@ def main():
     enemy_records = build_enemy_records(cat)
     ship_records = build_ship_records(cat)
     speeder_records = build_speeder_records(cat)
+    block_records = build_block_records(cat)
+    block_categories = block_categories_summary(block_records)
 
     ingot_records = build_ingots(cat, ores_by_drop)
     tool_records = build_tools(cat, ore_records)
@@ -349,6 +353,8 @@ def main():
         enemy_records=enemy_records,
         ship_records=ship_records,
         speeder_records=speeder_records,
+        block_records=block_records,
+        block_categories=block_categories,
     )
 
     print('[6.5/6] rendering Guides…')
@@ -360,6 +366,8 @@ def main():
     player_death_ctx = player_death_context(cat, icons_dir)
     perks_ctx = perks_context(cat)
     gems_ctx = gems_context(cat, icons_dir)
+    quests_ctx = quests_context(cat)
+    vendor_stock_ctx = vendor_stock_context(cat, icons_dir)
     renderer.render_guides(
         motherboards_ctx=mb_ctx,
         mining_ctx=mining_ctx,
@@ -368,6 +376,8 @@ def main():
         player_death_ctx=player_death_ctx,
         perks_ctx=perks_ctx,
         gems_ctx=gems_ctx,
+        quests_ctx=quests_ctx,
+        vendor_stock_ctx=vendor_stock_ctx,
         summaries=all_guide_summaries(),
     )
 
@@ -376,8 +386,9 @@ def main():
     print(f'   {len(ore_records)} ores + {len(gem_records)} gems + '
           f'{len(ingot_records)} ingots + {len(tool_records)} tools + '
           f'{len(weapon_records)} weapons + {len(resource_records)} resources + '
-          f'{len(world_records)} worlds + {len(enemy_records)} enemies + '
-          f'{len(ship_records)} ships + {len(speeder_records)} speeders + 7 guides')
+          f'{len(block_records)} blocks + {len(world_records)} worlds + '
+          f'{len(enemy_records)} enemies + {len(ship_records)} ships + '
+          f'{len(speeder_records)} speeders + 9 guides')
     print(f'   open file://{out}/index.html')
 
 

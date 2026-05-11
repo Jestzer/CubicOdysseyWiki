@@ -4,6 +4,10 @@
 <h1>Ships</h1>
 <p>Every entry in <code>data/configs/ships/</code> plus every item with <code>type SHIP</code>. The game has <strong>5 ship classes</strong> and <strong>4 factions</strong>; components (chassis / cargo / shield / engine) are <em>class-locked</em>, see the box below.</p>
 
+<div class="note" style="border-left-color:#67b0ff">
+    <strong>Starter ship:</strong> The "scout" ship players begin with is <a href="{{ root }}ships/ship_micro_recon.html">Micro Recon</a> — identifier <code>ship.micro.recon</code>, class L1_CORVETTE, base price 6000. Filter "All factions → Generic" + "All classes → Corvette" below to see other entry-level options. Higher-tier player ships (Argonaut, Excalibur, Leviathan, Neutron) sit at the bottom of the Generic / Ancients buckets.
+</div>
+
 <div class="note" style="border-left-color:#ff9a4c">
     <strong>Can I apply scout-ship parts to a newer ship?</strong> No. Ship components in <code>data/configs/recipes/V_*.cfg</code> are split into four parallel ladders — <code>V_CORVETTE_*</code>, <code>V_FRIGATE_*</code>, <code>V_DREADNOUGHT_*</code>, <code>V_GALLEON_*</code> — each with its own MK1 → MK5 progression. There is no <em>recipe</em> in the data that converts a Corvette part to a Frigate part. Within a class you upgrade by crafting MK<sup>n+1</sup> components; across classes you scrap your old setup or sell the old ship outright.
 </div>

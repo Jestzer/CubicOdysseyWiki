@@ -1,0 +1,93 @@
+{% extends "base.html.j2" %}
+{% block title %}Blocks{% endblock %}
+{% block content %}
+<h1>Blocks (voxels)</h1>
+<p>Every cube the engine knows about — <strong>{{ rows|length }} voxels</strong> across {{ categories|length }} categories — from biome surface terrain through ores, glass, walls, and ancient artefacts. The colour swatches are the literal <code>m_color</code> values from <code>data/configs/voxels/</code>.</p>
+
+<div class="cards">
+{% for c in categories %}
+<a class="card" href="#cat-{{ c.category_raw|lower }}">
+    <h3>{{ c.category_label }}</h3>
+    <div class="count">{{ c.count }} blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        {% for col in c.sample_colors %}
+        <span style="display:inline-block;width:22px;height:22px;background:rgb({{ col[0] }},{{ col[1] }},{{ col[2] }});border:1px solid var(--border);border-radius:3px"></span>
+        {% endfor %}
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. {{ c.sample_names|join(', ') }}</p>
+</a>
+{% endfor %}
+</div>
+
+<div class="controls">
+    <input type="search" class="search" id="catSearch" placeholder="Filter {{ rows|length }} blocks…" autocomplete="off">
+    <div class="pills" id="catPills">
+        <span class="pill active" data-cat="all">All</span>
+        {% for c in categories %}<span class="pill" data-cat="{{ c.category_raw }}">{{ c.category_label }}</span>{% endfor %}
+    </div>
+</div>
+
+{% for c in categories %}
+<h2 id="cat-{{ c.category_raw|lower }}">{{ c.category_label }} <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace">{{ c.category_raw }}</span></h2>
+<table class="wiki" data-cat="{{ c.category_raw }}">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+{% for r in rows if r.category_raw == c.category_raw %}
+<tr data-search="{{ (r.display ~ ' ' ~ (r.drop_item or '') ~ ' ' ~ (r.default_texture or ''))|lower }}">
+    <td>{% if r.color %}<span style="display:inline-block;width:32px;height:32px;background:rgb({{ r.color[0] }},{{ r.color[1] }},{{ r.color[2] }});border:1px solid var(--border);border-radius:3px"></span>{% endif %}</td>
+    <td>{{ r.display }}</td>
+    <td class="numeric">{% if r.tier is not none %}{% if r.tier <= 7 %}<span class="tier tier-{{ r.tier }}">T{{ r.tier }}</span>{% else %}<span class="tier tier-100">T{{ r.tier }}</span>{% endif %}{% else %}—{% endif %}</td>
+    <td class="numeric mono">{{ r.mine_unit if r.mine_unit is not none else '—' }}</td>
+    <td>{% if r.drop_url %}<a href="{{ root }}{{ r.drop_url }}">{{ r.drop_display }}</a>{% elif r.drop_item %}<span class="mono">{{ r.drop_item }}</span>{% else %}<span style="color:var(--text-faint)">—</span>{% endif %}</td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">{{ r.default_texture or '—' }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endfor %}
+{% endblock %}
+{% block scripts %}
+<script>
+(function(){
+    const tables = document.querySelectorAll('table[data-cat]');
+    const search = document.getElementById('catSearch');
+    const pills = document.getElementById('catPills');
+    let catFilter = 'all';
+
+    function apply(){
+        const q = (search?.value || '').trim().toLowerCase();
+        for (const t of tables) {
+            const cat = t.dataset.cat;
+            const headers = [t.previousElementSibling];
+            let visibleInTable = 0;
+            for (const r of t.tBodies[0].rows) {
+                const matchQ = !q || r.dataset.search.indexOf(q) !== -1;
+                const matchC = catFilter === 'all' || cat === catFilter;
+                const show = matchQ && matchC;
+                r.style.display = show ? '' : 'none';
+                if (show) visibleInTable++;
+            }
+            const display = (catFilter === 'all' || cat === catFilter) && visibleInTable > 0 ? '' : 'none';
+            t.style.display = display;
+            headers.forEach(h => { if (h) h.style.display = display; });
+        }
+    }
+    search?.addEventListener('input', apply);
+    pills?.addEventListener('click', e => {
+        const p = e.target.closest('.pill');
+        if (!p) return;
+        pills.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
+        p.classList.add('active');
+        catFilter = p.dataset.cat;
+        apply();
+    });
+})();
+</script>
+{% endblock %}

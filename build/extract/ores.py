@@ -102,7 +102,7 @@ def _humanize(token: str) -> str:
     token = token.replace('_DESC', '')
     parts = [p for p in token.replace('.', ' ').replace('_', ' ').split() if p]
     cleaned = []
-    skip_first = {'res', 'wep', 'cloth'}
+    skip_first = {'res', 'wep', 'cloth', 'ship', 'speeder', 'dpl', 'spn', 'comp'}
     for i, p in enumerate(parts):
         lp = p.lower()
         if i == 0 and lp in skip_first:

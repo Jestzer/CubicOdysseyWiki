@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quests — Cubic Odyssey Wiki</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon-180.png">
+    <link rel="shortcut icon" href="../assets/favicon.ico">
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site">
+    <div class="inner">
+        <div class="brand">
+            <a href="../index.html">Cubic Odyssey</a>
+            <small>local wiki · 631 entries</small>
+        </div>
+        <nav>
+            <a href="../ores.html"      class="">Ores</a>
+            <a href="../gems.html"      class="">Gems</a>
+            <a href="../ingots.html"    class="">Ingots</a>
+            <a href="../tools.html"     class="">Tools</a>
+            <a href="../weapons.html"   class="">Weapons</a>
+            <a href="../blocks.html"    class="">Blocks</a>
+            <a href="../resources.html" class="">Resources</a>
+            <a href="../worlds.html"    class="">Worlds</a>
+            <a href="../enemies.html"   class="">Enemies</a>
+            <a href="../ships.html"     class="">Ships</a>
+            <a href="../speeders.html"  class="">Speeders</a>
+            <a href="../guides.html"    class="active">Guides</a>
+        </nav>
+    </div>
+</header>
+<main class="wrap">
+    
+<h1>Quests</h1>
+<p>Cubic Odyssey has two parallel quest tracks: a hand-authored <strong>main story</strong> (149 progression tasks driving milestones like <code>GOT_WARP_CELL</code>, <code>FREED_QUEEN</code>, <code>REACHED_NEXUS</code>) and a <strong>random-quest</strong> system that spawns side jobs from a small pool of types. Both are visible in the game's static configs.</p>
+
+<div class="section-grid">
+<div>
+
+<h2>Random quest types (67 weighted)</h2>
+<p>From <code>data/configs/quests_distribution.cfg</code>. The engine picks a quest from this pool each time it needs a new side job; <code>m_frequency</code> is the relative weight, not a percentage — but the % column shows the share of total weight.</p>
+<table class="wiki">
+<thead><tr><th>Quest type</th><th class="numeric">Frequency</th><th class="numeric">Share</th><th>Likely means</th></tr></thead>
+<tbody>
+
+<tr>
+    <td class="mono">PROPS_REQUEST</td>
+    <td class="numeric"><strong>10</strong></td>
+    <td class="numeric">14.9%</td>
+    <td>Engine-tuned quest variant; behaviour inferred from name.
+        </td>
+</tr>
+
+<tr>
+    <td class="mono">FRUIT_REQUEST</td>
+    <td class="numeric"><strong>10</strong></td>
+    <td class="numeric">14.9%</td>
+    <td>Engine-tuned quest variant; behaviour inferred from name.
+        </td>
+</tr>
+
+<tr>
+    <td class="mono">DARKNESS_CLEANUP</td>
+    <td class="numeric"><strong>9</strong></td>
+    <td class="numeric">13.4%</td>
+    <td>Engine-tuned quest variant; behaviour inferred from name.
+        </td>
+</tr>
+
+<tr>
+    <td class="mono">NPC_PIRATE_BOUNTY</td>
+    <td class="numeric"><strong>8</strong></td>
+    <td class="numeric">11.9%</td>
+    <td>Hunt down a named pirate NPC on a specific planet.
+        </td>
+</tr>
+
+<tr>
+    <td class="mono">NPC_PIRATE_SHIP_BOUNTY</td>
+    <td class="numeric"><strong>8</strong></td>
+    <td class="numeric">11.9%</td>
+    <td>Destroy a named pirate ship in space.
+        </td>
+</tr>
+
+<tr>
+    <td class="mono">HUNT_DARKNESS_CREATURE</td>
+    <td class="numeric"><strong>7</strong></td>
+    <td class="numeric">10.4%</td>
+    <td>Engine-tuned quest variant; behaviour inferred from name.
+        </td>
+</tr>
+
+<tr>
+    <td class="mono">HUNT_CREATURE</td>
+    <td class="numeric"><strong>7</strong></td>
+    <td class="numeric">10.4%</td>
+    <td>Engine-tuned quest variant; behaviour inferred from name.
+        </td>
+</tr>
+
+<tr>
+    <td class="mono">RESOURCE_REQUEST</td>
+    <td class="numeric"><strong>6</strong></td>
+    <td class="numeric">9.0%</td>
+    <td>NPC asks you to deliver N of an item. The most common quest type — easy XP for Trading and Crafting.
+        </td>
+</tr>
+
+<tr>
+    <td class="mono">PLANET_CHART</td>
+    <td class="numeric"><strong>1</strong></td>
+    <td class="numeric">1.5%</td>
+    <td>Survey a specific planet to add it to your charts.
+        </td>
+</tr>
+
+<tr>
+    <td class="mono">SYSTEM_CHART</td>
+    <td class="numeric"><strong>1</strong></td>
+    <td class="numeric">1.5%</td>
+    <td>Survey a whole star system.
+        </td>
+</tr>
+
+</tbody>
+</table>
+
+<h2>Main-story progression</h2>
+<p>The story is encoded as <strong>148 progression tasks</strong> in <code>data/configs/progression/</code>. Each task is one beat (open the inventory, reach the ruins, craft a workbench, get the warp cell, …) with a <code>storyStep</code> flag the engine sets when complete.</p>
+
+<h3>Most common task categories</h3>
+<table class="wiki">
+<thead><tr><th>Category</th><th class="numeric">Count</th></tr></thead>
+<tbody>
+
+<tr><td class="mono">REACH_POI</td><td class="numeric">22</td></tr>
+
+<tr><td class="mono">INTERACT</td><td class="numeric">17</td></tr>
+
+<tr><td class="mono">CRAFT</td><td class="numeric">16</td></tr>
+
+<tr><td class="mono">LOOT</td><td class="numeric">11</td></tr>
+
+<tr><td class="mono">LAND</td><td class="numeric">7</td></tr>
+
+<tr><td class="mono">FINISH_DIALOGUE</td><td class="numeric">7</td></tr>
+
+<tr><td class="mono">FURNACE</td><td class="numeric">7</td></tr>
+
+<tr><td class="mono">COUNT_INGREDIENTS</td><td class="numeric">6</td></tr>
+
+<tr><td class="mono">DEPLOY</td><td class="numeric">5</td></tr>
+
+<tr><td class="mono">PURIFY_PLANET</td><td class="numeric">4</td></tr>
+
+<tr><td class="mono">REACH_SYSTEM</td><td class="numeric">3</td></tr>
+
+<tr><td class="mono">CLEAR_PIRATE_BASE</td><td class="numeric">2</td></tr>
+
+</tbody>
+</table>
+
+<h3>Notable story milestones</h3>
+<p>A taste of the story flags the engine sets. The full list lives in <code>data/configs/progression/*.cfg</code> under <code>storyStep</code>.</p>
+<ul style="columns:2;font-family:ui-monospace,monospace;font-size:0.88em;line-height:1.8">
+
+<li>ACTIVATED_CASTLE_TEMPLE</li>
+
+<li>ACTIVATED_FIRST_CANON</li>
+
+<li>ACTIVATED_SHIELD_BREAKER</li>
+
+<li>AT_FIRST_TEMPLE</li>
+
+<li>BROKE_QUBERION_STATION_BARRIER</li>
+
+<li>CLEARED_KNIGHT_A_AREA</li>
+
+<li>CLEARED_KNIGHT_B_AREA</li>
+
+<li>DESTROYED_CASTLE_SHIELD</li>
+
+<li>FINISHED_GAME</li>
+
+<li>FIXED_FIRST_TEMPLE</li>
+
+<li>FORTIFIED_AGAINST_DARKNESS</li>
+
+<li>FOUND_FIRST_CANON</li>
+
+<li>FOUND_FIRST_GUARDIAN</li>
+
+<li>FOUND_KNIGHT_A</li>
+
+<li>FOUND_PRINCESS</li>
+
+<li>FREED_QUEEN</li>
+
+<li>GOT_4_KEYS</li>
+
+<li>GOT_CORRUPTION_CLEANER</li>
+
+</ul>
+
+<h2>Main "Acts" / chapters</h2>
+<p>The top-level chapter structure is in <code>data/configs/tasks/</code> — 11 entries, each with a <code>description</code> string and a <code>long_text</code> for the in-game journal. The strings themselves are obfuscated in the localization files we haven't decoded.</p>
+<table class="wiki">
+<thead><tr><th class="numeric">Act</th><th>Description key</th><th>Long-text key</th></tr></thead>
+<tbody>
+
+<tr>
+    <td class="numeric"><strong>1</strong></td>
+    <td class="mono">STR_ACT_1_TITLE</td>
+    <td class="mono" style="color:var(--text-faint)">STR_ACT_1_TEXT</td>
+</tr>
+
+<tr>
+    <td class="numeric"><strong>2</strong></td>
+    <td class="mono">STR_ACT_2_TITLE</td>
+    <td class="mono" style="color:var(--text-faint)">STR_ACT_2_TEXT</td>
+</tr>
+
+<tr>
+    <td class="numeric"><strong>3</strong></td>
+    <td class="mono">STR_ACT_3_TITLE</td>
+    <td class="mono" style="color:var(--text-faint)">STR_ACT_3_TEXT</td>
+</tr>
+
+<tr>
+    <td class="numeric"><strong>4</strong></td>
+    <td class="mono">STR_ACT_4_TITLE</td>
+    <td class="mono" style="color:var(--text-faint)">STR_ACT_4_TEXT</td>
+</tr>
+
+<tr>
+    <td class="numeric"><strong>5</strong></td>
+    <td class="mono">STR_ACT_5_TITLE</td>
+    <td class="mono" style="color:var(--text-faint)">STR_ACT_5_TEXT</td>
+</tr>
+
+<tr>
+    <td class="numeric"><strong>6</strong></td>
+    <td class="mono">STR_ACT_6_TITLE</td>
+    <td class="mono" style="color:var(--text-faint)">STR_ACT_6_TEXT</td>
+</tr>
+
+<tr>
+    <td class="numeric"><strong>7</strong></td>
+    <td class="mono">STR_ACT_7_TITLE</td>
+    <td class="mono" style="color:var(--text-faint)">STR_ACT_7_TEXT</td>
+</tr>
+
+<tr>
+    <td class="numeric"><strong>8</strong></td>
+    <td class="mono">STR_ACT_8_TITLE</td>
+    <td class="mono" style="color:var(--text-faint)">STR_ACT_8_TEXT</td>
+</tr>
+
+<tr>
+    <td class="numeric"><strong>9</strong></td>
+    <td class="mono">STR_ACT_9_TITLE</td>
+    <td class="mono" style="color:var(--text-faint)">STR_ACT_9_TEXT</td>
+</tr>
+
+<tr>
+    <td class="numeric"><strong>10</strong></td>
+    <td class="mono">STR_ACT_10_TITLE</td>
+    <td class="mono" style="color:var(--text-faint)">STR_ACT_10_TEXT</td>
+</tr>
+
+<tr>
+    <td class="numeric"><strong>11</strong></td>
+    <td class="mono">STR_ACT_11_TITLE</td>
+    <td class="mono" style="color:var(--text-faint)">STR_ACT_11_TEXT</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2>Tips</h2>
+<ul>
+    <li><strong>Random quests give Trading XP on completion</strong> — even if the reward is small, they're a steady drip. Pick them up at every outpost you visit.</li>
+    <li><strong>Pirate bounties stack with the pirate's drop table.</strong> See the <a href="../enemies.html">Enemies page</a> for what each pirate variant drops; if a bounty asks for a tier-3 pirate, the drop table is <code>pirate_tier3</code>.</li>
+    <li><strong>Planet / system charts are passive Trading XP</strong> — you'd be visiting those systems anyway, the quest just pays you for it.</li>
+    <li><strong>The main story is gated by progression flags.</strong> Don't rush past biome-discovery beats — some equip / craft tasks require you to have actually picked up the item, not just have the recipe.</li>
+</ul>
+
+</div>
+
+<aside class="infobox">
+<h3 style="margin-top:0">At a glance</h3>
+<dl>
+    <dt>Random types</dt><dd>10</dd>
+    <dt>Main story tasks</dt><dd>148</dd>
+    <dt>Acts / chapters</dt><dd>11</dd>
+    <dt>Top type</dt><dd>PROPS_REQUEST</dd>
+</dl>
+</aside>
+</div>
+
+<p style="margin-top:2.5rem"><a class="muted" href="../guides.html">← Back to all guides</a></p>
+
+</main>
+<footer class="site">
+    <div class="inner">
+        Generated 2026-05-11 05:15 UTC from game data (2026-04-26).
+        Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
+        Planet→biome distribution mapping is best-effort.
+    </div>
+</footer>
+
+</body>
+</html>

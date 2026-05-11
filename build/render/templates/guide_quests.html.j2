@@ -1,0 +1,93 @@
+{% extends "base.html.j2" %}
+{% block title %}Quests{% endblock %}
+{% block content %}
+<h1>Quests</h1>
+<p>Cubic Odyssey has two parallel quest tracks: a hand-authored <strong>main story</strong> (149 progression tasks driving milestones like <code>GOT_WARP_CELL</code>, <code>FREED_QUEEN</code>, <code>REACHED_NEXUS</code>) and a <strong>random-quest</strong> system that spawns side jobs from a small pool of types. Both are visible in the game's static configs.</p>
+
+<div class="section-grid">
+<div>
+
+<h2>Random quest types ({{ total_freq }} weighted)</h2>
+<p>From <code>data/configs/quests_distribution.cfg</code>. The engine picks a quest from this pool each time it needs a new side job; <code>m_frequency</code> is the relative weight, not a percentage — but the % column shows the share of total weight.</p>
+<table class="wiki">
+<thead><tr><th>Quest type</th><th class="numeric">Frequency</th><th class="numeric">Share</th><th>Likely means</th></tr></thead>
+<tbody>
+{% for q in quest_types %}
+<tr>
+    <td class="mono">{{ q.type }}</td>
+    <td class="numeric"><strong>{{ q.frequency }}</strong></td>
+    <td class="numeric">{{ q.pct }}</td>
+    <td>{% if q.type == 'RESOURCE_REQUEST' %}NPC asks you to deliver N of an item. The most common quest type — easy XP for Trading and Crafting.
+        {% elif q.type == 'NPC_PIRATE_BOUNTY' %}Hunt down a named pirate NPC on a specific planet.
+        {% elif q.type == 'NPC_PIRATE_SHIP_BOUNTY' %}Destroy a named pirate ship in space.
+        {% elif q.type == 'PLANET_CHART' %}Survey a specific planet to add it to your charts.
+        {% elif q.type == 'SYSTEM_CHART' %}Survey a whole star system.
+        {% elif q.type == 'NPC_BOUNTY' %}Generic hostile-NPC bounty (zombies, etc.).
+        {% elif q.type == 'NPC_KILL' %}Kill a target NPC.
+        {% elif q.type == 'POI_SCAN' %}Visit and scan a point of interest.
+        {% else %}Engine-tuned quest variant; behaviour inferred from name.
+        {% endif %}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<h2>Main-story progression</h2>
+<p>The story is encoded as <strong>{{ progression_tasks }} progression tasks</strong> in <code>data/configs/progression/</code>. Each task is one beat (open the inventory, reach the ruins, craft a workbench, get the warp cell, …) with a <code>storyStep</code> flag the engine sets when complete.</p>
+
+<h3>Most common task categories</h3>
+<table class="wiki">
+<thead><tr><th>Category</th><th class="numeric">Count</th></tr></thead>
+<tbody>
+{% for cat, n in top_categories %}
+<tr><td class="mono">{{ cat }}</td><td class="numeric">{{ n }}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+
+<h3>Notable story milestones</h3>
+<p>A taste of the story flags the engine sets. The full list lives in <code>data/configs/progression/*.cfg</code> under <code>storyStep</code>.</p>
+<ul style="columns:2;font-family:ui-monospace,monospace;font-size:0.88em;line-height:1.8">
+{% for ss in notable_story_steps %}
+<li>{{ ss }}</li>
+{% endfor %}
+</ul>
+
+<h2>Main "Acts" / chapters</h2>
+<p>The top-level chapter structure is in <code>data/configs/tasks/</code> — {{ acts|length }} entries, each with a <code>description</code> string and a <code>long_text</code> for the in-game journal. The strings themselves are obfuscated in the localization files we haven't decoded.</p>
+<table class="wiki">
+<thead><tr><th class="numeric">Act</th><th>Description key</th><th>Long-text key</th></tr></thead>
+<tbody>
+{% for a in acts %}
+<tr>
+    <td class="numeric"><strong>{{ a.id }}</strong></td>
+    <td class="mono">{{ a.description_string or '—' }}</td>
+    <td class="mono" style="color:var(--text-faint)">{{ a.long_text_string or '—' }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<h2>Tips</h2>
+<ul>
+    <li><strong>Random quests give Trading XP on completion</strong> — even if the reward is small, they're a steady drip. Pick them up at every outpost you visit.</li>
+    <li><strong>Pirate bounties stack with the pirate's drop table.</strong> See the <a href="{{ root }}enemies.html">Enemies page</a> for what each pirate variant drops; if a bounty asks for a tier-3 pirate, the drop table is <code>pirate_tier3</code>.</li>
+    <li><strong>Planet / system charts are passive Trading XP</strong> — you'd be visiting those systems anyway, the quest just pays you for it.</li>
+    <li><strong>The main story is gated by progression flags.</strong> Don't rush past biome-discovery beats — some equip / craft tasks require you to have actually picked up the item, not just have the recipe.</li>
+</ul>
+
+</div>
+
+<aside class="infobox">
+<h3 style="margin-top:0">At a glance</h3>
+<dl>
+    <dt>Random types</dt><dd>{{ quest_types|length }}</dd>
+    <dt>Main story tasks</dt><dd>{{ progression_tasks }}</dd>
+    <dt>Acts / chapters</dt><dd>{{ acts|length }}</dd>
+    <dt>Top type</dt><dd>{{ quest_types[0].type if quest_types else '—' }}</dd>
+</dl>
+</aside>
+</div>
+
+<p style="margin-top:2.5rem"><a class="muted" href="{{ root }}guides.html">← Back to all guides</a></p>
+{% endblock %}

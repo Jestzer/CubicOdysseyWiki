@@ -23,6 +23,7 @@
             <a href="ingots.html"    class="">Ingots</a>
             <a href="tools.html"     class="">Tools</a>
             <a href="weapons.html"   class="">Weapons</a>
+            <a href="blocks.html"    class="">Blocks</a>
             <a href="resources.html" class="">Resources</a>
             <a href="worlds.html"    class="">Worlds</a>
             <a href="enemies.html"   class="">Enemies</a>
@@ -36,6 +37,10 @@
     
 <h1>Ships</h1>
 <p>Every entry in <code>data/configs/ships/</code> plus every item with <code>type SHIP</code>. The game has <strong>5 ship classes</strong> and <strong>4 factions</strong>; components (chassis / cargo / shield / engine) are <em>class-locked</em>, see the box below.</p>
+
+<div class="note" style="border-left-color:#67b0ff">
+    <strong>Starter ship:</strong> The "scout" ship players begin with is <a href="ships/ship_micro_recon.html">Micro Recon</a> — identifier <code>ship.micro.recon</code>, class L1_CORVETTE, base price 6000. Filter "All factions → Generic" + "All classes → Corvette" below to see other entry-level options. Higher-tier player ships (Argonaut, Excalibur, Leviathan, Neutron) sit at the bottom of the Generic / Ancients buckets.
+</div>
 
 <div class="note" style="border-left-color:#ff9a4c">
     <strong>Can I apply scout-ship parts to a newer ship?</strong> No. Ship components in <code>data/configs/recipes/V_*.cfg</code> are split into four parallel ladders — <code>V_CORVETTE_*</code>, <code>V_FRIGATE_*</code>, <code>V_DREADNOUGHT_*</code>, <code>V_GALLEON_*</code> — each with its own MK1 → MK5 progression. There is no <em>recipe</em> in the data that converts a Corvette part to a Frigate part. Within a class you upgrade by crafting MK<sup>n+1</sup> components; across classes you scrap your old setup or sell the old ship outright.
@@ -64,8 +69,8 @@
 </tr></thead>
 <tbody>
 
-<tr data-class="L0_DRONE" data-faction="PIRATES" data-search="ship pirate drone mk1 ship.pirate.drone.mk1 drone pirates">
-    <td><a href="ships/ship_pirate_drone_mk1.html">Ship Pirate Drone Mk1</a></td>
+<tr data-class="L0_DRONE" data-faction="PIRATES" data-search="pirate drone mk1 ship.pirate.drone.mk1 drone pirates">
+    <td><a href="ships/ship_pirate_drone_mk1.html">Pirate Drone Mk1</a></td>
     <td>Drone</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-1">T1</span></td>
@@ -73,8 +78,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="ship basilisk ship.basilisk corvette generic">
-    <td><a href="ships/ship_basilisk.html">Ship Basilisk</a></td>
+<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="basilisk ship.basilisk corvette generic">
+    <td><a href="ships/ship_basilisk.html">Basilisk</a></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -82,8 +87,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="ship excalibur ship.excalibur corvette generic">
-    <td><a href="ships/ship_excalibur.html">Ship Excalibur</a></td>
+<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="excalibur ship.excalibur corvette generic">
+    <td><a href="ships/ship_excalibur.html">Excalibur</a></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -91,8 +96,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="ship galactix racer ship.galactix.racer corvette generic">
-    <td><a href="ships/ship_galactix_racer.html">Ship Galactix Racer</a></td>
+<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="galactix racer ship.galactix.racer corvette generic">
+    <td><a href="ships/ship_galactix_racer.html">Galactix Racer</a></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -100,8 +105,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="ship hipersonic ship.hipersonic corvette generic">
-    <td><a href="ships/ship_hipersonic.html">Ship Hipersonic</a></td>
+<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="hipersonic ship.hipersonic corvette generic">
+    <td><a href="ships/ship_hipersonic.html">Hipersonic</a></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -109,8 +114,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="ship infinity ship.infinity corvette generic">
-    <td><a href="ships/ship_infinity.html">Ship Infinity</a></td>
+<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="infinity ship.infinity corvette generic">
+    <td><a href="ships/ship_infinity.html">Infinity</a></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -118,8 +123,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="ship interstellar runner ship.interstellar.runner corvette generic">
-    <td><a href="ships/ship_interstellar_runner.html">Ship Interstellar Runner</a></td>
+<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="interstellar runner ship.interstellar.runner corvette generic">
+    <td><a href="ships/ship_interstellar_runner.html">Interstellar Runner</a></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -127,8 +132,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="ship micro recon ship.micro.recon corvette generic">
-    <td><a href="ships/ship_micro_recon.html">Ship Micro Recon</a></td>
+<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="micro recon ship.micro.recon corvette generic">
+    <td><a href="ships/ship_micro_recon.html">Micro Recon</a></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-1">T1</span></td>
@@ -136,8 +141,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="ship planet purifier mobile ship.planet.purifier.mobile corvette generic">
-    <td><a href="ships/ship_planet_purifier_mobile.html">Ship Planet Purifier Mobile</a></td>
+<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="planet purifier mobile ship.planet.purifier.mobile corvette generic">
+    <td><a href="ships/ship_planet_purifier_mobile.html">Planet Purifier Mobile</a></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -145,8 +150,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="ship red fury ship.red.fury corvette generic">
-    <td><a href="ships/ship_red_fury.html">Ship Red Fury</a></td>
+<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="red fury ship.red.fury corvette generic">
+    <td><a href="ships/ship_red_fury.html">Red Fury</a></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -154,8 +159,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="ship shell ship.shell corvette generic">
-    <td><a href="ships/ship_shell.html">Ship Shell</a></td>
+<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="shell ship.shell corvette generic">
+    <td><a href="ships/ship_shell.html">Shell</a></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -163,8 +168,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="ship supersonic small ship.supersonic.small corvette generic">
-    <td><a href="ships/ship_supersonic_small.html">Ship Supersonic Small</a></td>
+<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-search="supersonic small ship.supersonic.small corvette generic">
+    <td><a href="ships/ship_supersonic_small.html">Supersonic Small</a></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -172,8 +177,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-search="ship pirate corvette mk1 ship.pirate.corvette.mk1 corvette pirates">
-    <td><a href="ships/ship_pirate_corvette_mk1.html">Ship Pirate Corvette Mk1</a></td>
+<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-search="pirate corvette mk1 ship.pirate.corvette.mk1 corvette pirates">
+    <td><a href="ships/ship_pirate_corvette_mk1.html">Pirate Corvette Mk1</a></td>
     <td>Corvette</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-1">T1</span></td>
@@ -181,8 +186,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-search="ship pirate corvette mk2 ship.pirate.corvette.mk2 corvette pirates">
-    <td><a href="ships/ship_pirate_corvette_mk2.html">Ship Pirate Corvette Mk2</a></td>
+<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-search="pirate corvette mk2 ship.pirate.corvette.mk2 corvette pirates">
+    <td><a href="ships/ship_pirate_corvette_mk2.html">Pirate Corvette Mk2</a></td>
     <td>Corvette</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -190,8 +195,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-search="ship pirate corvette mk3 ship.pirate.corvette.mk3 corvette pirates">
-    <td><a href="ships/ship_pirate_corvette_mk3.html">Ship Pirate Corvette Mk3</a></td>
+<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-search="pirate corvette mk3 ship.pirate.corvette.mk3 corvette pirates">
+    <td><a href="ships/ship_pirate_corvette_mk3.html">Pirate Corvette Mk3</a></td>
     <td>Corvette</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -199,8 +204,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-search="ship pirate corvette mk4 ship.pirate.corvette.mk4 corvette pirates">
-    <td><a href="ships/ship_pirate_corvette_mk4.html">Ship Pirate Corvette Mk4</a></td>
+<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-search="pirate corvette mk4 ship.pirate.corvette.mk4 corvette pirates">
+    <td><a href="ships/ship_pirate_corvette_mk4.html">Pirate Corvette Mk4</a></td>
     <td>Corvette</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -208,8 +213,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-search="ship pirate corvette mk5 ship.pirate.corvette.mk5 corvette pirates">
-    <td><a href="ships/ship_pirate_corvette_mk5.html">Ship Pirate Corvette Mk5</a></td>
+<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-search="pirate corvette mk5 ship.pirate.corvette.mk5 corvette pirates">
+    <td><a href="ships/ship_pirate_corvette_mk5.html">Pirate Corvette Mk5</a></td>
     <td>Corvette</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -217,8 +222,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-search="ship pirate dvergr ship.pirate.dvergr corvette pirates">
-    <td><a href="ships/ship_pirate_dvergr.html">Ship Pirate Dvergr</a></td>
+<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-search="pirate dvergr ship.pirate.dvergr corvette pirates">
+    <td><a href="ships/ship_pirate_dvergr.html">Pirate Dvergr</a></td>
     <td>Corvette</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -226,8 +231,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-search="ship pirate mean ship.pirate.mean corvette pirates">
-    <td><a href="ships/ship_pirate_mean.html">Ship Pirate Mean</a></td>
+<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-search="pirate mean ship.pirate.mean corvette pirates">
+    <td><a href="ships/ship_pirate_mean.html">Pirate Mean</a></td>
     <td>Corvette</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -235,8 +240,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-search="ship pirate sly runner ship.pirate.sly.runner corvette pirates">
-    <td><a href="ships/ship_pirate_sly_runner.html">Ship Pirate Sly Runner</a></td>
+<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-search="pirate sly runner ship.pirate.sly.runner corvette pirates">
+    <td><a href="ships/ship_pirate_sly_runner.html">Pirate Sly Runner</a></td>
     <td>Corvette</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -244,8 +249,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-search="ship pirate tiny runner ship.pirate.tiny.runner corvette pirates">
-    <td><a href="ships/ship_pirate_tiny_runner.html">Ship Pirate Tiny Runner</a></td>
+<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-search="pirate tiny runner ship.pirate.tiny.runner corvette pirates">
+    <td><a href="ships/ship_pirate_tiny_runner.html">Pirate Tiny Runner</a></td>
     <td>Corvette</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-1">T1</span></td>
@@ -253,8 +258,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-search="ship pirate vector ship.pirate.vector corvette pirates">
-    <td><a href="ships/ship_pirate_vector.html">Ship Pirate Vector</a></td>
+<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-search="pirate vector ship.pirate.vector corvette pirates">
+    <td><a href="ships/ship_pirate_vector.html">Pirate Vector</a></td>
     <td>Corvette</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -262,8 +267,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L1_CORVETTE" data-faction="POLICE" data-search="ship police quick redeemer ship.police.quick.redeemer corvette police">
-    <td><a href="ships/ship_police_quick_redeemer.html">Ship Police Quick Redeemer</a></td>
+<tr data-class="L1_CORVETTE" data-faction="POLICE" data-search="police quick redeemer ship.police.quick.redeemer corvette police">
+    <td><a href="ships/ship_police_quick_redeemer.html">Police Quick Redeemer</a></td>
     <td>Corvette</td>
     <td>Police</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -271,8 +276,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-search="ship artemis ship.artemis frigate generic">
-    <td><a href="ships/ship_artemis.html">Ship Artemis</a></td>
+<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-search="artemis ship.artemis frigate generic">
+    <td><a href="ships/ship_artemis.html">Artemis</a></td>
     <td>Frigate</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -280,8 +285,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-search="ship defiant ship.defiant frigate generic">
-    <td><a href="ships/ship_defiant.html">Ship Defiant</a></td>
+<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-search="defiant ship.defiant frigate generic">
+    <td><a href="ships/ship_defiant.html">Defiant</a></td>
     <td>Frigate</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -289,8 +294,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-search="ship endeavour ship.endeavour frigate generic">
-    <td><a href="ships/ship_endeavour.html">Ship Endeavour</a></td>
+<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-search="endeavour ship.endeavour frigate generic">
+    <td><a href="ships/ship_endeavour.html">Endeavour</a></td>
     <td>Frigate</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -298,8 +303,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-search="ship hermes ship.hermes frigate generic">
-    <td><a href="ships/ship_hermes.html">Ship Hermes</a></td>
+<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-search="hermes ship.hermes frigate generic">
+    <td><a href="ships/ship_hermes.html">Hermes</a></td>
     <td>Frigate</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -307,8 +312,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-search="ship infrared furtive ship.infrared.furtive frigate generic">
-    <td><a href="ships/ship_infrared_furtive.html">Ship Infrared Furtive</a></td>
+<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-search="infrared furtive ship.infrared.furtive frigate generic">
+    <td><a href="ships/ship_infrared_furtive.html">Infrared Furtive</a></td>
     <td>Frigate</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -316,8 +321,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-search="ship red fighter ship.red.fighter frigate generic">
-    <td><a href="ships/ship_red_fighter.html">Ship Red Fighter</a></td>
+<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-search="red fighter ship.red.fighter frigate generic">
+    <td><a href="ships/ship_red_fighter.html">Red Fighter</a></td>
     <td>Frigate</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -325,8 +330,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-search="ship star marine trooper ship.star.marine.trooper frigate generic">
-    <td><a href="ships/ship_star_marine_trooper.html">Ship Star Marine Trooper</a></td>
+<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-search="star marine trooper ship.star.marine.trooper frigate generic">
+    <td><a href="ships/ship_star_marine_trooper.html">Star Marine Trooper</a></td>
     <td>Frigate</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -334,8 +339,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-search="ship transtellar ship.transtellar frigate generic">
-    <td><a href="ships/ship_transtellar.html">Ship Transtellar</a></td>
+<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-search="transtellar ship.transtellar frigate generic">
+    <td><a href="ships/ship_transtellar.html">Transtellar</a></td>
     <td>Frigate</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -343,8 +348,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-search="ship ultraviolet intruder ship.ultraviolet.intruder frigate generic">
-    <td><a href="ships/ship_ultraviolet_intruder.html">Ship Ultraviolet Intruder</a></td>
+<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-search="ultraviolet intruder ship.ultraviolet.intruder frigate generic">
+    <td><a href="ships/ship_ultraviolet_intruder.html">Ultraviolet Intruder</a></td>
     <td>Frigate</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-1">T1</span></td>
@@ -352,8 +357,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-search="ship warship ship.warship frigate generic">
-    <td><a href="ships/ship_warship.html">Ship Warship</a></td>
+<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-search="warship ship.warship frigate generic">
+    <td><a href="ships/ship_warship.html">Warship</a></td>
     <td>Frigate</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -361,8 +366,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-search="ship pirate frigate mk1 ship.pirate.frigate.mk1 frigate pirates">
-    <td><a href="ships/ship_pirate_frigate_mk1.html">Ship Pirate Frigate Mk1</a></td>
+<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-search="pirate frigate mk1 ship.pirate.frigate.mk1 frigate pirates">
+    <td><a href="ships/ship_pirate_frigate_mk1.html">Pirate Frigate Mk1</a></td>
     <td>Frigate</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-1">T1</span></td>
@@ -370,8 +375,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-search="ship pirate frigate mk2 ship.pirate.frigate.mk2 frigate pirates">
-    <td><a href="ships/ship_pirate_frigate_mk2.html">Ship Pirate Frigate Mk2</a></td>
+<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-search="pirate frigate mk2 ship.pirate.frigate.mk2 frigate pirates">
+    <td><a href="ships/ship_pirate_frigate_mk2.html">Pirate Frigate Mk2</a></td>
     <td>Frigate</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -379,8 +384,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-search="ship pirate frigate mk3 ship.pirate.frigate.mk3 frigate pirates">
-    <td><a href="ships/ship_pirate_frigate_mk3.html">Ship Pirate Frigate Mk3</a></td>
+<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-search="pirate frigate mk3 ship.pirate.frigate.mk3 frigate pirates">
+    <td><a href="ships/ship_pirate_frigate_mk3.html">Pirate Frigate Mk3</a></td>
     <td>Frigate</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -388,8 +393,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-search="ship pirate frigate mk4 ship.pirate.frigate.mk4 frigate pirates">
-    <td><a href="ships/ship_pirate_frigate_mk4.html">Ship Pirate Frigate Mk4</a></td>
+<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-search="pirate frigate mk4 ship.pirate.frigate.mk4 frigate pirates">
+    <td><a href="ships/ship_pirate_frigate_mk4.html">Pirate Frigate Mk4</a></td>
     <td>Frigate</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -397,8 +402,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-search="ship pirate frigate mk5 ship.pirate.frigate.mk5 frigate pirates">
-    <td><a href="ships/ship_pirate_frigate_mk5.html">Ship Pirate Frigate Mk5</a></td>
+<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-search="pirate frigate mk5 ship.pirate.frigate.mk5 frigate pirates">
+    <td><a href="ships/ship_pirate_frigate_mk5.html">Pirate Frigate Mk5</a></td>
     <td>Frigate</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -406,8 +411,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-search="ship pirate seeker ship.pirate.seeker frigate pirates">
-    <td><a href="ships/ship_pirate_seeker.html">Ship Pirate Seeker</a></td>
+<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-search="pirate seeker ship.pirate.seeker frigate pirates">
+    <td><a href="ships/ship_pirate_seeker.html">Pirate Seeker</a></td>
     <td>Frigate</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -415,8 +420,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-search="ship pirate straight runner ship.pirate.straight.runner frigate pirates">
-    <td><a href="ships/ship_pirate_straight_runner.html">Ship Pirate Straight Runner</a></td>
+<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-search="pirate straight runner ship.pirate.straight.runner frigate pirates">
+    <td><a href="ships/ship_pirate_straight_runner.html">Pirate Straight Runner</a></td>
     <td>Frigate</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -424,8 +429,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-search="ship pirate supersonic ship.pirate.supersonic frigate pirates">
-    <td><a href="ships/ship_pirate_supersonic.html">Ship Pirate Supersonic</a></td>
+<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-search="pirate supersonic ship.pirate.supersonic frigate pirates">
+    <td><a href="ships/ship_pirate_supersonic.html">Pirate Supersonic</a></td>
     <td>Frigate</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -433,8 +438,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-search="ship pirate tri runner ship.pirate.tri.runner frigate pirates">
-    <td><a href="ships/ship_pirate_tri_runner.html">Ship Pirate Tri Runner</a></td>
+<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-search="pirate tri runner ship.pirate.tri.runner frigate pirates">
+    <td><a href="ships/ship_pirate_tri_runner.html">Pirate Tri Runner</a></td>
     <td>Frigate</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-1">T1</span></td>
@@ -442,8 +447,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L2_FRIGATE" data-faction="POLICE" data-search="ship police patrol runner ship.police.patrol.runner frigate police">
-    <td><a href="ships/ship_police_patrol_runner.html">Ship Police Patrol Runner</a></td>
+<tr data-class="L2_FRIGATE" data-faction="POLICE" data-search="police patrol runner ship.police.patrol.runner frigate police">
+    <td><a href="ships/ship_police_patrol_runner.html">Police Patrol Runner</a></td>
     <td>Frigate</td>
     <td>Police</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -451,8 +456,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L3_DREADNOUGHT" data-faction="ANCIENTS" data-search="ship argonaut ship.argonaut dreadnought ancients">
-    <td><a href="ships/ship_argonaut.html">Ship Argonaut</a></td>
+<tr data-class="L3_DREADNOUGHT" data-faction="ANCIENTS" data-search="argonaut ship.argonaut dreadnought ancients">
+    <td><a href="ships/ship_argonaut.html">Argonaut</a></td>
     <td>Dreadnought</td>
     <td>Ancients</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -460,8 +465,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L3_DREADNOUGHT" data-faction="ANCIENTS" data-search="ship leviathan ship.leviathan dreadnought ancients">
-    <td><a href="ships/ship_leviathan.html">Ship Leviathan</a></td>
+<tr data-class="L3_DREADNOUGHT" data-faction="ANCIENTS" data-search="leviathan ship.leviathan dreadnought ancients">
+    <td><a href="ships/ship_leviathan.html">Leviathan</a></td>
     <td>Dreadnought</td>
     <td>Ancients</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -469,8 +474,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L3_DREADNOUGHT" data-faction="ANCIENTS" data-search="ship neutron ship.neutron dreadnought ancients">
-    <td><a href="ships/ship_neutron.html">Ship Neutron</a></td>
+<tr data-class="L3_DREADNOUGHT" data-faction="ANCIENTS" data-search="neutron ship.neutron dreadnought ancients">
+    <td><a href="ships/ship_neutron.html">Neutron</a></td>
     <td>Dreadnought</td>
     <td>Ancients</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -478,8 +483,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L3_DREADNOUGHT" data-faction="ANCIENTS" data-search="ship planet biter ship.planet.biter dreadnought ancients">
-    <td><a href="ships/ship_planet_biter.html">Ship Planet Biter</a></td>
+<tr data-class="L3_DREADNOUGHT" data-faction="ANCIENTS" data-search="planet biter ship.planet.biter dreadnought ancients">
+    <td><a href="ships/ship_planet_biter.html">Planet Biter</a></td>
     <td>Dreadnought</td>
     <td>Ancients</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -487,8 +492,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L3_DREADNOUGHT" data-faction="ANCIENTS" data-search="ship primo regalis ship.primo.regalis dreadnought ancients">
-    <td><a href="ships/ship_primo_regalis.html">Ship Primo Regalis</a></td>
+<tr data-class="L3_DREADNOUGHT" data-faction="ANCIENTS" data-search="primo regalis ship.primo.regalis dreadnought ancients">
+    <td><a href="ships/ship_primo_regalis.html">Primo Regalis</a></td>
     <td>Dreadnought</td>
     <td>Ancients</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -496,8 +501,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L3_DREADNOUGHT" data-faction="ANCIENTS" data-search="ship vespira ship.vespira dreadnought ancients">
-    <td><a href="ships/ship_vespira.html">Ship Vespira</a></td>
+<tr data-class="L3_DREADNOUGHT" data-faction="ANCIENTS" data-search="vespira ship.vespira dreadnought ancients">
+    <td><a href="ships/ship_vespira.html">Vespira</a></td>
     <td>Dreadnought</td>
     <td>Ancients</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -505,8 +510,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-search="ship pirate bulky ship.pirate.bulky dreadnought pirates">
-    <td><a href="ships/ship_pirate_bulky.html">Ship Pirate Bulky</a></td>
+<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-search="pirate bulky ship.pirate.bulky dreadnought pirates">
+    <td><a href="ships/ship_pirate_bulky.html">Pirate Bulky</a></td>
     <td>Dreadnought</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -514,8 +519,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-search="ship pirate dreadnought mk1 ship.pirate.dreadnought.mk1 dreadnought pirates">
-    <td><a href="ships/ship_pirate_dreadnought_mk1.html">Ship Pirate Dreadnought Mk1</a></td>
+<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-search="pirate dreadnought mk1 ship.pirate.dreadnought.mk1 dreadnought pirates">
+    <td><a href="ships/ship_pirate_dreadnought_mk1.html">Pirate Dreadnought Mk1</a></td>
     <td>Dreadnought</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-1">T1</span></td>
@@ -523,8 +528,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-search="ship pirate dreadnought mk2 ship.pirate.dreadnought.mk2 dreadnought pirates">
-    <td><a href="ships/ship_pirate_dreadnought_mk2.html">Ship Pirate Dreadnought Mk2</a></td>
+<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-search="pirate dreadnought mk2 ship.pirate.dreadnought.mk2 dreadnought pirates">
+    <td><a href="ships/ship_pirate_dreadnought_mk2.html">Pirate Dreadnought Mk2</a></td>
     <td>Dreadnought</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -532,8 +537,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-search="ship pirate dreadnought mk3 ship.pirate.dreadnought.mk3 dreadnought pirates">
-    <td><a href="ships/ship_pirate_dreadnought_mk3.html">Ship Pirate Dreadnought Mk3</a></td>
+<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-search="pirate dreadnought mk3 ship.pirate.dreadnought.mk3 dreadnought pirates">
+    <td><a href="ships/ship_pirate_dreadnought_mk3.html">Pirate Dreadnought Mk3</a></td>
     <td>Dreadnought</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -541,8 +546,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-search="ship pirate dreadnought mk4 ship.pirate.dreadnought.mk4 dreadnought pirates">
-    <td><a href="ships/ship_pirate_dreadnought_mk4.html">Ship Pirate Dreadnought Mk4</a></td>
+<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-search="pirate dreadnought mk4 ship.pirate.dreadnought.mk4 dreadnought pirates">
+    <td><a href="ships/ship_pirate_dreadnought_mk4.html">Pirate Dreadnought Mk4</a></td>
     <td>Dreadnought</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -550,8 +555,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-search="ship pirate dreadnought mk5 ship.pirate.dreadnought.mk5 dreadnought pirates">
-    <td><a href="ships/ship_pirate_dreadnought_mk5.html">Ship Pirate Dreadnought Mk5</a></td>
+<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-search="pirate dreadnought mk5 ship.pirate.dreadnought.mk5 dreadnought pirates">
+    <td><a href="ships/ship_pirate_dreadnought_mk5.html">Pirate Dreadnought Mk5</a></td>
     <td>Dreadnought</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -559,8 +564,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-search="ship pirate massive runner ship.pirate.massive.runner dreadnought pirates">
-    <td><a href="ships/ship_pirate_massive_runner.html">Ship Pirate Massive Runner</a></td>
+<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-search="pirate massive runner ship.pirate.massive.runner dreadnought pirates">
+    <td><a href="ships/ship_pirate_massive_runner.html">Pirate Massive Runner</a></td>
     <td>Dreadnought</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -568,8 +573,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L3_DREADNOUGHT" data-faction="POLICE" data-search="ship police master redeemer ship.police.master.redeemer dreadnought police">
-    <td><a href="ships/ship_police_master_redeemer.html">Ship Police Master Redeemer</a></td>
+<tr data-class="L3_DREADNOUGHT" data-faction="POLICE" data-search="police master redeemer ship.police.master.redeemer dreadnought police">
+    <td><a href="ships/ship_police_master_redeemer.html">Police Master Redeemer</a></td>
     <td>Dreadnought</td>
     <td>Police</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -577,8 +582,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L3_DREADNOUGHT" data-faction="POLICE" data-search="ship police relentless blazer ship.police.relentless.blazer dreadnought police">
-    <td><a href="ships/ship_police_relentless_blazer.html">Ship Police Relentless Blazer</a></td>
+<tr data-class="L3_DREADNOUGHT" data-faction="POLICE" data-search="police relentless blazer ship.police.relentless.blazer dreadnought police">
+    <td><a href="ships/ship_police_relentless_blazer.html">Police Relentless Blazer</a></td>
     <td>Dreadnought</td>
     <td>Police</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -586,8 +591,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L4_GALLEON" data-faction="GENERIC" data-search="ship camo stellar jet ship.camo.stellar.jet galleon generic">
-    <td><a href="ships/ship_camo_stellar_jet.html">Ship Camo Stellar Jet</a></td>
+<tr data-class="L4_GALLEON" data-faction="GENERIC" data-search="camo stellar jet ship.camo.stellar.jet galleon generic">
+    <td><a href="ships/ship_camo_stellar_jet.html">Camo Stellar Jet</a></td>
     <td>Galleon</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -595,8 +600,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L4_GALLEON" data-faction="GENERIC" data-search="ship chariot ship.chariot galleon generic">
-    <td><a href="ships/ship_chariot.html">Ship Chariot</a></td>
+<tr data-class="L4_GALLEON" data-faction="GENERIC" data-search="chariot ship.chariot galleon generic">
+    <td><a href="ships/ship_chariot.html">Chariot</a></td>
     <td>Galleon</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -604,8 +609,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L4_GALLEON" data-faction="GENERIC" data-search="ship cube basic ship.cube.basic galleon generic">
-    <td><a href="ships/ship_cube_basic.html">Ship Cube Basic</a></td>
+<tr data-class="L4_GALLEON" data-faction="GENERIC" data-search="cube basic ship.cube.basic galleon generic">
+    <td><a href="ships/ship_cube_basic.html">Cube Basic</a></td>
     <td>Galleon</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-1">T1</span></td>
@@ -613,8 +618,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L4_GALLEON" data-faction="GENERIC" data-search="ship dual striker ship.dual.striker galleon generic">
-    <td><a href="ships/ship_dual_striker.html">Ship Dual Striker</a></td>
+<tr data-class="L4_GALLEON" data-faction="GENERIC" data-search="dual striker ship.dual.striker galleon generic">
+    <td><a href="ships/ship_dual_striker.html">Dual Striker</a></td>
     <td>Galleon</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -622,8 +627,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L4_GALLEON" data-faction="GENERIC" data-search="ship planet bane ship.planet.bane galleon generic">
-    <td><a href="ships/ship_planet_bane.html">Ship Planet Bane</a></td>
+<tr data-class="L4_GALLEON" data-faction="GENERIC" data-search="planet bane ship.planet.bane galleon generic">
+    <td><a href="ships/ship_planet_bane.html">Planet Bane</a></td>
     <td>Galleon</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -631,8 +636,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L4_GALLEON" data-faction="PIRATES" data-search="ship pirate dual runner ship.pirate.dual.runner galleon pirates">
-    <td><a href="ships/ship_pirate_dual_runner.html">Ship Pirate Dual Runner</a></td>
+<tr data-class="L4_GALLEON" data-faction="PIRATES" data-search="pirate dual runner ship.pirate.dual.runner galleon pirates">
+    <td><a href="ships/ship_pirate_dual_runner.html">Pirate Dual Runner</a></td>
     <td>Galleon</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -640,8 +645,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L4_GALLEON" data-faction="PIRATES" data-search="ship pirate galleon mk1 ship.pirate.galleon.mk1 galleon pirates">
-    <td><a href="ships/ship_pirate_galleon_mk1.html">Ship Pirate Galleon Mk1</a></td>
+<tr data-class="L4_GALLEON" data-faction="PIRATES" data-search="pirate galleon mk1 ship.pirate.galleon.mk1 galleon pirates">
+    <td><a href="ships/ship_pirate_galleon_mk1.html">Pirate Galleon Mk1</a></td>
     <td>Galleon</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-1">T1</span></td>
@@ -649,8 +654,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L4_GALLEON" data-faction="PIRATES" data-search="ship pirate galleon mk2 ship.pirate.galleon.mk2 galleon pirates">
-    <td><a href="ships/ship_pirate_galleon_mk2.html">Ship Pirate Galleon Mk2</a></td>
+<tr data-class="L4_GALLEON" data-faction="PIRATES" data-search="pirate galleon mk2 ship.pirate.galleon.mk2 galleon pirates">
+    <td><a href="ships/ship_pirate_galleon_mk2.html">Pirate Galleon Mk2</a></td>
     <td>Galleon</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -658,8 +663,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L4_GALLEON" data-faction="PIRATES" data-search="ship pirate galleon mk3 ship.pirate.galleon.mk3 galleon pirates">
-    <td><a href="ships/ship_pirate_galleon_mk3.html">Ship Pirate Galleon Mk3</a></td>
+<tr data-class="L4_GALLEON" data-faction="PIRATES" data-search="pirate galleon mk3 ship.pirate.galleon.mk3 galleon pirates">
+    <td><a href="ships/ship_pirate_galleon_mk3.html">Pirate Galleon Mk3</a></td>
     <td>Galleon</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -667,8 +672,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L4_GALLEON" data-faction="PIRATES" data-search="ship pirate galleon mk4 ship.pirate.galleon.mk4 galleon pirates">
-    <td><a href="ships/ship_pirate_galleon_mk4.html">Ship Pirate Galleon Mk4</a></td>
+<tr data-class="L4_GALLEON" data-faction="PIRATES" data-search="pirate galleon mk4 ship.pirate.galleon.mk4 galleon pirates">
+    <td><a href="ships/ship_pirate_galleon_mk4.html">Pirate Galleon Mk4</a></td>
     <td>Galleon</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -676,8 +681,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L4_GALLEON" data-faction="PIRATES" data-search="ship pirate galleon mk5 ship.pirate.galleon.mk5 galleon pirates">
-    <td><a href="ships/ship_pirate_galleon_mk5.html">Ship Pirate Galleon Mk5</a></td>
+<tr data-class="L4_GALLEON" data-faction="PIRATES" data-search="pirate galleon mk5 ship.pirate.galleon.mk5 galleon pirates">
+    <td><a href="ships/ship_pirate_galleon_mk5.html">Pirate Galleon Mk5</a></td>
     <td>Galleon</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -685,8 +690,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L4_GALLEON" data-faction="PIRATES" data-search="ship pirate long runner ship.pirate.long.runner galleon pirates">
-    <td><a href="ships/ship_pirate_long_runner.html">Ship Pirate Long Runner</a></td>
+<tr data-class="L4_GALLEON" data-faction="PIRATES" data-search="pirate long runner ship.pirate.long.runner galleon pirates">
+    <td><a href="ships/ship_pirate_long_runner.html">Pirate Long Runner</a></td>
     <td>Galleon</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -694,8 +699,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L4_GALLEON" data-faction="PIRATES" data-search="ship pirate scavenger ship.pirate.scavenger galleon pirates">
-    <td><a href="ships/ship_pirate_scavenger.html">Ship Pirate Scavenger</a></td>
+<tr data-class="L4_GALLEON" data-faction="PIRATES" data-search="pirate scavenger ship.pirate.scavenger galleon pirates">
+    <td><a href="ships/ship_pirate_scavenger.html">Pirate Scavenger</a></td>
     <td>Galleon</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -703,8 +708,8 @@
     <td><span class="obtain obtain-npc">Enemy</span></td>
 </tr>
 
-<tr data-class="L4_GALLEON" data-faction="POLICE" data-search="ship police fast blazer ship.police.fast.blazer galleon police">
-    <td><a href="ships/ship_police_fast_blazer.html">Ship Police Fast Blazer</a></td>
+<tr data-class="L4_GALLEON" data-faction="POLICE" data-search="police fast blazer ship.police.fast.blazer galleon police">
+    <td><a href="ships/ship_police_fast_blazer.html">Police Fast Blazer</a></td>
     <td>Galleon</td>
     <td>Police</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -712,8 +717,8 @@
     <td><span class="obtain obtain-craftable">Buy / craft</span></td>
 </tr>
 
-<tr data-class="L4_GALLEON" data-faction="POLICE" data-search="ship police straight watcher ship.police.straight.watcher galleon police">
-    <td><a href="ships/ship_police_straight_watcher.html">Ship Police Straight Watcher</a></td>
+<tr data-class="L4_GALLEON" data-faction="POLICE" data-search="police straight watcher ship.police.straight.watcher galleon police">
+    <td><a href="ships/ship_police_straight_watcher.html">Police Straight Watcher</a></td>
     <td>Galleon</td>
     <td>Police</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -727,7 +732,7 @@
 </main>
 <footer class="site">
     <div class="inner">
-        Generated 2026-05-11 05:07 UTC from game data (2026-04-26).
+        Generated 2026-05-11 05:15 UTC from game data (2026-04-26).
         Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
         Planet→biome distribution mapping is best-effort.
     </div>

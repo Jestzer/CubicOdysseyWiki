@@ -1,0 +1,3352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blocks — Cubic Odyssey Wiki</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+    <link rel="shortcut icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+    <div class="inner">
+        <div class="brand">
+            <a href="index.html">Cubic Odyssey</a>
+            <small>local wiki · 631 entries</small>
+        </div>
+        <nav>
+            <a href="ores.html"      class="">Ores</a>
+            <a href="gems.html"      class="">Gems</a>
+            <a href="ingots.html"    class="">Ingots</a>
+            <a href="tools.html"     class="">Tools</a>
+            <a href="weapons.html"   class="">Weapons</a>
+            <a href="blocks.html"    class="active">Blocks</a>
+            <a href="resources.html" class="">Resources</a>
+            <a href="worlds.html"    class="">Worlds</a>
+            <a href="enemies.html"   class="">Enemies</a>
+            <a href="ships.html"     class="">Ships</a>
+            <a href="speeders.html"  class="">Speeders</a>
+            <a href="guides.html"    class="">Guides</a>
+        </nav>
+    </div>
+</header>
+<main class="wrap">
+    
+<h1>Blocks (voxels)</h1>
+<p>Every cube the engine knows about — <strong>290 voxels</strong> across 20 categories — from biome surface terrain through ores, glass, walls, and ancient artefacts. The colour swatches are the literal <code>m_color</code> values from <code>data/configs/voxels/</code>.</p>
+
+<div class="cards">
+
+<a class="card" href="#cat-e_vcat_biome_surface">
+    <h3>Biome surface</h3>
+    <div class="count">1 blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(63,72,72);border:1px solid var(--border);border-radius:3px"></span>
+        
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. Biome Surface</p>
+</a>
+
+<a class="card" href="#cat-e_vcat_biome_subsurface">
+    <h3>Biome subsurface</h3>
+    <div class="count">1 blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(63,72,72);border:1px solid var(--border);border-radius:3px"></span>
+        
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. Biome Sub Surface</p>
+</a>
+
+<a class="card" href="#cat-e_vcat_dirt">
+    <h3>Dirt</h3>
+    <div class="count">84 blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(86,80,60);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(210,142,45);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(56,53,47);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(186,96,37);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(124,102,89);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(191,139,0);border:1px solid var(--border);border-radius:3px"></span>
+        
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. Alien Grass 2, Alien Grass 3, Alien Grass 4, Alien Grass 5, Alien Grass 6</p>
+</a>
+
+<a class="card" href="#cat-e_vcat_sand">
+    <h3>Sand</h3>
+    <div class="count">14 blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(208,137,118);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(41,39,39);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(180,163,139);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(146,158,139);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(221,153,123);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(224,204,185);border:1px solid var(--border);border-radius:3px"></span>
+        
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. Alien Grass 1, Alien Rock 7, Alien Sand 11, Alien Sand 4, Alien Soil 20</p>
+</a>
+
+<a class="card" href="#cat-e_vcat_snow">
+    <h3>Snow</h3>
+    <div class="count">1 blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(204,200,200);border:1px solid var(--border);border-radius:3px"></span>
+        
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. Snow</p>
+</a>
+
+<a class="card" href="#cat-e_vcat_ice">
+    <h3>Ice</h3>
+    <div class="count">1 blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(128,2,110);border:1px solid var(--border);border-radius:3px"></span>
+        
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. Ice</p>
+</a>
+
+<a class="card" href="#cat-e_vcat_water">
+    <h3>Water</h3>
+    <div class="count">1 blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(75,131,140);border:1px solid var(--border);border-radius:3px"></span>
+        
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. Water</p>
+</a>
+
+<a class="card" href="#cat-e_vcat_trunk">
+    <h3>Tree trunks</h3>
+    <div class="count">19 blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(71,59,48);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span>
+        
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. Alien Trunk 10, Alien Trunk 2, Alien Trunk 3, Alien Trunk 4, Alien Trunk 5</p>
+</a>
+
+<a class="card" href="#cat-e_vcat_leaves">
+    <h3>Foliage</h3>
+    <div class="count">31 blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(74,67,39);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(74,67,39);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(74,67,39);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(74,67,39);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(74,67,39);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(74,67,39);border:1px solid var(--border);border-radius:3px"></span>
+        
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. Alien Leaves 1, Alien Leaves 2, Alien Leaves 3, Alien Leaves 4, Alien Leaves 5</p>
+</a>
+
+<a class="card" href="#cat-e_vcat_stone">
+    <h3>Stone</h3>
+    <div class="count">13 blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(200,209,216);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(101,127,121);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(93,85,77);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(153,144,128);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(153,144,128);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(139,134,119);border:1px solid var(--border);border-radius:3px"></span>
+        
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. Arctic Snow Stone, Blue Light Stone Bricks, Cliff 1, Limestone, Limestone 2</p>
+</a>
+
+<a class="card" href="#cat-e_vcat_ores">
+    <h3>Ores</h3>
+    <div class="count">29 blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(0,0,0);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(107,84,63);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(255,0,0);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(122,13,13);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(65,82,56);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(109,82,119);border:1px solid var(--border);border-radius:3px"></span>
+        
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. Lava, Lava Rock, dev, Corruption, Higgs Bosson</p>
+</a>
+
+<a class="card" href="#cat-e_vcat_glowing_ores">
+    <h3>Glowing ores</h3>
+    <div class="count">19 blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(103,103,102);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(86,88,104);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(101,100,91);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(125,128,129);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(87,115,76);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(111,103,87);border:1px solid var(--border);border-radius:3px"></span>
+        
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. Glowing Aluminium, Glowing Cobalt, Glowing Copper, Glowing Diamond, Glowing Emerald</p>
+</a>
+
+<a class="card" href="#cat-e_vcat_building">
+    <h3>Building</h3>
+    <div class="count">7 blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(209,201,194);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(209,201,194);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(24,23,22);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(101,127,121);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(163,122,98);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(189,191,189);border:1px solid var(--border);border-radius:3px"></span>
+        
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. Marker, Marker 2, Asphalt, Blue Light Bricks, Bricks</p>
+</a>
+
+<a class="card" href="#cat-e_vcat_floor">
+    <h3>Floors</h3>
+    <div class="count">10 blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span>
+        
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. Floor Metal 1, Floor Metal 10, Floor Metal 2, Floor Metal 3, Floor Metal 4</p>
+</a>
+
+<a class="card" href="#cat-e_vcat_wall">
+    <h3>Walls</h3>
+    <div class="count">12 blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span>
+        
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. Wall Metal 1, Wall Metal 10, Wall Metal 2, Wall Metal 3, Wall Metal 4</p>
+</a>
+
+<a class="card" href="#cat-e_vcat_glass">
+    <h3>Glass</h3>
+    <div class="count">1 blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(63,72,72);border:1px solid var(--border);border-radius:3px"></span>
+        
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. Glass</p>
+</a>
+
+<a class="card" href="#cat-e_vcat_armor">
+    <h3>Armor</h3>
+    <div class="count">14 blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(255,243,250);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(255,244,250);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(255,247,250);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(255,248,250);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(240,255,250);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(241,255,250);border:1px solid var(--border);border-radius:3px"></span>
+        
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. Engine Plate 1, Engine Plate 2, Floor Plate 1, Floor Plate 2, Hull Plate 1</p>
+</a>
+
+<a class="card" href="#cat-e_vcat_ancient">
+    <h3>Ancient</h3>
+    <div class="count">1 blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(71,68,63);border:1px solid var(--border);border-radius:3px"></span>
+        
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. Ancient Hull Emissive2</p>
+</a>
+
+<a class="card" href="#cat-e_vcat_material">
+    <h3>Material</h3>
+    <div class="count">30 blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(174,114,57);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(74,69,66);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(255,255,250);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(255,255,250);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span>
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(227,177,8);border:1px solid var(--border);border-radius:3px"></span>
+        
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. Copper Block, Dark Metal, Emissive, Emissive Engine, Fuzzy Metal</p>
+</a>
+
+<a class="card" href="#cat-">
+    <h3>Other</h3>
+    <div class="count">1 blocks</div>
+    <div style="display:flex;gap:4px;margin-top:0.5em">
+        
+        <span style="display:inline-block;width:22px;height:22px;background:rgb(149,158,92);border:1px solid var(--border);border-radius:3px"></span>
+        
+    </div>
+    <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. Cactus</p>
+</a>
+
+</div>
+
+<div class="controls">
+    <input type="search" class="search" id="catSearch" placeholder="Filter 290 blocks…" autocomplete="off">
+    <div class="pills" id="catPills">
+        <span class="pill active" data-cat="all">All</span>
+        <span class="pill" data-cat="E_VCAT_BIOME_SURFACE">Biome surface</span><span class="pill" data-cat="E_VCAT_BIOME_SUBSURFACE">Biome subsurface</span><span class="pill" data-cat="E_VCAT_DIRT">Dirt</span><span class="pill" data-cat="E_VCAT_SAND">Sand</span><span class="pill" data-cat="E_VCAT_SNOW">Snow</span><span class="pill" data-cat="E_VCAT_ICE">Ice</span><span class="pill" data-cat="E_VCAT_WATER">Water</span><span class="pill" data-cat="E_VCAT_TRUNK">Tree trunks</span><span class="pill" data-cat="E_VCAT_LEAVES">Foliage</span><span class="pill" data-cat="E_VCAT_STONE">Stone</span><span class="pill" data-cat="E_VCAT_ORES">Ores</span><span class="pill" data-cat="E_VCAT_GLOWING_ORES">Glowing ores</span><span class="pill" data-cat="E_VCAT_BUILDING">Building</span><span class="pill" data-cat="E_VCAT_FLOOR">Floors</span><span class="pill" data-cat="E_VCAT_WALL">Walls</span><span class="pill" data-cat="E_VCAT_GLASS">Glass</span><span class="pill" data-cat="E_VCAT_ARMOR">Armor</span><span class="pill" data-cat="E_VCAT_ANCIENT">Ancient</span><span class="pill" data-cat="E_VCAT_MATERIAL">Material</span><span class="pill" data-cat="">Other</span>
+    </div>
+</div>
+
+
+<h2 id="cat-e_vcat_biome_surface">Biome surface <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace">E_VCAT_BIOME_SURFACE</span></h2>
+<table class="wiki" data-cat="E_VCAT_BIOME_SURFACE">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+
+<tr data-search="biome surface  dev">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(63,72,72);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Biome Surface</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dev</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="cat-e_vcat_biome_subsurface">Biome subsurface <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace">E_VCAT_BIOME_SUBSURFACE</span></h2>
+<table class="wiki" data-cat="E_VCAT_BIOME_SUBSURFACE">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+
+<tr data-search="biome sub surface  dev">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(63,72,72);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Biome Sub Surface</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dev</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="cat-e_vcat_dirt">Dirt <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace">E_VCAT_DIRT</span></h2>
+<table class="wiki" data-cat="E_VCAT_DIRT">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+
+<tr data-search="alien grass 2  shroomy_desert_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(86,80,60);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Grass 2</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">shroomy_desert_soil</td>
+</tr>
+
+<tr data-search="alien grass 3 res.voxel.alien_grass4 shroomy_savanna_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(210,142,45);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Grass 3</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_grass4</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">shroomy_savanna_turf_side</td>
+</tr>
+
+<tr data-search="alien grass 4  shroomy_savanna_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(56,53,47);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Grass 4</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">shroomy_savanna_soil</td>
+</tr>
+
+<tr data-search="alien grass 5 res.voxel.alien_grass6 shroomy_tropical_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(186,96,37);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Grass 5</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_grass6</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">shroomy_tropical_turf_side</td>
+</tr>
+
+<tr data-search="alien grass 6  shroomy_tropical_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(124,102,89);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Grass 6</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">shroomy_tropical_soil</td>
+</tr>
+
+<tr data-search="alien rock 1 res.voxel.alien_rock6 majestic_savanna_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(191,139,0);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Rock 1</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_rock6</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">majestic_savanna_turf_side</td>
+</tr>
+
+<tr data-search="alien rock 2 res.voxel.alien_rock6 majestic_tropical_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(162,110,7);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Rock 2</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_rock6</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">majestic_tropical_turf_side</td>
+</tr>
+
+<tr data-search="alien rock 3 res.voxel.alien_rock6 majestic_temperate_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(157,85,26);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Rock 3</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_rock6</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">majestic_temperate_turf_side</td>
+</tr>
+
+<tr data-search="alien rock 4 res.voxel.alien_rock6 majestic_taiga_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(91,76,18);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Rock 4</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_rock6</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">majestic_taiga_turf_side</td>
+</tr>
+
+<tr data-search="alien rock 5 res.voxel.alien_rock6 majestic_tundra_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(57,61,56);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Rock 5</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_rock6</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">majestic_tundra_turf_side</td>
+</tr>
+
+<tr data-search="alien rock 6  majestic_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(75,70,62);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Rock 6</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">majestic_soil</td>
+</tr>
+
+<tr data-search="alien sand 1  barren_temperate_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(151,116,94);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Sand 1</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3.5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">barren_temperate_turf_side</td>
+</tr>
+
+<tr data-search="alien sand 10  scorched_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(43,43,43);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Sand 10</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">scorched_soil</td>
+</tr>
+
+<tr data-search="alien sand 2  barren_taiga_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(134,102,90);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Sand 2</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3.5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">barren_taiga_turf_side</td>
+</tr>
+
+<tr data-search="alien sand 3  barren_tundra_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(97,88,90);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Sand 3</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3.5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">barren_tundra_turf_side</td>
+</tr>
+
+<tr data-search="alien sand 5  scorched_savanna_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(171,173,161);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Sand 5</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">scorched_savanna_turf_side</td>
+</tr>
+
+<tr data-search="alien sand 6  scorched_tropical_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(64,142,198);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Sand 6</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">scorched_tropical_turf_side</td>
+</tr>
+
+<tr data-search="alien sand 7  scorched_temperate_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(86,98,102);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Sand 7</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">scorched_temperate_turf_side</td>
+</tr>
+
+<tr data-search="alien sand 8  scorched_taiga_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(58,117,157);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Sand 8</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">scorched_taiga_turf_side</td>
+</tr>
+
+<tr data-search="alien sand 9  scorched_tundra_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(61,102,143);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Sand 9</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">scorched_tundra_turf_side</td>
+</tr>
+
+<tr data-search="alien soil 1 res.voxel.alien_soil2 shroomy_temperate_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(145,57,37);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 1</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_soil2</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">shroomy_temperate_turf_side</td>
+</tr>
+
+<tr data-search="alien soil 10 res.voxel.alien_soil11 slimy_savanna_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(107,127,43);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 10</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_soil11</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">slimy_savanna_turf_side</td>
+</tr>
+
+<tr data-search="alien soil 11  slimy_savanna_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(56,53,47);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 11</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">slimy_savanna_soil</td>
+</tr>
+
+<tr data-search="alien soil 12 res.voxel.alien_soil13 slimy_tropical_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(85,106,67);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 12</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_soil13</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">slimy_tropical_turf_side</td>
+</tr>
+
+<tr data-search="alien soil 13  slimy_tropical_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(124,102,89);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 13</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">slimy_tropical_soil</td>
+</tr>
+
+<tr data-search="alien soil 14 res.voxel.alien_soil15 slimy_temperate_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(55,72,64);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 14</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_soil15</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">slimy_temperate_turf_side</td>
+</tr>
+
+<tr data-search="alien soil 15  slimy_temperate_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(156,141,118);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 15</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">slimy_temperate_soil</td>
+</tr>
+
+<tr data-search="alien soil 16 res.voxel.alien_soil17 slimy_taiga_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(65,78,86);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 16</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_soil17</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">slimy_taiga_turf_side</td>
+</tr>
+
+<tr data-search="alien soil 17  slimy_taiga_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(108,108,108);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 17</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">slimy_taiga_soil</td>
+</tr>
+
+<tr data-search="alien soil 18 res.voxel.alien_soil19 slimy_tundra_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(77,74,91);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 18</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_soil19</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">slimy_tundra_turf_side</td>
+</tr>
+
+<tr data-search="alien soil 19  slimy_tundra_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(74,70,66);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 19</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">slimy_tundra_soil</td>
+</tr>
+
+<tr data-search="alien soil 2  shroomy_temperate_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(156,141,118);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 2</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">shroomy_temperate_soil</td>
+</tr>
+
+<tr data-search="alien soil 22  xeno_desert_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(120,116,97);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 22</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">xeno_desert_soil</td>
+</tr>
+
+<tr data-search="alien soil 23  xeno_savanna_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(85,46,18);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 23</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">xeno_savanna_turf_side</td>
+</tr>
+
+<tr data-search="alien soil 24  xeno_savanna_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(93,85,77);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 24</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">xeno_savanna_soil</td>
+</tr>
+
+<tr data-search="alien soil 25 res.voxel.alien_soil26 xeno_tropical_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(70,56,48);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 25</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_soil26</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">xeno_tropical_turf_side</td>
+</tr>
+
+<tr data-search="alien soil 26  xeno_tropical_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(27,26,25);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 26</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">xeno_tropical_soil</td>
+</tr>
+
+<tr data-search="alien soil 27 res.voxel.alien_soil28 xeno_temperate_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(87,80,67);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 27</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_soil28</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">xeno_temperate_turf_side</td>
+</tr>
+
+<tr data-search="alien soil 28  xeno_temperate_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(86,68,56);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 28</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">xeno_temperate_soil</td>
+</tr>
+
+<tr data-search="alien soil 29 res.voxel.alien_soil30 xeno_taiga_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(52,61,57);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 29</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_soil30</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">xeno_taiga_turf_side</td>
+</tr>
+
+<tr data-search="alien soil 3 res.voxel.alien_soil4 shroomy_taiga_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(119,42,53);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 3</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_soil4</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">shroomy_taiga_turf_side</td>
+</tr>
+
+<tr data-search="alien soil 30  xeno_taiga_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(43,40,35);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 30</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">xeno_taiga_soil</td>
+</tr>
+
+<tr data-search="alien soil 31 res.voxel.alien_soil32 xeno_tundra_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(37,45,57);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 31</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_soil32</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">xeno_tundra_turf_side</td>
+</tr>
+
+<tr data-search="alien soil 32  xeno_tundra_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(55,65,31);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 32</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">xeno_tundra_soil</td>
+</tr>
+
+<tr data-search="alien soil 33 res.voxel.alien_soil34 xeno_arctic_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(44,63,70);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 33</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_soil34</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">xeno_arctic_turf_side</td>
+</tr>
+
+<tr data-search="alien soil 34  xeno_arctic_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(170,153,122);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 34</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">xeno_arctic_soil</td>
+</tr>
+
+<tr data-search="alien soil 36  oceanic_savanna_dirt">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(206,173,32);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 36</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">oceanic_savanna_dirt</td>
+</tr>
+
+<tr data-search="alien soil 37  oceanic_tropical_dirt">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(167,86,15);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 37</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">oceanic_tropical_dirt</td>
+</tr>
+
+<tr data-search="alien soil 38  oceanic_temperate_dirt">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(148,70,52);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 38</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">oceanic_temperate_dirt</td>
+</tr>
+
+<tr data-search="alien soil 39  oceanic_taiga_dirt">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(60,62,156);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 39</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">oceanic_taiga_dirt</td>
+</tr>
+
+<tr data-search="alien soil 4  shroomy_taiga_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(108,108,108);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 4</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">shroomy_taiga_soil</td>
+</tr>
+
+<tr data-search="alien soil 40  oceanic_tundra_dirt">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(89,39,100);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 40</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">oceanic_tundra_dirt</td>
+</tr>
+
+<tr data-search="alien soil 42 res.voxel.barren_dirt barren_tropical_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(185,139,104);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 42</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3.5</td>
+    <td><span class="mono">res.voxel.barren_dirt</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">barren_tropical_turf_side</td>
+</tr>
+
+<tr data-search="alien soil 5 res.voxel.alien_soil6 shroomy_tundra_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(76,48,66);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 5</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_soil6</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">shroomy_tundra_turf_side</td>
+</tr>
+
+<tr data-search="alien soil 6  shroomy_tundra_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(74,70,66);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 6</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">shroomy_tundra_soil</td>
+</tr>
+
+<tr data-search="alien soil 8 res.voxel.alien_soil9 slimy_desert_sand_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(149,161,31);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 8</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.alien_soil9</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">slimy_desert_sand_side</td>
+</tr>
+
+<tr data-search="alien soil 9  slimy_desert_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(86,80,60);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 9</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">slimy_desert_soil</td>
+</tr>
+
+<tr data-search="barren dirt  barren_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(204,200,200);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Barren Dirt</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">barren_soil</td>
+</tr>
+
+<tr data-search="crystalline dirt  crystalline_arctic_turf">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(198,198,198);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Crystalline Dirt</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">crystalline_arctic_turf</td>
+</tr>
+
+<tr data-search="desert dirt  dirt_desert_base">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(111,84,67);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Desert Dirt</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dirt_desert_base</td>
+</tr>
+
+<tr data-search="dirt  dirt">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(74,45,28);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Dirt</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dirt</td>
+</tr>
+
+<tr data-search="grass  grass_top">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(101,111,47);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Grass</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">grass_top</td>
+</tr>
+
+<tr data-search="oceanic arctic  oceanic_arctic_dirt">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(89,39,100);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Oceanic Arctic</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">oceanic_arctic_dirt</td>
+</tr>
+
+<tr data-search="plowed dirt res.voxel.dirt earth_plowed">
+    <td></td>
+    <td>Plowed dirt</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.dirt</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">earth_plowed</td>
+</tr>
+
+<tr data-search="savanna dirt  dirt_savanna_base">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(88,54,33);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Savanna Dirt</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dirt_savanna_base</td>
+</tr>
+
+<tr data-search="savanna grass dirt res.voxel.dirt_savana_base dirt_savanna">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(107,114,34);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Savanna Grass Dirt</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.dirt_savana_base</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dirt_savanna</td>
+</tr>
+
+<tr data-search="smooth rock 3  crystalline_savanna_turf">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(0,46,58);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Smooth Rock 3</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">crystalline_savanna_turf</td>
+</tr>
+
+<tr data-search="smooth rock 4  crystalline_tropical_turf">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(1,63,46);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Smooth Rock 4</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">crystalline_tropical_turf</td>
+</tr>
+
+<tr data-search="smooth rock 5  crystalline_temperate_turf">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(55,81,27);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Smooth Rock 5</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">crystalline_temperate_turf</td>
+</tr>
+
+<tr data-search="smooth rock 6  crystalline_taiga_turf">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(124,99,2);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Smooth Rock 6</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">crystalline_taiga_turf</td>
+</tr>
+
+<tr data-search="smooth rock 7  crystalline_soil">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(163,126,98);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Smooth Rock 7</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">crystalline_soil</td>
+</tr>
+
+<tr data-search="sown dirt res.voxel.dirt earth_plowed">
+    <td></td>
+    <td>Sown dirt</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.dirt</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">earth_plowed</td>
+</tr>
+
+<tr data-search="taiga dirt  dirt_taiga_base">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(66,53,39);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Taiga Dirt</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dirt_taiga_base</td>
+</tr>
+
+<tr data-search="taiga grass dirt res.voxel.dirt_taiga_base dirt_taiga">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(60,62,34);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Taiga Grass Dirt</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.dirt_taiga_base</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dirt_taiga</td>
+</tr>
+
+<tr data-search="taiga snow dirt res.voxel.dirt_taiga_base dirt_taiga_snow">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(204,200,200);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Taiga Snow Dirt</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.dirt_taiga_base</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dirt_taiga_snow</td>
+</tr>
+
+<tr data-search="temperate dirt  dirt_temperate_base">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(66,50,37);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Temperate Dirt</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dirt_temperate_base</td>
+</tr>
+
+<tr data-search="temperate grass dirt res.voxel.dirt_temperate_base dirt_temperate">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(65,75,30);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Temperate Grass Dirt</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.dirt_temperate_base</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dirt_temperate</td>
+</tr>
+
+<tr data-search="temperate snow dirt res.voxel.dirt_temperate_base dirt_temperate_snow">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(204,200,200);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Temperate Snow Dirt</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.dirt_temperate_base</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dirt_temperate_snow</td>
+</tr>
+
+<tr data-search="tropical dirt  dirt_tropical_base">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(72,52,35);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Tropical Dirt</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dirt_tropical_base</td>
+</tr>
+
+<tr data-search="tropical grass dirt res.voxel.dirt_tropical_base dirt_tropical">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(72,92,5);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Tropical Grass Dirt</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.dirt_tropical_base</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dirt_tropical</td>
+</tr>
+
+<tr data-search="tundra dirt  dirt_tundra_base">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(46,40,35);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Tundra Dirt</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dirt_tundra_base</td>
+</tr>
+
+<tr data-search="tundra grass dirt res.voxel.dirt_tundra_base dirt_tundra">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(62,58,49);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Tundra Grass Dirt</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.dirt_tundra_base</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dirt_tundra</td>
+</tr>
+
+<tr data-search="tundra snow dirt res.voxel.dirt_tundra_base dirt_tundra_snow">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(204,200,200);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Tundra Snow Dirt</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span class="mono">res.voxel.dirt_tundra_base</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dirt_tundra_snow</td>
+</tr>
+
+<tr data-search="crystalline_tundra  crystalline_tundra_turf">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(209,99,31);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>crystalline_tundra</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">crystalline_tundra_turf</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="cat-e_vcat_sand">Sand <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace">E_VCAT_SAND</span></h2>
+<table class="wiki" data-cat="E_VCAT_SAND">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+
+<tr data-search="alien grass 1  shroomy_desert_sand">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(208,137,118);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Grass 1</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3.5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">shroomy_desert_sand</td>
+</tr>
+
+<tr data-search="alien rock 7  majestic_gravel">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(41,39,39);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Rock 7</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3.5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">majestic_gravel</td>
+</tr>
+
+<tr data-search="alien sand 11  majestic_desert_sand">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(180,163,139);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Sand 11</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3.5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">majestic_desert_sand</td>
+</tr>
+
+<tr data-search="alien sand 4  scorched_desert_sand_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,158,139);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Sand 4</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3.5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">scorched_desert_sand_side</td>
+</tr>
+
+<tr data-search="alien soil 20  slimy_gravel">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(221,153,123);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 20</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3.5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">slimy_gravel</td>
+</tr>
+
+<tr data-search="alien soil 21  xeno_desert_sand">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(224,204,185);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 21</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3.5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">xeno_desert_sand</td>
+</tr>
+
+<tr data-search="alien soil 35  xeno_gravel">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(140,135,123);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 35</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3.5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">xeno_gravel</td>
+</tr>
+
+<tr data-search="alien soil 41  barren_savanna_turf">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(237,185,129);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 41</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3.5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">barren_savanna_turf</td>
+</tr>
+
+<tr data-search="alien soil 7  shroomy_gravel">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(37,36,33);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Soil 7</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3.5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">shroomy_gravel</td>
+</tr>
+
+<tr data-search="oceanic desert  oceanic_desert_dirt">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(208,137,118);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Oceanic Desert</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3.5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">oceanic_desert_dirt</td>
+</tr>
+
+<tr data-search="sand  dirt_desert_top">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(216,161,109);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Sand</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3.5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dirt_desert_top</td>
+</tr>
+
+<tr data-search="underwater gravel  underwater">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(134,110,80);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Underwater Gravel</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">underwater</td>
+</tr>
+
+<tr data-search="barren_desert  barren_desert_sand">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(180,163,139);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>barren_desert</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3.5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">barren_desert_sand</td>
+</tr>
+
+<tr data-search="crystalline_desert  crystalline_desert_sand">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(36,31,72);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>crystalline_desert</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3.5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">crystalline_desert_sand</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="cat-e_vcat_snow">Snow <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace">E_VCAT_SNOW</span></h2>
+<table class="wiki" data-cat="E_VCAT_SNOW">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+
+<tr data-search="snow  snow">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(204,200,200);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Snow</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3.5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">snow</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="cat-e_vcat_ice">Ice <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace">E_VCAT_ICE</span></h2>
+<table class="wiki" data-cat="E_VCAT_ICE">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+
+<tr data-search="ice  dirt_arctic_extreme_base">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(128,2,110);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Ice</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dirt_arctic_extreme_base</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="cat-e_vcat_water">Water <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace">E_VCAT_WATER</span></h2>
+<table class="wiki" data-cat="E_VCAT_WATER">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+
+<tr data-search="water  water_light">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(75,131,140);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Water</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">—</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">water_light</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="cat-e_vcat_trunk">Tree trunks <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace">E_VCAT_TRUNK</span></h2>
+<table class="wiki" data-cat="E_VCAT_TRUNK">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+
+<tr data-search="alien trunk 10  crystal_trunk_2">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Trunk 10</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">crystal_trunk_2</td>
+</tr>
+
+<tr data-search="alien trunk 2  voxels_alien_bark2_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(71,59,48);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Trunk 2</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">voxels_alien_bark2_1</td>
+</tr>
+
+<tr data-search="alien trunk 3  voxels_alien_bark3_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Trunk 3</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">voxels_alien_bark3_1</td>
+</tr>
+
+<tr data-search="alien trunk 4  voxels_alien_bark4_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Trunk 4</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">voxels_alien_bark4_1</td>
+</tr>
+
+<tr data-search="alien trunk 5  voxels_alien_bark5_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Trunk 5</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">voxels_alien_bark5_1</td>
+</tr>
+
+<tr data-search="alien trunk 6  voxels_bark1_1_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Trunk 6</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">voxels_bark1_1_side</td>
+</tr>
+
+<tr data-search="alien trunk 7  voxels_bark2_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Trunk 7</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">voxels_bark2_1</td>
+</tr>
+
+<tr data-search="alien trunk 8  voxels_bark3_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Trunk 8</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">voxels_bark3_1</td>
+</tr>
+
+<tr data-search="alien trunk 9  crystal_trunk_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Trunk 9</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">crystal_trunk_1</td>
+</tr>
+
+<tr data-search="coral 1  voxels_coral1_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(110,137,66);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Coral 1</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">voxels_coral1_1</td>
+</tr>
+
+<tr data-search="coral 2  voxels_coral2_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(233,108,220);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Coral 2</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">voxels_coral2_1</td>
+</tr>
+
+<tr data-search="trunk  trunk_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Trunk</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">trunk_side</td>
+</tr>
+
+<tr data-search="trunk 2  trunk_side2">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Trunk 2</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">trunk_side2</td>
+</tr>
+
+<tr data-search="trunk 3  trunk_side3">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Trunk 3</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">trunk_side3</td>
+</tr>
+
+<tr data-search="trunk 4  trunk_side4">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Trunk 4</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">trunk_side4</td>
+</tr>
+
+<tr data-search="trunk 5  trunk_side5">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Trunk 5</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">trunk_side5</td>
+</tr>
+
+<tr data-search="trunk 6  trunk_side6">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Trunk 6</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">trunk_side6</td>
+</tr>
+
+<tr data-search="trunk 7  trunk_side7">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Trunk 7</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">trunk_side7</td>
+</tr>
+
+<tr data-search="trunk 8  trunk_side8">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(150,108,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Trunk 8</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">trunk_side8</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="cat-e_vcat_leaves">Foliage <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace">E_VCAT_LEAVES</span></h2>
+<table class="wiki" data-cat="E_VCAT_LEAVES">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+
+<tr data-search="alien leaves 1  leaves_alien1_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(74,67,39);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Leaves 1</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_alien1_side</td>
+</tr>
+
+<tr data-search="alien leaves 2  leaves_alien2">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(74,67,39);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Leaves 2</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_alien2</td>
+</tr>
+
+<tr data-search="alien leaves 3  leaves_alien3">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(74,67,39);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Leaves 3</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_alien3</td>
+</tr>
+
+<tr data-search="alien leaves 4  leaves_alien4">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(74,67,39);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Leaves 4</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_alien4</td>
+</tr>
+
+<tr data-search="alien leaves 5  leaves_alien5">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(74,67,39);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Leaves 5</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_alien5</td>
+</tr>
+
+<tr data-search="alien leaves 6  leaves_alien6">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(74,67,39);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Leaves 6</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_alien6</td>
+</tr>
+
+<tr data-search="alien leaves 7  leaves_alien7">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(74,67,39);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Leaves 7</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_alien7</td>
+</tr>
+
+<tr data-search="alien leaves 8  leaves_alien8">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(74,67,39);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Alien Leaves 8</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_alien8</td>
+</tr>
+
+<tr data-search="crystal leaves 2  crystal_leaves_2">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(199,199,199);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Crystal Leaves 2</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">crystal_leaves_2</td>
+</tr>
+
+<tr data-search="hedge  hedge">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(80,89,48);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Hedge</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">4.5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">hedge</td>
+</tr>
+
+<tr data-search="leaves  leaves_transparent">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(80,89,48);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Leaves</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_transparent</td>
+</tr>
+
+<tr data-search="leaves 1  leaves_transparent0">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(80,89,48);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Leaves 1</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_transparent0</td>
+</tr>
+
+<tr data-search="leaves 10  leaves_transparent9">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(75,88,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Leaves 10</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_transparent9</td>
+</tr>
+
+<tr data-search="leaves 11  leaves_transparent10">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(75,88,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Leaves 11</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_transparent10</td>
+</tr>
+
+<tr data-search="leaves 12  leaves_transparent11">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(75,88,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Leaves 12</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_transparent11</td>
+</tr>
+
+<tr data-search="leaves 13  leaves_transparent12">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(75,88,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Leaves 13</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_transparent12</td>
+</tr>
+
+<tr data-search="leaves 14  voxels_coral3_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(75,88,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Leaves 14</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">voxels_coral3_1</td>
+</tr>
+
+<tr data-search="leaves 15  leaves_palm1">
+    <td></td>
+    <td>Leaves 15</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_palm1</td>
+</tr>
+
+<tr data-search="leaves 2  leaves_transparent1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(113,108,88);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Leaves 2</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_transparent1</td>
+</tr>
+
+<tr data-search="leaves 3  leaves_transparent2">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(174,141,104);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Leaves 3</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_transparent2</td>
+</tr>
+
+<tr data-search="leaves 4  crystal_leaves_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(84,81,66);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Leaves 4</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">crystal_leaves_1</td>
+</tr>
+
+<tr data-search="leaves 5  leaves_transparent4">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(97,76,35);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Leaves 5</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_transparent4</td>
+</tr>
+
+<tr data-search="leaves 6  leaves_transparent5">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(101,92,32);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Leaves 6</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_transparent5</td>
+</tr>
+
+<tr data-search="leaves 7  leaves_transparent6">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(66,82,57);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Leaves 7</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_transparent6</td>
+</tr>
+
+<tr data-search="leaves 8  leaves_transparent7">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(94,81,53);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Leaves 8</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_transparent7</td>
+</tr>
+
+<tr data-search="leaves 9  leaves_transparent8">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(64,97,62);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Leaves 9</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">leaves_transparent8</td>
+</tr>
+
+<tr data-search="majestic leaves 1  majestic_leaves_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(161,150,127);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Majestic Leaves 1</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">majestic_leaves_1</td>
+</tr>
+
+<tr data-search="majestic leaves 2  majestic_leaves_2">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(100,102,94);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Majestic Leaves 2</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">majestic_leaves_2</td>
+</tr>
+
+<tr data-search="majestic leaves 3  majestic_leaves_3">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(38,46,58);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Majestic Leaves 3</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">majestic_leaves_3</td>
+</tr>
+
+<tr data-search="majestic leaves 4  majestic_leaves_4">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(116,106,94);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Majestic Leaves 4</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">majestic_leaves_4</td>
+</tr>
+
+<tr data-search="majestic leaves 5  majestic_leaves_5">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(68,66,66);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Majestic Leaves 5</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">5</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">majestic_leaves_5</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="cat-e_vcat_stone">Stone <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace">E_VCAT_STONE</span></h2>
+<table class="wiki" data-cat="E_VCAT_STONE">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+
+<tr data-search="arctic snow stone  dirt_arctic">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(200,209,216);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Arctic Snow Stone</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">3</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dirt_arctic</td>
+</tr>
+
+<tr data-search="blue light stone bricks  stone_wall">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(101,127,121);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Blue Light Stone Bricks</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">stone_wall</td>
+</tr>
+
+<tr data-search="cliff 1  voxels_cliff1_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(93,85,77);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Cliff 1</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">voxels_cliff1_1</td>
+</tr>
+
+<tr data-search="limestone  limestone">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(153,144,128);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Limestone</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">limestone</td>
+</tr>
+
+<tr data-search="limestone 2  voxels_limestone2_3">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(153,144,128);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Limestone 2</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">voxels_limestone2_3</td>
+</tr>
+
+<tr data-search="rock 1  voxels_limestone1_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(139,134,119);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Rock 1</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">voxels_limestone1_1</td>
+</tr>
+
+<tr data-search="rock 2  voxels_limestone2_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(75,71,63);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Rock 2</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">voxels_limestone2_1</td>
+</tr>
+
+<tr data-search="rock 3  voxels_limestone3_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(181,177,171);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Rock 3</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">voxels_limestone3_1</td>
+</tr>
+
+<tr data-search="rock 4  voxels_limestone4_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(71,68,63);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Rock 4</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">voxels_limestone4_1</td>
+</tr>
+
+<tr data-search="rock 5  voxels_alien_rock11_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(71,68,63);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Rock 5</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">voxels_alien_rock11_1</td>
+</tr>
+
+<tr data-search="sandstone  barren_rock_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(97,75,54);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Sandstone</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">barren_rock_side</td>
+</tr>
+
+<tr data-search="scorched scoria stone  scorched_trunk_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(199,199,199);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Scorched Scoria Stone</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">scorched_trunk_side</td>
+</tr>
+
+<tr data-search="stone  voxels_stone11_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(90,86,81);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Stone</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">voxels_stone11_1</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="cat-e_vcat_ores">Ores <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace">E_VCAT_ORES</span></h2>
+<table class="wiki" data-cat="E_VCAT_ORES">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+
+<tr data-search="lava  voxels_lavaliquid1_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(0,0,0);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Lava</td>
+    <td class="numeric"><span class="tier tier-100">T100</span></td>
+    <td class="numeric mono">0</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">voxels_lavaliquid1_1</td>
+</tr>
+
+<tr data-search="lava rock  voxels_lavaliquid2_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(107,84,63);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Lava Rock</td>
+    <td class="numeric"><span class="tier tier-100">T100</span></td>
+    <td class="numeric mono">0</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">voxels_lavaliquid2_1</td>
+</tr>
+
+<tr data-search="dev  dev">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(255,0,0);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>dev</td>
+    <td class="numeric"><span class="tier tier-100">T100</span></td>
+    <td class="numeric mono">0</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">dev</td>
+</tr>
+
+<tr data-search="corruption res.dark.dust corruption">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(122,13,13);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Corruption</td>
+    <td class="numeric"><span class="tier tier-100">T10</span></td>
+    <td class="numeric mono">0.07</td>
+    <td><span class="mono">res.dark.dust</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">corruption</td>
+</tr>
+
+<tr data-search="higgs bosson res.rare.higgsbosson x_matter">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(65,82,56);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Higgs Bosson</td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.1</td>
+    <td><a href="resources/res_rare_higgsbosson.html">Higgs Bosson</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">x_matter</td>
+</tr>
+
+<tr data-search="antimatter res.rare.antimatter antimatter">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(109,82,119);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Antimatter</td>
+    <td class="numeric"><span class="tier tier-6">T6</span></td>
+    <td class="numeric mono">0.1</td>
+    <td><a href="resources/res_rare_antimatter.html">Antimatter</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">antimatter</td>
+</tr>
+
+<tr data-search="dark matter res.rare.darkmatter darkmatter">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(62,38,74);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Dark Matter</td>
+    <td class="numeric"><span class="tier tier-6">T6</span></td>
+    <td class="numeric mono">0.1</td>
+    <td><a href="resources/res_rare_darkmatter.html">Darkmatter</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">darkmatter</td>
+</tr>
+
+<tr data-search="gamma matter res.rare.gammamatter gammamatter">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(125,101,127);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Gamma Matter</td>
+    <td class="numeric"><span class="tier tier-6">T6</span></td>
+    <td class="numeric mono">0.1</td>
+    <td><a href="resources/res_rare_gammamatter.html">Gamma Matter</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">gammamatter</td>
+</tr>
+
+<tr data-search="x matter res.rare.xmatter x_matter">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(65,82,56);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>X Matter</td>
+    <td class="numeric"><span class="tier tier-6">T6</span></td>
+    <td class="numeric mono">0.1</td>
+    <td><a href="resources/res_rare_xmatter.html">Xmatter</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">x_matter</td>
+</tr>
+
+<tr data-search="diamond res.diamond stone_diamond">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(125,128,129);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Diamond</td>
+    <td class="numeric"><span class="tier tier-5">T5</span></td>
+    <td class="numeric mono">0.2</td>
+    <td><a href="gems/res_diamond.html">Diamond</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">stone_diamond</td>
+</tr>
+
+<tr data-search="emerald res.emerald emeralds">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(87,115,76);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Emerald</td>
+    <td class="numeric"><span class="tier tier-5">T5</span></td>
+    <td class="numeric mono">0.2</td>
+    <td><a href="gems/res_emerald.html">Emerald</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">emeralds</td>
+</tr>
+
+<tr data-search="ruby res.ruby stone_ruby">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(130,71,68);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Ruby</td>
+    <td class="numeric"><span class="tier tier-5">T5</span></td>
+    <td class="numeric mono">0.2</td>
+    <td><a href="gems/res_ruby.html">Ruby</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">stone_ruby</td>
+</tr>
+
+<tr data-search="sapphire res.sapphire saphire">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(89,105,123);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Sapphire</td>
+    <td class="numeric"><span class="tier tier-5">T5</span></td>
+    <td class="numeric mono">0.2</td>
+    <td><a href="gems/res_sapphire.html">Sapphire</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">saphire</td>
+</tr>
+
+<tr data-search="cobalt res.cobalt.ore cobalt">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(86,88,104);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Cobalt</td>
+    <td class="numeric"><span class="tier tier-4">T4</span></td>
+    <td class="numeric mono">0.3</td>
+    <td><a href="ores/res_cobalt_ore.html">Cobalt Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">cobalt</td>
+</tr>
+
+<tr data-search="polonium res.polonium.ore polonium">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(90,104,78);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Polonium</td>
+    <td class="numeric"><span class="tier tier-4">T4</span></td>
+    <td class="numeric mono">0.3</td>
+    <td><a href="ores/res_polonium_ore.html">Polonium Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">polonium</td>
+</tr>
+
+<tr data-search="radium res.radium.ore radium">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(139,94,103);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Radium</td>
+    <td class="numeric"><span class="tier tier-4">T4</span></td>
+    <td class="numeric mono">0.3</td>
+    <td><a href="ores/res_radium_ore.html">Radium Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">radium</td>
+</tr>
+
+<tr data-search="uranium res.uranium.ore uranium">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(133,92,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Uranium</td>
+    <td class="numeric"><span class="tier tier-4">T4</span></td>
+    <td class="numeric mono">0.3</td>
+    <td><a href="ores/res_uranium_ore.html">Uranium Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">uranium</td>
+</tr>
+
+<tr data-search="magnetite res.magnetite.ore magnetite">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(97,91,85);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Magnetite</td>
+    <td class="numeric"><span class="tier tier-3">T3</span></td>
+    <td class="numeric mono">0.4</td>
+    <td><a href="ores/res_magnetite_ore.html">Magnetite Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">magnetite</td>
+</tr>
+
+<tr data-search="quartz res.quartz.ore stone_minerals">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(130,111,108);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Quartz</td>
+    <td class="numeric"><span class="tier tier-3">T3</span></td>
+    <td class="numeric mono">0.4</td>
+    <td><a href="ores/res_quartz_ore.html">Quartz Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">stone_minerals</td>
+</tr>
+
+<tr data-search="sulfur res.sulfur.ore rock_sulfur">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(98,85,73);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Sulfur</td>
+    <td class="numeric"><span class="tier tier-3">T3</span></td>
+    <td class="numeric mono">0.4</td>
+    <td><a href="ores/res_sulfur_ore.html">Sulfur Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">rock_sulfur</td>
+</tr>
+
+<tr data-search="titanium res.titanium.ore titanium">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(89,100,113);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Titanium</td>
+    <td class="numeric"><span class="tier tier-3">T3</span></td>
+    <td class="numeric mono">0.4</td>
+    <td><a href="ores/res_titanium_ore.html">Titanium Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">titanium</td>
+</tr>
+
+<tr data-search="gold res.gold.ore stone_gold">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(111,103,87);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Gold</td>
+    <td class="numeric"><span class="tier tier-2">T2</span></td>
+    <td class="numeric mono">0.5</td>
+    <td><a href="ores/res_gold_ore.html">Gold Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">stone_gold</td>
+</tr>
+
+<tr data-search="petroleum res.tin.ore tar_ore">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(85,86,85);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Petroleum</td>
+    <td class="numeric"><span class="tier tier-2">T2</span></td>
+    <td class="numeric mono">0.5</td>
+    <td><a href="ores/res_tin_ore.html">Tin Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">tar_ore</td>
+</tr>
+
+<tr data-search="silicon res.silicon.ore stone_silicon">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(103,92,92);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Silicon</td>
+    <td class="numeric"><span class="tier tier-2">T2</span></td>
+    <td class="numeric mono">0.5</td>
+    <td><a href="ores/res_silicon_ore.html">Silicon Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">stone_silicon</td>
+</tr>
+
+<tr data-search="silver res.silver.ore stone_silver">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(100,101,101);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Silver</td>
+    <td class="numeric"><span class="tier tier-2">T2</span></td>
+    <td class="numeric mono">0.5</td>
+    <td><a href="ores/res_silver_ore.html">Silver Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">stone_silver</td>
+</tr>
+
+<tr data-search="aluminium res.aluminum.ore aluminium">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(103,103,102);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Aluminium</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">0.7</td>
+    <td><a href="ores/res_aluminum_ore.html">Aluminum Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">aluminium</td>
+</tr>
+
+<tr data-search="coal res.coal stone_coal">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(95,93,93);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Coal</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">0.8</td>
+    <td><a href="resources/res_coal.html">Coal</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">stone_coal</td>
+</tr>
+
+<tr data-search="copper res.copper.ore copper">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(101,100,91);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Copper</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">0.7</td>
+    <td><a href="ores/res_copper_ore.html">Copper Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">copper</td>
+</tr>
+
+<tr data-search="iron res.iron.ore stone_iron">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(99,95,94);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Iron</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">0.7</td>
+    <td><a href="ores/res_iron_ore.html">Iron Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">stone_iron</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="cat-e_vcat_glowing_ores">Glowing ores <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace">E_VCAT_GLOWING_ORES</span></h2>
+<table class="wiki" data-cat="E_VCAT_GLOWING_ORES">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+
+<tr data-search="glowing aluminium res.glowing.aluminum.ore aluminium">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(103,103,102);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Glowing Aluminium</td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.7</td>
+    <td><a href="ores/res_glowing_aluminum_ore.html">Glowing Aluminum Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">aluminium</td>
+</tr>
+
+<tr data-search="glowing cobalt res.glowing.cobalt.ore cobalt">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(86,88,104);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Glowing Cobalt</td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.3</td>
+    <td><a href="ores/res_glowing_cobalt_ore.html">Glowing Cobalt Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">cobalt</td>
+</tr>
+
+<tr data-search="glowing copper res.glowing.copper.ore copper">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(101,100,91);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Glowing Copper</td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.7</td>
+    <td><a href="ores/res_glowing_copper_ore.html">Glowing Copper Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">copper</td>
+</tr>
+
+<tr data-search="glowing diamond res.glowing.diamond stone_diamond">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(125,128,129);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Glowing Diamond</td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.2</td>
+    <td><a href="gems/res_glowing_diamond.html">Glowing Diamond</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">stone_diamond</td>
+</tr>
+
+<tr data-search="glowing emerald res.glowing.emerald emeralds">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(87,115,76);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Glowing Emerald</td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.2</td>
+    <td><a href="gems/res_glowing_emerald.html">Glowing Emerald</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">emeralds</td>
+</tr>
+
+<tr data-search="glowing gold res.glowing.gold.ore stone_gold">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(111,103,87);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Glowing Gold</td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.5</td>
+    <td><a href="ores/res_glowing_gold_ore.html">Glowing Gold Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">stone_gold</td>
+</tr>
+
+<tr data-search="glowing iron res.glowing.iron.ore stone_iron">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(99,95,94);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Glowing Iron</td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.7</td>
+    <td><a href="ores/res_glowing_iron_ore.html">Glowing Iron Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">stone_iron</td>
+</tr>
+
+<tr data-search="glowing magnetite res.glowing.magnetite.ore magnetite">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(97,91,85);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Glowing Magnetite</td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.4</td>
+    <td><a href="ores/res_glowing_magnetite_ore.html">Glowing Magnetite Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">magnetite</td>
+</tr>
+
+<tr data-search="glowing petroleum res.glowing.tin.ore tar_ore">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(85,86,85);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Glowing Petroleum</td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.5</td>
+    <td><a href="ores/res_glowing_tin_ore.html">Glowing Tin Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">tar_ore</td>
+</tr>
+
+<tr data-search="glowing polonium res.glowing.polonium.ore polonium">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(90,104,78);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Glowing Polonium</td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.3</td>
+    <td><a href="ores/res_glowing_polonium_ore.html">Glowing Polonium Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">polonium</td>
+</tr>
+
+<tr data-search="glowing quartz res.glowing.quartz.ore stone_minerals">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(130,111,108);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Glowing Quartz</td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.4</td>
+    <td><a href="ores/res_glowing_quartz_ore.html">Glowing Quartz Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">stone_minerals</td>
+</tr>
+
+<tr data-search="glowing radium res.glowing.radium.ore radium">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(139,94,103);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Glowing Radium</td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.3</td>
+    <td><a href="ores/res_glowing_radium_ore.html">Glowing Radium Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">radium</td>
+</tr>
+
+<tr data-search="glowing ruby res.glowing.ruby stone_ruby">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(130,71,68);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Glowing Ruby</td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.2</td>
+    <td><a href="gems/res_glowing_ruby.html">Glowing Ruby</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">stone_ruby</td>
+</tr>
+
+<tr data-search="glowing sapphire res.glowing.sapphire saphire">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(89,105,123);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Glowing Sapphire</td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.2</td>
+    <td><a href="gems/res_glowing_sapphire.html">Glowing Sapphire</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">saphire</td>
+</tr>
+
+<tr data-search="glowing silicon res.glowing.silicon.ore stone_silicon">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(103,92,92);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Glowing Silicon</td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.5</td>
+    <td><a href="ores/res_glowing_silicon_ore.html">Glowing Silicon Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">stone_silicon</td>
+</tr>
+
+<tr data-search="glowing silver res.glowing.silver.ore stone_silver">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(100,101,101);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Glowing Silver</td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.5</td>
+    <td><a href="ores/res_glowing_silver_ore.html">Glowing Silver Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">stone_silver</td>
+</tr>
+
+<tr data-search="glowing sulfur res.glowing.sulfur.ore rock_sulfur">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(98,85,73);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Glowing Sulfur</td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.4</td>
+    <td><a href="ores/res_glowing_sulfur_ore.html">Glowing Sulfur Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">rock_sulfur</td>
+</tr>
+
+<tr data-search="glowing titanium res.glowing.titanium.ore titanium">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(89,100,113);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Glowing Titanium</td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.4</td>
+    <td><a href="ores/res_glowing_titanium_ore.html">Glowing Titanium Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">titanium</td>
+</tr>
+
+<tr data-search="glowing uranium res.glowing.uranium.ore uranium">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(133,92,65);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Glowing Uranium</td>
+    <td class="numeric"><span class="tier tier-7">T7</span></td>
+    <td class="numeric mono">0.3</td>
+    <td><a href="ores/res_glowing_uranium_ore.html">Glowing Uranium Ore</a></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">uranium</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="cat-e_vcat_building">Building <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace">E_VCAT_BUILDING</span></h2>
+<table class="wiki" data-cat="E_VCAT_BUILDING">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+
+<tr data-search="marker  marker">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(209,201,194);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Marker</td>
+    <td class="numeric"><span class="tier tier-100">T100</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">marker</td>
+</tr>
+
+<tr data-search="marker 2  marker2_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(209,201,194);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Marker 2</td>
+    <td class="numeric"><span class="tier tier-100">T100</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">marker2_side</td>
+</tr>
+
+<tr data-search="asphalt  asphalt">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(24,23,22);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Asphalt</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">asphalt</td>
+</tr>
+
+<tr data-search="blue light bricks  temple_wall_emissive">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(101,127,121);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Blue Light Bricks</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">temple_wall_emissive</td>
+</tr>
+
+<tr data-search="bricks  brick_blocks_large">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(163,122,98);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Bricks</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">brick_blocks_large</td>
+</tr>
+
+<tr data-search="foundation concrete  cement_default">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(189,191,189);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Foundation Concrete</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">cement_default</td>
+</tr>
+
+<tr data-search="sidewalk concrete  concrete_sidewalk">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(189,191,189);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Sidewalk Concrete</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">concrete_sidewalk</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="cat-e_vcat_floor">Floors <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace">E_VCAT_FLOOR</span></h2>
+<table class="wiki" data-cat="E_VCAT_FLOOR">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+
+<tr data-search="floor metal 1  gnd_metal_1_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Floor Metal 1</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">gnd_metal_1_side</td>
+</tr>
+
+<tr data-search="floor metal 10  gnd_metal_10_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Floor Metal 10</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">gnd_metal_10_side</td>
+</tr>
+
+<tr data-search="floor metal 2  gnd_metal_2_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Floor Metal 2</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">gnd_metal_2_side</td>
+</tr>
+
+<tr data-search="floor metal 3  gnd_metal_3_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Floor Metal 3</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">gnd_metal_3_side</td>
+</tr>
+
+<tr data-search="floor metal 4  gnd_metal_4_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Floor Metal 4</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">gnd_metal_4_side</td>
+</tr>
+
+<tr data-search="floor metal 5  gnd_metal_5_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Floor Metal 5</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">gnd_metal_5_side</td>
+</tr>
+
+<tr data-search="floor metal 6  gnd_metal_6_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Floor Metal 6</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">gnd_metal_6_side</td>
+</tr>
+
+<tr data-search="floor metal 7  gnd_metal_7_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Floor Metal 7</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">gnd_metal_7_side</td>
+</tr>
+
+<tr data-search="floor metal 8  gnd_metal_8_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Floor Metal 8</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">gnd_metal_8_side</td>
+</tr>
+
+<tr data-search="floor metal 9  gnd_metal_9_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Floor Metal 9</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">gnd_metal_9_side</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="cat-e_vcat_wall">Walls <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace">E_VCAT_WALL</span></h2>
+<table class="wiki" data-cat="E_VCAT_WALL">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+
+<tr data-search="wall metal 1  wall_metal_1_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Wall Metal 1</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">wall_metal_1_side</td>
+</tr>
+
+<tr data-search="wall metal 10  wall_metal_10_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Wall Metal 10</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">wall_metal_10_side</td>
+</tr>
+
+<tr data-search="wall metal 2  wall_metal_2_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Wall Metal 2</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">wall_metal_2_side</td>
+</tr>
+
+<tr data-search="wall metal 3  wall_metal_3_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Wall Metal 3</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">wall_metal_3_side</td>
+</tr>
+
+<tr data-search="wall metal 4  wall_metal_4_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Wall Metal 4</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">wall_metal_4_side</td>
+</tr>
+
+<tr data-search="wall metal 5  wall_metal_5_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Wall Metal 5</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">wall_metal_5_side</td>
+</tr>
+
+<tr data-search="wall metal 6  wall_metal_6_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Wall Metal 6</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">wall_metal_6_side</td>
+</tr>
+
+<tr data-search="wall metal 7  wall_metal_7_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Wall Metal 7</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">wall_metal_7_side</td>
+</tr>
+
+<tr data-search="wall metal 8  wall_metal_8_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Wall Metal 8</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">wall_metal_8_side</td>
+</tr>
+
+<tr data-search="wall metal 9  wall_metal_9_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Wall Metal 9</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">wall_metal_9_side</td>
+</tr>
+
+<tr data-search="ancient hull  temple_metal">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(200,209,216);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Ancient Hull</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">temple_metal</td>
+</tr>
+
+<tr data-search="ancient hull emissive  temple_metal_emissive">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(71,68,63);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Ancient Hull Emissive</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">temple_metal_emissive</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="cat-e_vcat_glass">Glass <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace">E_VCAT_GLASS</span></h2>
+<table class="wiki" data-cat="E_VCAT_GLASS">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+
+<tr data-search="glass  glass">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(63,72,72);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Glass</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">glass</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="cat-e_vcat_armor">Armor <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace">E_VCAT_ARMOR</span></h2>
+<table class="wiki" data-cat="E_VCAT_ARMOR">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+
+<tr data-search="engine plate 1  ship_engine0_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(255,243,250);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Engine Plate 1</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">ship_engine0_side</td>
+</tr>
+
+<tr data-search="engine plate 2  ship_engine1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(255,244,250);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Engine Plate 2</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">ship_engine1</td>
+</tr>
+
+<tr data-search="floor plate 1  ship_floor0_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(255,247,250);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Floor Plate 1</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">ship_floor0_side</td>
+</tr>
+
+<tr data-search="floor plate 2  ship_floor1_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(255,248,250);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Floor Plate 2</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">ship_floor1_side</td>
+</tr>
+
+<tr data-search="hull plate 1  hull_plate_0_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(240,255,250);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Hull Plate 1</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">hull_plate_0_side</td>
+</tr>
+
+<tr data-search="hull plate 2  hull_plate_1">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(241,255,250);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Hull Plate 2</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">hull_plate_1</td>
+</tr>
+
+<tr data-search="hull plate 3  hull_plate_2">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(242,255,250);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Hull Plate 3</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">hull_plate_2</td>
+</tr>
+
+<tr data-search="hull plate 4  hull_plate_3_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(243,255,250);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Hull Plate 4</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">hull_plate_3_side</td>
+</tr>
+
+<tr data-search="hull plate 5  hull_plate_4_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(244,255,250);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Hull Plate 5</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">hull_plate_4_side</td>
+</tr>
+
+<tr data-search="hull plate 6  hull_plate_5_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(245,255,250);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Hull Plate 6</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">hull_plate_5_side</td>
+</tr>
+
+<tr data-search="hull plate 7  hull_plate_6_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(246,255,250);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Hull Plate 7</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">hull_plate_6_side</td>
+</tr>
+
+<tr data-search="hull plate 8  hull_plate_7">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(246,255,250);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Hull Plate 8</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">hull_plate_7</td>
+</tr>
+
+<tr data-search="wall plate 1  ship_wall0_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(255,245,250);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Wall Plate 1</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">ship_wall0_side</td>
+</tr>
+
+<tr data-search="wall plate 2  ship_wall1_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(255,246,250);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Wall Plate 2</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">ship_wall1_side</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="cat-e_vcat_ancient">Ancient <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace">E_VCAT_ANCIENT</span></h2>
+<table class="wiki" data-cat="E_VCAT_ANCIENT">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+
+<tr data-search="ancient hull emissive2  temple_metal_emissive2">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(71,68,63);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Ancient Hull Emissive2</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">temple_metal_emissive2</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="cat-e_vcat_material">Material <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace">E_VCAT_MATERIAL</span></h2>
+<table class="wiki" data-cat="E_VCAT_MATERIAL">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+
+<tr data-search="copper block  copper_block">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(174,114,57);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Copper Block</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">copper_block</td>
+</tr>
+
+<tr data-search="dark metal  metal_rough">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(74,69,66);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Dark Metal</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">metal_rough</td>
+</tr>
+
+<tr data-search="emissive  emissive">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(255,255,250);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Emissive</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">emissive</td>
+</tr>
+
+<tr data-search="emissive engine  emissive">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(255,255,250);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Emissive Engine</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">emissive</td>
+</tr>
+
+<tr data-search="fuzzy metal  metal_fuzzy">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(146,148,151);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Fuzzy Metal</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">metal_fuzzy</td>
+</tr>
+
+<tr data-search="gold block  gold_block">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(227,177,8);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Gold Block</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">gold_block</td>
+</tr>
+
+<tr data-search="plastic  plastic_block">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(255,242,250);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Plastic</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">plastic_block</td>
+</tr>
+
+<tr data-search="polished metal  metal_polished">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(255,241,250);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Polished Metal</td>
+    <td class="numeric"><span class="tier tier-1">T1</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">metal_polished</td>
+</tr>
+
+<tr data-search="brick blocks small  brick_blocks_small">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(189,191,189);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Brick Blocks Small</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">brick_blocks_small</td>
+</tr>
+
+<tr data-search="cement rough  cement_rough">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(189,191,189);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Cement Rough</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">cement_rough</td>
+</tr>
+
+<tr data-search="clay  clay">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(189,191,189);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Clay</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">clay</td>
+</tr>
+
+<tr data-search="danish tiles  danish_tiles">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(189,191,189);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Danish Tiles</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">danish_tiles</td>
+</tr>
+
+<tr data-search="decor 1  marble_calcatta">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(231,115,129);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Decor 1</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">marble_calcatta</td>
+</tr>
+
+<tr data-search="decor 2  marble_nero">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(231,169,135);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Decor 2</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">marble_nero</td>
+</tr>
+
+<tr data-search="design concrete  cement_blocks">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(189,191,189);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Design Concrete</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">cement_blocks</td>
+</tr>
+
+<tr data-search="floor wood  wood_planks">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(101,127,121);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Floor Wood</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">wood_planks</td>
+</tr>
+
+<tr data-search="iron corten  iron_corten">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(189,191,189);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Iron Corten</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">iron_corten</td>
+</tr>
+
+<tr data-search="light wood 1  wood_processed">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(101,127,121);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Light Wood 1</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">wood_processed</td>
+</tr>
+
+<tr data-search="light wood 2  wood_ribbed">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(101,127,121);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Light Wood 2</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">wood_ribbed</td>
+</tr>
+
+<tr data-search="marble 1  marble_generic">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(234,234,234);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Marble 1</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">marble_generic</td>
+</tr>
+
+<tr data-search="marble 2  marble_carrara">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(235,235,235);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Marble 2</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">marble_carrara</td>
+</tr>
+
+<tr data-search="moss 1  wood_veneer">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(101,127,121);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Moss 1</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">wood_veneer</td>
+</tr>
+
+<tr data-search="moss 2  wood_logs">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(101,127,121);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Moss 2</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">wood_logs</td>
+</tr>
+
+<tr data-search="roof terracotta  terracotta_roof">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(107,84,63);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Roof Terracotta</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">terracotta_roof</td>
+</tr>
+
+<tr data-search="roof wood  wood_roof">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(107,84,63);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Roof Wood</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">wood_roof</td>
+</tr>
+
+<tr data-search="stoneware  stoneware">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(189,191,189);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Stoneware</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">stoneware</td>
+</tr>
+
+<tr data-search="terracotta  terracotta">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(189,191,189);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Terracotta</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">terracotta</td>
+</tr>
+
+<tr data-search="wood  wood_default">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(107,84,63);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Wood</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">wood_default</td>
+</tr>
+
+<tr data-search="wood wall  wood_wall">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(101,127,121);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Wood wall</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">wood_wall</td>
+</tr>
+
+<tr data-search="wool  shroomy_taiga_turf_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(189,191,189);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Wool</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.1</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">shroomy_taiga_turf_side</td>
+</tr>
+
+</tbody>
+</table>
+
+<h2 id="cat-">Other <span style="color:var(--text-faint);font-weight:400;font-size:0.7em;font-family:ui-monospace,monospace"></span></h2>
+<table class="wiki" data-cat="">
+<thead><tr>
+    <th style="width:48px"></th>
+    <th>Voxel</th>
+    <th class="numeric">Tier</th>
+    <th class="numeric">Mine unit</th>
+    <th>Drop</th>
+    <th>Texture</th>
+</tr></thead>
+<tbody>
+
+<tr data-search="cactus  cactus_side">
+    <td><span style="display:inline-block;width:32px;height:32px;background:rgb(149,158,92);border:1px solid var(--border);border-radius:3px"></span></td>
+    <td>Cactus</td>
+    <td class="numeric"><span class="tier tier-0">T0</span></td>
+    <td class="numeric mono">1.4</td>
+    <td><span style="color:var(--text-faint)">—</span></td>
+    <td class="mono" style="color:var(--text-faint);font-size:0.85em">cactus_side</td>
+</tr>
+
+</tbody>
+</table>
+
+
+</main>
+<footer class="site">
+    <div class="inner">
+        Generated 2026-05-11 05:15 UTC from game data (2026-04-26).
+        Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
+        Planet→biome distribution mapping is best-effort.
+    </div>
+</footer>
+
+<script>
+(function(){
+    const tables = document.querySelectorAll('table[data-cat]');
+    const search = document.getElementById('catSearch');
+    const pills = document.getElementById('catPills');
+    let catFilter = 'all';
+
+    function apply(){
+        const q = (search?.value || '').trim().toLowerCase();
+        for (const t of tables) {
+            const cat = t.dataset.cat;
+            const headers = [t.previousElementSibling];
+            let visibleInTable = 0;
+            for (const r of t.tBodies[0].rows) {
+                const matchQ = !q || r.dataset.search.indexOf(q) !== -1;
+                const matchC = catFilter === 'all' || cat === catFilter;
+                const show = matchQ && matchC;
+                r.style.display = show ? '' : 'none';
+                if (show) visibleInTable++;
+            }
+            const display = (catFilter === 'all' || cat === catFilter) && visibleInTable > 0 ? '' : 'none';
+            t.style.display = display;
+            headers.forEach(h => { if (h) h.style.display = display; });
+        }
+    }
+    search?.addEventListener('input', apply);
+    pills?.addEventListener('click', e => {
+        const p = e.target.closest('.pill');
+        if (!p) return;
+        pills.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
+        p.classList.add('active');
+        catFilter = p.dataset.cat;
+        apply();
+    });
+})();
+</script>
+
+</body>
+</html>

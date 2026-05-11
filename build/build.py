@@ -194,9 +194,13 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
                             strips.append(img.crop((0, top_y, w, bot_y)))
                     if len(strips) >= 2:
                         result = strips
-        # Pre-filter each variant to ~2× face size so the affine transform
-        # only does a moderate downscale through bilinear sampling.
-        target = size * 2
+        # Pre-filter each variant to the cube output size. PIL's affine
+        # transform scales its sampling kernel by the affine's `a` factor,
+        # so a side face with a=2W/S returns OOB-fill (transparent) along
+        # the inside edge when the texture is bigger than the output. With
+        # W=S, the kernel stays a 2×2 box that the replicate-padding can
+        # cover cheaply.
+        target = size
         scaled: List['Image.Image'] = []
         for v in result:
             if max(v.size) > target:
@@ -226,11 +230,40 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
         def paint(tex, affine, polygon, brightness):
             if tex is None:
                 return
+            # Pad the texture by replicating its edge pixels before the
+            # affine. Bilinear sampling at the cube's face seams hits texture
+            # coordinates exactly at the source edges (e.g. x=W or y=H); with
+            # the default fillcolor=(0,0,0,0) PIL averages those samples
+            # against transparent black, leaving dark hairline pixels along
+            # the internal cube seams. Replicate padding makes the OOB
+            # samples equal to the edge values, so the bilinear average
+            # produces the correct edge colour.
+            pad = 4
+            tw, th = tex.size
+            pt = Image.new('RGBA', (tw + 2*pad, th + 2*pad))
+            pt.paste(tex, (pad, pad))
+            pt.paste(tex.crop((0, 0, tw, 1)).resize((tw, pad)),
+                     (pad, 0))
+            pt.paste(tex.crop((0, th-1, tw, th)).resize((tw, pad)),
+                     (pad, th + pad))
+            pt.paste(tex.crop((0, 0, 1, th)).resize((pad, th)),
+                     (0, pad))
+            pt.paste(tex.crop((tw-1, 0, tw, th)).resize((pad, th)),
+                     (tw + pad, pad))
+            pt.paste(tex.crop((0, 0, 1, 1)).resize((pad, pad)),
+                     (0, 0))
+            pt.paste(tex.crop((tw-1, 0, tw, 1)).resize((pad, pad)),
+                     (tw + pad, 0))
+            pt.paste(tex.crop((0, th-1, 1, th)).resize((pad, pad)),
+                     (0, th + pad))
+            pt.paste(tex.crop((tw-1, th-1, tw, th)).resize((pad, pad)),
+                     (tw + pad, th + pad))
+            a, b, c, d, e, f = affine
+            affine = (a, b, c + pad, d, e, f + pad)
             # BILINEAR samples 4 source pixels per output pixel — gives the
-            # smooth shaded look the in-game block icons have. NEAREST
-            # produced a noisy pixel-art appearance the user didn't want.
-            t = tex.transform((S, S), Image.AFFINE, affine,
-                              resample=Image.Resampling.BILINEAR)
+            # smooth shaded look the in-game block icons have.
+            t = pt.transform((S, S), Image.AFFINE, affine,
+                             resample=Image.Resampling.BILINEAR)
             if brightness != 1.0:
                 r, g, b, a = t.split()
                 rgb = ImageEnhance.Brightness(
@@ -247,19 +280,28 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
             md.line(list(polygon) + [polygon[0]], fill=255, width=2)
             out.paste(t, (0, 0), mask)
 
+        # Enlarge each face polygon by 2 px along its shared seams so the
+        # mask of adjacent faces overlaps and no pixel is missed at the
+        # boundary. Painting order is top → right → left so the LAST
+        # paint covers any boundary; the overlaps are entirely within the
+        # cube body and never poke outside the hex.
+        ov = 2  # overlap in pixels
         if top is not None:
             W, H = top.size
             paint(top,
                   (W/S, -2*W/S, W/2, H/S, 2*H/S, -H/2),
-                  [(0, q), (S//2, 0), (S, q), (S//2, S//2)], 1.0)
+                  [(0, q + ov), (S//2, 0), (S, q + ov),
+                   (S//2, S//2 + ov)], 1.0)
         if side is not None:
             W, H = side.size
             paint(side,
                   (2*W/S, 0, -W, H/S, 2*H/S, -3*H/2),
-                  [(S//2, S//2), (S, q), (S, 3*q), (S//2, S)], 0.85)
+                  [(S//2 - ov, S//2), (S, q), (S, 3*q),
+                   (S//2 - ov, S)], 0.85)
             paint(side,
                   (2*W/S, 0, 0, -H/S, 2*H/S, -H/2),
-                  [(0, q), (S//2, S//2), (S//2, S), (0, 3*q)], 0.7)
+                  [(0, q), (S//2 + ov, S//2), (S//2 + ov, S),
+                   (0, 3*q)], 0.7)
         return out
 
     # Keep cubes as RGBA — flattening onto a fixed background colour was a

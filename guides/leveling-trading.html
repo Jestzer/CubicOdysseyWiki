@@ -26,15 +26,73 @@
 <main class="wrap">
     
 <h1>Leveling Trading</h1>
-<p>The Trading skill governs your discount when buying from merchants and your bonus when selling to them. It's one of nine player skills (<code>data/configs/achievements/max_level_trading.cfg</code>) and the easiest skill to level without combat.</p>
+<p>The Trading skill governs your discount when buying and your bonus when selling. It's one of nine player skills (<code>data/configs/achievements/max_level_trading.cfg</code>) and the easiest skill to level without combat.</p>
+
+<div class="level-picker" data-skill="trading">
+    <label>Your Trading level: <input type="number" min="1" max="60" value="1"></label>
+    <span class="right-now">Set your level to highlight the right stage below.</span>
+</div>
+
+<h2>What to do at your level</h2>
+<div class="stages">
+
+<article class="stage" data-min="1" data-max="9"
+         data-tagline="Sell smelted ingots at any outpost. Build the trade-discount perk early.">
+    <div class="stage-title">Beginning <span class="level-range">level 1–9</span></div>
+    <div class="stage-tagline">Convert mining surplus into qubits.</div>
+    <ul>
+        <li><strong>Smelt before you sell.</strong> Raw ore is worth less than the ingot. Run a furnace before the first merchant trip.</li>
+        <li>Visit the nearest outpost and dump everything non-essential: <a href="../ingots.html">low-tier ingots</a>, mob drops, captured creature resources. Volume builds early XP fast.</li>
+        <li>Start unlocking the <a href="#perk">Trade Discount</a> outpost perk as soon as you control an outpost. Every level shaves 2% off merchant prices.</li>
+        <li>Don't worry about base_demand yet — at this stage you're selling whatever you have, not flipping.</li>
+    </ul>
+</article>
+
+<article class="stage" data-min="10" data-max="19"
+         data-tagline="Stack the trade-discount perk and start buying vendor-supplied parts in bulk.">
+    <div class="stage-title">Mid game <span class="level-range">level 10–19</span></div>
+    <div class="stage-tagline">Buy low (vendor stock), use; sell high (high-demand mob/loot items).</div>
+    <ul>
+        <li>Push <a href="#perk">Trade Discount</a> at your outpost. The perk applies before the skill discount, so they stack.</li>
+        <li><strong>Buy vendor-supplied parts in bulk</strong> — capacitors, mirrors, wiring, even motherboards if you can afford them. Their cost at merchants is below their crafting / scavenge cost; see the bottom table.</li>
+        <li>Start triaging loot: <em>keep</em> high-demand items (the top of the flip table); <em>sell</em> everything else.</li>
+        <li>Avoid burning trade volume on Glowing / endgame ores yet — they fetch much more once you've levelled.</li>
+    </ul>
+</article>
+
+<article class="stage" data-min="20" data-max="29"
+         data-tagline="Specialise outposts by merchant type. Flip ingots → tools/weapons → qubits.">
+    <div class="stage-title">Advanced <span class="level-range">level 20–29</span></div>
+    <div class="stage-tagline">Multi-stop trade loops and outpost specialisation.</div>
+    <ul>
+        <li>Outpost specialisations affect which items have inflated demand. A mining outpost pays more for ingots; a tech outpost for electronics; a farming outpost for fruits / seeds / saplings.</li>
+        <li>Plan <strong>multi-stop loops</strong>: mine on planet A → smelt → sell ingots at mining outpost → buy motherboards / parts at tech outpost → return.</li>
+        <li>Quest rewards from faction merchants stack with Trading XP from the sale completion. Run faction quests that pay in items, not qubits.</li>
+        <li>Start crafting tier-3 / tier-4 items <em>to flip</em>, not just use — see the high-value flip table.</li>
+    </ul>
+</article>
+
+<article class="stage" data-min="30" data-max="999"
+         data-tagline="Endgame trading — flip high-tier ingots and Glowing variants; max the Trade Discount perk.">
+    <div class="stage-title">Endgame <span class="level-range">level 30+</span></div>
+    <div class="stage-tagline">High-value flips, max perk, large volume per stop.</div>
+    <ul>
+        <li>Max the <a href="#perk">Trade Discount</a> perk at every outpost you hold. The compounding discount makes bulk stockpiling cheap.</li>
+        <li>Flip <strong>Glowing ingots</strong> and tier-5 gem outputs through specialised merchants. The top of the high-demand table tells you where the qubits are.</li>
+        <li>Hoard Motherboards bought below price and use them for the few crafts in <a href="../guides/motherboards.html">the Motherboards guide</a> rather than reselling — vendor purchase &lt; craft value.</li>
+        <li>Cash flow is no longer the bottleneck — bank everything toward MK3 ship components and Suit 4 / Scanner 4 / Jetpack 4.</li>
+    </ul>
+</article>
+
+</div>
 
 <div class="section-grid">
 <div>
 
-<h2 id="trade-discount">How XP is earned</h2>
+<h2>How XP is earned</h2>
 <p>Every completed buy or sell transaction at a merchant grants Trading XP. The value of the transaction is what feeds the bar — flipping one expensive item is roughly equivalent to many cheap ones, so volume <em>or</em> value works.</p>
 
-<h2>The outpost perk that compounds with skill</h2>
+<h2 id="perk">The outpost perk that compounds with skill</h2>
 <p>One of only three perks in <code>data/configs/outpostperks/</code> is trade-related:</p>
 
 <table class="wiki">
@@ -45,10 +103,9 @@
 <tr><td>Processing Speed 1</td><td class="mono">3</td><td class="numeric">—</td><td>Faster furnace / refinery cook times.</td></tr>
 </tbody>
 </table>
-<p>Build / level the trade-discount perk at your home outpost as soon as you have a stable income. The discount stacks with whatever skill-based reduction Trading itself grants.</p>
 
 <h2>What's profitable to flip — by the numbers</h2>
-<p>Items in the game expose two fields the engine uses for trade pricing: <code>base_price</code> (how the merchant prices it) and <code>base_demand</code> (positive = merchant <em>wants</em> it, will pay more; negative = merchant supplies it, sells cheaper than other shops). The most flippable items have <strong>high base price AND positive base demand</strong>:</p>
+<p>Items in the game expose two fields the engine uses for trade pricing: <code>base_price</code> (how the merchant prices it) and <code>base_demand</code> (positive = merchant <em>wants</em> it, will pay more; negative = merchant supplies it). The most flippable items have <strong>high base price AND positive base demand</strong>:</p>
 
 <table class="wiki">
 <thead><tr><th class="icon"></th><th>Item</th><th class="numeric">Price</th><th class="numeric">Demand</th><th>Type</th></tr></thead>
@@ -216,7 +273,7 @@
 
 </tbody>
 </table>
-<p style="font-size:0.85em;color:var(--text-faint)">Top 20 by <code>base_demand × base_price</code>, filtered to <code>base_demand &gt; 0</code>. These are merchant-wanted items — sell them at the right outpost type for maximum profit.</p>
+<p style="font-size:0.85em;color:var(--text-faint)">Top 20 by <code>base_demand × base_price</code>, filtered to <code>base_demand &gt; 0</code>. Sell these at the right outpost type for maximum profit.</p>
 
 <h2>The opposite side — items merchants supply (don't flip these)</h2>
 <table class="wiki">
@@ -305,16 +362,7 @@
 
 </tbody>
 </table>
-<p style="font-size:0.85em;color:var(--text-faint)">Lowest <code>base_demand</code>. These are the items you <em>buy</em> for cheap (Motherboards, Mirrors, Capacitors, etc.) and use, rather than flip.</p>
-
-<h2>Strategy</h2>
-<ol>
-    <li><strong>Mine and smelt, then sell ingots.</strong> The biggest reliable trading-XP source early. <a href="../ingots.html">Tier-1 ingots</a> have small price tags but you'll have thousands by the time you're advanced.</li>
-    <li><strong>Sell at the right outpost.</strong> Outpost specialisations affect which items have high demand. A mining-themed outpost pays more for ingots; a tech outpost for electronics; a farming outpost for fruit / seeds / saplings.</li>
-    <li><strong>Buy vendor-supplied items below their crafting cost.</strong> Motherboards, mirrors, and similar electronic parts are usually cheaper to buy in bulk than to chase as drops. Roll a trade-discount perk and stock up.</li>
-    <li><strong>Loot then sell.</strong> Cleared a bunker or pirate ship? Bring everything you don't need to the nearest outpost. Even creature resources and low-tier components add up.</li>
-    <li><strong>Don't carry corruption-stained items into civilised outposts</strong> — some quest stages disable trading temporarily, but otherwise stains are just an inventory penalty.</li>
-</ol>
+<p style="font-size:0.85em;color:var(--text-faint)">Lowest <code>base_demand</code>. Buy these for cheap and use them rather than flipping.</p>
 
 </div>
 
@@ -335,11 +383,13 @@
 </main>
 <footer class="site">
     <div class="inner">
-        Generated 2026-05-11 03:06 UTC from game data (2026-04-26).
+        Generated 2026-05-11 03:13 UTC from game data (2026-04-26).
         Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
         Planet→biome distribution mapping is best-effort.
     </div>
 </footer>
+
+<script src="../assets/level-stages.js" defer></script>
 
 </body>
 </html>

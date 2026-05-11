@@ -34,35 +34,80 @@
     </div>
 </div>
 
+<div class="level-picker" data-skill="crafting">
+    <label>Your Crafting level: <input type="number" min="1" max="60" value="1"></label>
+    <span class="right-now">Set your Crafting level to highlight what to prioritise and grey out recipes you can't make yet.</span>
+</div>
+
+<h2>What to spend motherboards on, at your level</h2>
+<div class="stages">
+
+<article class="stage" data-min="1" data-max="7"
+         data-tagline="Hoard. You can't craft anything that uses motherboards yet — Crafting 8 is the gate.">
+    <div class="stage-title">Pre-craft <span class="level-range">Crafting 1–7</span></div>
+    <div class="stage-tagline">No motherboard recipes are unlocked yet. Bank them.</div>
+    <ul>
+        <li>Every motherboard recipe in the game needs at least <strong>Crafting 8</strong>. Until you cross that threshold, motherboards are paperweights.</li>
+        <li>Push Crafting XP: craft anything tier-1 / tier-2 you can. Volume matters more than item choice at this stage.</li>
+        <li>If you're <em>desperate</em> for qubits, you can sell motherboards — but their <code>base_price</code> (30) is low and you'll regret it once Crafting 8 hits.</li>
+    </ul>
+</article>
+
+<article class="stage" data-min="8" data-max="15"
+         data-tagline="Spend on Backpack 5, Mining Laser 4, Jetpack 4 first — they compound. Save Scanner 4 + Suit 4 for next.">
+    <div class="stage-title">First unlocks <span class="level-range">Crafting 8–15</span></div>
+    <div class="stage-tagline">Most motherboard recipes open up at level 8 — pick the ones that compound.</div>
+    <ul>
+        <li><a href="../tools.html">Backpack 5</a> (8 motherboards) — biggest single quality-of-life jump, increases all mining and looting runs.</li>
+        <li><a href="../tools.html">Mining Laser 4</a> (6 motherboards) — unlocks tier-5 gem mining, feeds Trading too.</li>
+        <li>Jetpack 4 (10 motherboards) — mobility.</li>
+        <li>Scanner 4 (12 motherboards) — expensive but enables tier-6 Matter hunting; defer until you have plenty in stock.</li>
+        <li>Skip tier-4 personal weapons for now if you only own one of each archetype — pick the one you actually use.</li>
+    </ul>
+</article>
+
+<article class="stage" data-min="16" data-max="999"
+         data-tagline="Everything unlocked, including Mining Laser 4 (skill 16). Prioritise MK3 ship components if you fly.">
+    <div class="stage-title">All recipes <span class="level-range">Crafting 16+</span></div>
+    <div class="stage-tagline">Every motherboard recipe is craftable. Aim spend at the largest gains.</div>
+    <ul>
+        <li><strong>MK3 ship components</strong> are the biggest sinks at 32–48 motherboards each. If you fly seriously, prioritise these.</li>
+        <li>If you don't fly much, all tier-4 personal weapons + Suit 4 are within reach (6–12 motherboards each).</li>
+        <li>Don't waste them on duplicate weapons across archetypes — pick the SMG / Rifle / Marksman you'll actually carry.</li>
+        <li>Stockpile a small reserve for <em>another</em> ship loadout — engine + shield + cargo costs add up quickly.</li>
+    </ul>
+</article>
+
+</div>
+
 <div class="section-grid">
 <div>
 
 <h2>What the data tells us</h2>
 <ul>
     <li><strong>No recipe produces a motherboard.</strong> A scan of all 900 crafting recipes in <code>data/configs/recipes/</code> finds zero that output <code>res.motherboard</code>. The item must be obtained from world loot or merchants.</li>
-    <li><strong>It does not appear in any creature / bunker / pirate randomset.</strong> A grep across <code>data/configs/randomsets/*.cfg</code> for <code>res.motherboard</code> returns no matches. Motherboards therefore drop from <em>hand-placed</em> loot (specific chests, lab consoles, computer rooms) rather than from random mob drops.</li>
+    <li><strong>It does not appear in any creature / bunker / pirate randomset.</strong> A grep across <code>data/configs/randomsets/*.cfg</code> for <code>res.motherboard</code> returns no matches. Motherboards therefore drop from <em>hand-placed</em> loot rather than from random mob drops.</li>
     <li><strong>Negative <code>base_demand</code> (-11000).</strong> Items with strongly negative demand are flagged as <em>vendor stock</em> rather than player-sold goods — the engine biases merchants to <em>supply</em> them.</li>
-    <li>Tier 3 with <strong>recycle value 3</strong> and <strong>base price 30</strong>. Stack size 100, but you rarely accumulate that many.</li>
+    <li>Tier 3 with <strong>recycle value 3</strong> and <strong>base price 30</strong>. Stack size 100.</li>
 </ul>
 
 <h2>Best places to look</h2>
-<p>The verifiable claim from the data above is "it must come from world loot or a merchant." Beyond that, practical sources are based on community-known game-play patterns. Look in roughly this order:</p>
 <ol>
-    <li><strong>Merchants at outposts and space stations.</strong> Most reliable. Engine flags motherboards as vendor stock (negative demand); higher-tier outposts carry more of them. If you have the <a href="#trade-discount">TRADE_DISCOUNT outpost perk</a>, the price drops.</li>
-    <li><strong>Abandoned bunkers</strong> — the underground multi-room bunkers (the engine uses <code>data/scripts/bunker.lua</code> to lay them out). Their generic randomsets (bunker_bedroom, bunker_computer_room, bunker_dining_room, bunker_gear, bunker_money, bunker_resources, bunker_underground_farm) seed sub-components (wiring, connector, mirror, capacitor) but the bunker generator also places hand-curated loot chests in computer / lab rooms that include motherboards.</li>
-    <li><strong>Pirate ship wrecks &amp; space-station ruins.</strong> Combat areas often have lab modules with electronics. Pirate-tier randomsets (<code>pirate_tier1.cfg</code> … <code>pirate_tier7.cfg</code>) handle mob drops; the structures themselves carry crates.</li>
-    <li><strong>Salvaging destroyed enemy ships.</strong> If you're already engaging in space combat, fly to the wreck and use a scanner; medium / large ship wrecks frequently contain motherboards.</li>
-    <li><strong>Quest rewards.</strong> Some main-story and faction-quest payouts include them; useful early on when you don't have access to high-tier merchants yet.</li>
+    <li><strong>Merchants at outposts and space stations.</strong> Most reliable. Engine flags motherboards as vendor stock (negative demand); higher-tier outposts carry more of them. <a href="../guides/leveling-trading.html#perk">The Trade Discount outpost perk</a> reduces price.</li>
+    <li><strong>Abandoned bunkers</strong> — the underground multi-room bunkers (the engine uses <code>data/scripts/bunker.lua</code> to lay them out). Their generic randomsets (bunker_bedroom, bunker_computer_room, bunker_dining_room, bunker_gear, bunker_money, bunker_resources, bunker_underground_farm) seed sub-components (wiring, connector, mirror, capacitor); the bunker generator places hand-curated loot chests in computer / lab rooms with motherboards.</li>
+    <li><strong>Pirate ship wrecks &amp; space-station ruins.</strong> Lab modules and electronics crates frequently contain motherboards.</li>
+    <li><strong>Salvaging destroyed enemy ships.</strong> Medium / large wrecks scanned with a Scanner usually yield motherboards.</li>
+    <li><strong>Quest rewards.</strong> Especially useful early when you don't have high-tier merchant access.</li>
 </ol>
 
-<h2 id="uses">Where motherboards go (every recipe in the game)</h2>
-<p>Across all 900 crafting recipes, <strong>55 of them consume motherboards</strong>. Quantities range from 1 to 48 per craft.</p>
+<h2 id="uses">Every recipe that uses motherboards</h2>
+<p>Across all 900 crafting recipes, <strong>55 consume motherboards</strong>. Quantities range from 1 to 48 per craft. Rows you don't have the Crafting skill for yet are greyed out — set your level above.</p>
 
 <table class="wiki">
-<thead><tr><th>Crafts</th><th class="numeric">Qty</th><th class="numeric">Skill</th><th>Type</th></tr></thead>
+<thead><tr><th>Crafts</th><th class="numeric">Qty</th><th class="numeric">Crafting needed</th><th>Type</th></tr></thead>
 <tbody>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         V Dreadnought Cargo Mk3<span style="color:var(--text-faint)"> (comp.dreadnought.cargo.mk3)</span>
     </td>
@@ -71,7 +116,7 @@
     <td class="mono">SHIP_C3</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         V Dreadnought Space Engine Mk3<span style="color:var(--text-faint)"> (comp.dreadnought.engine.space.mk3)</span>
     </td>
@@ -80,7 +125,7 @@
     <td class="mono">SHIP_C3</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         V Dreadnought Shield Mk3<span style="color:var(--text-faint)"> (comp.dreadnought.shield.mk3)</span>
     </td>
@@ -89,7 +134,7 @@
     <td class="mono">SHIP_C3</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         V Frigate Cargo Mk3<span style="color:var(--text-faint)"> (comp.frigate.cargo.mk3)</span>
     </td>
@@ -98,7 +143,7 @@
     <td class="mono">SHIP_C2</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         V Frigate Space Engine Mk3<span style="color:var(--text-faint)"> (comp.frigate.engine.space.mk3)</span>
     </td>
@@ -107,7 +152,7 @@
     <td class="mono">SHIP_C2</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         V Frigate Shield Mk3<span style="color:var(--text-faint)"> (comp.frigate.shield.mk3)</span>
     </td>
@@ -116,7 +161,7 @@
     <td class="mono">SHIP_C2</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         V Laser Dreadnought Mk3<span style="color:var(--text-faint)"> (comp.laser.dreadnought.mk3)</span>
     </td>
@@ -125,7 +170,7 @@
     <td class="mono">SHIP_C3</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         V Laser Frigate Mk3<span style="color:var(--text-faint)"> (comp.laser.frigate.mk3)</span>
     </td>
@@ -134,7 +179,7 @@
     <td class="mono">SHIP_C2</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         V Corvette Cargo Mk3<span style="color:var(--text-faint)"> (comp.corvette.cargo.mk3)</span>
     </td>
@@ -143,7 +188,7 @@
     <td class="mono">SHIP_C1</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         V Corvette Space Engine Mk3<span style="color:var(--text-faint)"> (comp.corvette.engine.space.mk3)</span>
     </td>
@@ -152,7 +197,7 @@
     <td class="mono">SHIP_C1</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         V Corvette Shield Mk3<span style="color:var(--text-faint)"> (comp.corvette.shield.mk3)</span>
     </td>
@@ -161,7 +206,7 @@
     <td class="mono">SHIP_C1</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         V Galleon Cargo Mk3<span style="color:var(--text-faint)"> (comp.galleon.cargo.mk3)</span>
     </td>
@@ -170,7 +215,7 @@
     <td class="mono">SHIP_C4</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         V Galleon Space Engine Mk3<span style="color:var(--text-faint)"> (comp.galleon.engine.space.mk3)</span>
     </td>
@@ -179,7 +224,7 @@
     <td class="mono">SHIP_C4</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         V Galleon Shield Mk3<span style="color:var(--text-faint)"> (comp.galleon.shield.mk3)</span>
     </td>
@@ -188,7 +233,7 @@
     <td class="mono">SHIP_C4</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         V Laser Corvette Mk3<span style="color:var(--text-faint)"> (comp.laser.corvette.mk3)</span>
     </td>
@@ -197,7 +242,7 @@
     <td class="mono">SHIP_C1</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         V Laser Galleon Mk3<span style="color:var(--text-faint)"> (comp.laser.galleon.mk3)</span>
     </td>
@@ -206,7 +251,7 @@
     <td class="mono">SHIP_C4</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         Scanner 4<span style="color:var(--text-faint)"> (cloth.scanner.4)</span>
     </td>
@@ -215,7 +260,7 @@
     <td class="mono">GEAR</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         Suit 4<span style="color:var(--text-faint)"> (cloth.suit.4)</span>
     </td>
@@ -224,7 +269,7 @@
     <td class="mono">GEAR</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         Suit Corrupt 2<span style="color:var(--text-faint)"> (cloth.suit.corrupt.2)</span>
     </td>
@@ -233,7 +278,7 @@
     <td class="mono">DARK_SHARDS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         Jetpack 4<span style="color:var(--text-faint)"> (cloth.jetpack.4)</span>
     </td>
@@ -242,7 +287,7 @@
     <td class="mono">GEAR</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         Backpack 5<span style="color:var(--text-faint)"> (cloth.backpack.5)</span>
     </td>
@@ -251,7 +296,7 @@
     <td class="mono">GEAR</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_marksman_str130_4.html">Marksman C Str130 4</a>
         
@@ -261,7 +306,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_marksman_str180_4.html">Marksman A Str180 4</a>
         
@@ -271,7 +316,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_marksman_str180l_4.html">Marksman B Str180l 4</a>
         
@@ -281,7 +326,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_marksman_str180le_4.html">Marksman E Str180le 4</a>
         
@@ -291,7 +336,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_marksman_str80xl_4.html">Marksman D Str80xl 4</a>
         
@@ -301,7 +346,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_heavy_mg34_4.html">Heavy D Mg34 4</a>
         
@@ -311,7 +356,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_heavy_mg39_4.html">Heavy C Mg39 4</a>
         
@@ -321,7 +366,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_heavy_mg56_4.html">Heavy A Mg56 4</a>
         
@@ -331,7 +376,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_heavy_mg56le_4.html">Heavy B Mg56le 4</a>
         
@@ -341,7 +386,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="16">
     <td>
         <a href="../tools/wep_mining_laser_4.html">Mining Laser 4</a>
         
@@ -351,7 +396,7 @@
     <td class="mono">UTILS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="1">
     <td>
         Portal Planet<span style="color:var(--text-faint)"> (dpl.portal.planet)</span>
     </td>
@@ -360,7 +405,7 @@
     <td class="mono">APPLIANCES</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_rifle_sma15e_4.html">Rifle A Sma15e 4</a>
         
@@ -370,7 +415,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_rifle_sma15fe_4.html">Rifle C Sma15fe 4</a>
         
@@ -380,7 +425,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_rifle_sma25d_4.html">Rifle B Sma25d 4</a>
         
@@ -390,7 +435,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_shotgun_sg82_4.html">Shotgun A Sg82 4</a>
         
@@ -400,7 +445,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_shotgun_sga106_4.html">Shotgun B Sga106 4</a>
         
@@ -410,7 +455,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_smg_sma24_4.html">Smg B Sma24 4</a>
         
@@ -420,7 +465,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_smg_sma25_4.html">Smg A Sma25 4</a>
         
@@ -430,7 +475,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_smg_sma50_4.html">Smg C Sma50 4</a>
         
@@ -440,7 +485,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_melee_shock_stick_4.html">Shock Stick 4</a>
         
@@ -450,7 +495,7 @@
     <td class="mono">WEAPONS_MELEE</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_pistol_pa20_4.html">Pistol A Pa20 4</a>
         
@@ -460,7 +505,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_pistol_r10_4.html">Pistol B R10 4</a>
         
@@ -470,7 +515,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_pistol_rg25_4.html">Pistol C Rg25 4</a>
         
@@ -480,7 +525,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_pistol_rl20_4.html">Pistol E Rl20 4</a>
         
@@ -490,7 +535,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         <a href="../weapons/wep_pistol_se17_4.html">Pistol D Se17 4</a>
         
@@ -500,7 +545,7 @@
     <td class="mono">SPECIAL_WEAPONS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="—">
     <td>
         Dpl Creature Mixer<span style="color:var(--text-faint)"> (dpl.creature.mixer)</span>
     </td>
@@ -509,7 +554,7 @@
     <td class="mono">APPLIANCES</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         Refinery 4<span style="color:var(--text-faint)"> (dpl.refinery.4)</span>
     </td>
@@ -518,7 +563,7 @@
     <td class="mono">HIDDEN_UPGRADES</td>
 </tr>
 
-<tr>
+<tr data-skill-min="0">
     <td>
         Creature Capture 1<span style="color:var(--text-faint)"> (wep.creature.capture.1)</span>
     </td>
@@ -527,7 +572,7 @@
     <td class="mono">UTILS</td>
 </tr>
 
-<tr>
+<tr data-skill-min="8">
     <td>
         Drone Stick 3<span style="color:var(--text-faint)"> (wep.drone.melee.shock_stick.3)</span>
     </td>
@@ -536,7 +581,7 @@
     <td class="mono">DRONE_PART</td>
 </tr>
 
-<tr>
+<tr data-skill-min="4">
     <td>
         Drone Pmu 2<span style="color:var(--text-faint)"> (cloth.drone.pmu.2)</span>
     </td>
@@ -545,7 +590,7 @@
     <td class="mono">DRONE_PART</td>
 </tr>
 
-<tr>
+<tr data-skill-min="4">
     <td>
         Drone Scanner 2<span style="color:var(--text-faint)"> (cloth.drone.scanner.2)</span>
     </td>
@@ -554,7 +599,7 @@
     <td class="mono">DRONE_PART</td>
 </tr>
 
-<tr>
+<tr data-skill-min="1">
     <td>
         Ship Landing Beacon<span style="color:var(--text-faint)"> (dpl.ship.landing.beacon)</span>
     </td>
@@ -563,7 +608,7 @@
     <td class="mono">APPLIANCES</td>
 </tr>
 
-<tr>
+<tr data-skill-min="2">
     <td>
         Ship Missile Smart 2<span style="color:var(--text-faint)"> (res.missile.smart.2)</span>
     </td>
@@ -572,7 +617,7 @@
     <td class="mono">SHIP_FUEL</td>
 </tr>
 
-<tr>
+<tr data-skill-min="4">
     <td>
         Drone Stick 2<span style="color:var(--text-faint)"> (wep.drone.melee.shock_stick.2)</span>
     </td>
@@ -583,15 +628,6 @@
 
 </tbody>
 </table>
-
-<h2>Saving them for what matters</h2>
-<p>Motherboards are the dominant gate on three things:</p>
-<ul>
-    <li><strong>MK3 ship components</strong> — the heavy bills (32 or 48 motherboards each). If you're aiming for a serious space build, these will eat most of your stockpile.</li>
-    <li><strong>Tier-4 personal weapons</strong> — 6 each, across rifles, pistols, marksman, shotguns, SMGs, heavies, drones. The 4-tier you actually use is worth it; the rest aren't.</li>
-    <li><strong>Endgame utility</strong> — Mining Laser 4 (6), Backpack 5 (8), Scanner 4 (12), Suit 4 (12), Jetpack 4 (10), Refinery 4. These compound your other progress, so prioritise them.</li>
-</ul>
-<p>If you keep crafting tier-1 / tier-2 items "just to level Crafting," you'll waste motherboards on tier-3 upgrades you'll outgrow. Skip directly from tier-2 to tier-4 when you have the parts.</p>
 
 </div>
 
@@ -609,8 +645,8 @@
 </dl>
 <p style="margin-top:0.8em;font-size:0.85em;color:var(--text-dim)">Related electronic parts:</p>
 <ul style="margin:0;padding-left:1.1em;font-size:0.88em">
-    <li><a href="../resources/res_circuit_board.html">Circuit Board</a> <span class="tier tier-1">T1</span> — early tier</li>
-    <li><a href="../resources/res_logic_board.html">Logic Board</a> <span class="tier tier-2">T2</span> — mid tier</li>
+    <li><a href="../resources/res_circuit_board.html">Circuit Board</a> <span class="tier tier-1">T1</span></li>
+    <li><a href="../resources/res_logic_board.html">Logic Board</a> <span class="tier tier-2">T2</span></li>
     <li><strong>Motherboard</strong> <span class="tier tier-3">T3</span> — this page</li>
 </ul>
 </aside>
@@ -621,11 +657,13 @@
 </main>
 <footer class="site">
     <div class="inner">
-        Generated 2026-05-11 03:06 UTC from game data (2026-04-26).
+        Generated 2026-05-11 03:13 UTC from game data (2026-04-26).
         Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
         Planet→biome distribution mapping is best-effort.
     </div>
 </footer>
+
+<script src="../assets/level-stages.js" defer></script>
 
 </body>
 </html>

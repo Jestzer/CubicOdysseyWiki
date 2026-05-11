@@ -281,3 +281,96 @@ table.wiki td.mono { font-family: ui-monospace, monospace; font-size: 0.85rem; c
 .note strong { color: var(--text); }
 
 .empty { color: var(--text-faint); font-style: italic; margin: 2rem 0; }
+
+/* Level picker + stages (Guides) --------------------------------------- */
+
+.level-picker {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.7rem 1rem;
+    margin: 1.2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 1rem;
+}
+.level-picker label {
+    font-family: ui-monospace, monospace;
+    font-size: 0.88rem;
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.level-picker input[type="number"] {
+    width: 5em;
+    background: var(--bg-elev);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.3em 0.5em;
+    font-family: ui-monospace, monospace;
+    font-size: 1rem;
+}
+.level-picker input[type="number"]:focus { outline: none; border-color: var(--accent); }
+.level-picker .right-now {
+    color: var(--text);
+    font-size: 0.92rem;
+    flex: 1 1 14em;
+    min-width: 0;
+}
+.level-picker .right-now strong { color: var(--accent); }
+
+.stages {
+    display: grid;
+    gap: 0.7rem;
+    margin: 1rem 0 1.4rem;
+}
+.stage {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--border);
+    padding: 0.8em 1.1em;
+    border-radius: 4px;
+    opacity: 0.6;
+    transition: opacity .15s ease, border-color .15s ease, background .15s ease;
+}
+.stage.active {
+    opacity: 1;
+    border-left-color: var(--accent);
+    background: var(--bg-elev);
+    box-shadow: 0 0 0 1px var(--border);
+}
+.stage-title {
+    font-family: ui-monospace, monospace;
+    font-weight: 700;
+    color: var(--text);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6em;
+    flex-wrap: wrap;
+}
+.stage-title .level-range {
+    color: var(--text-faint);
+    font-weight: 400;
+    font-size: 0.85rem;
+}
+.stage-tagline {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin-top: 0.25em;
+}
+.stage p { margin: 0.5em 0 0; font-size: 0.93rem; }
+.stage ul { margin: 0.4em 0 0; padding-left: 1.2em; font-size: 0.93rem; }
+.stage ul li { margin: 0.15em 0; }
+.stage a { color: var(--accent); }
+.stage.active a { color: var(--accent); }
+
+/* Locked rows / cards (e.g. recipes you can't craft yet) */
+.locked { opacity: 0.4; }
+.locked::after { content: " — locked"; color: var(--accent-hot); font-size: 0.8em; }
+tr.locked::after { content: ""; }
+tr.locked td { color: var(--text-faint); }
+tr.locked td a { color: var(--text-faint); pointer-events: none; }

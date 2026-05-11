@@ -28,15 +28,84 @@
 <h1>Leveling Mining</h1>
 <p>The Mining skill is one of nine player skills in Cubic Odyssey (confirmed by <code>data/configs/achievements/max_level_mining.cfg</code>). It governs how quickly you break voxel-tier ores and how much ore you recover per swing.</p>
 
+<div class="level-picker" data-skill="mining">
+    <label>Your Mining level: <input type="number" min="1" max="60" value="1"></label>
+    <span class="right-now">Set your level to highlight the right stage below.</span>
+</div>
+
+<h2>What to do at your level</h2>
+<div class="stages">
+
+<article class="stage" data-min="1" data-max="9"
+         data-tagline="Mine tier-1 ores with Mining Laser 0. Aim for Backpack 2 + Mining Laser 1.">
+    <div class="stage-title">Beginning <span class="level-range">level 1–9</span></div>
+    <div class="stage-tagline">Tier-1 ores with the starter laser. Build your first stockpile.</div>
+    <ul>
+        <li>Equip <strong>Mining Laser 0</strong> (voxel_tier 1). It's the only thing you have access to and it breaks the four tier-1 ores: <a href="../ores/res_iron_ore.html">Iron</a>, <a href="../ores/res_coal.html">Coal</a>, <a href="../ores/res_aluminum_ore.html">Aluminum</a>, <a href="../ores/res_copper_ore.html">Copper</a>.</li>
+        <li>Stay on an <strong>Earth-like world</strong> (Earth or Bardwell I–III). They host every tier-1 ore in dense layers.</li>
+        <li>Smelt everything you mine. Don't sell raw ore — ingot value is higher and crafting wants ingots.</li>
+        <li>Save up for the <strong>Mining Laser 1</strong> + <strong>Backpack 2</strong> craft as soon as Crafting allows.</li>
+    </ul>
+</article>
+
+<article class="stage" data-min="10" data-max="19"
+         data-tagline="Move to tier-2/3 ores. Mining Laser 2 + Backpack 3 are your next targets.">
+    <div class="stage-title">Mid game <span class="level-range">level 10–19</span></div>
+    <div class="stage-tagline">Tier-2/3 ores. Gold + Silver are the value-per-swing sweet spot.</div>
+    <ul>
+        <li>Switch to <strong>Mining Laser 2</strong> when available (voxel_tier 3). It one-shots tier-1 and breaks tier-2/3 cleanly.</li>
+        <li>Target tier-2 ores: <a href="../ores/res_gold_ore.html">Gold</a>, <a href="../ores/res_silver_ore.html">Silver</a>, <a href="../ores/res_silicon_ore.html">Silicon</a>, <a href="../ores/res_tin_ore.html">Tin</a>. The Earth-like distribution still works — they spawn alongside the tier-1s.</li>
+        <li>Start dipping into tier-3: <a href="../ores/res_titanium_ore.html">Titanium</a>, <a href="../ores/res_magnetite_ore.html">Magnetite</a>, <a href="../ores/res_sulfur_ore.html">Sulfur</a>, <a href="../ores/res_quartz_ore.html">Quartz</a>.</li>
+        <li>Drop <strong>vertical shafts</strong>. Frequency stays roughly even per layer, but the deep layers are where you'll find tier-3 veins.</li>
+        <li>Goal: <strong>Mining Laser 3</strong> + <strong>Backpack 3</strong> by level 20.</li>
+    </ul>
+</article>
+
+<article class="stage" data-min="20" data-max="29"
+         data-tagline="Tier-3/4 ores. Cobalt and Uranium become your bread-and-butter.">
+    <div class="stage-title">Advanced <span class="level-range">level 20–29</span></div>
+    <div class="stage-tagline">Tier-4 ores carry real XP weight; Crystalline worlds open up for gems.</div>
+    <ul>
+        <li>Run <strong>Mining Laser 3 → 4</strong> (voxel_tier 4 → 5). Laser 4 one-shots most tier-3, makes tier-4 viable, and unlocks gems.</li>
+        <li>Tier-4 ore loop: <a href="../ores/res_cobalt_ore.html">Cobalt</a>, <a href="../ores/res_uranium_ore.html">Uranium</a>, <a href="../ores/res_polonium_ore.html">Polonium</a>, <a href="../ores/res_radium_ore.html">Radium</a>. Best density on <strong>Barren worlds</strong>.</li>
+        <li>Switch planets for gems: <strong>Crystalline worlds</strong> host <a href="../ores/res_diamond.html">Diamond</a>, <a href="../ores/res_ruby.html">Ruby</a>, <a href="../ores/res_emerald.html">Emerald</a>, <a href="../ores/res_sapphire.html">Sapphire</a>.</li>
+        <li>Pick up the <a href="../guides/motherboards.html">Motherboards</a> guide — you'll soon want <strong>Backpack 5</strong>, <strong>Scanner 4</strong>, and the <strong>Mining Laser 4</strong> craft, all of which eat them.</li>
+    </ul>
+</article>
+
+<article class="stage" data-min="30" data-max="39"
+         data-tagline="Tier-5 gems for value, tier-4 ore loops for volume. Mining Laser 5 if you have it.">
+    <div class="stage-title">Late game <span class="level-range">level 30–39</span></div>
+    <div class="stage-tagline">Gem farming on Crystalline; chase the tier-6 Matter ores when you can.</div>
+    <ul>
+        <li><strong>Mining Laser 5</strong> (voxel_tier 6) lets you crack tier-6 Matter ores. If you're still on Laser 4, gems are your ceiling for now.</li>
+        <li>Farm gems on Crystalline worlds; sell the surplus through your <a href="../guides/leveling-trading.html">Trading</a> grind.</li>
+        <li>Begin scouting <strong>Scorched worlds</strong> for tier-6 Matter (<a href="../ores/res_rare_antimatter.html">Antimatter</a>, <a href="../ores/res_rare_darkmatter.html">Dark Matter</a>, etc.). Bring a Scanner.</li>
+        <li>Backpack 5 should be done by now; if not, route motherboards toward it first.</li>
+    </ul>
+</article>
+
+<article class="stage" data-min="40" data-max="999"
+         data-tagline="Endgame — Tier-7 Glowing variants and Higgs Bosson with Laser 6/7.">
+    <div class="stage-title">Endgame <span class="level-range">level 40+</span></div>
+    <div class="stage-tagline">Glowing ores and Higgs Bosson; specific biomes only.</div>
+    <ul>
+        <li><strong>Mining Laser 6 or 7</strong> (voxel_tier 7). Laser 7 has higher DPS but doesn't unlock anything Laser 6 can't already break.</li>
+        <li>Hunt <strong>Glowing variants</strong> (Glowing Iron, Glowing Cobalt, Glowing Magnetite, …). Smelt into <a href="../ingots.html">Glowing Ingots</a> for endgame craft inputs.</li>
+        <li><a href="../ores/res_rare_higgsbosson.html">Higgs Bosson</a> is the only tier-7 non-glowing voxel — extremely rare; bring scanners.</li>
+        <li>Push toward the Mining skill max achievement (<code>ACH_MAX_LEVEL_MINING</code>).</li>
+    </ul>
+</article>
+
+</div>
+
 <div class="section-grid">
 <div>
 
 <h2>How XP is earned</h2>
 <p>Mining XP comes from <strong>breaking ore voxels</strong> — every successful mining hit that lands on a block in category <code>E_VCAT_ORES</code> (the 26 ores listed on <a href="../ores.html">the Ores page</a>) credits Mining experience. Non-ore voxels (Stone, Limestone, Cliff, Lava etc.) do not. Higher-tier ores award more XP per block.</p>
 
-<h2>Step 1 — Always carry the best mining laser you can use</h2>
-<p>There are 8 mining lasers in the game. Each has a <code>voxel_tier</code> stat that caps the ore tier it can break:</p>
-
+<h2>Reference: every mining laser</h2>
 <table class="wiki">
 <thead><tr><th class="icon"></th><th>Laser</th><th class="numeric">Voxel tier</th><th>Mines up to</th><th class="numeric">DPS hint</th></tr></thead>
 <tbody>
@@ -107,41 +176,27 @@
 
 </tbody>
 </table>
-<p style="font-size:0.85em;color:var(--text-faint)">Note: Mining Laser 6 and 7 share <code>voxel_tier 7</code>; laser 7 has higher fire rate and damage so it mines faster but doesn't unlock new ores. Both can crack <a href="../ores/res_glowing_iron_ore.html">Glowing ores</a> and Higgs Bosson.</p>
+<p style="font-size:0.85em;color:var(--text-faint)">Mining Laser 6 and 7 share <code>voxel_tier 7</code>; laser 7 has higher fire rate and damage so it mines faster but doesn't unlock new ores.</p>
 
-<h2>Step 2 — Match ore tier to your skill, not to your laser</h2>
-<p>Your laser determines which ores you <em>can</em> mine; your skill level (combined with the laser's <code>voxel_damage</code> and <code>fireRateRPM</code>) determines how <em>fast</em>. The most efficient grind is mining a tier you can break in under 2 seconds per block.</p>
-
+<h2>Reference: ore tiers</h2>
 <div class="kvs">
 <dl>
-    <dt>Tier 1 (early)</dt><dd>Aluminum Ore, Copper Ore, Iron Ore — sub-second breaks even with Mining Laser 0.</dd>
-    <dt>Tier 2</dt><dd>Gold Ore, Silicon Ore, Silver Ore, Tin Ore — switch to laser 1.</dd>
-    <dt>Tier 3</dt><dd>Magnetite Ore, Quartz Ore, Sulfur Ore, Titanium Ore — laser 2.</dd>
-    <dt>Tier 4</dt><dd>Cobalt Ore, Polonium Ore, Radium Ore, Uranium Ore — laser 3 minimum, laser 4 preferred.</dd>
-    <dt>Tier 5 (gems)</dt><dd> — laser 4 minimum.</dd>
-    <dt>Tier 6 (Matter)</dt><dd> — laser 5+. These are rare-spawn end-game ores.</dd>
-    <dt>Tier 7 (Glowing / Higgs)</dt><dd>15 Glowing variants, plus Higgs Bosson — laser 6 or 7.</dd>
+    <dt>Tier 1</dt><dd>Aluminum Ore, Copper Ore, Iron Ore</dd>
+    <dt>Tier 2</dt><dd>Gold Ore, Silicon Ore, Silver Ore, Tin Ore</dd>
+    <dt>Tier 3</dt><dd>Magnetite Ore, Quartz Ore, Sulfur Ore, Titanium Ore</dd>
+    <dt>Tier 4</dt><dd>Cobalt Ore, Polonium Ore, Radium Ore, Uranium Ore</dd>
+    <dt>Tier 5</dt><dd></dd>
+    <dt>Tier 6 (Matter)</dt><dd></dd>
+    <dt>Tier 7</dt><dd>15 Glowing variants + Higgs Bosson</dd>
 </dl>
 </div>
 
-<h2>Step 3 — Backpack tier multiplies efficiency</h2>
-<p>Each tier of <a href="../tools.html">backpack</a> increases inventory capacity. Running back to a refinery every few veins wastes mining time. Backpack 5 is the realistic late-game target — see <a href="../guides/motherboards.html">the Motherboards guide</a> for the materials it eats.</p>
-
-<h2>Step 4 — Pick the right planet type</h2>
-<p>Ore concentration varies wildly between planet types. Use the <a href="../ores.html">ores table</a> to filter by tier, then click into an ore to see its location table. Quick highlights:</p>
+<h2>Universal tips</h2>
 <ul>
-    <li><strong>Earth-like worlds</strong> (Earth, Bardwell I–III) host every tier-1 and tier-2 ore in good density. Best starter loop.</li>
-    <li><strong>Crystalline worlds</strong> are the gem (T5) hotspot.</li>
-    <li><strong>Scorched worlds</strong> stack rare-matter ores (T6) and Glowing variants.</li>
-    <li><strong>Barren worlds</strong> are good for T3–T4 (Magnetite, Cobalt) without the danger of scorched / xeno biomes.</li>
-</ul>
-
-<h2>Tips that compound</h2>
-<ul>
-    <li><strong>Mine in vertical shafts.</strong> Frequency (<code>m_frequency</code>) is the same across all Y-layers for most ores, but vein extent (<code>m_extent</code>) is highest in the deep layers. Drop a shaft to bedrock and mine outward.</li>
-    <li><strong>Don't sell ore — smelt it.</strong> The <a href="../ingots.html">ingot</a> form is worth more than the raw ore and is what crafting wants anyway.</li>
-    <li><strong>Glowing ores aren't just shinier — they're a separate tier-7 drop.</strong> They smelt into Glowing Ingots used in late-game crafting.</li>
-    <li><strong>Mining skill XP rewards are global</strong> — there's no per-planet cap. Pick a deep iron vein on Earth and grind cleanly.</li>
+    <li><strong>Smelt before selling.</strong> Ingots are worth more than raw ore.</li>
+    <li><strong>Mine in vertical shafts.</strong> Drop to bedrock, mine outward; the deep layers carry the highest <code>m_extent</code> veins.</li>
+    <li><strong>Always carry the highest-tier laser you have.</strong> The per-swing damage on a Laser 5 is bigger than the equivalent rank on Laser 0, so even on tier-1 ores you'll mine faster.</li>
+    <li><strong>Glowing variants are separate items, not skins.</strong> They smelt into Glowing Ingots used for endgame crafting and are gated tier-7.</li>
 </ul>
 
 </div>
@@ -152,7 +207,6 @@
     <dt>Skill</dt><dd>Mining</dd>
     <dt>Activity</dt><dd>Breaking ore voxels</dd>
     <dt>Best tool family</dt><dd><a href="../tools.html">Mining Lasers</a> (8 tiers)</dd>
-    <dt>Best ore for grind</dt><dd>Iron / Coal (tier 1) early; Cobalt / Uranium (tier 4) mid; Diamond / Ruby (tier 5) late.</dd>
     <dt>Capacity multiplier</dt><dd>Backpack tier</dd>
     <dt>Achievement</dt><dd class="mono">ACH_MAX_LEVEL_MINING</dd>
 </dl>
@@ -164,11 +218,13 @@
 </main>
 <footer class="site">
     <div class="inner">
-        Generated 2026-05-11 03:06 UTC from game data (2026-04-26).
+        Generated 2026-05-11 03:13 UTC from game data (2026-04-26).
         Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
         Planet→biome distribution mapping is best-effort.
     </div>
 </footer>
+
+<script src="../assets/level-stages.js" defer></script>
 
 </body>
 </html>

@@ -278,11 +278,14 @@ class WikiRenderer:
         if ship_records:
             classes = sorted({r['class_raw'] for r in ship_records if r.get('class_raw')})
             factions = sorted({r['faction'] for r in ship_records})
+            pilot_order = ['player', 'pirate', 'police', 'npc']
+            present_pilots = {r['pilot'] for r in ship_records if r.get('pilot')}
+            pilots = [p for p in pilot_order if p in present_pilots]
             self._render_template('ships_index.html.j2',
                 self.out / 'ships.html',
                 root='', category='ships', title='Ships',
                 counts=self.counts, rows=ship_records,
-                classes=classes, factions=factions)
+                classes=classes, factions=factions, pilots=pilots)
             for r in ship_records:
                 self._render_template('ship.html.j2',
                     self.out / 'ships' / (r['slug'] + '.html'),

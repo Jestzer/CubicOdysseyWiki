@@ -56,6 +56,10 @@
         <span class="pill active" data-faction="all">All factions</span>
         <span class="pill" data-faction="ANCIENTS">Ancients</span><span class="pill" data-faction="GENERIC">Generic</span><span class="pill" data-faction="PIRATES">Pirates</span><span class="pill" data-faction="POLICE">Police</span>
     </div>
+    <div class="pills" id="pilotPills">
+        <span class="pill active" data-pilot="all">All pilots</span>
+        <span class="pill" data-pilot="player">Player</span><span class="pill" data-pilot="pirate">Pirate</span><span class="pill" data-pilot="police">Police</span><span class="pill" data-pilot="npc">NPC</span>
+    </div>
 </div>
 
 <table class="wiki" id="catTable">
@@ -878,7 +882,7 @@
 </main>
 <footer class="site">
     <div class="inner">
-        Generated 2026-05-11 12:33 UTC from game data (2026-04-26).
+        Generated 2026-05-11 13:31 UTC from game data (2026-04-26).
         Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
         Planet→biome distribution mapping is best-effort.
     </div>
@@ -893,13 +897,15 @@
     const search = document.getElementById('catSearch');
     let classFilter = 'all';
     let factionFilter = 'all';
+    let pilotFilter = 'all';
     function apply(){
         const q = (search?.value || '').trim().toLowerCase();
         for (const r of rows) {
             const matchQ = !q || r.dataset.search.indexOf(q) !== -1;
             const matchC = classFilter === 'all' || r.dataset.class === classFilter;
             const matchF = factionFilter === 'all' || r.dataset.faction === factionFilter;
-            r.style.display = (matchQ && matchC && matchF) ? '' : 'none';
+            const matchP = pilotFilter === 'all' || r.dataset.pilot === pilotFilter;
+            r.style.display = (matchQ && matchC && matchF && matchP) ? '' : 'none';
         }
     }
     search?.addEventListener('input', apply);
@@ -916,6 +922,7 @@
     }
     wirePills('classPills', 'class', v => classFilter = v);
     wirePills('factionPills', 'faction', v => factionFilter = v);
+    wirePills('pilotPills', 'pilot', v => pilotFilter = v);
 })();
 </script>
 

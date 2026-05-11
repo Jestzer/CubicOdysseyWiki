@@ -22,6 +22,10 @@
         <span class="pill active" data-faction="all">All factions</span>
         {% for f in factions %}<span class="pill" data-faction="{{ f }}">{{ f|capitalize }}</span>{% endfor %}
     </div>
+    <div class="pills" id="pilotPills">
+        <span class="pill active" data-pilot="all">All pilots</span>
+        {% for p in pilots %}<span class="pill" data-pilot="{{ p }}">{{ {'player':'Player','pirate':'Pirate','police':'Police','npc':'NPC'}[p] }}</span>{% endfor %}
+    </div>
 </div>
 
 <table class="wiki" id="catTable">
@@ -59,13 +63,15 @@
     const search = document.getElementById('catSearch');
     let classFilter = 'all';
     let factionFilter = 'all';
+    let pilotFilter = 'all';
     function apply(){
         const q = (search?.value || '').trim().toLowerCase();
         for (const r of rows) {
             const matchQ = !q || r.dataset.search.indexOf(q) !== -1;
             const matchC = classFilter === 'all' || r.dataset.class === classFilter;
             const matchF = factionFilter === 'all' || r.dataset.faction === factionFilter;
-            r.style.display = (matchQ && matchC && matchF) ? '' : 'none';
+            const matchP = pilotFilter === 'all' || r.dataset.pilot === pilotFilter;
+            r.style.display = (matchQ && matchC && matchF && matchP) ? '' : 'none';
         }
     }
     search?.addEventListener('input', apply);
@@ -82,6 +88,7 @@
     }
     wirePills('classPills', 'class', v => classFilter = v);
     wirePills('factionPills', 'faction', v => factionFilter = v);
+    wirePills('pilotPills', 'pilot', v => pilotFilter = v);
 })();
 </script>
 {% endblock %}

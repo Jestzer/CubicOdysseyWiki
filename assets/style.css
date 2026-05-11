@@ -234,9 +234,9 @@ table.wiki td.mono { font-family: ui-monospace, monospace; font-size: 0.85rem; c
     max-width: 320px;
     font-size: 0.92rem;
 }
-.infobox dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 0.2rem 0.9rem; }
+.infobox dl { margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 0.2rem 0.9rem; }
 .infobox dt { color: var(--text-faint); font-family: ui-monospace, monospace; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; padding-top: 0.2em; }
-.infobox dd { margin: 0; }
+.infobox dd { margin: 0; min-width: 0; overflow-wrap: anywhere; word-break: break-word; }
 .infobox .swatch {
     display: inline-block;
     width: 1em; height: 1em;
@@ -249,9 +249,9 @@ table.wiki td.mono { font-family: ui-monospace, monospace; font-size: 0.85rem; c
 .section-grid { display: grid; grid-template-columns: 1fr 320px; gap: 2rem; align-items: start; }
 @media (max-width: 760px) { .section-grid { grid-template-columns: 1fr; } }
 
-.kvs dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.25rem 1rem; margin: 0.5rem 0; }
+.kvs dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 0.25rem 1rem; margin: 0.5rem 0; }
 .kvs dt { color: var(--text-faint); font-family: ui-monospace, monospace; font-size: 0.82rem; }
-.kvs dd { margin: 0; }
+.kvs dd { margin: 0; min-width: 0; overflow-wrap: anywhere; word-break: break-word; }
 
 /* Search results -------------------------------------------------------- */
 

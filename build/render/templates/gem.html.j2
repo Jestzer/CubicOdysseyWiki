@@ -41,7 +41,7 @@
 {% for loc in r.locations %}
 <tr {% if loc.is_deepest %}style="background:rgba(103,176,255,0.08)"{% endif %}>
     <td>
-        <strong>{{ loc.world_type }}</strong>{% if loc.is_deepest %} <span style="color:var(--accent);font-size:0.78em;text-transform:uppercase;letter-spacing:0.05em">deepest layer</span>{% endif %}<br>
+        <strong>{% if loc.world_slug %}<a href="{{ root }}worlds/{{ loc.world_slug }}.html">{{ loc.world_type }}</a>{% else %}{{ loc.world_type }}{% endif %}</strong>{% if loc.is_deepest %} <span style="color:var(--accent);font-size:0.78em;text-transform:uppercase;letter-spacing:0.05em">deepest layer</span>{% endif %}<br>
         <span style="color:var(--text-faint);font-size:0.85em">layer {{ loc.layer_index }}{% if loc.planets %} · {{ loc.planets|join(', ') }}{% endif %}</span>
     </td>
     <td class="mono">{{ loc.y_start }} … {{ loc.y_end }}</td>

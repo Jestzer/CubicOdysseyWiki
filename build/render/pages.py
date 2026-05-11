@@ -139,6 +139,11 @@ class WikiRenderer:
                 loc_objs.append(o)
             r['locations_grouped'] = _group_locations(
                 loc_objs, self.dist_meta, dist_to_world_slug)
+        # Stamp world_slug on every gem location too — gem.html.j2 renders
+        # the world name as a link when present.
+        for r in gem_records:
+            for loc in r.get('locations') or []:
+                loc['world_slug'] = dist_to_world_slug.get(loc.get('distribution'))
 
         # Counts (guides added by render_guides; default to 7 here)
         self.counts = {

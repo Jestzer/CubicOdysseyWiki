@@ -203,22 +203,35 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
                             strips.append(img.crop((0, top_y, w, bot_y)))
                     if len(strips) >= 2:
                         result = strips
-        # Make every variant square via centre-crop. Tile-sheet strips are
-        # typically wide-and-short (snow's snow band is 1024×~250) — if we
-        # feed that aspect to the affine, the face stretches it vertically
-        # and the texture reads as vertical streaks. Cropping to a square
-        # preserves the native pixel scale at the cost of dropping the
-        # outer horizontal content, which is fine because tile-sheet
-        # strips are typically horizontally uniform anyway.
+        # Make every variant square by *mirror-tiling* the strip along
+        # its short axis. Plain tiling leaves a seam where the strip's
+        # bottom row meets the next copy's top row — visible on textures
+        # with any directional content (alien_grass turf). Mirror-tiling
+        # alternates flipped copies, so every boundary is bottom↔bottom or
+        # top↔top — matching edges by construction. Tiling instead of
+        # centre-cropping restores the source pixel count so the SIDE face
+        # gets the same heavy 4× LANCZOS pre-thumbnail as the TOP face,
+        # avoiding the pixelated-side / smooth-top mismatch.
         squared: List['Image.Image'] = []
         for v in result:
             vw, vh = v.size
-            if vw != vh:
-                side_len = min(vw, vh)
-                x0 = (vw - side_len) // 2
-                y0 = (vh - side_len) // 2
-                v = v.crop((x0, y0, x0 + side_len, y0 + side_len))
-            squared.append(v)
+            if vw == vh:
+                squared.append(v)
+                continue
+            if vw > vh:
+                flipped = v.transpose(Image.Transpose.FLIP_TOP_BOTTOM)
+                copies = (vw + vh - 1) // vh
+                tiled = Image.new('RGBA', (vw, vh * copies))
+                for i in range(copies):
+                    tiled.paste(v if i % 2 == 0 else flipped, (0, i * vh))
+                squared.append(tiled.crop((0, 0, vw, vw)))
+            else:
+                flipped = v.transpose(Image.Transpose.FLIP_LEFT_RIGHT)
+                copies = (vh + vw - 1) // vw
+                tiled = Image.new('RGBA', (vw * copies, vh))
+                for i in range(copies):
+                    tiled.paste(v if i % 2 == 0 else flipped, (i * vw, 0))
+                squared.append(tiled.crop((0, 0, vh, vh)))
         # Pre-filter each variant to the cube output size. PIL's affine
         # transform scales its sampling kernel by the affine's `a` factor,
         # so a side face with a=2W/S returns OOB-fill (transparent) along

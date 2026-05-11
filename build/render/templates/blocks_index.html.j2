@@ -2,7 +2,7 @@
 {% block title %}Blocks{% endblock %}
 {% block content %}
 <h1>Blocks (voxels)</h1>
-<p>Every cube the engine knows about — <strong>{{ rows|length }} voxels</strong> across {{ categories|length }} categories — from biome surface terrain through ores, glass, walls, and ancient artefacts. Each thumbnail is the voxel's <code>m_defaultTexture</code> face, decoded straight from <code>data/models/voxels/*.dds</code>.</p>
+<p>Every cube the engine knows about — <strong>{{ rows|length }} voxels</strong> across {{ categories|length }} categories — from biome surface terrain through ores, glass, walls, and ancient artefacts. Each thumbnail is the voxel rendered as an isometric cube, decoded from the matching <code>data/models/voxels/*.dds</code> face textures.</p>
 
 <div class="cards">
 {% for c in categories %}
@@ -11,7 +11,7 @@
     <div class="count">{{ c.count }} blocks</div>
     <div style="display:flex;gap:4px;margin-top:0.5em">
         {% for tex in c.sample_textures %}
-        <img src="{{ root }}{{ tex }}" alt="" style="width:24px;height:24px;border:1px solid var(--border);border-radius:3px;image-rendering:pixelated;object-fit:cover">
+        <img src="{{ root }}{{ tex }}" alt="" style="width:28px;height:28px;image-rendering:pixelated">
         {% endfor %}
     </div>
     <p style="margin-top:0.5em;font-size:0.85em;color:var(--text-faint)">e.g. {{ c.sample_names|join(', ') }}</p>
@@ -41,7 +41,7 @@
 <tbody>
 {% for r in rows if r.category_raw == c.category_raw %}
 <tr data-search="{{ (r.display ~ ' ' ~ (r.drop_item or '') ~ ' ' ~ (r.default_texture or ''))|lower }}">
-    <td>{% if r.texture_url %}<img src="{{ root }}{{ r.texture_url }}" alt="" style="width:32px;height:32px;border:1px solid var(--border);border-radius:3px;image-rendering:pixelated;object-fit:cover">{% elif r.color %}<span style="display:inline-block;width:32px;height:32px;background:rgb({{ r.color[0] }},{{ r.color[1] }},{{ r.color[2] }});border:1px solid var(--border);border-radius:3px"></span>{% endif %}</td>
+    <td>{% if r.texture_url %}<img src="{{ root }}{{ r.texture_url }}" alt="" style="width:40px;height:40px;image-rendering:pixelated">{% elif r.color %}<span style="display:inline-block;width:32px;height:32px;background:rgb({{ r.color[0] }},{{ r.color[1] }},{{ r.color[2] }});border:1px solid var(--border);border-radius:3px"></span>{% endif %}</td>
     <td>{{ r.display }}</td>
     <td class="numeric">{% if r.tier is not none %}{% if r.tier <= 7 %}<span class="tier tier-{{ r.tier }}">T{{ r.tier }}</span>{% else %}<span class="tier tier-100">T{{ r.tier }}</span>{% endif %}{% else %}—{% endif %}</td>
     <td class="numeric mono">{{ r.mine_unit if r.mine_unit is not none else '—' }}</td>

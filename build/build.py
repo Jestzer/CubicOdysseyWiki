@@ -96,29 +96,88 @@ def slice_icons(items: Dict[str, dict], atlases, out_dir: Path) -> int:
 
 def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
                            out_dir: Path, size: int = 64) -> Dict[str, str]:
-    """Decode each referenced voxel DDS into a thumbnail PNG.
+    """Render each voxel as an isometric cube PNG, like the in-game block icon.
 
-    Voxel configs reference textures by stem (e.g. "leaves_palm1") which
-    map to data/models/voxels/<stem>.dds. Returns {stem: relative_url} for
-    every texture we successfully wrote. Missing files are skipped silently.
+    The cube uses three faces: the top, plus left and right sides at 85% / 70%
+    brightness for depth. m_defaultTexture is the lookup key — if the base name
+    has a "_top" / "_side" companion in data/models/voxels/, those get used for
+    the top / sides respectively; otherwise a single face texture fills the
+    whole cube. Returns {m_defaultTexture: relative_url}.
     """
-    from PIL import Image
+    from PIL import Image, ImageDraw, ImageEnhance
     src_dir = game_root / 'data' / 'models' / 'voxels'
     out_dir.mkdir(parents=True, exist_ok=True)
+    tex_cache: Dict[str, Optional['Image.Image']] = {}
+
+    def load(stem: str) -> Optional['Image.Image']:
+        if stem in tex_cache:
+            return tex_cache[stem]
+        f = src_dir / f'{stem}.dds'
+        img = None
+        if f.exists():
+            try:
+                img = Image.open(f).convert('RGBA')
+            except Exception:
+                img = None
+        tex_cache[stem] = img
+        return img
+
+    def faces_for(default_tex: str):
+        # Strip a trailing _top/_side/_bottom so we can probe sibling variants.
+        base = default_tex
+        for suf in ('_top', '_side', '_bottom'):
+            if base.endswith(suf):
+                base = base[:-len(suf)]
+                break
+        # The base file is conventionally the side (or all-face) texture;
+        # the _top sibling overrides only the top when it exists.
+        side = load(f'{base}_side') or load(base) or load(default_tex)
+        top = load(f'{base}_top') or load(base) or side
+        return top, side
+
+    def render(top, side, S=size):
+        q = S // 4
+        out = Image.new('RGBA', (S, S), (0, 0, 0, 0))
+
+        def paint(tex, affine, polygon, brightness):
+            if tex is None:
+                return
+            t = tex.transform((S, S), Image.AFFINE, affine,
+                              resample=Image.Resampling.BILINEAR)
+            if brightness != 1.0:
+                r, g, b, a = t.split()
+                rgb = ImageEnhance.Brightness(
+                    Image.merge('RGB', (r, g, b))).enhance(brightness)
+                t = Image.merge('RGBA', (*rgb.split(), a))
+            mask = Image.new('L', (S, S), 0)
+            ImageDraw.Draw(mask).polygon(polygon, fill=255)
+            out.paste(t, (0, 0), mask)
+
+        if top is not None:
+            W, H = top.size
+            paint(top,
+                  (W/S, -2*W/S, W/2, H/S, 2*H/S, -H/2),
+                  [(0, q), (S//2, 0), (S, q), (S//2, S//2)], 1.0)
+        if side is not None:
+            W, H = side.size
+            paint(side,
+                  (2*W/S, 0, -W, H/S, 2*H/S, -3*H/2),
+                  [(S//2, S//2), (S, q), (S, 3*q), (S//2, S)], 0.85)
+            paint(side,
+                  (2*W/S, 0, 0, -H/S, 2*H/S, -H/2),
+                  [(0, q), (S//2, S//2), (S//2, S), (0, 3*q)], 0.7)
+        return out
+
+    urls: Dict[str, str] = {}
     stems = {v.get('m_defaultTexture') for v in voxels.values()
               if v.get('m_defaultTexture')}
-    urls: Dict[str, str] = {}
     for stem in stems:
-        src = src_dir / f'{stem}.dds'
-        if not src.exists():
+        top, side = faces_for(stem)
+        if top is None and side is None:
             continue
-        try:
-            img = Image.open(src).convert('RGBA')
-        except Exception:
-            continue
-        img.thumbnail((size, size), Image.Resampling.LANCZOS)
+        cube = render(top, side)
         out_path = out_dir / f'{stem}.png'
-        img.save(out_path, 'PNG', optimize=True)
+        cube.save(out_path, 'PNG', optimize=True)
         urls[stem] = f'assets/textures/voxels/{stem}.png'
     return urls
 

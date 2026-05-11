@@ -158,9 +158,11 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
                 # strip to the sub-tile with the highest grayscale stddev —
                 # that's where the visible content sits (radium's crystal
                 # blob, hull plate's lit panel, the visible turf patch).
-                # Stretching the whole 1024×256 strip onto a square face
-                # crushed the texture vertically; using one square sub-tile
-                # preserves native 1:1 detail.
+                # Then tile the sub-tile 2×2 so the face shows the texture
+                # at half scale — closer to the in-game appearance where
+                # multiple small features fit per face rather than one big
+                # one. Tiling small uniform sub-tiles hides seams; tiling a
+                # crystal blob shows it 4 times at half size.
                 result = []
                 for strip in strips:
                     if w > tile_h:
@@ -170,9 +172,15 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
                                       for c in range(n_cols)]
                         stds = [ImageStat.Stat(s.convert('L')).stddev[0]
                                  for s in sub_tiles]
-                        result.append(sub_tiles[stds.index(max(stds))])
+                        best = sub_tiles[stds.index(max(stds))]
                     else:
-                        result.append(strip)
+                        best = strip
+                    bw, bh = best.size
+                    tiled = Image.new('RGBA', (bw*2, bh*2))
+                    for dx in range(2):
+                        for dy in range(2):
+                            tiled.paste(best, (dx*bw, dy*bh))
+                    result.append(tiled)
         # Pre-filter each variant to ~2× face size so the affine transform
         # only does a ~2× downscale through bilinear sampling.
         target = size * 2
@@ -205,8 +213,12 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
         def paint(tex, affine, polygon, brightness):
             if tex is None:
                 return
+            # NEAREST preserves crisp pixel-art detail. BILINEAR was
+            # softening the side-face textures at the 2:1 horizontal
+            # compression their polygons impose, which the top face didn't
+            # show, producing visibly blurry sides on snow / clean textures.
             t = tex.transform((S, S), Image.AFFINE, affine,
-                              resample=Image.Resampling.BILINEAR)
+                              resample=Image.Resampling.NEAREST)
             if brightness != 1.0:
                 r, g, b, a = t.split()
                 rgb = ImageEnhance.Brightness(

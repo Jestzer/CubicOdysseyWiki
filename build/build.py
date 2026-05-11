@@ -188,12 +188,37 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
                         best_delta = d
                         best_y = y
                 if best_delta > 15:
+                    # Shift the cut a little past the steepest gradient so
+                    # both strips end up clear of the transition zone —
+                    # snow_side's dirt-to-snow band tails into the snow
+                    # strip's top rows and leaves dark dirt specks visible
+                    # on the cube's top edges if the cut sits right on the
+                    # gradient.
+                    margin = h // 40
+                    cut = min(h - 32, best_y + margin)
                     strips: List['Image.Image'] = []
-                    for top_y, bot_y in ((0, best_y), (best_y, h)):
+                    for top_y, bot_y in ((0, cut - margin),
+                                          (cut, h)):
                         if bot_y - top_y >= 32:
                             strips.append(img.crop((0, top_y, w, bot_y)))
                     if len(strips) >= 2:
                         result = strips
+        # Make every variant square via centre-crop. Tile-sheet strips are
+        # typically wide-and-short (snow's snow band is 1024×~250) — if we
+        # feed that aspect to the affine, the face stretches it vertically
+        # and the texture reads as vertical streaks. Cropping to a square
+        # preserves the native pixel scale at the cost of dropping the
+        # outer horizontal content, which is fine because tile-sheet
+        # strips are typically horizontally uniform anyway.
+        squared: List['Image.Image'] = []
+        for v in result:
+            vw, vh = v.size
+            if vw != vh:
+                side_len = min(vw, vh)
+                x0 = (vw - side_len) // 2
+                y0 = (vh - side_len) // 2
+                v = v.crop((x0, y0, x0 + side_len, y0 + side_len))
+            squared.append(v)
         # Pre-filter each variant to the cube output size. PIL's affine
         # transform scales its sampling kernel by the affine's `a` factor,
         # so a side face with a=2W/S returns OOB-fill (transparent) along
@@ -202,7 +227,7 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
         # cover cheaply.
         target = size
         scaled: List['Image.Image'] = []
-        for v in result:
+        for v in squared:
             if max(v.size) > target:
                 v = v.copy()
                 v.thumbnail((target, target), Image.Resampling.LANCZOS)

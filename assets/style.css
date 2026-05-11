@@ -471,20 +471,24 @@ tr.locked td a { color: var(--text-faint); pointer-events: none; }
 
 /* World altitude cross-section — stylised slice of a planet's voxel layers */
 .cross-section {
+    position: relative;
     border: 1px solid var(--border);
     border-radius: 6px;
     overflow: hidden;
     margin: 1rem 0 0.4rem;
-    /* Sky → surface → dirt → stone → bedrock gradient */
-    background:
-        linear-gradient(to bottom,
-            #1a2438 0%,
-            #2b3a3a 18%,
-            #3a2e1f 35%,
-            #2c2622 60%,
-            #1a1816 100%);
+    background: #0f0c0a;
+}
+.cross-section .cs-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
 }
 .cs-layer {
+    position: relative;
+    z-index: 1;
     display: flex;
     align-items: center;
     gap: 0.8em;

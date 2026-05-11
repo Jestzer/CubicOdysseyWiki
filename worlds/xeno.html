@@ -127,8 +127,42 @@
 
 
 <h2>Altitude profile</h2>
-<p>Cross-section of the world's voxel layers — sky at the top, bedrock at the bottom. Hover an ore tile to see its name + frequency; click to open the detail page.</p>
+<p>Stylised slice of a planet — a mountain rising into the topmost band, the planet's interior below. <strong>Y is a radial coordinate from the planet's core</strong>, not altitude above sea level: Y 256 is the outermost rock shell, Y 0 is the core. The terrain heightmap carves into the outer shells, so anything near Y 256 is reachable by digging into a cliff or summit rather than going deep. That's why valuable voxels can show up in the very top band — they're "near the surface", just inside a peak. Hover an ore tile for its name and frequency; click to open the detail page.</p>
 <div class="cross-section">
+<svg class="cs-bg" viewBox="0 0 1000 800" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1c2a4a"/>
+            <stop offset="40%" stop-color="#3a4d6b"/>
+            <stop offset="100%" stop-color="#5a6a82"/>
+        </linearGradient>
+        <linearGradient id="rockGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#4a3c2c"/>
+            <stop offset="50%" stop-color="#2e2520"/>
+            <stop offset="100%" stop-color="#16110d"/>
+        </linearGradient>
+        <linearGradient id="snowGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f4f8ff"/>
+            <stop offset="100%" stop-color="rgba(244,248,255,0)"/>
+        </linearGradient>
+    </defs>
+    <!-- Sky -->
+    <rect x="0" y="0" width="1000" height="220" fill="url(#skyGrad)"/>
+    <!-- Distant haze hills -->
+    <path d="M 0,200 L 100,180 L 200,195 L 320,170 L 420,185 L 540,165 L 660,190 L 780,175 L 900,195 L 1000,180 L 1000,220 L 0,220 Z"
+          fill="rgba(40,32,28,0.55)"/>
+    <!-- Foreground mountain -->
+    <path d="M 0,220 L 80,210 L 140,195 L 210,165 L 270,140 L 320,105 L 370,75 L 420,45 L 470,20 L 520,30 L 565,60 L 615,95 L 670,130 L 730,160 L 790,180 L 860,195 L 930,210 L 1000,220 L 1000,800 L 0,800 Z"
+          fill="url(#rockGrad)"/>
+    <!-- Snow cap -->
+    <path d="M 370,75 L 420,45 L 470,20 L 520,30 L 565,60 L 540,72 L 505,55 L 465,52 L 425,68 L 395,82 Z"
+          fill="url(#snowGrad)"/>
+    <!-- Horizon dashed line indicating plains level (Y≈200 boundary) -->
+    <line x1="140" y1="218" x2="240" y2="218" stroke="rgba(255,255,255,0.35)" stroke-dasharray="6 5" stroke-width="1.2"/>
+    <line x1="800" y1="218" x2="900" y2="218" stroke="rgba(255,255,255,0.35)" stroke-dasharray="6 5" stroke-width="1.2"/>
+    <text x="248" y="222" fill="rgba(255,255,255,0.6)" font-family="ui-monospace, monospace" font-size="14">plains (Y≈200)</text>
+    <text x="500" y="16" fill="rgba(255,255,255,0.75)" font-family="ui-monospace, monospace" font-size="14" text-anchor="middle">peak (Y≈256)</text>
+</svg>
 
 
 <div class="cs-layer">
@@ -453,7 +487,7 @@
 
 
 <h2>Layer-by-layer breakdown</h2>
-<p>Each layer is a Y band (voxel altitude). The engine fills the band with whatever's in <code>m_voxels</code> (stone-class blocks) plus <code>m_ores</code> entries (the rare resource nodes). Layers are listed top-down — Y 256 is open sky, low Y is bedrock.</p>
+<p>Each layer is a Y band (radial distance from the planet's core). The engine fills the band with whatever's in <code>m_voxels</code> (stone-class blocks) plus <code>m_ores</code> entries (the rare resource nodes). Layers are listed top-down — Y 256 is the outermost rock shell (where mountain peaks reach), low Y is closer to the core.</p>
 
 
 <details open style="background:var(--bg-card);border:1px solid var(--border);border-radius:6px;margin:0.6rem 0;padding:0">
@@ -1267,7 +1301,7 @@
 </main>
 <footer class="site">
     <div class="inner">
-        Generated 2026-05-11 20:18 UTC from game data (2026-04-26).
+        Generated 2026-05-11 23:06 UTC from game data (2026-04-26).
         Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
         Planet→biome distribution mapping is best-effort.
     </div>

@@ -153,12 +153,26 @@ def export_voxel_textures(voxels: Dict[str, dict], game_root: Path,
             means = [ImageStat.Stat(s.convert('L')).mean[0]
                       for s in strips]
             if max(means) - min(means) > 25:
-                # Pass the rectangular strip directly to the affine so it
-                # stretches naturally onto the face polygon. Tiling the strip
-                # 4× vertically to make it square produced visible horizontal
-                # seams on textures whose content didn't tile cleanly
-                # (e.g. radium, where each strip is a wide single image).
-                result = list(strips)
+                # Each variant strip is typically a horizontal row of N
+                # 256×256 sub-tiles (the game picks one per face). Crop each
+                # strip to the sub-tile with the highest grayscale stddev —
+                # that's where the visible content sits (radium's crystal
+                # blob, hull plate's lit panel, the visible turf patch).
+                # Stretching the whole 1024×256 strip onto a square face
+                # crushed the texture vertically; using one square sub-tile
+                # preserves native 1:1 detail.
+                result = []
+                for strip in strips:
+                    if w > tile_h:
+                        n_cols = w // tile_h
+                        sub_tiles = [strip.crop((c*tile_h, 0,
+                                                  (c+1)*tile_h, tile_h))
+                                      for c in range(n_cols)]
+                        stds = [ImageStat.Stat(s.convert('L')).stddev[0]
+                                 for s in sub_tiles]
+                        result.append(sub_tiles[stds.index(max(stds))])
+                    else:
+                        result.append(strip)
         # Pre-filter each variant to ~2× face size so the affine transform
         # only does a ~2× downscale through bilinear sampling.
         target = size * 2

@@ -18,6 +18,10 @@
         <span class="pill active" data-class="all">All classes</span>
         {% for c in classes %}<span class="pill" data-class="{{ c }}">{{ c|replace('L0_', '')|replace('L1_', '')|replace('L2_', '')|replace('L3_', '')|replace('L4_', '')|capitalize }}</span>{% endfor %}
     </div>
+    <div class="pills" id="rolePills">
+        <span class="pill active" data-role="all">All roles</span>
+        {% for r in roles %}<span class="pill" data-role="{{ r }}">{{ r }}</span>{% endfor %}
+    </div>
     <div class="pills" id="factionPills">
         <span class="pill active" data-faction="all">All factions</span>
         {% for f in factions %}<span class="pill" data-faction="{{ f }}">{{ f|capitalize }}</span>{% endfor %}
@@ -28,9 +32,12 @@
     </div>
 </div>
 
+<p style="font-size:0.85em;color:var(--text-faint);margin-top:0.6em">The <strong>Role</strong> column groups ships by their <em>played</em> function (Scout, Interceptor, Trader, …). The label is derived per ship from its blueprint: component family (karve = sub-corvette → Scout), per-slot MK level (cargo MK above the combat-slot average → Trader/Transport), and named-chassis variants (e.g.&nbsp;<code>chassis.excalibur.mk5</code> → Ace Fighter). The game data doesn't expose an explicit role field; this is a wiki-side classification.</p>
+
 <table class="wiki" id="catTable">
 <thead><tr>
     <th data-key="display">Name</th>
+    <th data-key="role">Role</th>
     <th data-key="class_label">Class</th>
     <th data-key="faction">Faction</th>
     <th data-key="tier" class="numeric">Tier</th>
@@ -41,8 +48,9 @@
 {% for r in rows %}
 {% set pilot_class = {'player':'craftable','police':'loot','pirate':'npc','npc':'unobtainable'}[r.pilot] %}
 {% set pilot_label = {'player':'Player','police':'Police','pirate':'Pirate','npc':'NPC'}[r.pilot] %}
-<tr data-class="{{ r.class_raw }}" data-faction="{{ r.faction }}" data-pilot="{{ r.pilot }}" data-search="{{ (r.display ~ ' ' ~ r.identifier ~ ' ' ~ r.class_label ~ ' ' ~ r.faction ~ ' ' ~ pilot_label)|lower }}">
+<tr data-class="{{ r.class_raw }}" data-role="{{ r.role }}" data-faction="{{ r.faction }}" data-pilot="{{ r.pilot }}" data-search="{{ (r.display ~ ' ' ~ r.identifier ~ ' ' ~ r.class_label ~ ' ' ~ (r.role or '') ~ ' ' ~ r.faction ~ ' ' ~ pilot_label)|lower }}">
     <td><a href="{{ root }}ships/{{ r.slug }}.html">{{ r.display }}</a></td>
+    <td>{% if r.role %}<span class="role-badge">{{ r.role }}</span>{% else %}—{% endif %}</td>
     <td>{{ r.class_label }}</td>
     <td>{{ r.faction|capitalize }}</td>
     <td class="numeric">{% if r.tier %}<span class="tier tier-{{ r.tier }}">T{{ r.tier }}</span>{% else %}—{% endif %}</td>
@@ -62,6 +70,7 @@
     const rows = Array.from(tbody.rows);
     const search = document.getElementById('catSearch');
     let classFilter = 'all';
+    let roleFilter = 'all';
     let factionFilter = 'all';
     let pilotFilter = 'all';
     function apply(){
@@ -69,9 +78,10 @@
         for (const r of rows) {
             const matchQ = !q || r.dataset.search.indexOf(q) !== -1;
             const matchC = classFilter === 'all' || r.dataset.class === classFilter;
+            const matchR = roleFilter === 'all' || r.dataset.role === roleFilter;
             const matchF = factionFilter === 'all' || r.dataset.faction === factionFilter;
             const matchP = pilotFilter === 'all' || r.dataset.pilot === pilotFilter;
-            r.style.display = (matchQ && matchC && matchF && matchP) ? '' : 'none';
+            r.style.display = (matchQ && matchC && matchR && matchF && matchP) ? '' : 'none';
         }
     }
     search?.addEventListener('input', apply);
@@ -87,6 +97,7 @@
         });
     }
     wirePills('classPills', 'class', v => classFilter = v);
+    wirePills('rolePills', 'role', v => roleFilter = v);
     wirePills('factionPills', 'faction', v => factionFilter = v);
     wirePills('pilotPills', 'pilot', v => pilotFilter = v);
 })();

@@ -27,6 +27,7 @@ class Catalog:
     distributions: Dict[str, dict] = field(default_factory=dict)
     biomes: Dict[str, dict] = field(default_factory=dict)
     worlds: Dict[str, dict] = field(default_factory=dict)
+    blueprints: Dict[str, dict] = field(default_factory=dict)
     game_root: Optional[Path] = None
 
     @classmethod
@@ -44,6 +45,7 @@ class Catalog:
         cat._load_dir_as_dict(cfg / 'voxeldistributions', cat.distributions)
         cat._load_dir_as_dict(cfg / 'worldbiomes', cat.biomes)
         cat._load_dir_as_dict(cfg / 'worlds', cat.worlds)
+        cat._load_dir_as_dict(cfg / 'blueprints', cat.blueprints)
         return cat
 
     def _load_items(self, items_dir: Path):

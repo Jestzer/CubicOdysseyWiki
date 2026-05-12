@@ -52,6 +52,10 @@
         <span class="pill active" data-class="all">All classes</span>
         <span class="pill" data-class="L0_DRONE">Drone</span><span class="pill" data-class="L1_CORVETTE">Corvette</span><span class="pill" data-class="L2_FRIGATE">Frigate</span><span class="pill" data-class="L3_DREADNOUGHT">Dreadnought</span><span class="pill" data-class="L4_GALLEON">Galleon</span>
     </div>
+    <div class="pills" id="rolePills">
+        <span class="pill active" data-role="all">All roles</span>
+        <span class="pill" data-role="Drone">Drone</span><span class="pill" data-role="Scout">Scout</span><span class="pill" data-role="Light Fighter">Light Fighter</span><span class="pill" data-role="Fighter">Fighter</span><span class="pill" data-role="Heavy Fighter">Heavy Fighter</span><span class="pill" data-role="Ace Fighter">Ace Fighter</span><span class="pill" data-role="Trader">Trader</span><span class="pill" data-role="Cruiser">Cruiser</span><span class="pill" data-role="Heavy Cruiser">Heavy Cruiser</span><span class="pill" data-role="Battlecruiser">Battlecruiser</span><span class="pill" data-role="Elite Cruiser">Elite Cruiser</span><span class="pill" data-role="Transport">Transport</span><span class="pill" data-role="Battleship">Battleship</span><span class="pill" data-role="Dreadnought">Dreadnought</span><span class="pill" data-role="Light Carrier">Light Carrier</span><span class="pill" data-role="Carrier">Carrier</span><span class="pill" data-role="Heavy Carrier">Heavy Carrier</span><span class="pill" data-role="Mothership">Mothership</span>
+    </div>
     <div class="pills" id="factionPills">
         <span class="pill active" data-faction="all">All factions</span>
         <span class="pill" data-faction="ANCIENTS">Ancients</span><span class="pill" data-faction="GENERIC">Generic</span><span class="pill" data-faction="PIRATES">Pirates</span><span class="pill" data-faction="POLICE">Police</span>
@@ -62,9 +66,12 @@
     </div>
 </div>
 
+<p style="font-size:0.85em;color:var(--text-faint);margin-top:0.6em">The <strong>Role</strong> column groups ships by their <em>played</em> function (Scout, Interceptor, Trader, …). The label is derived per ship from its blueprint: component family (karve = sub-corvette → Scout), per-slot MK level (cargo MK above the combat-slot average → Trader/Transport), and named-chassis variants (e.g.&nbsp;<code>chassis.excalibur.mk5</code> → Ace Fighter). The game data doesn't expose an explicit role field; this is a wiki-side classification.</p>
+
 <table class="wiki" id="catTable">
 <thead><tr>
     <th data-key="display">Name</th>
+    <th data-key="role">Role</th>
     <th data-key="class_label">Class</th>
     <th data-key="faction">Faction</th>
     <th data-key="tier" class="numeric">Tier</th>
@@ -75,8 +82,9 @@
 
 
 
-<tr data-class="L0_DRONE" data-faction="PIRATES" data-pilot="pirate" data-search="pirate drone mk1 ship.pirate.drone.mk1 drone pirates pirate">
+<tr data-class="L0_DRONE" data-role="Drone" data-faction="PIRATES" data-pilot="pirate" data-search="pirate drone mk1 ship.pirate.drone.mk1 drone drone pirates pirate">
     <td><a href="ships/ship_pirate_drone_mk1.html">Pirate Drone Mk1</a></td>
+    <td><span class="role-badge">Drone</span></td>
     <td>Drone</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-1">T1</span></td>
@@ -86,8 +94,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-pilot="player" data-search="basilisk ship.basilisk corvette generic player">
+<tr data-class="L1_CORVETTE" data-role="Trader" data-faction="GENERIC" data-pilot="player" data-search="basilisk ship.basilisk corvette trader generic player">
     <td><a href="ships/ship_basilisk.html">Basilisk</a></td>
+    <td><span class="role-badge">Trader</span></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -97,8 +106,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-pilot="player" data-search="excalibur ship.excalibur corvette generic player">
+<tr data-class="L1_CORVETTE" data-role="Ace Fighter" data-faction="GENERIC" data-pilot="player" data-search="excalibur ship.excalibur corvette ace fighter generic player">
     <td><a href="ships/ship_excalibur.html">Excalibur</a></td>
+    <td><span class="role-badge">Ace Fighter</span></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -108,8 +118,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-pilot="player" data-search="galactix racer ship.galactix.racer corvette generic player">
+<tr data-class="L1_CORVETTE" data-role="Light Fighter" data-faction="GENERIC" data-pilot="player" data-search="galactix racer ship.galactix.racer corvette light fighter generic player">
     <td><a href="ships/ship_galactix_racer.html">Galactix Racer</a></td>
+    <td><span class="role-badge">Light Fighter</span></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -119,8 +130,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-pilot="player" data-search="hipersonic ship.hipersonic corvette generic player">
+<tr data-class="L1_CORVETTE" data-role="Fighter" data-faction="GENERIC" data-pilot="player" data-search="hipersonic ship.hipersonic corvette fighter generic player">
     <td><a href="ships/ship_hipersonic.html">Hipersonic</a></td>
+    <td><span class="role-badge">Fighter</span></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -130,8 +142,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-pilot="player" data-search="infinity ship.infinity corvette generic player">
+<tr data-class="L1_CORVETTE" data-role="Fighter" data-faction="GENERIC" data-pilot="player" data-search="infinity ship.infinity corvette fighter generic player">
     <td><a href="ships/ship_infinity.html">Infinity</a></td>
+    <td><span class="role-badge">Fighter</span></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -141,8 +154,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-pilot="player" data-search="interstellar runner ship.interstellar.runner corvette generic player">
+<tr data-class="L1_CORVETTE" data-role="Fighter" data-faction="GENERIC" data-pilot="player" data-search="interstellar runner ship.interstellar.runner corvette fighter generic player">
     <td><a href="ships/ship_interstellar_runner.html">Interstellar Runner</a></td>
+    <td><span class="role-badge">Fighter</span></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -152,8 +166,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-pilot="player" data-search="micro recon ship.micro.recon corvette generic player">
+<tr data-class="L1_CORVETTE" data-role="Scout" data-faction="GENERIC" data-pilot="player" data-search="micro recon ship.micro.recon corvette scout generic player">
     <td><a href="ships/ship_micro_recon.html">Micro Recon</a></td>
+    <td><span class="role-badge">Scout</span></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-1">T1</span></td>
@@ -163,8 +178,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-pilot="npc" data-search="planet purifier mobile ship.planet.purifier.mobile corvette generic npc">
+<tr data-class="L1_CORVETTE" data-role="Fighter" data-faction="GENERIC" data-pilot="npc" data-search="planet purifier mobile ship.planet.purifier.mobile corvette fighter generic npc">
     <td><a href="ships/ship_planet_purifier_mobile.html">Planet Purifier Mobile</a></td>
+    <td><span class="role-badge">Fighter</span></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -174,8 +190,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-pilot="player" data-search="red fury ship.red.fury corvette generic player">
+<tr data-class="L1_CORVETTE" data-role="Ace Fighter" data-faction="GENERIC" data-pilot="player" data-search="red fury ship.red.fury corvette ace fighter generic player">
     <td><a href="ships/ship_red_fury.html">Red Fury</a></td>
+    <td><span class="role-badge">Ace Fighter</span></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -185,8 +202,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-pilot="player" data-search="shell ship.shell corvette generic player">
+<tr data-class="L1_CORVETTE" data-role="Light Fighter" data-faction="GENERIC" data-pilot="player" data-search="shell ship.shell corvette light fighter generic player">
     <td><a href="ships/ship_shell.html">Shell</a></td>
+    <td><span class="role-badge">Light Fighter</span></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -196,8 +214,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="GENERIC" data-pilot="player" data-search="supersonic small ship.supersonic.small corvette generic player">
+<tr data-class="L1_CORVETTE" data-role="Heavy Fighter" data-faction="GENERIC" data-pilot="player" data-search="supersonic small ship.supersonic.small corvette heavy fighter generic player">
     <td><a href="ships/ship_supersonic_small.html">Supersonic Small</a></td>
+    <td><span class="role-badge">Heavy Fighter</span></td>
     <td>Corvette</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -207,8 +226,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-pilot="pirate" data-search="pirate corvette mk1 ship.pirate.corvette.mk1 corvette pirates pirate">
+<tr data-class="L1_CORVETTE" data-role="Light Fighter" data-faction="PIRATES" data-pilot="pirate" data-search="pirate corvette mk1 ship.pirate.corvette.mk1 corvette light fighter pirates pirate">
     <td><a href="ships/ship_pirate_corvette_mk1.html">Pirate Corvette Mk1</a></td>
+    <td><span class="role-badge">Light Fighter</span></td>
     <td>Corvette</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-1">T1</span></td>
@@ -218,8 +238,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-pilot="pirate" data-search="pirate corvette mk2 ship.pirate.corvette.mk2 corvette pirates pirate">
+<tr data-class="L1_CORVETTE" data-role="Light Fighter" data-faction="PIRATES" data-pilot="pirate" data-search="pirate corvette mk2 ship.pirate.corvette.mk2 corvette light fighter pirates pirate">
     <td><a href="ships/ship_pirate_corvette_mk2.html">Pirate Corvette Mk2</a></td>
+    <td><span class="role-badge">Light Fighter</span></td>
     <td>Corvette</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -229,8 +250,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-pilot="pirate" data-search="pirate corvette mk3 ship.pirate.corvette.mk3 corvette pirates pirate">
+<tr data-class="L1_CORVETTE" data-role="Fighter" data-faction="PIRATES" data-pilot="pirate" data-search="pirate corvette mk3 ship.pirate.corvette.mk3 corvette fighter pirates pirate">
     <td><a href="ships/ship_pirate_corvette_mk3.html">Pirate Corvette Mk3</a></td>
+    <td><span class="role-badge">Fighter</span></td>
     <td>Corvette</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -240,8 +262,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-pilot="pirate" data-search="pirate corvette mk4 ship.pirate.corvette.mk4 corvette pirates pirate">
+<tr data-class="L1_CORVETTE" data-role="Fighter" data-faction="PIRATES" data-pilot="pirate" data-search="pirate corvette mk4 ship.pirate.corvette.mk4 corvette fighter pirates pirate">
     <td><a href="ships/ship_pirate_corvette_mk4.html">Pirate Corvette Mk4</a></td>
+    <td><span class="role-badge">Fighter</span></td>
     <td>Corvette</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -251,8 +274,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-pilot="pirate" data-search="pirate corvette mk5 ship.pirate.corvette.mk5 corvette pirates pirate">
+<tr data-class="L1_CORVETTE" data-role="Heavy Fighter" data-faction="PIRATES" data-pilot="pirate" data-search="pirate corvette mk5 ship.pirate.corvette.mk5 corvette heavy fighter pirates pirate">
     <td><a href="ships/ship_pirate_corvette_mk5.html">Pirate Corvette Mk5</a></td>
+    <td><span class="role-badge">Heavy Fighter</span></td>
     <td>Corvette</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -262,8 +286,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-pilot="pirate" data-search="pirate dvergr ship.pirate.dvergr corvette pirates pirate">
+<tr data-class="L1_CORVETTE" data-role="Heavy Fighter" data-faction="PIRATES" data-pilot="pirate" data-search="pirate dvergr ship.pirate.dvergr corvette heavy fighter pirates pirate">
     <td><a href="ships/ship_pirate_dvergr.html">Pirate Dvergr</a></td>
+    <td><span class="role-badge">Heavy Fighter</span></td>
     <td>Corvette</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -273,8 +298,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-pilot="pirate" data-search="pirate mean ship.pirate.mean corvette pirates pirate">
+<tr data-class="L1_CORVETTE" data-role="Fighter" data-faction="PIRATES" data-pilot="pirate" data-search="pirate mean ship.pirate.mean corvette fighter pirates pirate">
     <td><a href="ships/ship_pirate_mean.html">Pirate Mean</a></td>
+    <td><span class="role-badge">Fighter</span></td>
     <td>Corvette</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -284,8 +310,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-pilot="pirate" data-search="pirate sly runner ship.pirate.sly.runner corvette pirates pirate">
+<tr data-class="L1_CORVETTE" data-role="Light Fighter" data-faction="PIRATES" data-pilot="pirate" data-search="pirate sly runner ship.pirate.sly.runner corvette light fighter pirates pirate">
     <td><a href="ships/ship_pirate_sly_runner.html">Pirate Sly Runner</a></td>
+    <td><span class="role-badge">Light Fighter</span></td>
     <td>Corvette</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -295,8 +322,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-pilot="pirate" data-search="pirate tiny runner ship.pirate.tiny.runner corvette pirates pirate">
+<tr data-class="L1_CORVETTE" data-role="Light Fighter" data-faction="PIRATES" data-pilot="pirate" data-search="pirate tiny runner ship.pirate.tiny.runner corvette light fighter pirates pirate">
     <td><a href="ships/ship_pirate_tiny_runner.html">Pirate Tiny Runner</a></td>
+    <td><span class="role-badge">Light Fighter</span></td>
     <td>Corvette</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-1">T1</span></td>
@@ -306,8 +334,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="PIRATES" data-pilot="pirate" data-search="pirate vector ship.pirate.vector corvette pirates pirate">
+<tr data-class="L1_CORVETTE" data-role="Fighter" data-faction="PIRATES" data-pilot="pirate" data-search="pirate vector ship.pirate.vector corvette fighter pirates pirate">
     <td><a href="ships/ship_pirate_vector.html">Pirate Vector</a></td>
+    <td><span class="role-badge">Fighter</span></td>
     <td>Corvette</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -317,8 +346,9 @@
 
 
 
-<tr data-class="L1_CORVETTE" data-faction="POLICE" data-pilot="police" data-search="police quick redeemer ship.police.quick.redeemer corvette police police">
+<tr data-class="L1_CORVETTE" data-role="Fighter" data-faction="POLICE" data-pilot="police" data-search="police quick redeemer ship.police.quick.redeemer corvette fighter police police">
     <td><a href="ships/ship_police_quick_redeemer.html">Police Quick Redeemer</a></td>
+    <td><span class="role-badge">Fighter</span></td>
     <td>Corvette</td>
     <td>Police</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -328,8 +358,9 @@
 
 
 
-<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-pilot="player" data-search="artemis ship.artemis frigate generic player">
+<tr data-class="L2_FRIGATE" data-role="Elite Cruiser" data-faction="GENERIC" data-pilot="player" data-search="artemis ship.artemis frigate elite cruiser generic player">
     <td><a href="ships/ship_artemis.html">Artemis</a></td>
+    <td><span class="role-badge">Elite Cruiser</span></td>
     <td>Frigate</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -339,8 +370,9 @@
 
 
 
-<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-pilot="player" data-search="defiant ship.defiant frigate generic player">
+<tr data-class="L2_FRIGATE" data-role="Elite Cruiser" data-faction="GENERIC" data-pilot="player" data-search="defiant ship.defiant frigate elite cruiser generic player">
     <td><a href="ships/ship_defiant.html">Defiant</a></td>
+    <td><span class="role-badge">Elite Cruiser</span></td>
     <td>Frigate</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -350,8 +382,9 @@
 
 
 
-<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-pilot="player" data-search="endeavour ship.endeavour frigate generic player">
+<tr data-class="L2_FRIGATE" data-role="Heavy Cruiser" data-faction="GENERIC" data-pilot="player" data-search="endeavour ship.endeavour frigate heavy cruiser generic player">
     <td><a href="ships/ship_endeavour.html">Endeavour</a></td>
+    <td><span class="role-badge">Heavy Cruiser</span></td>
     <td>Frigate</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -361,8 +394,9 @@
 
 
 
-<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-pilot="player" data-search="hermes ship.hermes frigate generic player">
+<tr data-class="L2_FRIGATE" data-role="Elite Cruiser" data-faction="GENERIC" data-pilot="player" data-search="hermes ship.hermes frigate elite cruiser generic player">
     <td><a href="ships/ship_hermes.html">Hermes</a></td>
+    <td><span class="role-badge">Elite Cruiser</span></td>
     <td>Frigate</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -372,8 +406,9 @@
 
 
 
-<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-pilot="player" data-search="infrared furtive ship.infrared.furtive frigate generic player">
+<tr data-class="L2_FRIGATE" data-role="Heavy Cruiser" data-faction="GENERIC" data-pilot="player" data-search="infrared furtive ship.infrared.furtive frigate heavy cruiser generic player">
     <td><a href="ships/ship_infrared_furtive.html">Infrared Furtive</a></td>
+    <td><span class="role-badge">Heavy Cruiser</span></td>
     <td>Frigate</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -383,8 +418,9 @@
 
 
 
-<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-pilot="player" data-search="red fighter ship.red.fighter frigate generic player">
+<tr data-class="L2_FRIGATE" data-role="Battlecruiser" data-faction="GENERIC" data-pilot="player" data-search="red fighter ship.red.fighter frigate battlecruiser generic player">
     <td><a href="ships/ship_red_fighter.html">Red Fighter</a></td>
+    <td><span class="role-badge">Battlecruiser</span></td>
     <td>Frigate</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -394,8 +430,9 @@
 
 
 
-<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-pilot="player" data-search="star marine trooper ship.star.marine.trooper frigate generic player">
+<tr data-class="L2_FRIGATE" data-role="Transport" data-faction="GENERIC" data-pilot="player" data-search="star marine trooper ship.star.marine.trooper frigate transport generic player">
     <td><a href="ships/ship_star_marine_trooper.html">Star Marine Trooper</a></td>
+    <td><span class="role-badge">Transport</span></td>
     <td>Frigate</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -405,8 +442,9 @@
 
 
 
-<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-pilot="player" data-search="transtellar ship.transtellar frigate generic player">
+<tr data-class="L2_FRIGATE" data-role="Heavy Cruiser" data-faction="GENERIC" data-pilot="player" data-search="transtellar ship.transtellar frigate heavy cruiser generic player">
     <td><a href="ships/ship_transtellar.html">Transtellar</a></td>
+    <td><span class="role-badge">Heavy Cruiser</span></td>
     <td>Frigate</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -416,8 +454,9 @@
 
 
 
-<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-pilot="player" data-search="ultraviolet intruder ship.ultraviolet.intruder frigate generic player">
+<tr data-class="L2_FRIGATE" data-role="Cruiser" data-faction="GENERIC" data-pilot="player" data-search="ultraviolet intruder ship.ultraviolet.intruder frigate cruiser generic player">
     <td><a href="ships/ship_ultraviolet_intruder.html">Ultraviolet Intruder</a></td>
+    <td><span class="role-badge">Cruiser</span></td>
     <td>Frigate</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-1">T1</span></td>
@@ -427,8 +466,9 @@
 
 
 
-<tr data-class="L2_FRIGATE" data-faction="GENERIC" data-pilot="player" data-search="warship ship.warship frigate generic player">
+<tr data-class="L2_FRIGATE" data-role="Heavy Cruiser" data-faction="GENERIC" data-pilot="player" data-search="warship ship.warship frigate heavy cruiser generic player">
     <td><a href="ships/ship_warship.html">Warship</a></td>
+    <td><span class="role-badge">Heavy Cruiser</span></td>
     <td>Frigate</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -438,8 +478,9 @@
 
 
 
-<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-pilot="pirate" data-search="pirate frigate mk1 ship.pirate.frigate.mk1 frigate pirates pirate">
+<tr data-class="L2_FRIGATE" data-role="Cruiser" data-faction="PIRATES" data-pilot="pirate" data-search="pirate frigate mk1 ship.pirate.frigate.mk1 frigate cruiser pirates pirate">
     <td><a href="ships/ship_pirate_frigate_mk1.html">Pirate Frigate Mk1</a></td>
+    <td><span class="role-badge">Cruiser</span></td>
     <td>Frigate</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-1">T1</span></td>
@@ -449,8 +490,9 @@
 
 
 
-<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-pilot="pirate" data-search="pirate frigate mk2 ship.pirate.frigate.mk2 frigate pirates pirate">
+<tr data-class="L2_FRIGATE" data-role="Heavy Cruiser" data-faction="PIRATES" data-pilot="pirate" data-search="pirate frigate mk2 ship.pirate.frigate.mk2 frigate heavy cruiser pirates pirate">
     <td><a href="ships/ship_pirate_frigate_mk2.html">Pirate Frigate Mk2</a></td>
+    <td><span class="role-badge">Heavy Cruiser</span></td>
     <td>Frigate</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -460,8 +502,9 @@
 
 
 
-<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-pilot="pirate" data-search="pirate frigate mk3 ship.pirate.frigate.mk3 frigate pirates pirate">
+<tr data-class="L2_FRIGATE" data-role="Heavy Cruiser" data-faction="PIRATES" data-pilot="pirate" data-search="pirate frigate mk3 ship.pirate.frigate.mk3 frigate heavy cruiser pirates pirate">
     <td><a href="ships/ship_pirate_frigate_mk3.html">Pirate Frigate Mk3</a></td>
+    <td><span class="role-badge">Heavy Cruiser</span></td>
     <td>Frigate</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -471,8 +514,9 @@
 
 
 
-<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-pilot="pirate" data-search="pirate frigate mk4 ship.pirate.frigate.mk4 frigate pirates pirate">
+<tr data-class="L2_FRIGATE" data-role="Heavy Cruiser" data-faction="PIRATES" data-pilot="pirate" data-search="pirate frigate mk4 ship.pirate.frigate.mk4 frigate heavy cruiser pirates pirate">
     <td><a href="ships/ship_pirate_frigate_mk4.html">Pirate Frigate Mk4</a></td>
+    <td><span class="role-badge">Heavy Cruiser</span></td>
     <td>Frigate</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -482,8 +526,9 @@
 
 
 
-<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-pilot="pirate" data-search="pirate frigate mk5 ship.pirate.frigate.mk5 frigate pirates pirate">
+<tr data-class="L2_FRIGATE" data-role="Battlecruiser" data-faction="PIRATES" data-pilot="pirate" data-search="pirate frigate mk5 ship.pirate.frigate.mk5 frigate battlecruiser pirates pirate">
     <td><a href="ships/ship_pirate_frigate_mk5.html">Pirate Frigate Mk5</a></td>
+    <td><span class="role-badge">Battlecruiser</span></td>
     <td>Frigate</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -493,8 +538,9 @@
 
 
 
-<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-pilot="pirate" data-search="pirate seeker ship.pirate.seeker frigate pirates pirate">
+<tr data-class="L2_FRIGATE" data-role="Transport" data-faction="PIRATES" data-pilot="pirate" data-search="pirate seeker ship.pirate.seeker frigate transport pirates pirate">
     <td><a href="ships/ship_pirate_seeker.html">Pirate Seeker</a></td>
+    <td><span class="role-badge">Transport</span></td>
     <td>Frigate</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -504,8 +550,9 @@
 
 
 
-<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-pilot="pirate" data-search="pirate straight runner ship.pirate.straight.runner frigate pirates pirate">
+<tr data-class="L2_FRIGATE" data-role="Heavy Cruiser" data-faction="PIRATES" data-pilot="pirate" data-search="pirate straight runner ship.pirate.straight.runner frigate heavy cruiser pirates pirate">
     <td><a href="ships/ship_pirate_straight_runner.html">Pirate Straight Runner</a></td>
+    <td><span class="role-badge">Heavy Cruiser</span></td>
     <td>Frigate</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -515,8 +562,9 @@
 
 
 
-<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-pilot="pirate" data-search="pirate supersonic ship.pirate.supersonic frigate pirates pirate">
+<tr data-class="L2_FRIGATE" data-role="Battlecruiser" data-faction="PIRATES" data-pilot="pirate" data-search="pirate supersonic ship.pirate.supersonic frigate battlecruiser pirates pirate">
     <td><a href="ships/ship_pirate_supersonic.html">Pirate Supersonic</a></td>
+    <td><span class="role-badge">Battlecruiser</span></td>
     <td>Frigate</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -526,8 +574,9 @@
 
 
 
-<tr data-class="L2_FRIGATE" data-faction="PIRATES" data-pilot="pirate" data-search="pirate tri runner ship.pirate.tri.runner frigate pirates pirate">
+<tr data-class="L2_FRIGATE" data-role="Cruiser" data-faction="PIRATES" data-pilot="pirate" data-search="pirate tri runner ship.pirate.tri.runner frigate cruiser pirates pirate">
     <td><a href="ships/ship_pirate_tri_runner.html">Pirate Tri Runner</a></td>
+    <td><span class="role-badge">Cruiser</span></td>
     <td>Frigate</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-1">T1</span></td>
@@ -537,8 +586,9 @@
 
 
 
-<tr data-class="L2_FRIGATE" data-faction="POLICE" data-pilot="police" data-search="police patrol runner ship.police.patrol.runner frigate police police">
+<tr data-class="L2_FRIGATE" data-role="Transport" data-faction="POLICE" data-pilot="police" data-search="police patrol runner ship.police.patrol.runner frigate transport police police">
     <td><a href="ships/ship_police_patrol_runner.html">Police Patrol Runner</a></td>
+    <td><span class="role-badge">Transport</span></td>
     <td>Frigate</td>
     <td>Police</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -548,8 +598,9 @@
 
 
 
-<tr data-class="L3_DREADNOUGHT" data-faction="ANCIENTS" data-pilot="player" data-search="argonaut ship.argonaut dreadnought ancients player">
+<tr data-class="L3_DREADNOUGHT" data-role="Battleship" data-faction="ANCIENTS" data-pilot="player" data-search="argonaut ship.argonaut dreadnought battleship ancients player">
     <td><a href="ships/ship_argonaut.html">Argonaut</a></td>
+    <td><span class="role-badge">Battleship</span></td>
     <td>Dreadnought</td>
     <td>Ancients</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -559,8 +610,9 @@
 
 
 
-<tr data-class="L3_DREADNOUGHT" data-faction="ANCIENTS" data-pilot="player" data-search="leviathan ship.leviathan dreadnought ancients player">
+<tr data-class="L3_DREADNOUGHT" data-role="Dreadnought" data-faction="ANCIENTS" data-pilot="player" data-search="leviathan ship.leviathan dreadnought dreadnought ancients player">
     <td><a href="ships/ship_leviathan.html">Leviathan</a></td>
+    <td><span class="role-badge">Dreadnought</span></td>
     <td>Dreadnought</td>
     <td>Ancients</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -570,8 +622,9 @@
 
 
 
-<tr data-class="L3_DREADNOUGHT" data-faction="ANCIENTS" data-pilot="player" data-search="neutron ship.neutron dreadnought ancients player">
+<tr data-class="L3_DREADNOUGHT" data-role="Battleship" data-faction="ANCIENTS" data-pilot="player" data-search="neutron ship.neutron dreadnought battleship ancients player">
     <td><a href="ships/ship_neutron.html">Neutron</a></td>
+    <td><span class="role-badge">Battleship</span></td>
     <td>Dreadnought</td>
     <td>Ancients</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -581,8 +634,9 @@
 
 
 
-<tr data-class="L3_DREADNOUGHT" data-faction="ANCIENTS" data-pilot="player" data-search="planet biter ship.planet.biter dreadnought ancients player">
+<tr data-class="L3_DREADNOUGHT" data-role="Battleship" data-faction="ANCIENTS" data-pilot="player" data-search="planet biter ship.planet.biter dreadnought battleship ancients player">
     <td><a href="ships/ship_planet_biter.html">Planet Biter</a></td>
+    <td><span class="role-badge">Battleship</span></td>
     <td>Dreadnought</td>
     <td>Ancients</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -592,8 +646,9 @@
 
 
 
-<tr data-class="L3_DREADNOUGHT" data-faction="ANCIENTS" data-pilot="player" data-search="primo regalis ship.primo.regalis dreadnought ancients player">
+<tr data-class="L3_DREADNOUGHT" data-role="Dreadnought" data-faction="ANCIENTS" data-pilot="player" data-search="primo regalis ship.primo.regalis dreadnought dreadnought ancients player">
     <td><a href="ships/ship_primo_regalis.html">Primo Regalis</a></td>
+    <td><span class="role-badge">Dreadnought</span></td>
     <td>Dreadnought</td>
     <td>Ancients</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -603,8 +658,9 @@
 
 
 
-<tr data-class="L3_DREADNOUGHT" data-faction="ANCIENTS" data-pilot="player" data-search="vespira ship.vespira dreadnought ancients player">
+<tr data-class="L3_DREADNOUGHT" data-role="Battleship" data-faction="ANCIENTS" data-pilot="player" data-search="vespira ship.vespira dreadnought battleship ancients player">
     <td><a href="ships/ship_vespira.html">Vespira</a></td>
+    <td><span class="role-badge">Battleship</span></td>
     <td>Dreadnought</td>
     <td>Ancients</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -614,8 +670,9 @@
 
 
 
-<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-pilot="pirate" data-search="pirate bulky ship.pirate.bulky dreadnought pirates pirate">
+<tr data-class="L3_DREADNOUGHT" data-role="Dreadnought" data-faction="PIRATES" data-pilot="pirate" data-search="pirate bulky ship.pirate.bulky dreadnought dreadnought pirates pirate">
     <td><a href="ships/ship_pirate_bulky.html">Pirate Bulky</a></td>
+    <td><span class="role-badge">Dreadnought</span></td>
     <td>Dreadnought</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -625,8 +682,9 @@
 
 
 
-<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-pilot="pirate" data-search="pirate dreadnought mk1 ship.pirate.dreadnought.mk1 dreadnought pirates pirate">
+<tr data-class="L3_DREADNOUGHT" data-role="Cruiser" data-faction="PIRATES" data-pilot="pirate" data-search="pirate dreadnought mk1 ship.pirate.dreadnought.mk1 dreadnought cruiser pirates pirate">
     <td><a href="ships/ship_pirate_dreadnought_mk1.html">Pirate Dreadnought Mk1</a></td>
+    <td><span class="role-badge">Cruiser</span></td>
     <td>Dreadnought</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-1">T1</span></td>
@@ -636,8 +694,9 @@
 
 
 
-<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-pilot="pirate" data-search="pirate dreadnought mk2 ship.pirate.dreadnought.mk2 dreadnought pirates pirate">
+<tr data-class="L3_DREADNOUGHT" data-role="Battleship" data-faction="PIRATES" data-pilot="pirate" data-search="pirate dreadnought mk2 ship.pirate.dreadnought.mk2 dreadnought battleship pirates pirate">
     <td><a href="ships/ship_pirate_dreadnought_mk2.html">Pirate Dreadnought Mk2</a></td>
+    <td><span class="role-badge">Battleship</span></td>
     <td>Dreadnought</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -647,8 +706,9 @@
 
 
 
-<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-pilot="pirate" data-search="pirate dreadnought mk3 ship.pirate.dreadnought.mk3 dreadnought pirates pirate">
+<tr data-class="L3_DREADNOUGHT" data-role="Battleship" data-faction="PIRATES" data-pilot="pirate" data-search="pirate dreadnought mk3 ship.pirate.dreadnought.mk3 dreadnought battleship pirates pirate">
     <td><a href="ships/ship_pirate_dreadnought_mk3.html">Pirate Dreadnought Mk3</a></td>
+    <td><span class="role-badge">Battleship</span></td>
     <td>Dreadnought</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -658,8 +718,9 @@
 
 
 
-<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-pilot="pirate" data-search="pirate dreadnought mk4 ship.pirate.dreadnought.mk4 dreadnought pirates pirate">
+<tr data-class="L3_DREADNOUGHT" data-role="Battleship" data-faction="PIRATES" data-pilot="pirate" data-search="pirate dreadnought mk4 ship.pirate.dreadnought.mk4 dreadnought battleship pirates pirate">
     <td><a href="ships/ship_pirate_dreadnought_mk4.html">Pirate Dreadnought Mk4</a></td>
+    <td><span class="role-badge">Battleship</span></td>
     <td>Dreadnought</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -669,8 +730,9 @@
 
 
 
-<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-pilot="pirate" data-search="pirate dreadnought mk5 ship.pirate.dreadnought.mk5 dreadnought pirates pirate">
+<tr data-class="L3_DREADNOUGHT" data-role="Dreadnought" data-faction="PIRATES" data-pilot="pirate" data-search="pirate dreadnought mk5 ship.pirate.dreadnought.mk5 dreadnought dreadnought pirates pirate">
     <td><a href="ships/ship_pirate_dreadnought_mk5.html">Pirate Dreadnought Mk5</a></td>
+    <td><span class="role-badge">Dreadnought</span></td>
     <td>Dreadnought</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -680,8 +742,9 @@
 
 
 
-<tr data-class="L3_DREADNOUGHT" data-faction="PIRATES" data-pilot="pirate" data-search="pirate massive runner ship.pirate.massive.runner dreadnought pirates pirate">
+<tr data-class="L3_DREADNOUGHT" data-role="Battleship" data-faction="PIRATES" data-pilot="pirate" data-search="pirate massive runner ship.pirate.massive.runner dreadnought battleship pirates pirate">
     <td><a href="ships/ship_pirate_massive_runner.html">Pirate Massive Runner</a></td>
+    <td><span class="role-badge">Battleship</span></td>
     <td>Dreadnought</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -691,8 +754,9 @@
 
 
 
-<tr data-class="L3_DREADNOUGHT" data-faction="POLICE" data-pilot="police" data-search="police master redeemer ship.police.master.redeemer dreadnought police police">
+<tr data-class="L3_DREADNOUGHT" data-role="Dreadnought" data-faction="POLICE" data-pilot="police" data-search="police master redeemer ship.police.master.redeemer dreadnought dreadnought police police">
     <td><a href="ships/ship_police_master_redeemer.html">Police Master Redeemer</a></td>
+    <td><span class="role-badge">Dreadnought</span></td>
     <td>Dreadnought</td>
     <td>Police</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -702,8 +766,9 @@
 
 
 
-<tr data-class="L3_DREADNOUGHT" data-faction="POLICE" data-pilot="police" data-search="police relentless blazer ship.police.relentless.blazer dreadnought police police">
+<tr data-class="L3_DREADNOUGHT" data-role="Battleship" data-faction="POLICE" data-pilot="police" data-search="police relentless blazer ship.police.relentless.blazer dreadnought battleship police police">
     <td><a href="ships/ship_police_relentless_blazer.html">Police Relentless Blazer</a></td>
+    <td><span class="role-badge">Battleship</span></td>
     <td>Dreadnought</td>
     <td>Police</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -713,8 +778,9 @@
 
 
 
-<tr data-class="L4_GALLEON" data-faction="GENERIC" data-pilot="player" data-search="camo stellar jet ship.camo.stellar.jet galleon generic player">
+<tr data-class="L4_GALLEON" data-role="Carrier" data-faction="GENERIC" data-pilot="player" data-search="camo stellar jet ship.camo.stellar.jet galleon carrier generic player">
     <td><a href="ships/ship_camo_stellar_jet.html">Camo Stellar Jet</a></td>
+    <td><span class="role-badge">Carrier</span></td>
     <td>Galleon</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -724,8 +790,9 @@
 
 
 
-<tr data-class="L4_GALLEON" data-faction="GENERIC" data-pilot="player" data-search="chariot ship.chariot galleon generic player">
+<tr data-class="L4_GALLEON" data-role="Carrier" data-faction="GENERIC" data-pilot="player" data-search="chariot ship.chariot galleon carrier generic player">
     <td><a href="ships/ship_chariot.html">Chariot</a></td>
+    <td><span class="role-badge">Carrier</span></td>
     <td>Galleon</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -735,8 +802,9 @@
 
 
 
-<tr data-class="L4_GALLEON" data-faction="GENERIC" data-pilot="player" data-search="cube basic ship.cube.basic galleon generic player">
+<tr data-class="L4_GALLEON" data-role="Light Carrier" data-faction="GENERIC" data-pilot="player" data-search="cube basic ship.cube.basic galleon light carrier generic player">
     <td><a href="ships/ship_cube_basic.html">Cube Basic</a></td>
+    <td><span class="role-badge">Light Carrier</span></td>
     <td>Galleon</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-1">T1</span></td>
@@ -746,8 +814,9 @@
 
 
 
-<tr data-class="L4_GALLEON" data-faction="GENERIC" data-pilot="player" data-search="dual striker ship.dual.striker galleon generic player">
+<tr data-class="L4_GALLEON" data-role="Heavy Carrier" data-faction="GENERIC" data-pilot="player" data-search="dual striker ship.dual.striker galleon heavy carrier generic player">
     <td><a href="ships/ship_dual_striker.html">Dual Striker</a></td>
+    <td><span class="role-badge">Heavy Carrier</span></td>
     <td>Galleon</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -757,8 +826,9 @@
 
 
 
-<tr data-class="L4_GALLEON" data-faction="GENERIC" data-pilot="player" data-search="planet bane ship.planet.bane galleon generic player">
+<tr data-class="L4_GALLEON" data-role="Mothership" data-faction="GENERIC" data-pilot="player" data-search="planet bane ship.planet.bane galleon mothership generic player">
     <td><a href="ships/ship_planet_bane.html">Planet Bane</a></td>
+    <td><span class="role-badge">Mothership</span></td>
     <td>Galleon</td>
     <td>Generic</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -768,8 +838,9 @@
 
 
 
-<tr data-class="L4_GALLEON" data-faction="PIRATES" data-pilot="pirate" data-search="pirate dual runner ship.pirate.dual.runner galleon pirates pirate">
+<tr data-class="L4_GALLEON" data-role="Heavy Carrier" data-faction="PIRATES" data-pilot="pirate" data-search="pirate dual runner ship.pirate.dual.runner galleon heavy carrier pirates pirate">
     <td><a href="ships/ship_pirate_dual_runner.html">Pirate Dual Runner</a></td>
+    <td><span class="role-badge">Heavy Carrier</span></td>
     <td>Galleon</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -779,8 +850,9 @@
 
 
 
-<tr data-class="L4_GALLEON" data-faction="PIRATES" data-pilot="pirate" data-search="pirate galleon mk1 ship.pirate.galleon.mk1 galleon pirates pirate">
+<tr data-class="L4_GALLEON" data-role="Light Carrier" data-faction="PIRATES" data-pilot="pirate" data-search="pirate galleon mk1 ship.pirate.galleon.mk1 galleon light carrier pirates pirate">
     <td><a href="ships/ship_pirate_galleon_mk1.html">Pirate Galleon Mk1</a></td>
+    <td><span class="role-badge">Light Carrier</span></td>
     <td>Galleon</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-1">T1</span></td>
@@ -790,8 +862,9 @@
 
 
 
-<tr data-class="L4_GALLEON" data-faction="PIRATES" data-pilot="pirate" data-search="pirate galleon mk2 ship.pirate.galleon.mk2 galleon pirates pirate">
+<tr data-class="L4_GALLEON" data-role="Carrier" data-faction="PIRATES" data-pilot="pirate" data-search="pirate galleon mk2 ship.pirate.galleon.mk2 galleon carrier pirates pirate">
     <td><a href="ships/ship_pirate_galleon_mk2.html">Pirate Galleon Mk2</a></td>
+    <td><span class="role-badge">Carrier</span></td>
     <td>Galleon</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -801,8 +874,9 @@
 
 
 
-<tr data-class="L4_GALLEON" data-faction="PIRATES" data-pilot="pirate" data-search="pirate galleon mk3 ship.pirate.galleon.mk3 galleon pirates pirate">
+<tr data-class="L4_GALLEON" data-role="Carrier" data-faction="PIRATES" data-pilot="pirate" data-search="pirate galleon mk3 ship.pirate.galleon.mk3 galleon carrier pirates pirate">
     <td><a href="ships/ship_pirate_galleon_mk3.html">Pirate Galleon Mk3</a></td>
+    <td><span class="role-badge">Carrier</span></td>
     <td>Galleon</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-3">T3</span></td>
@@ -812,8 +886,9 @@
 
 
 
-<tr data-class="L4_GALLEON" data-faction="PIRATES" data-pilot="pirate" data-search="pirate galleon mk4 ship.pirate.galleon.mk4 galleon pirates pirate">
+<tr data-class="L4_GALLEON" data-role="Heavy Carrier" data-faction="PIRATES" data-pilot="pirate" data-search="pirate galleon mk4 ship.pirate.galleon.mk4 galleon heavy carrier pirates pirate">
     <td><a href="ships/ship_pirate_galleon_mk4.html">Pirate Galleon Mk4</a></td>
+    <td><span class="role-badge">Heavy Carrier</span></td>
     <td>Galleon</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -823,8 +898,9 @@
 
 
 
-<tr data-class="L4_GALLEON" data-faction="PIRATES" data-pilot="pirate" data-search="pirate galleon mk5 ship.pirate.galleon.mk5 galleon pirates pirate">
+<tr data-class="L4_GALLEON" data-role="Mothership" data-faction="PIRATES" data-pilot="pirate" data-search="pirate galleon mk5 ship.pirate.galleon.mk5 galleon mothership pirates pirate">
     <td><a href="ships/ship_pirate_galleon_mk5.html">Pirate Galleon Mk5</a></td>
+    <td><span class="role-badge">Mothership</span></td>
     <td>Galleon</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -834,8 +910,9 @@
 
 
 
-<tr data-class="L4_GALLEON" data-faction="PIRATES" data-pilot="pirate" data-search="pirate long runner ship.pirate.long.runner galleon pirates pirate">
+<tr data-class="L4_GALLEON" data-role="Carrier" data-faction="PIRATES" data-pilot="pirate" data-search="pirate long runner ship.pirate.long.runner galleon carrier pirates pirate">
     <td><a href="ships/ship_pirate_long_runner.html">Pirate Long Runner</a></td>
+    <td><span class="role-badge">Carrier</span></td>
     <td>Galleon</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-2">T2</span></td>
@@ -845,8 +922,9 @@
 
 
 
-<tr data-class="L4_GALLEON" data-faction="PIRATES" data-pilot="pirate" data-search="pirate scavenger ship.pirate.scavenger galleon pirates pirate">
+<tr data-class="L4_GALLEON" data-role="Mothership" data-faction="PIRATES" data-pilot="pirate" data-search="pirate scavenger ship.pirate.scavenger galleon mothership pirates pirate">
     <td><a href="ships/ship_pirate_scavenger.html">Pirate Scavenger</a></td>
+    <td><span class="role-badge">Mothership</span></td>
     <td>Galleon</td>
     <td>Pirates</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -856,8 +934,9 @@
 
 
 
-<tr data-class="L4_GALLEON" data-faction="POLICE" data-pilot="police" data-search="police fast blazer ship.police.fast.blazer galleon police police">
+<tr data-class="L4_GALLEON" data-role="Mothership" data-faction="POLICE" data-pilot="police" data-search="police fast blazer ship.police.fast.blazer galleon mothership police police">
     <td><a href="ships/ship_police_fast_blazer.html">Police Fast Blazer</a></td>
+    <td><span class="role-badge">Mothership</span></td>
     <td>Galleon</td>
     <td>Police</td>
     <td class="numeric"><span class="tier tier-5">T5</span></td>
@@ -867,8 +946,9 @@
 
 
 
-<tr data-class="L4_GALLEON" data-faction="POLICE" data-pilot="police" data-search="police straight watcher ship.police.straight.watcher galleon police police">
+<tr data-class="L4_GALLEON" data-role="Heavy Carrier" data-faction="POLICE" data-pilot="police" data-search="police straight watcher ship.police.straight.watcher galleon heavy carrier police police">
     <td><a href="ships/ship_police_straight_watcher.html">Police Straight Watcher</a></td>
+    <td><span class="role-badge">Heavy Carrier</span></td>
     <td>Galleon</td>
     <td>Police</td>
     <td class="numeric"><span class="tier tier-4">T4</span></td>
@@ -882,7 +962,7 @@
 </main>
 <footer class="site">
     <div class="inner">
-        Generated 2026-05-12 03:15 UTC from game data (2026-04-26).
+        Generated 2026-05-12 23:33 UTC from game data (2026-04-26).
         Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
         Planet→biome distribution mapping is best-effort.
     </div>
@@ -896,6 +976,7 @@
     const rows = Array.from(tbody.rows);
     const search = document.getElementById('catSearch');
     let classFilter = 'all';
+    let roleFilter = 'all';
     let factionFilter = 'all';
     let pilotFilter = 'all';
     function apply(){
@@ -903,9 +984,10 @@
         for (const r of rows) {
             const matchQ = !q || r.dataset.search.indexOf(q) !== -1;
             const matchC = classFilter === 'all' || r.dataset.class === classFilter;
+            const matchR = roleFilter === 'all' || r.dataset.role === roleFilter;
             const matchF = factionFilter === 'all' || r.dataset.faction === factionFilter;
             const matchP = pilotFilter === 'all' || r.dataset.pilot === pilotFilter;
-            r.style.display = (matchQ && matchC && matchF && matchP) ? '' : 'none';
+            r.style.display = (matchQ && matchC && matchR && matchF && matchP) ? '' : 'none';
         }
     }
     search?.addEventListener('input', apply);
@@ -921,6 +1003,7 @@
         });
     }
     wirePills('classPills', 'class', v => classFilter = v);
+    wirePills('rolePills', 'role', v => roleFilter = v);
     wirePills('factionPills', 'faction', v => factionFilter = v);
     wirePills('pilotPills', 'pilot', v => pilotFilter = v);
 })();

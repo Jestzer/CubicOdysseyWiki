@@ -4,10 +4,37 @@
 <h1>Quests</h1>
 <p>Cubic Odyssey has two parallel quest tracks: a hand-authored <strong>main story</strong> (149 progression tasks driving milestones like <code>GOT_WARP_CELL</code>, <code>FREED_QUEEN</code>, <code>REACHED_NEXUS</code>) and a <strong>random-quest</strong> system that spawns side jobs from a small pool of types. Both are visible in the game's static configs.</p>
 
+<div class="note" style="border-left-color:#cf6c6c">
+    <strong>Spoiler warning:</strong> the plot breakdown below walks through every major beat of the main quest, from crash-landing on Bardwell to reactivating the final Temple. Skip to <a href="#random">Random quest types</a> or <a href="#milestones">Notable story milestones</a> if you'd rather avoid spoilers.
+</div>
+
+<h2 id="plot">Main quest — plot breakdown</h2>
+<p>Walks the 149 progression steps in <code>data/configs/progression/</code> in order, grouped into seven plot acts. Step IDs match the config filenames. The act titles are our own — the game's <code>data/configs/tasks/</code> uses obfuscated <code>STR_ACT_*</code> tokens we can't read yet.</p>
+
+<div class="plot-acts">
+{% for act in plot %}
+<details class="plot-act" {% if loop.first %}open{% endif %}>
+    <summary>
+        <span class="plot-act-title">{{ act.title }}</span>
+        <span class="plot-act-meta">steps {{ act.step_range }} · {{ act.step_count }} beat{{ 's' if act.step_count != 1 }}</span>
+    </summary>
+    <p class="plot-act-subtitle">{{ act.subtitle }}</p>
+    <ol class="plot-steps">
+    {% for s in act.steps %}
+        <li><span class="plot-step-id">#{{ s.id }}</span>
+            {{ s.summary }}
+            {% if s.story_step %}<code class="plot-step-flag">{{ s.story_step }}</code>{% endif %}
+        </li>
+    {% endfor %}
+    </ol>
+</details>
+{% endfor %}
+</div>
+
 <div class="section-grid">
 <div>
 
-<h2>Random quest types ({{ total_freq }} weighted)</h2>
+<h2 id="random">Random quest types ({{ total_freq }} weighted)</h2>
 <p>From <code>data/configs/quests_distribution.cfg</code>. The engine picks a quest from this pool each time it needs a new side job; <code>m_frequency</code> is the relative weight, not a percentage — but the % column shows the share of total weight.</p>
 <table class="wiki">
 <thead><tr><th>Quest type</th><th class="numeric">Frequency</th><th class="numeric">Share</th><th>Likely means</th></tr></thead>
@@ -45,7 +72,7 @@
 </tbody>
 </table>
 
-<h3>Notable story milestones</h3>
+<h3 id="milestones">Notable story milestones</h3>
 <p>A taste of the story flags the engine sets. The full list lives in <code>data/configs/progression/*.cfg</code> under <code>storyStep</code>.</p>
 <ul style="columns:2;font-family:ui-monospace,monospace;font-size:0.88em;line-height:1.8">
 {% for ss in notable_story_steps %}

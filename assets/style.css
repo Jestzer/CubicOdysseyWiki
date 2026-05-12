@@ -406,6 +406,80 @@ tr.locked td a { color: var(--text-faint); pointer-events: none; }
 .obtain-npc           { background: #4a1f1c; color: #f0a098; }
 .obtain-unobtainable  { background: #2f2f3a; color: #888a92; }
 
+/* Ship sub-class / role badge ------------------------------------------- */
+.role-badge {
+    display: inline-block;
+    border-radius: 3px;
+    padding: 0.1em 0.55em;
+    background: #1f3a55;
+    color: #b3d3f5;
+    font-family: ui-monospace, monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+/* Quest guide — plot act breakdown ---------------------------------------- */
+.plot-acts { margin: 1em 0 2em; }
+.plot-act {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 0.6em;
+    background: var(--bg-elev);
+}
+.plot-act > summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 0.7em 1em;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1em;
+}
+.plot-act > summary::-webkit-details-marker { display: none; }
+.plot-act > summary::before {
+    content: '▸';
+    color: var(--text-faint);
+    margin-right: 0.5em;
+    transition: transform 0.15s;
+    display: inline-block;
+}
+.plot-act[open] > summary::before { transform: rotate(90deg); }
+.plot-act-title { font-weight: 700; font-size: 1.05em; }
+.plot-act-meta {
+    color: var(--text-faint);
+    font-size: 0.85em;
+    font-family: ui-monospace, monospace;
+    white-space: nowrap;
+}
+.plot-act-subtitle {
+    margin: 0 1em 0.8em 2.1em;
+    color: var(--text-faint);
+}
+.plot-steps {
+    margin: 0 1em 1em 2.1em;
+    padding-left: 1em;
+    line-height: 1.7;
+}
+.plot-steps li { margin-bottom: 0.15em; }
+.plot-step-id {
+    display: inline-block;
+    color: var(--text-faint);
+    font-family: ui-monospace, monospace;
+    font-size: 0.82em;
+    min-width: 3.2em;
+}
+.plot-step-flag {
+    margin-left: 0.4em;
+    font-size: 0.82em;
+    color: #b3d3f5;
+    background: #1f3a55;
+    padding: 0.05em 0.4em;
+    border-radius: 3px;
+}
+
 /* World altitude profile — cross-section of the planet's voxel layers */
 .altitude-profile {
     display: flex;

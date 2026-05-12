@@ -563,6 +563,116 @@ def gems_context(cat: Catalog, icons_dir: Path) -> dict:
     }
 
 
+# Plot-act definitions for the main quest. The game has 11 chapter entries
+# in data/configs/tasks/ but their titles are obfuscated STR_ACT_* tokens.
+# The 149 progression steps in data/configs/progression/ (numbered 1..149)
+# do tell a coherent story when read in order, so the wiki groups them
+# into 7 named plot acts derived from the storyStep / category / arg
+# fields.
+#
+# Each entry: (slug, title, subtitle, step_range_inclusive)
+PLOT_ACTS = [
+    ('crash-landing', 'Act 1 — Crash Landing',
+     'You wake up on Bardwell, learn the survival basics, and build your first toolset.',
+     (1, 20)),
+    ('first-mines', 'Act 2 — First Mines and Loadout',
+     'Find ore, smelt your first ingots, and craft scanner, drone, jetpack, and suit.',
+     (21, 48)),
+    ('outpost-and-nexus', 'Act 3 — Outpost, Nexus Portal, First Ship',
+     'Build a Speeder, reach the village, meet Ragnhild, open the Nexus Portal, and buy your first ship.',
+     (49, 67)),
+    ('first-temple', 'Act 4 — First Temple and the Warp Cell',
+     'Land on Bardwell, fix the first Temple, meet the Guardian, clear the Dark Core, activate the first Light Cannon, and craft a Warp Cell.',
+     (68, 97)),
+    ('knight-a-grace', 'Act 5 — Knight A on Grace',
+     'Warp to the Grace system, clear the pirate base at Aoacu, rescue Knight Helioctus, and bring him his recipe materials.',
+     (98, 114)),
+    ('knight-b-fintan', 'Act 6 — Knight B on Fintan',
+     'Reach Fintan, purify the planet, clear the pirate base at Ufeobta, rescue Knight Casascutum, and unlock the Shield Breaker.',
+     (115, 129)),
+    ('queen-quberion', 'Act 7 — Queen Atia of Quberion',
+     'Break Quberion\'s station barrier, rescue Knight Asenka, purify the planet three times, restore the castle towers, free Queen Atia, and reactivate every temple.',
+     (130, 149)),
+]
+
+
+def _humanize_arg(arg: str, cat: Catalog) -> str:
+    """Turn a progression `arg` like ``res.iron.ore`` into a readable form.
+
+    Item identifiers route through the catalog title string; bare names
+    (planet, NPC) are returned as-is."""
+    if not arg:
+        return ''
+    if arg in cat.items:
+        return _humanize(cat.items[arg].get('title_string') or arg)
+    if '.' in arg:
+        return _humanize(arg)
+    return arg
+
+
+def _step_summary(step: dict, cat: Catalog) -> str:
+    """Short prose describing what the player does for this progression step.
+
+    The game encodes the step as (category, arg) — e.g. CRAFT
+    `wep.mining_laser.1` means "craft a Mining Laser 1". The summaries
+    below convert ~40 distinct categories into plain English."""
+    cat_id = step.get('category', '')
+    arg = step.get('arg') or ''
+    nice_arg = _humanize_arg(arg, cat) if arg else ''
+
+    verbs = {
+        'OPEN_INVENTORY': 'Open the inventory.',
+        'CLOSE_INVENTORY': 'Close the inventory.',
+        'REACH_POI': f'Reach the point of interest: {nice_arg}.' if nice_arg else 'Reach a point of interest.',
+        'QB1_REQUEST_MINING': f'QB1 requests a {nice_arg} — pick one up.' if nice_arg else 'QB1 (drone) hands you a mining tool.',
+        'QB1_REQUEST_BENCH': 'QB1 tells you to put down the crafting workbench.',
+        'QB1_REQUEST_PISTOL': 'QB1 asks you to craft a sidearm.',
+        'QB1_ORE_SEARCH': 'QB1 paints ore deposits on your scanner.',
+        'COUNT_INGREDIENTS': f'Collect {nice_arg}.' if nice_arg else 'Gather ingredients.',
+        'CRAFT': f'Craft {nice_arg}.' if nice_arg else 'Craft an item.',
+        'DEPLOY': f'Deploy {nice_arg}.' if nice_arg else 'Deploy a structure.',
+        'USE': f'Use {nice_arg}.' if nice_arg else 'Use an item.',
+        'EQUIP': f'Equip {nice_arg}.' if nice_arg else 'Equip an item.',
+        'DRONE_EQUIP': f'Install {nice_arg} onto QB1.' if nice_arg else 'Equip the drone.',
+        'LOOT': f'Pick up {nice_arg}.' if nice_arg else 'Loot an item.',
+        'FURNACE': f'Smelt {nice_arg}.' if nice_arg else 'Smelt something at a furnace.',
+        'UPGRADE_ITEM': f'Upgrade {nice_arg}.' if nice_arg else 'Upgrade an item at a crafting bench.',
+        'BUY_SPEEDER': 'Buy a speeder from the outpost.',
+        'BUY_SPACESHIP': 'Buy your first spaceship.',
+        'INTERACT': f'Talk to {nice_arg}.' if nice_arg else 'Interact with the highlighted target.',
+        'REACH_VILLAGE': 'Travel to the village.',
+        'PLAYER_SCAN': 'Scan the environment with your scanner.',
+        'PLAYER_SCAN_SPACE': 'Scan a planet from orbit.',
+        'WAIT_CINEMATIC': 'Watch a cinematic.',
+        'CLEAR_AREA': 'Clear the corruption from the area.',
+        'TELEPORT': f'Step through the portal to {nice_arg}.' if nice_arg else 'Step through the portal.',
+        'FIX_NEXUS_PORTAL': f'Repair the Nexus Portal on {nice_arg}.' if nice_arg else 'Repair the Nexus Portal.',
+        'GO_TO_SPACE': 'Leave the planet for orbit.',
+        'LAND': f'Land on {nice_arg}.' if nice_arg else 'Land on a planet.',
+        'ACTIVATE_TEMPLE': 'Activate the Temple shrine.',
+        'UNLOCK_TEMPLE': 'Unlock the Temple.',
+        'UNLOCK_CASTLE_TEMPLE': 'Unlock the Castle Temple.',
+        'CLEAN_CORE': 'Destroy the Dark Core.',
+        'ACTIVATE_LIGHT_GUN': 'Power up the planetary Light Cannon.',
+        'ACTIVATE_SHIELD_BREAKER': 'Activate the Shield Breaker.',
+        'REACH_SYSTEM': f'Warp to the {nice_arg} system.' if nice_arg else 'Warp to a new star system.',
+        'APPROACH_PLANET': f'Approach {nice_arg}.' if nice_arg else 'Approach the target planet.',
+        'UNBLOCK_PLANET': f'Clear the planetary barrier around {nice_arg}.' if nice_arg else 'Clear the planetary barrier.',
+        'CLEAR_PIRATE_BASE': f'Clear the pirate base at {nice_arg}.' if nice_arg else 'Clear a pirate base.',
+        'FINISH_DIALOGUE': f'Finish your conversation with {nice_arg}.' if nice_arg else 'Finish the dialogue.',
+        'FILL_CRAFTING_CONSOLE': f'Deliver the materials for {nice_arg}.' if nice_arg else 'Deliver the crafting materials.',
+        'PURIFY_PLANET': f'Purify {nice_arg}.' if nice_arg else 'Purify the planet.',
+        'BREAK_BARRIER': f'Break the orbital barrier at {nice_arg}.' if nice_arg else 'Break the barrier.',
+        'MAKE_SHIELD_VULNERABLE': 'Make the Castle shield vulnerable.',
+        'PURIFY_BARRIER': 'Purify the Castle barrier.',
+        'TASK_BREAK_PRISON': "Break Queen Atia's prison.",
+        'WARP': 'Warp out of the system.',
+        'REACTIVATE_ALL_TEMPLES': 'Reactivate every Temple — the game ends.',
+        'SUBTASKS': 'Resolve a small group of sub-tasks.',
+    }
+    return verbs.get(cat_id, f'{cat_id.replace("_", " ").lower().capitalize()}{(" — " + nice_arg) if nice_arg else ""}.')
+
+
 def quests_context(cat: Catalog) -> dict:
     """Pull random-quest-type frequencies and main-story task counts."""
     from parsers.cfg import parse_file
@@ -582,27 +692,53 @@ def quests_context(cat: Catalog) -> dict:
         q['pct'] = f"{q['frequency'] / total_freq * 100:.1f}%"
     quest_types.sort(key=lambda q: -q['frequency'])
 
-    # Story progression tasks — count by category to give a sense of the
-    # mix without dumping all 149 in here
+    # Load every progression step in order.
     prog_dir = cat.game_root / 'data' / 'configs' / 'progression'
+    steps: Dict[int, dict] = {}
     categories: Dict[str, int] = {}
     story_steps: Dict[str, int] = {}
-    total_tasks = 0
-    for p in sorted(prog_dir.glob('*.cfg')):
+    for p in sorted(prog_dir.glob('*.cfg'), key=lambda p: int(p.stem) if p.stem.isdigit() else 999):
         d = parse_file(p)
         if not isinstance(d, dict):
             continue
-        total_tasks += 1
+        sid = d.get('id')
+        if isinstance(sid, int):
+            steps[sid] = d
         c = d.get('category', 'UNKNOWN')
         categories[c] = categories.get(c, 0) + 1
         ss = d.get('storyStep')
         if ss:
             story_steps[ss] = story_steps.get(ss, 0) + 1
+    total_tasks = len(steps)
+
+    # Compose the act-by-act plot breakdown
+    plot = []
+    for slug, title, subtitle, (lo, hi) in PLOT_ACTS:
+        rows = []
+        for sid in range(lo, hi + 1):
+            s = steps.get(sid)
+            if not s:
+                continue
+            rows.append({
+                'id': sid,
+                'story_step': s.get('storyStep') or '',
+                'category': s.get('category') or '',
+                'arg': s.get('arg') or '',
+                'summary': _step_summary(s, cat),
+            })
+        plot.append({
+            'slug': slug,
+            'title': title,
+            'subtitle': subtitle,
+            'step_range': f'{lo}–{hi}',
+            'step_count': len(rows),
+            'steps': rows,
+        })
 
     top_categories = sorted(categories.items(), key=lambda kv: -kv[1])[:12]
     notable_story_steps = sorted(story_steps.keys())[:18]
 
-    # Main story "Acts" / chapters from tasks/*.cfg
+    # Main story "Acts" / chapters from tasks/*.cfg — kept for context.
     tasks_dir = cat.game_root / 'data' / 'configs' / 'tasks'
     acts = []
     for p in sorted(tasks_dir.glob('*.cfg'), key=lambda p: int(p.stem) if p.stem.isdigit() else 999):
@@ -623,6 +759,7 @@ def quests_context(cat: Catalog) -> dict:
         'top_categories': top_categories,
         'notable_story_steps': notable_story_steps,
         'acts': acts,
+        'plot': plot,
     }
 
 

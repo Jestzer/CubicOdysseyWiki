@@ -308,8 +308,11 @@ class WikiRenderer:
 
         # Ships
         if ship_records:
+            from extract.ships import ROLE_ORDER
             classes = sorted({r['class_raw'] for r in ship_records if r.get('class_raw')})
             factions = sorted({r['faction'] for r in ship_records})
+            present_roles = {r.get('role') for r in ship_records if r.get('role')}
+            roles = [r for r in ROLE_ORDER if r in present_roles]
             pilot_order = ['player', 'pirate', 'police', 'npc']
             present_pilots = {r['pilot'] for r in ship_records if r.get('pilot')}
             pilots = [p for p in pilot_order if p in present_pilots]
@@ -317,7 +320,8 @@ class WikiRenderer:
                 self.out / 'ships.html',
                 root='', category='ships', title='Ships',
                 counts=self.counts, rows=ship_records,
-                classes=classes, factions=factions, pilots=pilots)
+                classes=classes, factions=factions, pilots=pilots,
+                roles=roles)
             for r in ship_records:
                 self._render_template('ship.html.j2',
                     self.out / 'ships' / (r['slug'] + '.html'),

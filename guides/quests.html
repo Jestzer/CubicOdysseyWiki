@@ -38,10 +38,838 @@
 <h1>Quests</h1>
 <p>Cubic Odyssey has two parallel quest tracks: a hand-authored <strong>main story</strong> (149 progression tasks driving milestones like <code>GOT_WARP_CELL</code>, <code>FREED_QUEEN</code>, <code>REACHED_NEXUS</code>) and a <strong>random-quest</strong> system that spawns side jobs from a small pool of types. Both are visible in the game's static configs.</p>
 
+<div class="note" style="border-left-color:#cf6c6c">
+    <strong>Spoiler warning:</strong> the plot breakdown below walks through every major beat of the main quest, from crash-landing on Bardwell to reactivating the final Temple. Skip to <a href="#random">Random quest types</a> or <a href="#milestones">Notable story milestones</a> if you'd rather avoid spoilers.
+</div>
+
+<h2 id="plot">Main quest — plot breakdown</h2>
+<p>Walks the 149 progression steps in <code>data/configs/progression/</code> in order, grouped into seven plot acts. Step IDs match the config filenames. The act titles are our own — the game's <code>data/configs/tasks/</code> uses obfuscated <code>STR_ACT_*</code> tokens we can't read yet.</p>
+
+<div class="plot-acts">
+
+<details class="plot-act" open>
+    <summary>
+        <span class="plot-act-title">Act 1 — Crash Landing</span>
+        <span class="plot-act-meta">steps 1–20 · 20 beats</span>
+    </summary>
+    <p class="plot-act-subtitle">You wake up on Bardwell, learn the survival basics, and build your first toolset.</p>
+    <ol class="plot-steps">
+    
+        <li><span class="plot-step-id">#1</span>
+            Open the inventory.
+            <code class="plot-step-flag">TUT_CLOSE_INVENTORY</code>
+        </li>
+    
+        <li><span class="plot-step-id">#2</span>
+            Close the inventory.
+            <code class="plot-step-flag">REACH_RUINS</code>
+        </li>
+    
+        <li><span class="plot-step-id">#3</span>
+            Reach a point of interest.
+            <code class="plot-step-flag">REQUEST_MINING_TOOL</code>
+        </li>
+    
+        <li><span class="plot-step-id">#4</span>
+            QB1 requests a Mining Laser 0 — pick one up.
+            <code class="plot-step-flag">HAS_MINING_TOOL</code>
+        </li>
+    
+        <li><span class="plot-step-id">#5</span>
+            Collect Voxel Leaves.
+            <code class="plot-step-flag">REQUEST_WORKBENCH</code>
+        </li>
+    
+        <li><span class="plot-step-id">#6</span>
+            QB1 tells you to put down the crafting workbench.
+            <code class="plot-step-flag">GOT_WORKBENCH</code>
+        </li>
+    
+        <li><span class="plot-step-id">#7</span>
+            Deploy Basic Crafting Station.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#8</span>
+            Craft Health Pack 0.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#9</span>
+            Use Health Pack 0.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#10</span>
+            Collect Voxel Trunk.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#11</span>
+            Craft Inventorybox.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#12</span>
+            Deploy Inventorybox.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#13</span>
+            Craft Backpack 1.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#14</span>
+            Collect Voxel Dirt.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#15</span>
+            Collect Voxel Stone.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#16</span>
+            Craft Refinery 1.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#17</span>
+            Deploy Refinery 1.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#18</span>
+            Smelt Coal.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#19</span>
+            Smelt Clay.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#20</span>
+            Craft Battery 1.
+            
+        </li>
+    
+    </ol>
+</details>
+
+<details class="plot-act" >
+    <summary>
+        <span class="plot-act-title">Act 2 — First Mines and Loadout</span>
+        <span class="plot-act-meta">steps 21–48 · 28 beats</span>
+    </summary>
+    <p class="plot-act-subtitle">Find ore, smelt your first ingots, and craft scanner, drone, jetpack, and suit.</p>
+    <ol class="plot-steps">
+    
+        <li><span class="plot-step-id">#21</span>
+            QB1 asks you to craft a sidearm.
+            <code class="plot-step-flag">SEARCHING_FOR_ORE</code>
+        </li>
+    
+        <li><span class="plot-step-id">#22</span>
+            Pick up Copper Ore.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#23</span>
+            Pick up Aluminum Ore.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#24</span>
+            Pick up Iron Ore.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#25</span>
+            Smelt Iron Ingot.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#26</span>
+            Smelt Copper Ingot.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#27</span>
+            Smelt Aluminum Ingot.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#28</span>
+            Craft Shock Stick 1.
+            <code class="plot-step-flag">HAS_MELEE_WEAPON</code>
+        </li>
+    
+        <li><span class="plot-step-id">#29</span>
+            Pick up Voxel Sand.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#30</span>
+            Smelt Glass Sheet.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#31</span>
+            Craft Scanner 1.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#32</span>
+            Equip Scanner 1.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#33</span>
+            Scan the environment with your scanner.
+            <code class="plot-step-flag">USED_SCANNER</code>
+        </li>
+    
+        <li><span class="plot-step-id">#34</span>
+            Upgrade Basic Crafting Station.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#35</span>
+            Craft Mining Laser 1.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#36</span>
+            Craft Wiring.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#37</span>
+            Craft Drone Scanner 0.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#38</span>
+            Install Drone Scanner 0 onto QB1.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#39</span>
+            QB1 paints ore deposits on your scanner.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#40</span>
+            Pick up Gold Ore.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#41</span>
+            Smelt Gold Ingot.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#42</span>
+            Pick up Gold Ingot.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#43</span>
+            Craft Drone Stick 0.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#44</span>
+            Install Drone Stick 0 onto QB1.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#45</span>
+            Craft Armory Crafting Station.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#46</span>
+            Deploy Armory Crafting Station.
+            <code class="plot-step-flag">HAS_ARMORY</code>
+        </li>
+    
+        <li><span class="plot-step-id">#47</span>
+            Craft Jetpack 1.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#48</span>
+            Craft Suit 1.
+            <code class="plot-step-flag">SHOW_SPEEDER</code>
+        </li>
+    
+    </ol>
+</details>
+
+<details class="plot-act" >
+    <summary>
+        <span class="plot-act-title">Act 3 — Outpost, Nexus Portal, First Ship</span>
+        <span class="plot-act-meta">steps 49–67 · 19 beats</span>
+    </summary>
+    <p class="plot-act-subtitle">Build a Speeder, reach the village, meet Ragnhild, open the Nexus Portal, and buy your first ship.</p>
+    <ol class="plot-steps">
+    
+        <li><span class="plot-step-id">#49</span>
+            Buy a speeder from the outpost.
+            <code class="plot-step-flag">HAS_SPEEDER</code>
+        </li>
+    
+        <li><span class="plot-step-id">#50</span>
+            Craft Travel Point.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#51</span>
+            Deploy Travel Point.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#52</span>
+            Travel to the village.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#53</span>
+            Reach the point of interest: Travel Point Outpost.
+            <code class="plot-step-flag">UNLOCKED_CITY_TRAVEL</code>
+        </li>
+    
+        <li><span class="plot-step-id">#54</span>
+            Talk to Trade Terminal.
+            <code class="plot-step-flag">USED_TRADE_TERMINAL</code>
+        </li>
+    
+        <li><span class="plot-step-id">#55</span>
+            Reach the point of interest: Ragnhild.
+            <code class="plot-step-flag">NEXUS_PORTAL_ACTIVATED</code>
+        </li>
+    
+        <li><span class="plot-step-id">#56</span>
+            Watch a cinematic.
+            <code class="plot-step-flag">SPAWNED_CREATURES</code>
+        </li>
+    
+        <li><span class="plot-step-id">#57</span>
+            Clear the corruption from the area.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#58</span>
+            Talk to Ragnhild.
+            <code class="plot-step-flag">TALKED_WITH_OUTPOST_LEADER</code>
+        </li>
+    
+        <li><span class="plot-step-id">#59</span>
+            Reach the point of interest: Portal Nexus.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#60</span>
+            Step through the portal to Nexus.
+            <code class="plot-step-flag">REACHED_NEXUS</code>
+        </li>
+    
+        <li><span class="plot-step-id">#61</span>
+            Watch a cinematic.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#62</span>
+            Talk to Ancient Chest.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#63</span>
+            Pick up Voxel Ancient Hull Emissive2.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#64</span>
+            Repair the Nexus Portal on Bardwell 1.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#65</span>
+            Step through the portal to Bardwell.
+            <code class="plot-step-flag">RETURNED_FROM_NEXUS</code>
+        </li>
+    
+        <li><span class="plot-step-id">#66</span>
+            Talk to Ragnhild.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#67</span>
+            Buy your first spaceship.
+            <code class="plot-step-flag">HAS_SHIP</code>
+        </li>
+    
+    </ol>
+</details>
+
+<details class="plot-act" >
+    <summary>
+        <span class="plot-act-title">Act 4 — First Temple and the Warp Cell</span>
+        <span class="plot-act-meta">steps 68–97 · 29 beats</span>
+    </summary>
+    <p class="plot-act-subtitle">Land on Bardwell, fix the first Temple, meet the Guardian, clear the Dark Core, activate the first Light Cannon, and craft a Warp Cell.</p>
+    <ol class="plot-steps">
+    
+        <li><span class="plot-step-id">#68</span>
+            Leave the planet for orbit.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#69</span>
+            Scan a planet from orbit.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#70</span>
+            Land on Bardwell.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#71</span>
+            Reach the point of interest: Temple Shrine.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#72</span>
+            Reach the point of interest: Temple Shrine.
+            <code class="plot-step-flag">AT_FIRST_TEMPLE</code>
+        </li>
+    
+        <li><span class="plot-step-id">#73</span>
+            Activate the Temple shrine.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#74</span>
+            Talk to Guardian.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#75</span>
+            Pick up Ancient Key.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#76</span>
+            Unlock the Temple.
+            <code class="plot-step-flag">FIXED_FIRST_TEMPLE</code>
+        </li>
+    
+        <li><span class="plot-step-id">#77</span>
+            Reach the point of interest: Guardian.
+            <code class="plot-step-flag">GOT_CORRUPTION_CRASH</code>
+        </li>
+    
+        <li><span class="plot-step-id">#78</span>
+            Talk to Guardian.
+            <code class="plot-step-flag">FOUND_FIRST_GUARDIAN</code>
+        </li>
+    
+        <li><span class="plot-step-id">#80</span>
+            Pick up Corruption Purifier 1.
+            <code class="plot-step-flag">GOT_CORRUPTION_CLEANER</code>
+        </li>
+    
+        <li><span class="plot-step-id">#81</span>
+            Reach a point of interest.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#82</span>
+            Collect Dark Dust.
+            <code class="plot-step-flag">GOT_DARK_DUST</code>
+        </li>
+    
+        <li><span class="plot-step-id">#83</span>
+            Reach the point of interest: Temple Shrine.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#84</span>
+            Pick up Dark Shard.
+            <code class="plot-step-flag">GOT_DARK_SHARD</code>
+        </li>
+    
+        <li><span class="plot-step-id">#85</span>
+            Pick up Light Shard.
+            <code class="plot-step-flag">GOT_LIGHT_SHARD</code>
+        </li>
+    
+        <li><span class="plot-step-id">#86</span>
+            Land on bardwell.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#87</span>
+            Destroy the Dark Core.
+            <code class="plot-step-flag">KILLED_FIRST_CORE</code>
+        </li>
+    
+        <li><span class="plot-step-id">#88</span>
+            Reach the point of interest: Planet Purifier 1.
+            <code class="plot-step-flag">FOUND_FIRST_CANON</code>
+        </li>
+    
+        <li><span class="plot-step-id">#89</span>
+            Power up the planetary Light Cannon.
+            <code class="plot-step-flag">ACTIVATED_FIRST_CANON</code>
+        </li>
+    
+        <li><span class="plot-step-id">#90</span>
+            Reach the point of interest: Temple Shrine.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#91</span>
+            Reach the point of interest: Guardian.
+            <code class="plot-step-flag">PRE_RETURNED_TO_TEMPLE</code>
+        </li>
+    
+        <li><span class="plot-step-id">#92</span>
+            Talk to Guardian.
+            <code class="plot-step-flag">RETURNED_TO_TEMPLE</code>
+        </li>
+    
+        <li><span class="plot-step-id">#93</span>
+            Craft V Warp Cell.
+            <code class="plot-step-flag">GOT_WARP_CELL</code>
+        </li>
+    
+        <li><span class="plot-step-id">#94</span>
+            Finish your conversation with Guardian.
+            <code class="plot-step-flag">READY_TO_WARP</code>
+        </li>
+    
+        <li><span class="plot-step-id">#95</span>
+            Warp out of the system.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#96</span>
+            Unlock the Temple.
+            <code class="plot-step-flag">FORTIFIED_AGAINST_DARKNESS</code>
+        </li>
+    
+        <li><span class="plot-step-id">#97</span>
+            Talk to Guardian.
+            
+        </li>
+    
+    </ol>
+</details>
+
+<details class="plot-act" >
+    <summary>
+        <span class="plot-act-title">Act 5 — Knight A on Grace</span>
+        <span class="plot-act-meta">steps 98–114 · 17 beats</span>
+    </summary>
+    <p class="plot-act-subtitle">Warp to the Grace system, clear the pirate base at Aoacu, rescue Knight Helioctus, and bring him his recipe materials.</p>
+    <ol class="plot-steps">
+    
+        <li><span class="plot-step-id">#98</span>
+            Warp to the Grace system.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#99</span>
+            Approach Grace.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#100</span>
+            Clear the planetary barrier around Grace.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#101</span>
+            Land on Grace.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#102</span>
+            Reach the point of interest: Quest Poi Marker.
+            <code class="plot-step-flag">FOUND_KNIGHT_A</code>
+        </li>
+    
+        <li><span class="plot-step-id">#103</span>
+            Clear the pirate base at Aoacu.
+            <code class="plot-step-flag">CLEARED_KNIGHT_A_AREA</code>
+        </li>
+    
+        <li><span class="plot-step-id">#104</span>
+            Finish your conversation with Helioctus.
+            <code class="plot-step-flag">RESCUED_KNIGHT_A</code>
+        </li>
+    
+        <li><span class="plot-step-id">#105</span>
+            Reach the point of interest: Quest Poi Marker.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#106</span>
+            Talk to Helioctus.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#107</span>
+            Finish your conversation with Helioctus.
+            <code class="plot-step-flag">SAVED_KNIGHT_A</code>
+        </li>
+    
+        <li><span class="plot-step-id">#108</span>
+            Land on bardwell.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#109</span>
+            Reach the point of interest: Temple Shrine.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#110</span>
+            Reach the point of interest: Helioctus.
+            <code class="plot-step-flag">RETURNED_TO_KNIGHT_A_BW2</code>
+        </li>
+    
+        <li><span class="plot-step-id">#111</span>
+            Finish your conversation with Helioctus.
+            <code class="plot-step-flag">TALKED_TO_KNIGHT_A</code>
+        </li>
+    
+        <li><span class="plot-step-id">#112</span>
+            Talk to Crafting Console.
+            <code class="plot-step-flag">GOT_KNIGHT_A_REQUEST</code>
+        </li>
+    
+        <li><span class="plot-step-id">#113</span>
+            Deliver the materials for RECIPE_KNIGHT_A.
+            <code class="plot-step-flag">GOT_KNIGHT_A_MATS</code>
+        </li>
+    
+        <li><span class="plot-step-id">#114</span>
+            Talk to Guardian.
+            
+        </li>
+    
+    </ol>
+</details>
+
+<details class="plot-act" >
+    <summary>
+        <span class="plot-act-title">Act 6 — Knight B on Fintan</span>
+        <span class="plot-act-meta">steps 115–129 · 15 beats</span>
+    </summary>
+    <p class="plot-act-subtitle">Reach Fintan, purify the planet, clear the pirate base at Ufeobta, rescue Knight Casascutum, and unlock the Shield Breaker.</p>
+    <ol class="plot-steps">
+    
+        <li><span class="plot-step-id">#115</span>
+            Warp to the Fintan system.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#116</span>
+            Land on Fintan.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#117</span>
+            Purify Fintan.
+            <code class="plot-step-flag">PURIFIED_FINTAN_1</code>
+        </li>
+    
+        <li><span class="plot-step-id">#118</span>
+            Reach the point of interest: Ufeobta.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#119</span>
+            Clear the pirate base at Ufeobta.
+            <code class="plot-step-flag">CLEARED_KNIGHT_B_AREA</code>
+        </li>
+    
+        <li><span class="plot-step-id">#120</span>
+            Talk to Casascutum.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#121</span>
+            Finish your conversation with Casascutum.
+            <code class="plot-step-flag">SAVED_KNIGHT_B</code>
+        </li>
+    
+        <li><span class="plot-step-id">#122</span>
+            Land on Bardwell.
+            <code class="plot-step-flag">RETURNED_TO_KNIGHT_B_BW2</code>
+        </li>
+    
+        <li><span class="plot-step-id">#123</span>
+            Reach the point of interest: Temple Shrine.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#124</span>
+            Reach the point of interest: Casascutum.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#125</span>
+            Finish your conversation with Casascutum.
+            <code class="plot-step-flag">TALKED_TO_KNIGHT_B</code>
+        </li>
+    
+        <li><span class="plot-step-id">#126</span>
+            Talk to Crafting Console.
+            <code class="plot-step-flag">GOT_KNIGHT_B_REQUEST</code>
+        </li>
+    
+        <li><span class="plot-step-id">#127</span>
+            Deliver the materials for RECIPE_KNIGHT_B.
+            <code class="plot-step-flag">GOT_KNIGHT_B_MATS</code>
+        </li>
+    
+        <li><span class="plot-step-id">#128</span>
+            Activate the Shield Breaker.
+            <code class="plot-step-flag">ACTIVATED_SHIELD_BREAKER</code>
+        </li>
+    
+        <li><span class="plot-step-id">#129</span>
+            Talk to Guardian.
+            
+        </li>
+    
+    </ol>
+</details>
+
+<details class="plot-act" >
+    <summary>
+        <span class="plot-act-title">Act 7 — Queen Atia of Quberion</span>
+        <span class="plot-act-meta">steps 130–149 · 20 beats</span>
+    </summary>
+    <p class="plot-act-subtitle">Break Quberion's station barrier, rescue Knight Asenka, purify the planet three times, restore the castle towers, free Queen Atia, and reactivate every temple.</p>
+    <ol class="plot-steps">
+    
+        <li><span class="plot-step-id">#130</span>
+            Warp to the Quberion system.
+            <code class="plot-step-flag">REACHED_QUBERION</code>
+        </li>
+    
+        <li><span class="plot-step-id">#131</span>
+            Break the orbital barrier at Quberion.
+            <code class="plot-step-flag">BROKE_QUBERION_STATION_BARRIER</code>
+        </li>
+    
+        <li><span class="plot-step-id">#132</span>
+            Finish your conversation with Asenka.
+            <code class="plot-step-flag">SAVED_KNIGHT_C</code>
+        </li>
+    
+        <li><span class="plot-step-id">#133</span>
+            Resolve a small group of sub-tasks.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#134</span>
+            Purify Quberion.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#135</span>
+            Purify Quberion.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#136</span>
+            Purify Quberion.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#137</span>
+            Land on Quberion.
+            <code class="plot-step-flag">REACHED_QUBERION_1</code>
+        </li>
+    
+        <li><span class="plot-step-id">#138</span>
+            Reach a point of interest.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#139</span>
+            Make the Castle shield vulnerable.
+            <code class="plot-step-flag">RESTORED_QUBERION_TOWERS</code>
+        </li>
+    
+        <li><span class="plot-step-id">#140</span>
+            Purify the Castle barrier.
+            <code class="plot-step-flag">DESTROYED_CASTLE_SHIELD</code>
+        </li>
+    
+        <li><span class="plot-step-id">#141</span>
+            Reach a point of interest.
+            <code class="plot-step-flag">REACHED_CASTLE</code>
+        </li>
+    
+        <li><span class="plot-step-id">#142</span>
+            Reach the point of interest: Queen Atia.
+            <code class="plot-step-flag">FOUND_PRINCESS</code>
+        </li>
+    
+        <li><span class="plot-step-id">#143</span>
+            Talk to Castle Cell Power Source 1.
+            <code class="plot-step-flag">INVESTIGATED_TRAP</code>
+        </li>
+    
+        <li><span class="plot-step-id">#144</span>
+            Collect Ancient Dark Key.
+            <code class="plot-step-flag">GOT_4_KEYS</code>
+        </li>
+    
+        <li><span class="plot-step-id">#145</span>
+            Break Queen Atia's prison.
+            <code class="plot-step-flag">FREED_QUEEN</code>
+        </li>
+    
+        <li><span class="plot-step-id">#146</span>
+            Talk to Queen Atia.
+            <code class="plot-step-flag">TALKED_WITH_QUEEN</code>
+        </li>
+    
+        <li><span class="plot-step-id">#147</span>
+            Unlock the Castle Temple.
+            <code class="plot-step-flag">ACTIVATED_CASTLE_TEMPLE</code>
+        </li>
+    
+        <li><span class="plot-step-id">#148</span>
+            Talk to Guardian.
+            
+        </li>
+    
+        <li><span class="plot-step-id">#149</span>
+            Reactivate every Temple — the game ends.
+            <code class="plot-step-flag">FINISHED_GAME</code>
+        </li>
+    
+    </ol>
+</details>
+
+</div>
+
 <div class="section-grid">
 <div>
 
-<h2>Random quest types (67 weighted)</h2>
+<h2 id="random">Random quest types (67 weighted)</h2>
 <p>From <code>data/configs/quests_distribution.cfg</code>. The engine picks a quest from this pool each time it needs a new side job; <code>m_frequency</code> is the relative weight, not a percentage — but the % column shows the share of total weight.</p>
 <table class="wiki">
 <thead><tr><th>Quest type</th><th class="numeric">Frequency</th><th class="numeric">Share</th><th>Likely means</th></tr></thead>
@@ -146,11 +974,11 @@
 
 <tr><td class="mono">LOOT</td><td class="numeric">11</td></tr>
 
+<tr><td class="mono">FURNACE</td><td class="numeric">7</td></tr>
+
 <tr><td class="mono">LAND</td><td class="numeric">7</td></tr>
 
 <tr><td class="mono">FINISH_DIALOGUE</td><td class="numeric">7</td></tr>
-
-<tr><td class="mono">FURNACE</td><td class="numeric">7</td></tr>
 
 <tr><td class="mono">COUNT_INGREDIENTS</td><td class="numeric">6</td></tr>
 
@@ -160,12 +988,12 @@
 
 <tr><td class="mono">REACH_SYSTEM</td><td class="numeric">3</td></tr>
 
-<tr><td class="mono">CLEAR_PIRATE_BASE</td><td class="numeric">2</td></tr>
+<tr><td class="mono">DRONE_EQUIP</td><td class="numeric">2</td></tr>
 
 </tbody>
 </table>
 
-<h3>Notable story milestones</h3>
+<h3 id="milestones">Notable story milestones</h3>
 <p>A taste of the story flags the engine sets. The full list lives in <code>data/configs/progression/*.cfg</code> under <code>storyStep</code>.</p>
 <ul style="columns:2;font-family:ui-monospace,monospace;font-size:0.88em;line-height:1.8">
 
@@ -308,7 +1136,7 @@
 </main>
 <footer class="site">
     <div class="inner">
-        Generated 2026-05-12 03:15 UTC from game data (2026-04-26).
+        Generated 2026-05-12 23:33 UTC from game data (2026-04-26).
         Item names humanized from <code>STR_*</code> tokens; binary <code>.str</code> localization not yet decoded.
         Planet→biome distribution mapping is best-effort.
     </div>

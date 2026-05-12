@@ -5,6 +5,7 @@
 {% set pilot_label = {'player':'Player ship','police':'Police ship','pirate':'Pirate ship','npc':'NPC ship'}[r.pilot] %}
 <h1>{{ r.display }}
     {% if r.tier %}<span class="tier tier-{{ r.tier }}">Tier {{ r.tier }}</span>{% endif %}
+    {% if r.role %}<span class="role-badge">{{ r.role }}</span>{% endif %}
     <span class="obtain obtain-{{ pilot_class }}">{{ pilot_label }}</span>
 </h1>
 <div class="id" style="margin-bottom:1rem">{{ r.identifier }}</div>
@@ -12,10 +13,11 @@
 <div class="section-grid">
 <div>
 
-<h2>Class &amp; faction</h2>
+<h2>Class &amp; role</h2>
 <div class="kvs">
 <dl>
     <dt>Class</dt><dd><strong>{{ r.class_label }}</strong> <span style="color:var(--text-faint)" class="mono">({{ r.class_raw or 'unknown' }})</span></dd>
+    {% if r.role %}<dt>Role</dt><dd><strong>{{ r.role }}</strong> <span style="color:var(--text-faint)">— derived from blueprint stats (component family, MK levels, named chassis). See the <a href="{{ root }}ships.html">Ships overview</a> for the rules.</span></dd>{% endif %}
     <dt>Faction</dt><dd>{{ r.faction|capitalize }}</dd>
     <dt>Category</dt><dd class="mono">{{ r.category }}</dd>
     {% if r.blueprint %}<dt>Blueprint</dt><dd class="mono">{{ r.blueprint }}</dd>{% endif %}
@@ -54,6 +56,7 @@
 <h3 style="margin-top:0">At a glance</h3>
 <dl>
     <dt>Class</dt><dd>{{ r.class_label }}</dd>
+    {% if r.role %}<dt>Role</dt><dd>{{ r.role }}</dd>{% endif %}
     <dt>Faction</dt><dd>{{ r.faction|capitalize }}</dd>
     {% if r.tier %}<dt>Tier</dt><dd>{{ r.tier }}</dd>{% endif %}
     {% if r.base_price %}<dt>Base price</dt><dd>{{ r.base_price }}</dd>{% endif %}

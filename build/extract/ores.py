@@ -47,6 +47,8 @@ class OreRecord:
     smelt: Optional[dict]              # {ingot, cookTime, fuelNeeded, qty}
     ingot_identifier: Optional[str]
     locations: List[OreLocation] = field(default_factory=list)
+    ingot_uses_total: int = 0          # # of crafting recipes that consume the ingot
+    ingot_uses_top: List[dict] = field(default_factory=list)  # top consumers
     raw: dict = field(default_factory=dict)
 
     def to_dict(self) -> dict:
@@ -154,6 +156,26 @@ def _locations_for_voxel(voxel_name: str,
     return out
 
 
+def _ingot_uses(cat: Catalog, ingot_id: str, limit: int = 8) -> (int, List[dict]):
+    """How many crafting recipes consume this ingot, plus the top consumers."""
+    rows = []
+    for r in cat.recipes_using(ingot_id):
+        qty = next((i.get('quantity', 0) for i in (r.get('inputItems') or [])
+                    if isinstance(i, dict) and i.get('item') == ingot_id), 0)
+        crafted = r.get('craftedObject', '')
+        rows.append({
+            'crafted_object': crafted,
+            'crafted_display': _humanize(
+                cat.items.get(crafted, {}).get('title_string') or crafted),
+            'qty': qty,
+            'skill_type': r.get('neededSkillType'),
+            'skill_level': r.get('neededSkillLevel'),
+            'category': r.get('category'),
+        })
+    rows.sort(key=lambda x: (-x['qty'], x['crafted_object']))
+    return len(rows), rows[:limit]
+
+
 def build_ore_records(cat: Catalog,
                        distrib_to_planets: Dict[str, List[str]]
                        ) -> List[OreRecord]:
@@ -174,6 +196,11 @@ def build_ore_records(cat: Catalog,
         recipe = cat.recipe_for_input(ident)
         laser = _required_laser(tier, laser_table)
         is_glowing = 'glowing' in ident.lower() or ident.startswith('res.rare.')
+
+        ingot_id = recipe.get('output0') if recipe else None
+        ingot_uses_total, ingot_uses_top = (0, [])
+        if ingot_id:
+            ingot_uses_total, ingot_uses_top = _ingot_uses(cat, ingot_id)
 
         display = _humanize(item.get('title_string') or ident)
         rec = OreRecord(
@@ -200,9 +227,11 @@ def build_ore_records(cat: Catalog,
                 'output': recipe.get('output0'),
                 'qty': recipe.get('output0qty', 1),
             } if recipe else None),
-            ingot_identifier=(recipe.get('output0') if recipe else None),
+            ingot_identifier=ingot_id,
             locations=(_locations_for_voxel(voxel_name, cat.distributions,
                                              distrib_to_planets) if voxel_name else []),
+            ingot_uses_total=ingot_uses_total,
+            ingot_uses_top=ingot_uses_top,
             raw={},
         )
         records.append(rec)

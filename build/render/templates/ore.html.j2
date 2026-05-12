@@ -49,6 +49,39 @@
 </div>
 {% endif %}
 
+{% if r.is_glowing %}
+<h2>What it's used for</h2>
+<p>Glowing ores aren't used directly in crafting — they're an intermediate.{% if r.ingot_identifier %} The flow is always: <strong>mine&nbsp;→ smelt&nbsp;→ craft</strong>.{% endif %}</p>
+<ol style="margin-top:0.5em">
+    <li><strong>Mine</strong> the voxel with a tier-7 mining laser (Mining Laser 6 or 7). Lower-tier lasers do nothing to it.</li>
+    {% if r.ingot_identifier %}
+    <li><strong>Smelt</strong> in a furnace ({{ r.smelt.cookTime }}s, {{ r.smelt.fuelNeeded }} fuel) into <a href="{{ root }}ingots/{{ r.ingot_identifier|replace('.', '_') }}.html">{{ ingot_displays.get(r.ingot_identifier, r.ingot_identifier) }}</a>.</li>
+    <li><strong>Craft</strong>:{% if r.ingot_uses_total %} the ingot is a crafting input for <strong>{{ r.ingot_uses_total }} recipe{{ 's' if r.ingot_uses_total != 1 else '' }}</strong> across high-tier weapons, ship parts, and gear.{% else %} no recipe in the current build consumes this ingot — keep it for now; future recipes may.{% endif %}</li>
+    {% endif %}
+</ol>
+
+{% if r.ingot_uses_top %}
+<p style="margin-top:1em;margin-bottom:0.4em"><strong>Top crafts that consume {{ ingot_displays.get(r.ingot_identifier, 'this ingot') }}</strong> (sorted by quantity per craft):</p>
+<table class="wiki">
+<thead><tr><th>Crafts</th><th class="numeric">Qty</th><th class="numeric">Skill</th></tr></thead>
+<tbody>
+{% for u in r.ingot_uses_top %}
+<tr>
+    <td>{% if u.crafted_url %}<a href="{{ root }}{{ u.crafted_url }}">{{ u.crafted_display }}</a>{% else %}{{ u.crafted_display }}{% endif %}</td>
+    <td class="numeric"><strong>{{ u.qty }}</strong></td>
+    <td class="numeric">{% if u.skill_type and u.skill_level is not none %}{{ u.skill_type }}@{{ u.skill_level }}{% else %}—{% endif %}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% if r.ingot_uses_total > r.ingot_uses_top|length %}<p style="font-size:0.85em;color:var(--text-faint);margin-top:0.4em">Showing top {{ r.ingot_uses_top|length }} of {{ r.ingot_uses_total }} recipes.</p>{% endif %}
+{% endif %}
+
+<p style="margin-top:1em"><strong>Tip:</strong> there's a craftable <em>Glowing Ore Extractor</em> deployable (tier&nbsp;5, requires <code>CRAFTING&nbsp;16</code>) that processes glowing ores in bulk. It costs 10 Gem Plates, 5 Super Conductors, plus 8 each of <a href="{{ root }}resources/res_rare_antimatter_cell.html">Antimatter</a>, <a href="{{ root }}resources/res_rare_darkmatter_cell.html">Dark Matter</a>, and <a href="{{ root }}resources/res_rare_gammamatter_cell.html">Gamma Matter</a> Cells — so don't try to craft it before you've mined a healthy stockpile of tier-6 Matter ores.</p>
+
+<p style="margin-top:0.6em"><strong>Selling angle:</strong> the raw ore sells for {{ r.base_price }} qubits each with positive vendor demand (base_demand&nbsp;0.5). Smelting first roughly halves the inventory volume and lifts the per-unit value — sell ingots, not raw ore.</p>
+{% endif %}
+
 <h2>Where to find</h2>
 {% if r.locations %}
 <table class="wiki">

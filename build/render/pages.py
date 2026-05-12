@@ -232,7 +232,26 @@ class WikiRenderer:
 
         # Detail pages
         ingot_displays = {r['identifier']: r['display'] for r in ingot_records}
+        # Resolve a wiki link for any crafted object referenced in
+        # glowing-ore "Used in" sections — most crafted objects are weapons,
+        # tools, or resources that already have detail pages.
+        ingot_lookup_local = ingot_lookup
+        def _link_for_crafted(obj_id: str) -> str:
+            r_ing = ingot_lookup_local.get(obj_id)
+            if r_ing:
+                return f'ingots/{r_ing["slug"]}.html'
+            for rec_list, sub in (
+                (tool_records, 'tools'), (weapon_records, 'weapons'),
+                (resource_records, 'resources'), (ship_records, 'ships'),
+                (speeder_records, 'speeders'),
+            ):
+                for r2 in rec_list:
+                    if r2['identifier'] == obj_id:
+                        return f'{sub}/{r2["slug"]}.html'
+            return ''
         for r in ore_records:
+            for row in (r.get('ingot_uses_top') or []):
+                row['crafted_url'] = _link_for_crafted(row.get('crafted_object', ''))
             self._render_template('ore.html.j2',
                 self.out / 'ores' / (r['slug'] + '.html'),
                 root='../', category='ores', title=r['display'],

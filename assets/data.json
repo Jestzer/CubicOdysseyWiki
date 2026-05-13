@@ -4500,6 +4500,15 @@
 "url":"resources/res_rare_xmatter_cell.html"
 },
 {
+"id":"crystalline_biomes",
+"name":"Crystalline worlds",
+"slug":"crystalline",
+"category":"worlds",
+"tier":0,
+"icon":"",
+"url":"worlds/crystalline.html"
+},
+{
 "id":"earth_biomes",
 "name":"Earth-like worlds",
 "slug":"earth",
@@ -4509,13 +4518,13 @@
 "url":"worlds/earth.html"
 },
 {
-"id":"scorched_biomes",
-"name":"Scorched worlds",
-"slug":"scorched",
+"id":"slimy_biomes",
+"name":"Slimy worlds",
+"slug":"slimy",
 "category":"worlds",
 "tier":0,
 "icon":"",
-"url":"worlds/scorched.html"
+"url":"worlds/slimy.html"
 },
 {
 "id":"barren_biomes",
@@ -4525,15 +4534,6 @@
 "tier":0,
 "icon":"",
 "url":"worlds/barren.html"
-},
-{
-"id":"crystalline_biomes",
-"name":"Crystalline worlds",
-"slug":"crystalline",
-"category":"worlds",
-"tier":0,
-"icon":"",
-"url":"worlds/crystalline.html"
 },
 {
 "id":"majestic_biomes",
@@ -4554,6 +4554,15 @@
 "url":"worlds/oceanic.html"
 },
 {
+"id":"scorched_biomes",
+"name":"Scorched worlds",
+"slug":"scorched",
+"category":"worlds",
+"tier":0,
+"icon":"",
+"url":"worlds/scorched.html"
+},
+{
 "id":"shroomy_biomes",
 "name":"Shroomy worlds",
 "slug":"shroomy",
@@ -4561,15 +4570,6 @@
 "tier":0,
 "icon":"",
 "url":"worlds/shroomy.html"
-},
-{
-"id":"slimy_biomes",
-"name":"Slimy worlds",
-"slug":"slimy",
-"category":"worlds",
-"tier":0,
-"icon":"",
-"url":"worlds/slimy.html"
 },
 {
 "id":"xeno_biomes",

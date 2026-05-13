@@ -19,6 +19,6 @@
 </div>
 
 <div class="note">
-    "Known planets" is best-effort: only Earth and the Bardwell series declare specific biome types in <code>data/configs/worlds/*.cfg</code>. The rest roll their biome list at runtime, so a "Crystalline world" is what the engine generates rather than a fixed roster.
+    "Known planets" is derived from each world's <code>m_biomesSetCfg</code> in <code>data/configs/worlds/*.cfg</code>. Every named planet declares a biome family — Bardwell I is Shroomy, Bardwell III is Xeno, and so on — so the listing reflects what the engine actually loads, not just the famous Earth/Bardwell handful. Additional procedurally-generated worlds in a save game inherit the same family rules.
 </div>
 {% endblock %}

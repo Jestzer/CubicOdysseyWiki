@@ -1,11 +1,11 @@
 {
-  "_comment": "Maps each voxel-distribution file in data/configs/voxeldistributions to a friendly label. Most Cubic Odyssey planets use procedurally-rolled biomes (m_biome0..7 == 'random'), so a strict 1-to-1 planet -> distribution table isn't recoverable from data. Instead we describe each distribution as a planet TYPE. The 'planets' list is best-effort: filled in where m_biome* hard-codes a recognisable biome set.",
+  "_comment": "Maps each voxel-distribution file in data/configs/voxeldistributions to a friendly label and description. The 'planets' field is overwritten at build time from data/configs/worlds/*.cfg (each world's m_biomesSetCfg -> worldbiomes oreDistributionFile), so anything written here is ignored.",
 
   "earth_voxels": {
     "label": "Earth-like worlds",
     "short": "Earth-like",
     "description": "Temperate terrestrial planets: deserts, plains, mountains, hills, and lakes. The classic mining playground.",
-    "planets": ["Earth", "Bardwell I", "Bardwell II", "Bardwell III"]
+    "planets": []
   },
   "barren_voxels": {
     "label": "Barren worlds",
@@ -29,7 +29,7 @@
     "label": "Scorched worlds",
     "short": "Scorched",
     "description": "Hot, volcanic, lava-flow planets. Rare-matter rich.",
-    "planets": ["TEST_01"]
+    "planets": []
   },
   "shroomy_voxels": {
     "label": "Shroomy worlds",

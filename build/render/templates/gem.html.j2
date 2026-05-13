@@ -56,7 +56,23 @@
 {% endfor %}
 </tbody>
 </table>
-<p style="color:var(--text-faint);font-size:0.85em;margin-top:0.4em"><strong>Reading this table:</strong> Y values are voxel altitudes; lower Y = closer to the planet core. Frequency is the raw <code>m_frequency</code> from <code>data/configs/voxeldistributions/</code> — higher means more ore nodes per chunk. Vein size is <code>m_extent</code> (rough vein radius).</p>
+<p style="color:var(--text-faint);font-size:0.85em;margin-top:0.4em"><strong>Reading this table:</strong> Y values are voxel altitudes; lower Y = closer to the planet core. Frequency is the raw <code>m_frequency</code> from <code>data/configs/voxeldistributions/</code> — higher means more ore nodes per chunk. Vein size is <code>m_extent</code> (rough vein radius). The table only lists layers where this gem actually spawns; the <em>Where you'll find nothing</em> block below shows the Y bands the table silently skips.</p>
+
+{% if r.dead_zones %}
+<h3 style="margin-top:1.4em">Where you'll find nothing</h3>
+<p style="font-size:0.92em;color:var(--text-dim)">Dig anywhere inside these Y bands on the matching world type and {{ r.display }} will not appear at any frequency. Either go deeper (the deepest layer is the richest) or climb to a mountain-top band above the gap.</p>
+<table class="wiki">
+<thead><tr><th>World type</th><th>Empty Y bands</th></tr></thead>
+<tbody>
+{% for dz in r.dead_zones %}
+<tr>
+    <td><strong>{{ dz.world_type }}</strong></td>
+    <td>{% for b in dz.bands %}<code>{{ b.y_start }} … {{ b.y_end }}</code>{% if not loop.last %}, {% endif %}{% endfor %}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endif %}
 
 {% set unique_partners = [] %}
 {% for loc in r.locations %}{% for co in loc.co_occurring %}{% if co.identifier not in unique_partners %}{% set _ = unique_partners.append(co.identifier) %}{% endif %}{% endfor %}{% endfor %}

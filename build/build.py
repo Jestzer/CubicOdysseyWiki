@@ -545,6 +545,53 @@ def build_resources(cat: Catalog, exclude_ids: set = None) -> List[dict]:
     return rows
 
 
+# ------------------------------------------------------- planet→distribution
+
+_ROMAN = {1: 'I', 2: 'II', 3: 'III', 4: 'IV', 5: 'V', 6: 'VI', 7: 'VII', 8: 'VIII'}
+
+
+def _planet_display(stem: str) -> Optional[str]:
+    """`bardwell_01` → `Bardwell I`, `earth_planet` → `Earth`. Returns None
+    for debug/test stems we don't want to surface."""
+    if stem == 'earth_planet':
+        return 'Earth'
+    if stem.upper() == stem:  # TEST_01 etc.
+        return None
+    if '_' not in stem:
+        return stem.title()
+    name, tail = stem.rsplit('_', 1)
+    if tail.isdigit():
+        n = int(tail)
+        return f'{name.title()} {_ROMAN.get(n, str(n))}'
+    return stem.replace('_', ' ').title()
+
+
+def _attach_planets_from_catalog(dist_meta: dict, cat) -> None:
+    """Walk `data/configs/worlds/*.cfg`, follow each world's `m_biomesSetCfg`
+    (or `m_isEarthLike`) to its biome family, then to its
+    `oreDistributionFile`. Overwrite `dist_meta[<dist>]['planets']` with the
+    derived list so the wiki reflects the actual game data instead of the
+    best-effort JSON hardcode."""
+    by_dist: Dict[str, List[str]] = {k: [] for k in dist_meta if not k.startswith('_')}
+    for stem, wcfg in cat.worlds.items():
+        if not isinstance(wcfg, dict):
+            continue
+        biomes_name = wcfg.get('m_biomesSetCfg')
+        if not biomes_name and wcfg.get('m_isEarthLike') in (True, 'true', 1):
+            biomes_name = 'earth_biomes'
+        if not biomes_name:
+            continue
+        biomes_cfg = cat.biomes.get(biomes_name) or {}
+        dist_name = biomes_cfg.get('oreDistributionFile')
+        if not dist_name or dist_name not in by_dist:
+            continue
+        display = _planet_display(stem)
+        if display and display not in by_dist[dist_name]:
+            by_dist[dist_name].append(display)
+    for dname, planets in by_dist.items():
+        dist_meta.setdefault(dname, {})['planets'] = sorted(planets)
+
+
 # ----------------------------------------------------------------------- main
 
 def detect_game_path(arg: Optional[str]) -> Path:
@@ -579,6 +626,7 @@ def main():
 
     print('[2/6] loading distribution metadata…')
     dist_meta = json.loads((HERE / 'world_to_distribution.json').read_text())
+    _attach_planets_from_catalog(dist_meta, cat)
 
     print('[3/6] extracting icons…')
     atlases = _load_atlases(game_root)

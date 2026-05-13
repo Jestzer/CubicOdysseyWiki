@@ -108,6 +108,11 @@ def build_gem_records(cat: Catalog, dist_meta: dict) -> List[dict]:
         # Sort: deepest first (lowest y_start), then by frequency desc
         locations.sort(key=lambda l: (l['y_start'], -l['frequency']))
 
+        # Dead zones: per distribution we list each layer that has NO entry
+        # for this gem, collapsed into continuous Y bands. Lets the user see
+        # the gap the table would otherwise hide.
+        dead_zones = _gem_dead_zones(cat, voxel_name, dist_meta)
+
         # Required mining laser tier from voxel tier
         tier = voxel.get('m_tier') or item.get('tier') or 5
 
@@ -128,11 +133,58 @@ def build_gem_records(cat: Catalog, dist_meta: dict) -> List[dict]:
             'description_string': item.get('description_string'),
             'type': item.get('type', 'RESOURCE'),
             'locations': locations,
+            'dead_zones': dead_zones,
             'required_laser_file': _required_laser_file(tier),
             'required_laser': _required_laser_id(tier),
         })
 
     return records
+
+
+def _gem_dead_zones(cat: Catalog, voxel_name: str, dist_meta: dict) -> List[dict]:
+    """For each distribution that has any layer spawning `voxel_name`, list
+    contiguous Y bands that contain NO layer with `voxel_name`. These are
+    the gaps the wiki's location table silently skips."""
+    results: List[dict] = []
+    for dname, dist in cat.distributions.items():
+        if dname in ('debug', 'default'):
+            continue
+        layers = dist.get('m_layerCfgs') or []
+        if not isinstance(layers, list) or not layers:
+            continue
+        # Sort layers by start-Y so adjacent bands merge cleanly.
+        sorted_layers = sorted(
+            ((l.get('m_startY', 0), l.get('m_endY', 0), l) for l in layers),
+            key=lambda t: t[0],
+        )
+        # Skip distributions where this gem never spawns — no gap to show.
+        has_gem = any(
+            any((e.get('m_voxelType') == voxel_name)
+                for e in (l.get('m_ores') or []))
+            for _, _, l in sorted_layers
+        )
+        if not has_gem:
+            continue
+        bands: List[tuple] = []
+        for y0, y1, l in sorted_layers:
+            entries = l.get('m_ores') or []
+            if any(e.get('m_voxelType') == voxel_name for e in entries):
+                continue
+            if bands and bands[-1][1] == y0:
+                bands[-1] = (bands[-1][0], y1)
+            else:
+                bands.append((y0, y1))
+        if not bands:
+            continue
+        meta = dist_meta.get(dname, {})
+        results.append({
+            'distribution': dname,
+            'world_type': meta.get('label', dname),
+            'bands': [{'y_start': a, 'y_end': b} for a, b in bands],
+        })
+    # Stable order: world_type label
+    results.sort(key=lambda r: r['world_type'])
+    return results
 
 
 def _required_laser_file(tier: int) -> Optional[str]:
